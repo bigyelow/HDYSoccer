@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate+Setup.h"
+#import "UINavigationController+HDYSoccerNavigationController.h"
 
 @implementation AppDelegate (Setup)
 
@@ -16,7 +17,10 @@
   UIViewController *second = [[UIViewController alloc] init];
   UIViewController *third = [[UIViewController alloc] init];
   UIViewController *forth = [[UIViewController alloc] init];
-  self.tabBarController = [[HDYSoccerTabBarController alloc] initWithViewControllers:@[first, second, third, forth]];
+  
+  UINavigationController *firstNav = [[UINavigationController alloc] initNavigatorWithRootViewController:first];
+  
+  self.tabBarController = [[HDYSoccerTabBarController alloc] initWithViewControllers:@[firstNav, second, third, forth]];
   [self.window setRootViewController:self.tabBarController];
 }
 
