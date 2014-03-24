@@ -19,6 +19,9 @@
 		71CB8C1B18E019060073E913 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8C0318E019060073E913 /* UIKit.framework */; };
 		71CB8C2318E019060073E913 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71CB8C2118E019060073E913 /* InfoPlist.strings */; };
 		71CB8C2518E019060073E913 /* HDYSoccerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C2418E019060073E913 /* HDYSoccerTests.m */; };
+		71CB8C3918E01D570073E913 /* HDYSoccerTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C3818E01D570073E913 /* HDYSoccerTabBarController.m */; };
+		71CB8C3D18E01EA00073E913 /* HDYSoccerTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C3C18E01EA00073E913 /* HDYSoccerTabBar.m */; };
+		71CB8C4018E022230073E913 /* AppDelegate+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C3F18E022230073E913 /* AppDelegate+Setup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,13 @@
 		71CB8C2018E019060073E913 /* HDYSoccerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HDYSoccerTests-Info.plist"; sourceTree = "<group>"; };
 		71CB8C2218E019060073E913 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		71CB8C2418E019060073E913 /* HDYSoccerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerTests.m; sourceTree = "<group>"; };
+		71CB8C3718E01D570073E913 /* HDYSoccerTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerTabBarController.h; sourceTree = "<group>"; };
+		71CB8C3818E01D570073E913 /* HDYSoccerTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerTabBarController.m; sourceTree = "<group>"; };
+		71CB8C3A18E01E0F0073E913 /* TabBarUIParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarUIParams.h; sourceTree = "<group>"; };
+		71CB8C3B18E01EA00073E913 /* HDYSoccerTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerTabBar.h; sourceTree = "<group>"; };
+		71CB8C3C18E01EA00073E913 /* HDYSoccerTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerTabBar.m; sourceTree = "<group>"; };
+		71CB8C3E18E022230073E913 /* AppDelegate+Setup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Setup.h"; sourceTree = "<group>"; };
+		71CB8C3F18E022230073E913 /* AppDelegate+Setup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Setup.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				71CB8C2E18E019E70073E913 /* App */,
+				71CB8C3218E01CE90073E913 /* Controller */,
 				71CB8C0618E019060073E913 /* Supporting Files */,
 			);
 			path = HDYSoccer;
@@ -145,11 +156,33 @@
 		71CB8C2E18E019E70073E913 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				71CB8C0B18E019060073E913 /* main.m */,
 				71CB8C0E18E019060073E913 /* AppDelegate.h */,
 				71CB8C0F18E019060073E913 /* AppDelegate.m */,
-				71CB8C0B18E019060073E913 /* main.m */,
+				71CB8C3E18E022230073E913 /* AppDelegate+Setup.h */,
+				71CB8C3F18E022230073E913 /* AppDelegate+Setup.m */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		71CB8C3218E01CE90073E913 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				71CB8C3318E01CFF0073E913 /* BaseComponents */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		71CB8C3318E01CFF0073E913 /* BaseComponents */ = {
+			isa = PBXGroup;
+			children = (
+				71CB8C3A18E01E0F0073E913 /* TabBarUIParams.h */,
+				71CB8C3718E01D570073E913 /* HDYSoccerTabBarController.h */,
+				71CB8C3818E01D570073E913 /* HDYSoccerTabBarController.m */,
+				71CB8C3B18E01EA00073E913 /* HDYSoccerTabBar.h */,
+				71CB8C3C18E01EA00073E913 /* HDYSoccerTabBar.m */,
+			);
+			name = BaseComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,8 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71CB8C4018E022230073E913 /* AppDelegate+Setup.m in Sources */,
 				71CB8C1018E019060073E913 /* AppDelegate.m in Sources */,
+				71CB8C3D18E01EA00073E913 /* HDYSoccerTabBar.m in Sources */,
 				71CB8C0C18E019060073E913 /* main.m in Sources */,
+				71CB8C3918E01D570073E913 /* HDYSoccerTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

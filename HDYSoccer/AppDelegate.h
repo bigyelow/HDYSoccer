@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDYSoccerTabBarController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+// Tabbar
+@property (nonatomic, strong) HDYSoccerTabBarController *tabBarController;
 
 @end

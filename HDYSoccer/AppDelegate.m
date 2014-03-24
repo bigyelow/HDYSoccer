@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+Setup.h"
 
 @implementation AppDelegate
 
@@ -15,6 +16,9 @@
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   // Override point for customization after application launch.
   self.window.backgroundColor = [UIColor whiteColor];
+  
+  [self createTabBar];
+  
   [self.window makeKeyAndVisible];
   return YES;
 }
