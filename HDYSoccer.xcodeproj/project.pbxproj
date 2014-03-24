@@ -107,8 +107,7 @@
 		71CB8C0518E019060073E913 /* HDYSoccer */ = {
 			isa = PBXGroup;
 			children = (
-				71CB8C0E18E019060073E913 /* AppDelegate.h */,
-				71CB8C0F18E019060073E913 /* AppDelegate.m */,
+				71CB8C2E18E019E70073E913 /* App */,
 				71CB8C1118E019060073E913 /* Images.xcassets */,
 				71CB8C0618E019060073E913 /* Supporting Files */,
 			);
@@ -120,7 +119,6 @@
 			children = (
 				71CB8C0718E019060073E913 /* HDYSoccer-Info.plist */,
 				71CB8C0818E019060073E913 /* InfoPlist.strings */,
-				71CB8C0B18E019060073E913 /* main.m */,
 				71CB8C0D18E019060073E913 /* HDYSoccer-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -142,6 +140,16 @@
 				71CB8C2118E019060073E913 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		71CB8C2E18E019E70073E913 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				71CB8C0E18E019060073E913 /* AppDelegate.h */,
+				71CB8C0F18E019060073E913 /* AppDelegate.m */,
+				71CB8C0B18E019060073E913 /* main.m */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
