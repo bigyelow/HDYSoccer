@@ -108,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				71CB8C2E18E019E70073E913 /* App */,
-				71CB8C1118E019060073E913 /* Images.xcassets */,
 				71CB8C0618E019060073E913 /* Supporting Files */,
 			);
 			path = HDYSoccer;
@@ -117,6 +116,7 @@
 		71CB8C0618E019060073E913 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				71CB8C1118E019060073E913 /* Images.xcassets */,
 				71CB8C0718E019060073E913 /* HDYSoccer-Info.plist */,
 				71CB8C0818E019060073E913 /* InfoPlist.strings */,
 				71CB8C0D18E019060073E913 /* HDYSoccer-Prefix.pch */,
@@ -196,6 +196,7 @@
 		71CB8BF418E019060073E913 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HDYSoccer;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = bigyelow;
 				TargetAttributes = {
@@ -449,6 +450,7 @@
 				71CB8C2A18E019060073E913 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71CB8C2B18E019060073E913 /* Build configuration list for PBXNativeTarget "HDYSoccerTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +459,7 @@
 				71CB8C2D18E019060073E913 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
