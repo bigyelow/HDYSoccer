@@ -13,4 +13,9 @@
 #define TABBAR_TITLE_FONT_SIZE 16.0f
 #define TABBAR_HIDDEN_ANIMATION_DURING 0.3f
 
+#define TABBAR_ITEM_TITLE_0 @"球员"
+#define TABBAR_ITEM_TITLE_1 @"约球"
+#define TABBAR_ITEM_TITLE_2 @"战术板"
+#define TABBAR_ITEM_TITLE_3 @"球场"
+
 #endif

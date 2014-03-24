@@ -8,6 +8,7 @@
 
 #import "HDYSoccerTabBarController.h"
 #import "TabBarUIParams.h"
+#import "HDYSoccerTabBarController+UIConfiguration.h"
 
 @interface HDYSoccerTabBarController ()
 
@@ -35,10 +36,8 @@
   // config tabbar
   CGRect viewBounds = self.view.bounds;
   CGRect barRect = (CGRect){0.f, viewBounds.size.height - TABBAR_HEIGHT, viewBounds.size.width, TABBAR_HEIGHT};
-  self.tabBar = [[HDYSoccertTabBar alloc] initWithFrame:barRect];
-  [self.tabBar setDelegate:self];
-  [self.tabBar setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
-  [self.tabBar createBarButtons];
+  self.tabBar = [[UITabBar alloc] initWithFrame:barRect];
+  [self configTabBar];
   
   [self.view addSubview:self.tabBar];
   
@@ -79,12 +78,11 @@
   return [[self childViewControllers] objectAtIndex:self.selectedIndex];
 }
 
-#pragma mark - Movie TabBar Delegate
-- (void)tabBar:(HDYSoccertTabBar *)tabBar didSelectAtIndex:(NSUInteger)index
+#pragma mark - TabBar Delegate
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-  [self setSelectedIndex:index];
+  [self setSelectedIndex:item.tag];
 }
-
 
 #pragma mark - control tabbar
 - (void)setTabBarHidden:(BOOL)hidden

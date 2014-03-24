@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HDYSoccerTabBar.h"
 
-@interface HDYSoccerTabBarController : UIViewController <HDYSoccerTabBarDelegate>
+@interface HDYSoccerTabBarController : UIViewController <UITabBarDelegate>
 
 @property (nonatomic, assign) NSUInteger selectedIndex;
 @property (nonatomic, strong) UIViewController *selectedViewController;
 @property (nonatomic, strong) UIView *containerView;
-@property (nonatomic, strong) HDYSoccertTabBar *tabBar;
+@property (nonatomic, strong) UITabBar *tabBar;
 
 @property (nonatomic, assign) BOOL isBarHidden;
 

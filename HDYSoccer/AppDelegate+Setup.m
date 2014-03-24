@@ -15,7 +15,8 @@
   UIViewController *first = [[UIViewController alloc] init];
   UIViewController *second = [[UIViewController alloc] init];
   UIViewController *third = [[UIViewController alloc] init];
-  self.tabBarController = [[HDYSoccerTabBarController alloc] initWithViewControllers:@[first, second, third]];
+  UIViewController *forth = [[UIViewController alloc] init];
+  self.tabBarController = [[HDYSoccerTabBarController alloc] initWithViewControllers:@[first, second, third, forth]];
   [self.window setRootViewController:self.tabBarController];
 }
 
