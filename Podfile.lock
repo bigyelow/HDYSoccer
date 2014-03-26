@@ -1,1 +1,10 @@
+PODS:
+  - REFrostedViewController (2.4.5)
+
+DEPENDENCIES:
+  - REFrostedViewController (~> 2.4.5)
+
+SPEC CHECKSUMS:
+  REFrostedViewController: ab017bbd8d8ab3b23615ef308707711d8576999b
+
 COCOAPODS: 0.29.0
