@@ -33,11 +33,17 @@
 {
   self = [self initWithRootViewController:viewController];
   if (self) {
-    [self configNavigationBar];
+    [self initNavigationBar];
   }
   return self;
 }
 
+- (void)initNavigationBar
+{
+  
+}
+
+/*
 - (void)configNavigationBar
 {
   [self.navigationBar setTranslucent:YES];
@@ -72,6 +78,7 @@
   }
   [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
 }
+ */
 
 // 这个方法可以自定义navigation bar的left button和right button
 - (void)createNavButtonWithImage:(UIImage *)buttonImage

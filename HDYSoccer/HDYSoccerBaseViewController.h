@@ -10,6 +10,4 @@
 
 @interface HDYSoccerBaseViewController : UIViewController
 
-@property (nonatomic, assign) BOOL needTabbar;
-
 @end

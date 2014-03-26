@@ -14,11 +14,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  // Override point for customization after application launch.
+  
+  [self loadFrostedView];
+  
   self.window.backgroundColor = [UIColor whiteColor];
-  
-  [self createTabBar];
-  
   [self.window makeKeyAndVisible];
   return YES;
 }

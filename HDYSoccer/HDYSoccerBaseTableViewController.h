@@ -8,10 +8,6 @@
 
 #import "HDYSoccerBaseViewController.h"
 
-@interface HDYSoccerBaseTableViewController : HDYSoccerBaseViewController
-<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface HDYSoccerBaseTableViewController : UITableViewController
 
-@property (nonatomic, strong) UITableView * tableView;
-
-- (id)initWithStyle:(UITableViewStyle)style;
 @end

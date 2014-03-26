@@ -7,21 +7,72 @@
 //
 
 #import "AppDelegate+Setup.h"
-#import "UINavigationController+HDYSoccerNavigationController.h"
+#import "HDYSoccerPlayerViewController.h"
+#import "HDYSoccerMenuViewController.h"
+#import "HDYSoccerNavigationController.h"
 
 @implementation AppDelegate (Setup)
 
-- (void)createTabBar
+/*
+- (void)loadTabBar
 {
-  UIViewController *first = [[UIViewController alloc] init];
+  HDYSoccerPlayerViewController *playerController = [[HDYSoccerPlayerViewController alloc] init];
+  HDYSoccerNavigationController *playerNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:playerController];
+  
   UIViewController *second = [[UIViewController alloc] init];
   UIViewController *third = [[UIViewController alloc] init];
   UIViewController *forth = [[UIViewController alloc] init];
   
-  UINavigationController *firstNav = [[UINavigationController alloc] initNavigatorWithRootViewController:first];
+  NSArray *viewControllers = @[playerNav, second, third, forth];
+  self.appTabBarController = [[HDYSoccerTabBarController alloc] initWithViewControllers:viewControllers];
   
-  self.tabBarController = [[HDYSoccerTabBarController alloc] initWithViewControllers:@[firstNav, second, third, forth]];
-  [self.window setRootViewController:self.tabBarController];
+  self.window.rootViewController = self.appTabBarController;
+}
+*/
+
+- (void)loadFrostedView
+{
+  // Create content and menu controllers
+  HDYSoccerPlayerViewController *playerController = [[HDYSoccerPlayerViewController alloc] init];
+  HDYSoccerMenuViewController *menuController = [[HDYSoccerMenuViewController alloc] initWithStyle:UITableViewStylePlain];
+  HDYSoccerNavigationController *playerNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:playerController];
+  
+  // Create frosted view controller
+  REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:playerNav
+                                                                                               menuViewController:menuController];
+  frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+  frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+  frostedViewController.liveBlur = YES;
+  frostedViewController.delegate = self;
+  
+  // Make it a root controller
+  self.window.rootViewController = frostedViewController;
+}
+
+#pragma mark - frosted viewcontroller delegate
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController didRecognizePanGesture:(UIPanGestureRecognizer *)recognizer
+{
+  
+}
+
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController willShowMenuViewController:(UIViewController *)menuViewController
+{
+  NSLog(@"willShowMenuViewController");
+}
+
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController didShowMenuViewController:(UIViewController *)menuViewController
+{
+  NSLog(@"didShowMenuViewController");
+}
+
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController willHideMenuViewController:(UIViewController *)menuViewController
+{
+  NSLog(@"willHideMenuViewController");
+}
+
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController didHideMenuViewController:(UIViewController *)menuViewController
+{
+  NSLog(@"didHideMenuViewController");
 }
 
 @end

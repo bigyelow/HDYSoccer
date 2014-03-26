@@ -9,5 +9,6 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate (Setup)
-- (void)createTabBar;
+- (void)loadFrostedView;
+//- (void)loadTabBar;
 @end

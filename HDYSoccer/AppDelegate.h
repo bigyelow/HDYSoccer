@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HDYSoccerTabBarController.h"
+#import "REFrostedViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, REFrostedViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-// Tabbar
-@property (nonatomic, strong) HDYSoccerTabBarController *tabBarController;
+//@property (nonatomic, strong) HDYSoccerTabBarController *appTabBarController;
 
 @end

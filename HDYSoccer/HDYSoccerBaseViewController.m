@@ -20,7 +20,7 @@
 {
   self = [super init];
   if (self) {
-    [self setNeedTabbar:YES];
+
   }
   return self;
 }
@@ -43,8 +43,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
-  
-  [APP_DELEGATE.tabBarController setTabBarHidden:!self.needTabbar];
 }
 
 - (void)didReceiveMemoryWarning
