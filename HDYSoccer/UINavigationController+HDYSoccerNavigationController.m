@@ -41,7 +41,8 @@
 - (void)configNavigationBar
 {
   [self.navigationBar setTranslucent:YES];
-  
+
+  NSDictionary *textTitleOptions;
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     [self.navigationBar setBarStyle:UIBarStyleDefault];
 //    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
@@ -52,6 +53,9 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIColor blackColor], NSForegroundColorAttributeName, nil];
   } else {
     [self.navigationBar setTintColor:[UIColor blackColor]];
     
@@ -62,10 +66,10 @@
 //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:image
 //                                                      forState:UIControlStateNormal
 //                                                    barMetrics:UIBarMetricsLandscapePhone];
+    
+    textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                        [UIColor blackColor], NSForegroundColorAttributeName, nil];
   }
-  
-  NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [UIColor whiteColor], NSForegroundColorAttributeName, nil];
   [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
 }
 

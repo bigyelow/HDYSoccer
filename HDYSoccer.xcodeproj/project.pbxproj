@@ -26,6 +26,7 @@
 		71CB8C5018E036290073E913 /* HDYSoccerBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C4F18E036290073E913 /* HDYSoccerBaseTableViewController.m */; };
 		71CB8C5418E0379E0073E913 /* UINavigationController+HDYSoccerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C5318E0379E0073E913 /* UINavigationController+HDYSoccerNavigationController.m */; };
 		71CB8C5818E03B040073E913 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C5718E03B040073E913 /* AppContext.m */; };
+		71CB8C7F18E183880073E913 /* HDYSoccerPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C7E18E183880073E913 /* HDYSoccerPlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,10 @@
 		71CB8C5518E037BB0073E913 /* NavigationBarParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarParams.h; sourceTree = "<group>"; };
 		71CB8C5618E03B040073E913 /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContext.h; sourceTree = "<group>"; };
 		71CB8C5718E03B040073E913 /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContext.m; sourceTree = "<group>"; };
+		71CB8C6118E132B60073E913 /* PlayerViewParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerViewParams.h; sourceTree = "<group>"; };
+		71CB8C7D18E183880073E913 /* HDYSoccerPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerPlayerViewController.h; sourceTree = "<group>"; };
+		71CB8C7E18E183880073E913 /* HDYSoccerPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerPlayerViewController.m; sourceTree = "<group>"; };
+		71CB8C8018E18B960073E913 /* TextMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +185,7 @@
 		71CB8C3218E01CE90073E913 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				71CB8C5D18E1310E0073E913 /* Player */,
 				71CB8C3318E01CFF0073E913 /* BaseComponents */,
 			);
 			name = Controller;
@@ -222,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				71CB8C4D18E0346B0073E913 /* ProjectCandy.h */,
+				71CB8C8018E18B960073E913 /* TextMacro.h */,
 				71CB8C5618E03B040073E913 /* AppContext.h */,
 				71CB8C5718E03B040073E913 /* AppContext.m */,
 			);
@@ -255,6 +262,16 @@
 				71CB8C5318E0379E0073E913 /* UINavigationController+HDYSoccerNavigationController.m */,
 			);
 			name = NavigationController;
+			sourceTree = "<group>";
+		};
+		71CB8C5D18E1310E0073E913 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				71CB8C6118E132B60073E913 /* PlayerViewParams.h */,
+				71CB8C7D18E183880073E913 /* HDYSoccerPlayerViewController.h */,
+				71CB8C7E18E183880073E913 /* HDYSoccerPlayerViewController.m */,
+			);
+			name = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +378,7 @@
 				71CB8C4318E028F80073E913 /* HDYSoccerTabBarController+UIConfiguration.m in Sources */,
 				71CB8C0C18E019060073E913 /* main.m in Sources */,
 				71CB8C5418E0379E0073E913 /* UINavigationController+HDYSoccerNavigationController.m in Sources */,
+				71CB8C7F18E183880073E913 /* HDYSoccerPlayerViewController.m in Sources */,
 				71CB8C3918E01D570073E913 /* HDYSoccerTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

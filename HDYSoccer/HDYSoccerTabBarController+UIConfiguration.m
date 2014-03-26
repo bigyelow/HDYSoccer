@@ -15,6 +15,12 @@
 {
   [self.tabBar setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
   [self.tabBar setDelegate:self];
+  [self.tabBar setBarStyle:UIBarStyleBlack];
+  
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    [self.tabBar setTranslucent:YES];
+    [self.tabBar setBarTintColor:[UIColor whiteColor]];
+  }
   
   UITabBarItem *first = [[UITabBarItem alloc] initWithTitle:TABBAR_ITEM_TITLE_0
                                                       image:nil
