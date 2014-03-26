@@ -29,6 +29,8 @@
 		71CB8C7F18E183880073E913 /* HDYSoccerPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C7E18E183880073E913 /* HDYSoccerPlayerViewController.m */; };
 		71CCC3D418E283CF00D6F974 /* HDYSoccerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CCC3D318E283CF00D6F974 /* HDYSoccerMenuViewController.m */; };
 		71CCC3D818E2874E00D6F974 /* HDYSoccerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CCC3D718E2874E00D6F974 /* HDYSoccerNavigationController.m */; };
+		71DD43D518E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DD43D418E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m */; };
+		71DD43DC18E29FBF008094E0 /* bigyelow_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71DD43DB18E29FBE008094E0 /* bigyelow_avatar.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,9 @@
 		71CCC3D518E283E500D6F974 /* MenuViewParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewParams.h; sourceTree = "<group>"; };
 		71CCC3D618E2874E00D6F974 /* HDYSoccerNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerNavigationController.h; sourceTree = "<group>"; };
 		71CCC3D718E2874E00D6F974 /* HDYSoccerNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerNavigationController.m; sourceTree = "<group>"; };
+		71DD43D318E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerMenuViewController+UIConfiguration.h"; sourceTree = "<group>"; };
+		71DD43D418E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerMenuViewController+UIConfiguration.m"; sourceTree = "<group>"; };
+		71DD43DB18E29FBE008094E0 /* bigyelow_avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bigyelow_avatar.jpg; sourceTree = "<group>"; };
 		E1F5194131C64023AC9E6544 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +153,7 @@
 			children = (
 				71CB8C4C18E033740073E913 /* Setting */,
 				71CB8C4B18E0334F0073E913 /* Source */,
+				71DD43D618E29F19008094E0 /* Resource */,
 			);
 			path = HDYSoccer;
 			sourceTree = "<group>";
@@ -291,8 +297,34 @@
 				71CCC3D518E283E500D6F974 /* MenuViewParams.h */,
 				71CCC3D218E283CF00D6F974 /* HDYSoccerMenuViewController.h */,
 				71CCC3D318E283CF00D6F974 /* HDYSoccerMenuViewController.m */,
+				71DD43D318E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.h */,
+				71DD43D418E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		71DD43D618E29F19008094E0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				71DD43D718E29F45008094E0 /* Image */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		71DD43D718E29F45008094E0 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				71DD43D818E29F4F008094E0 /* MenuView */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		71DD43D818E29F4F008094E0 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				71DD43DB18E29FBE008094E0 /* bigyelow_avatar.jpg */,
+			);
+			name = MenuView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71CB8C0A18E019060073E913 /* InfoPlist.strings in Resources */,
+				71DD43DC18E29FBF008094E0 /* bigyelow_avatar.jpg in Resources */,
 				71CB8C1218E019060073E913 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71CB8C4818E032C70073E913 /* HDYSoccerBaseViewController.m in Sources */,
+				71DD43D518E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m in Sources */,
 				71CB8C4018E022230073E913 /* AppDelegate+Setup.m in Sources */,
 				71CB8C5818E03B040073E913 /* AppContext.m in Sources */,
 				71CB8C5018E036290073E913 /* HDYSoccerBaseTableViewController.m in Sources */,
