@@ -8,10 +8,11 @@
 
 #import "HDYSoccerPlayerViewController.h"
 #import "PlayerViewParams.h"
+#import "HDYSoccerPlayerViewController+UIConfiguration.h"
 
 @interface HDYSoccerPlayerViewController ()
 
-@property (nonatomic, strong) NSMutableArray *sampleDatas;
+@property (nonatomic, strong) NSArray *sampleDatas;
 
 @end
 
@@ -30,9 +31,9 @@
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
-  self.title = TEXT_TITLE_STRING;
+  self.title = TEXT_TITLE;
   
-  [self configTableView];
+//  [self configSegmentView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,31 +45,30 @@
 #pragma mark - customization
 - (void)initSampleDatas
 {
-  self.sampleDatas = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", nil];
-}
-
-- (void)configTableView
-{
-  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  self.sampleDatas = [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", nil];
 }
 
 #pragma mark - tableview datasource and delegate
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-  return [self.sampleDatas count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  static NSString *cellID = CELL_IDENTIFIER;
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-  if (cell == nil) {
-    cell  = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-  }
-  
-  [cell.textLabel setText:[self.sampleDatas objectAtIndex:indexPath.row]];
-  
-  return cell;
-}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//  return [self.sampleDatas count];
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//  static NSString *cellID = CELL_IDENTIFIER;
+//  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//  if (cell == nil) {
+//    cell  = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+//  }
+//  
+//  [cell.textLabel setText:[self.sampleDatas objectAtIndex:indexPath.row]];
+//  
+//  return cell;
+//}
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//  NSLog(@"%d", indexPath.row);
+//}
 @end

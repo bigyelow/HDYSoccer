@@ -9,6 +9,9 @@
 #import "HDYSoccerMenuViewController.h"
 #import "HDYSoccerMenuViewController+UIConfiguration.h"
 #import "MenuViewParams.h"
+#import "HDYSoccerNavigationController.h"
+#import "HDYSoccerGeekerViewController.h"
+#import "AppDelegate.h"
 
 @interface HDYSoccerMenuViewController ()
 
@@ -50,30 +53,36 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
   return nil;
-//  if (sectionIndex == 0)
-//    return nil;
-//  
-//  UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 34)];
-//  view.backgroundColor = [UIColor colorWithRed:167/255.0f green:167/255.0f blue:167/255.0f alpha:0.6f];
-//  
-//  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 0, 0)];
-//  label.text = @"Friends Online";
-//  label.font = [UIFont systemFontOfSize:15];
-//  label.textColor = [UIColor whiteColor];
-//  label.backgroundColor = [UIColor clearColor];
-//  [label sizeToFit];
-//  [view addSubview:label];
-//  
-//  return view;
+  
+  /*
+  if (sectionIndex == 0)
+    return nil;
+  
+  UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 34)];
+  view.backgroundColor = [UIColor colorWithRed:167/255.0f green:167/255.0f blue:167/255.0f alpha:0.6f];
+  
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 0, 0)];
+  label.text = @"Friends Online";
+  label.font = [UIFont systemFontOfSize:15];
+  label.textColor = [UIColor whiteColor];
+  label.backgroundColor = [UIColor clearColor];
+  [label sizeToFit];
+  [view addSubview:label];
+  
+  return view;
+   */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
   return 0;
-//  if (sectionIndex == 0)
-//    return 0;
-//  
-//  return 34;
+  
+  /*
+  if (sectionIndex == 0)
+    return 0;
+  
+  return 34;
+   */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,6 +114,28 @@
   cell.textLabel.text = titles[indexPath.row];
   
   return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  switch (indexPath.section) {
+    case 0:
+      switch (indexPath.row) {
+        case 0: {
+          self.frostedViewController.contentViewController = APP_DELEGATE.geekerNav;
+        }
+          break;
+          
+        default:
+          break;
+      }
+      break;
+      
+    default:
+      break;
+  }
+  
+  [self.frostedViewController hideMenuViewController];
 }
 
 @end

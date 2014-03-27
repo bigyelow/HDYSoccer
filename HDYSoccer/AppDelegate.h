@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "REFrostedViewController.h"
+#import "HDYSoccerNavigationController.h"
+
+#define APP_DELEGATE  ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, REFrostedViewControllerDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
+
+@property (nonatomic, strong) HDYSoccerNavigationController *geekerNav;
 
 //@property (nonatomic, strong) HDYSoccerTabBarController *appTabBarController;
-
 @end

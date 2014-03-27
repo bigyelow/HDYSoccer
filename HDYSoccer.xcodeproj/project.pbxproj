@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		20C018F7FDA74C08A47B80E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 574BB2BEFD4E48918A979B74 /* libPods.a */; };
+		71568A0C18E3E76900518C7D /* HDYSoccerGeekerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71568A0B18E3E76900518C7D /* HDYSoccerGeekerViewController.m */; };
+		71568A1018E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 71568A0F18E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.m */; };
+		71568A1318E3EB2600518C7D /* UIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 71568A1218E3EB2600518C7D /* UIConfiguration.m */; };
 		71CB8C0018E019060073E913 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8BFF18E019060073E913 /* Foundation.framework */; };
 		71CB8C0218E019060073E913 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8C0118E019060073E913 /* CoreGraphics.framework */; };
 		71CB8C0418E019060073E913 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8C0318E019060073E913 /* UIKit.framework */; };
@@ -26,7 +29,6 @@
 		71CB8C4818E032C70073E913 /* HDYSoccerBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C4718E032C70073E913 /* HDYSoccerBaseViewController.m */; };
 		71CB8C5018E036290073E913 /* HDYSoccerBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C4F18E036290073E913 /* HDYSoccerBaseTableViewController.m */; };
 		71CB8C5818E03B040073E913 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C5718E03B040073E913 /* AppContext.m */; };
-		71CB8C7F18E183880073E913 /* HDYSoccerPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CB8C7E18E183880073E913 /* HDYSoccerPlayerViewController.m */; };
 		71CCC3D418E283CF00D6F974 /* HDYSoccerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CCC3D318E283CF00D6F974 /* HDYSoccerMenuViewController.m */; };
 		71CCC3D818E2874E00D6F974 /* HDYSoccerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CCC3D718E2874E00D6F974 /* HDYSoccerNavigationController.m */; };
 		71DD43D518E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DD43D418E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m */; };
@@ -45,6 +47,13 @@
 
 /* Begin PBXFileReference section */
 		574BB2BEFD4E48918A979B74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		71568A0A18E3E76900518C7D /* HDYSoccerGeekerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerGeekerViewController.h; sourceTree = "<group>"; };
+		71568A0B18E3E76900518C7D /* HDYSoccerGeekerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerGeekerViewController.m; sourceTree = "<group>"; };
+		71568A0D18E3E83400518C7D /* GeekerViewParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeekerViewParams.h; sourceTree = "<group>"; };
+		71568A0E18E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGeekerViewController+UIConfiguration.h"; sourceTree = "<group>"; };
+		71568A0F18E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGeekerViewController+UIConfiguration.m"; sourceTree = "<group>"; };
+		71568A1118E3EB2600518C7D /* UIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConfiguration.h; sourceTree = "<group>"; };
+		71568A1218E3EB2600518C7D /* UIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConfiguration.m; sourceTree = "<group>"; };
 		71CB8BFC18E019060073E913 /* HDYSoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDYSoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CB8BFF18E019060073E913 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		71CB8C0118E019060073E913 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -76,9 +85,6 @@
 		71CB8C5518E037BB0073E913 /* NavigationBarParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarParams.h; sourceTree = "<group>"; };
 		71CB8C5618E03B040073E913 /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContext.h; sourceTree = "<group>"; };
 		71CB8C5718E03B040073E913 /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContext.m; sourceTree = "<group>"; };
-		71CB8C6118E132B60073E913 /* PlayerViewParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerViewParams.h; sourceTree = "<group>"; };
-		71CB8C7D18E183880073E913 /* HDYSoccerPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerPlayerViewController.h; sourceTree = "<group>"; };
-		71CB8C7E18E183880073E913 /* HDYSoccerPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerPlayerViewController.m; sourceTree = "<group>"; };
 		71CB8C8018E18B960073E913 /* TextMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextMacro.h; sourceTree = "<group>"; };
 		71CCC3D218E283CF00D6F974 /* HDYSoccerMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerMenuViewController.h; sourceTree = "<group>"; };
 		71CCC3D318E283CF00D6F974 /* HDYSoccerMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerMenuViewController.m; sourceTree = "<group>"; };
@@ -202,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				71CCC3D118E283B400D6F974 /* Menu */,
-				71CB8C5D18E1310E0073E913 /* Player */,
+				71CB8C5D18E1310E0073E913 /* Geeker */,
 				71CB8C3318E01CFF0073E913 /* BaseComponents */,
 			);
 			name = Controller;
@@ -248,6 +254,8 @@
 				71CB8C8018E18B960073E913 /* TextMacro.h */,
 				71CB8C5618E03B040073E913 /* AppContext.h */,
 				71CB8C5718E03B040073E913 /* AppContext.m */,
+				71568A1118E3EB2600518C7D /* UIConfiguration.h */,
+				71568A1218E3EB2600518C7D /* UIConfiguration.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -281,14 +289,16 @@
 			name = NavigationController;
 			sourceTree = "<group>";
 		};
-		71CB8C5D18E1310E0073E913 /* Player */ = {
+		71CB8C5D18E1310E0073E913 /* Geeker */ = {
 			isa = PBXGroup;
 			children = (
-				71CB8C6118E132B60073E913 /* PlayerViewParams.h */,
-				71CB8C7D18E183880073E913 /* HDYSoccerPlayerViewController.h */,
-				71CB8C7E18E183880073E913 /* HDYSoccerPlayerViewController.m */,
+				71568A0D18E3E83400518C7D /* GeekerViewParams.h */,
+				71568A0A18E3E76900518C7D /* HDYSoccerGeekerViewController.h */,
+				71568A0B18E3E76900518C7D /* HDYSoccerGeekerViewController.m */,
+				71568A0E18E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.h */,
+				71568A0F18E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.m */,
 			);
-			name = Player;
+			name = Geeker;
 			sourceTree = "<group>";
 		};
 		71CCC3D118E283B400D6F974 /* Menu */ = {
@@ -465,11 +475,13 @@
 				71CB8C5818E03B040073E913 /* AppContext.m in Sources */,
 				71CB8C5018E036290073E913 /* HDYSoccerBaseTableViewController.m in Sources */,
 				71CB8C1018E019060073E913 /* AppDelegate.m in Sources */,
+				71568A1318E3EB2600518C7D /* UIConfiguration.m in Sources */,
 				71CB8C4318E028F80073E913 /* HDYSoccerTabBarController+UIConfiguration.m in Sources */,
 				71CCC3D818E2874E00D6F974 /* HDYSoccerNavigationController.m in Sources */,
+				71568A0C18E3E76900518C7D /* HDYSoccerGeekerViewController.m in Sources */,
+				71568A1018E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.m in Sources */,
 				71CB8C0C18E019060073E913 /* main.m in Sources */,
 				71CCC3D418E283CF00D6F974 /* HDYSoccerMenuViewController.m in Sources */,
-				71CB8C7F18E183880073E913 /* HDYSoccerPlayerViewController.m in Sources */,
 				71CB8C3918E01D570073E913 /* HDYSoccerTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

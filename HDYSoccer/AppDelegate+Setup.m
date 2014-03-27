@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate+Setup.h"
-#import "HDYSoccerPlayerViewController.h"
+#import "HDYSoccerGeekerViewController.h"
 #import "HDYSoccerMenuViewController.h"
 #import "HDYSoccerNavigationController.h"
 
@@ -33,12 +33,12 @@
 - (void)loadFrostedView
 {
   // Create content and menu controllers
-  HDYSoccerPlayerViewController *playerController = [[HDYSoccerPlayerViewController alloc] init];
+  HDYSoccerGeekerViewController *geekerController = [[HDYSoccerGeekerViewController alloc] initWithStyle:UITableViewStylePlain];
+  self.geekerNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:geekerController];
   HDYSoccerMenuViewController *menuController = [[HDYSoccerMenuViewController alloc] initWithStyle:UITableViewStylePlain];
-  HDYSoccerNavigationController *playerNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:playerController];
   
   // Create frosted view controller
-  REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:playerNav
+  REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:self.geekerNav
                                                                                                menuViewController:menuController];
   frostedViewController.direction = REFrostedViewControllerDirectionLeft;
   frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
