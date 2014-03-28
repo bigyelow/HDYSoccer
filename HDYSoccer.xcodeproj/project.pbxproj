@@ -122,6 +122,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71568A1D18E5180400518C7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		71CB8BF318E019060073E913 = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +270,7 @@
 		71CB8C4B18E0334F0073E913 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				71568A1D18E5180400518C7D /* Model */,
 				71CB8C2E18E019E70073E913 /* App */,
 				71CB8C4A18E0333F0073E913 /* Utility */,
 				71CB8C3218E01CE90073E913 /* Controller */,

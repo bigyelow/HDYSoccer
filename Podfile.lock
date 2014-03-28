@@ -1,10 +1,13 @@
 PODS:
+  - CHTCollectionViewWaterfallLayout (0.6)
   - REFrostedViewController (2.4.5)
 
 DEPENDENCIES:
+  - CHTCollectionViewWaterfallLayout (~> 0.6)
   - REFrostedViewController (~> 2.4.5)
 
 SPEC CHECKSUMS:
+  CHTCollectionViewWaterfallLayout: accc91bfcd82710e44025d48961b79473d84375a
   REFrostedViewController: ab017bbd8d8ab3b23615ef308707711d8576999b
 
 COCOAPODS: 0.29.0
