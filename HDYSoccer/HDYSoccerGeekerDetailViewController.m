@@ -7,6 +7,7 @@
 //
 
 #import "HDYSoccerGeekerDetailViewController.h"
+#import "HDYSoccerGeekerDetailViewController+UIConfiguration.h"
 
 @interface HDYSoccerGeekerDetailViewController ()
 
@@ -25,7 +26,7 @@
 
 - (id)initWithGeeker:(NSString *)geekerName
 {
-  self = [super initWithStyle:UITableViewStylePlain];
+  self = [super initWithStyle:UITableViewStyleGrouped];
   if (self) {
     self.geekerName = geekerName;
   }
@@ -37,13 +38,20 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   
-  self.title = self.geekerName;
+  [self configTableView];
+  [self configTableHeaderView];
 }
 
 - (void)didReceiveMemoryWarning
 {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - tableView delegate & datasource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+  return 2;
 }
 
 @end

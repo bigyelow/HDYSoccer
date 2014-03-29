@@ -28,6 +28,4 @@
 #define SEGMENT_CONTROL_TOP_MARGIN 10.0f
 #define SEGMENT_CONTROL_BOTTOM_MARGIN 0.0f
 
-/*geeker detail*/
-
 #endif

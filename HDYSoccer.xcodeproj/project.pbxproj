@@ -17,6 +17,7 @@
 		715AD73118E664A90068E6E1 /* HDYSoccerGameHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73018E664A90068E6E1 /* HDYSoccerGameHeader.m */; };
 		715AD73718E66BAB0068E6E1 /* UIConfiguration+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73618E66BAB0068E6E1 /* UIConfiguration+Color.m */; };
 		715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73A18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m */; };
+		715AD73E18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73D18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m */; };
 		71CB8C0018E019060073E913 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8BFF18E019060073E913 /* Foundation.framework */; };
 		71CB8C0218E019060073E913 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8C0118E019060073E913 /* CoreGraphics.framework */; };
 		71CB8C0418E019060073E913 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8C0318E019060073E913 /* UIKit.framework */; };
@@ -73,6 +74,9 @@
 		715AD73618E66BAB0068E6E1 /* UIConfiguration+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIConfiguration+Color.m"; sourceTree = "<group>"; };
 		715AD73918E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerGeekerDetailViewController.h; sourceTree = "<group>"; };
 		715AD73A18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerGeekerDetailViewController.m; sourceTree = "<group>"; };
+		715AD73C18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGeekerDetailViewController+UIConfiguration.h"; sourceTree = "<group>"; };
+		715AD73D18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGeekerDetailViewController+UIConfiguration.m"; sourceTree = "<group>"; };
+		715AD73F18E695130068E6E1 /* GeekerDetailParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeekerDetailParams.h; sourceTree = "<group>"; };
 		71CB8BFC18E019060073E913 /* HDYSoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDYSoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CB8BFF18E019060073E913 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		71CB8C0118E019060073E913 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -167,8 +171,11 @@
 		715AD73818E679CE0068E6E1 /* GeekerDetail */ = {
 			isa = PBXGroup;
 			children = (
+				715AD73F18E695130068E6E1 /* GeekerDetailParams.h */,
 				715AD73918E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.h */,
 				715AD73A18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m */,
+				715AD73C18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.h */,
+				715AD73D18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m */,
 			);
 			name = GeekerDetail;
 			sourceTree = "<group>";
@@ -543,6 +550,7 @@
 				71568A1018E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.m in Sources */,
 				715AD72818E663A90068E6E1 /* HDYSoccerGameCell.m in Sources */,
 				71CB8C0C18E019060073E913 /* main.m in Sources */,
+				715AD73E18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m in Sources */,
 				71CCC3D418E283CF00D6F974 /* HDYSoccerMenuViewController.m in Sources */,
 				71CB8C3918E01D570073E913 /* HDYSoccerTabBarController.m in Sources */,
 			);
