@@ -126,6 +126,11 @@
         }
           break;
           
+        case 1:{
+          self.frostedViewController.contentViewController = APP_DELEGATE.gameNav;
+        }
+          break;
+          
         default:
           break;
       }

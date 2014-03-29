@@ -17,6 +17,5 @@
 @property (nonatomic, strong) UIWindow *window;
 
 @property (nonatomic, strong) HDYSoccerNavigationController *geekerNav;
-
-//@property (nonatomic, strong) HDYSoccerTabBarController *appTabBarController;
+@property (nonatomic, strong) HDYSoccerNavigationController *gameNav;
 @end

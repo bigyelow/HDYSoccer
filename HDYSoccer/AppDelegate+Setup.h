@@ -10,6 +10,4 @@
 
 @interface AppDelegate (Setup)
 - (void)loadFrostedView;
-
-//- (void)loadTabBar;
 @end

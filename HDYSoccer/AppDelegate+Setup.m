@@ -9,7 +9,7 @@
 #import "AppDelegate+Setup.h"
 #import "HDYSoccerGeekerViewController.h"
 #import "HDYSoccerMenuViewController.h"
-#import "HDYSoccerNavigationController.h"
+#import "HDYSoccerGameViewController.h"
 
 @implementation AppDelegate (Setup)
 
@@ -33,11 +33,15 @@
 - (void)loadFrostedView
 {
   // Create content and menu controllers
-  HDYSoccerGeekerViewController *geekerController = [[HDYSoccerGeekerViewController alloc] initWithStyle:UITableViewStylePlain];
-  self.geekerNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:geekerController];
-  HDYSoccerMenuViewController *menuController = [[HDYSoccerMenuViewController alloc] initWithStyle:UITableViewStylePlain];
+  HDYSoccerGeekerViewController *geekerVC = [[HDYSoccerGeekerViewController alloc] initWithStyle:UITableViewStylePlain];
+  self.geekerNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:geekerVC];
+  
+  // Game ViewController
+  HDYSoccerGameViewController *gameVC = [[HDYSoccerGameViewController alloc] init];
+  self.gameNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:gameVC];
   
   // Create frosted view controller
+  HDYSoccerMenuViewController *menuController = [[HDYSoccerMenuViewController alloc] initWithStyle:UITableViewStylePlain];
   REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:self.geekerNav
                                                                                                menuViewController:menuController];
   frostedViewController.direction = REFrostedViewControllerDirectionLeft;
