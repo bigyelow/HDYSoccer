@@ -16,6 +16,7 @@
 		715AD72E18E664980068E6E1 /* HDYSoccerGameFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD72D18E664980068E6E1 /* HDYSoccerGameFooter.m */; };
 		715AD73118E664A90068E6E1 /* HDYSoccerGameHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73018E664A90068E6E1 /* HDYSoccerGameHeader.m */; };
 		715AD73718E66BAB0068E6E1 /* UIConfiguration+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73618E66BAB0068E6E1 /* UIConfiguration+Color.m */; };
+		715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73A18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m */; };
 		71CB8C0018E019060073E913 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8BFF18E019060073E913 /* Foundation.framework */; };
 		71CB8C0218E019060073E913 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8C0118E019060073E913 /* CoreGraphics.framework */; };
 		71CB8C0418E019060073E913 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8C0318E019060073E913 /* UIKit.framework */; };
@@ -70,6 +71,8 @@
 		715AD73218E6654E0068E6E1 /* GameViewParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewParams.h; sourceTree = "<group>"; };
 		715AD73518E66BAB0068E6E1 /* UIConfiguration+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIConfiguration+Color.h"; sourceTree = "<group>"; };
 		715AD73618E66BAB0068E6E1 /* UIConfiguration+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIConfiguration+Color.m"; sourceTree = "<group>"; };
+		715AD73918E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerGeekerDetailViewController.h; sourceTree = "<group>"; };
+		715AD73A18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerGeekerDetailViewController.m; sourceTree = "<group>"; };
 		71CB8BFC18E019060073E913 /* HDYSoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDYSoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CB8BFF18E019060073E913 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		71CB8C0118E019060073E913 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,7 +148,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		715AD72218E662960068E6E1 /* Game */ = {
+		715AD72218E662960068E6E1 /* GameList */ = {
 			isa = PBXGroup;
 			children = (
 				715AD73218E6654E0068E6E1 /* GameViewParams.h */,
@@ -158,7 +161,16 @@
 				715AD72F18E664A90068E6E1 /* HDYSoccerGameHeader.h */,
 				715AD73018E664A90068E6E1 /* HDYSoccerGameHeader.m */,
 			);
-			name = Game;
+			name = GameList;
+			sourceTree = "<group>";
+		};
+		715AD73818E679CE0068E6E1 /* GeekerDetail */ = {
+			isa = PBXGroup;
+			children = (
+				715AD73918E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.h */,
+				715AD73A18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m */,
+			);
+			name = GeekerDetail;
 			sourceTree = "<group>";
 		};
 		71CB8BF318E019060073E913 = {
@@ -248,8 +260,8 @@
 			children = (
 				71CB8C3318E01CFF0073E913 /* BaseComponents */,
 				71CCC3D118E283B400D6F974 /* Menu */,
-				71CB8C5D18E1310E0073E913 /* Geeker */,
-				715AD72218E662960068E6E1 /* Game */,
+				71CB8C5D18E1310E0073E913 /* GeekerList */,
+				715AD72218E662960068E6E1 /* GameList */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -332,7 +344,7 @@
 			name = NavigationController;
 			sourceTree = "<group>";
 		};
-		71CB8C5D18E1310E0073E913 /* Geeker */ = {
+		71CB8C5D18E1310E0073E913 /* GeekerList */ = {
 			isa = PBXGroup;
 			children = (
 				71568A0D18E3E83400518C7D /* GeekerViewParams.h */,
@@ -340,8 +352,9 @@
 				71568A0B18E3E76900518C7D /* HDYSoccerGeekerViewController.m */,
 				71568A0E18E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.h */,
 				71568A0F18E3E9BF00518C7D /* HDYSoccerGeekerViewController+UIConfiguration.m */,
+				715AD73818E679CE0068E6E1 /* GeekerDetail */,
 			);
-			name = Geeker;
+			name = GeekerList;
 			sourceTree = "<group>";
 		};
 		71CCC3D118E283B400D6F974 /* Menu */ = {
@@ -517,6 +530,7 @@
 				71CB8C4018E022230073E913 /* AppDelegate+Setup.m in Sources */,
 				715AD72E18E664980068E6E1 /* HDYSoccerGameFooter.m in Sources */,
 				71CB8C5818E03B040073E913 /* AppContext.m in Sources */,
+				715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */,
 				71CB8C5018E036290073E913 /* HDYSoccerBaseTableViewController.m in Sources */,
 				71CB8C1018E019060073E913 /* AppDelegate.m in Sources */,
 				71568A1318E3EB2600518C7D /* UIConfiguration.m in Sources */,

@@ -10,5 +10,4 @@
 
 @interface HDYSoccerNavigationController : UINavigationController
 
-- (void)showMenu;
 @end

@@ -9,6 +9,8 @@
 #import "HDYSoccerGeekerViewController.h"
 #import "GeekerViewParams.h"
 #import "HDYSoccerGeekerViewController+UIConfiguration.h"
+#import "HDYSoccerGeekerDetailViewController.h"
+#import "AppDelegate.h"
 
 @interface HDYSoccerGeekerViewController ()
 
@@ -33,6 +35,9 @@
   
   [self setTitle:TEXT_TITLE];
   [self configSegmentView];
+  
+  [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(panGestureRecognized:)]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,11 +49,20 @@
 #pragma mark - customization
 - (void)initSampleDatas
 {
-  self.sampleDatas = [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", nil];
+  self.sampleDatas = [NSArray
+                      arrayWithObjects:@"黄杜煜", @"王雨寒", @"David Beckham", @"梅西",
+                      @"C罗", @"罗纳尔多", @"小罗纳尔多", @"范佩西", @"卡卡",
+                      @"皮尔洛", @"哈维", @"齐达内", @"巴乔", nil];
 }
 
 
 #pragma mark - tableview datasource and delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return CELL_HEIGHT;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   return [self.sampleDatas count];
@@ -70,6 +84,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSLog(@"%d", indexPath.row);
+  NSString *geekerName = self.sampleDatas[indexPath.row];
+  HDYSoccerGeekerDetailViewController *geekerDetailVC = [[HDYSoccerGeekerDetailViewController alloc] initWithGeeker:geekerName];
+  
+  [self.navigationController pushViewController:geekerDetailVC animated:YES];
+}
+
+#pragma mark Gesture recognizer
+
+- (void)panGestureRecognized:(UIPanGestureRecognizer *)sender
+{
+  // Dismiss keyboard (optional)
+  [self.view endEditing:YES];
+  [self.frostedViewController.view endEditing:YES];
+  
+  // Present the view controller
+  [self.frostedViewController panGestureRecognized:sender];
 }
 @end

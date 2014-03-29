@@ -11,6 +11,7 @@
 #import "HDYSoccerGameCell.h"
 #import "HDYSoccerGameHeader.h"
 #import "HDYSoccerGameFooter.h"
+#import "AppDelegate.h"
 
 @interface HDYSoccerGameViewController ()
 
@@ -33,6 +34,9 @@
   [self setTitle:GAME_TITLE];
   
   [self.view addSubview:self.collectionView];
+  
+  [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(panGestureRecognized:)]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -131,6 +135,18 @@
 {
   CGSize cellSize = CGSizeMake(CELL_WIDTH, CELL_HEIGHT);
   return cellSize;
+}
+
+#pragma mark Gesture recognizer
+
+- (void)panGestureRecognized:(UIPanGestureRecognizer *)sender
+{
+  // Dismiss keyboard (optional)
+  [self.view endEditing:YES];
+  [self.frostedViewController.view endEditing:YES];
+  
+  // Present the view controller
+  [self.frostedViewController panGestureRecognized:sender];
 }
 
 @end
