@@ -20,7 +20,7 @@
 
 - (void)configTableHeaderView
 {
-  UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, HEADER_HEIGHT)];
+  UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0)];
   
   // avatar
   UIImageView *avatarView = [[UIImageView alloc] initWithFrame:AVATAR_RECT];
@@ -77,6 +77,10 @@
   [headerView addSubview:avatarView];
   [headerView addSubview:nameLabel];
   
+  CGRect headerRect = headerView.frame;
+  headerRect.size.height = nameLabel.frame.origin.y + nameLabel.frame.size.height + HEADER_BOTTOM_MARGIN;;
+  [headerView setFrame:headerRect];
+
   self.tableView.tableHeaderView = headerView;
 }
 

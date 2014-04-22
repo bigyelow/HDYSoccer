@@ -22,6 +22,8 @@
 #define NAME_LABEL_FONT ([UIFont fontWithName:@"HelveticaNeue" size:15])
 #define NAME_LABEL_FONT_COLOR ([UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f])
 
+#define HEADER_BOTTOM_MARGIN 10.0f
+
 // header - short introduction
 #define INTER_ROW_SPACE 10.0f
 #define SHORT_INTRO_FONT ([UIFont fontWithName:@"HelveticaNeue" size:12])
@@ -33,5 +35,8 @@
 #define CHARACTER_TITLE @"特点 - %@"
 
 #define POSITION_TITLE @"位置 - %@"
+
+// cell
+#define CELL_IDENTIFIER @"geeker_cell"
 
 #endif
