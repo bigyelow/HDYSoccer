@@ -16,8 +16,14 @@
 {
   // config segment view
   CGRect segmentRect = CGRectMake(0, 0, self.view.bounds.size.width, 0);
-  UIView *segmentView = [[UIView alloc] initWithFrame:segmentRect];
+  UIView *segmentView = [[UIView alloc] initForAutoLayout];
+  [self.view addSubview:segmentView];
+  [segmentView autoSetDimensionsToSize:segmentRect.size];
+  [segmentView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+  [segmentView autoAlignAxisToSuperviewAxis:ALAxisVertical];
   
+  
+  // segControl
   self.segControl = [[UISegmentedControl alloc] initWithItems:@[SEGMENT_ITEM_FRIENDS, SEGMENT_ITEM_SUPERIOR, SEGMENT_ITEM_TEAM]];
   for (NSInteger index = 0; index < self.segControl.numberOfSegments; ++index) {
     [self.segControl setWidth:SEGMENT_ITEM_WIDTH forSegmentAtIndex:index];
@@ -28,20 +34,16 @@
   segControlRect.origin.y = SEGMENT_CONTROL_TOP_MARGIN;
   [self.segControl setFrame:segControlRect];
   
-  segmentRect.size.height = self.segControl.frame.size.height
-  + SEGMENT_CONTROL_TOP_MARGIN
-  + SEGMENT_CONTROL_BOTTOM_MARGIN;
-  [segmentView setFrame:segmentRect];
-  
   [UIConfiguration moveSubviewXToSuperviewCenter:self.view subview:self.segControl];
   [segmentView addSubview:self.segControl];
   
   // update tableview frame
+  segmentRect.size.height = self.segControl.frame.size.height
+  + SEGMENT_CONTROL_TOP_MARGIN
+  + SEGMENT_CONTROL_BOTTOM_MARGIN;
   CGRect tableRect = self.tableView.frame;
   tableRect.origin.y += segmentRect.size.height;
   tableRect.size.height -= segmentRect.size.height;
   self.tableView.frame = tableRect;
-  
-  [self.view addSubview:segmentView];
 }
 @end

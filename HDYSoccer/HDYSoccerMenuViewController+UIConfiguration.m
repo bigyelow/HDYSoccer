@@ -25,7 +25,7 @@
   [view addSubview:imageView];
   [imageView autoSetDimensionsToSize:CGSizeMake(100, 100)];
   [imageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:40.0f];
-  [imageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:90.0f];
+  [imageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
   
   imageView.image = [UIImage imageNamed:@"bigyelow_avatar.jpg"];
   imageView.layer.masksToBounds = YES;
@@ -41,7 +41,7 @@
   [view addSubview:label];
   [label autoSetDimension:ALDimensionHeight toSize:24];
   [label autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:150.0f];
-  [label autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:90.0f];
+  [label autoAlignAxisToSuperviewAxis:ALAxisVertical];
   
   label.text = @"Bigyelow";
   label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
