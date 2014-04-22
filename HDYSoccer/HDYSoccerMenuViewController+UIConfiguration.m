@@ -19,8 +19,14 @@
 - (void)configTableHeaderView
 {
   UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
-  UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
-  imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+  
+  // image
+  UIImageView *imageView = [[UIImageView alloc] initForAutoLayout];
+  [view addSubview:imageView];
+  [imageView autoSetDimensionsToSize:CGSizeMake(100, 100)];
+  [imageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:40.0f];
+  [imageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:90.0f];
+  
   imageView.image = [UIImage imageNamed:@"bigyelow_avatar.jpg"];
   imageView.layer.masksToBounds = YES;
   imageView.layer.cornerRadius = 50.0;
@@ -30,16 +36,17 @@
   imageView.layer.shouldRasterize = YES;
   imageView.clipsToBounds = YES;
   
-  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
+  // lable
+  UILabel *label = [[UILabel alloc] initForAutoLayout];
+  [view addSubview:label];
+  [label autoSetDimension:ALDimensionHeight toSize:24];
+  [label autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:150.0f];
+  [label autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:90.0f];
+  
   label.text = @"Bigyelow";
   label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
   label.backgroundColor = [UIColor clearColor];
   label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
-  [label sizeToFit];
-  label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-  
-  [view addSubview:imageView];
-  [view addSubview:label];
   
   self.tableView.tableHeaderView = view;
 }

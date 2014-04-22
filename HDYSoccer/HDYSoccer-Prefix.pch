@@ -17,4 +17,5 @@
   // Self Defined Files
   #import "ProjectCandy.h"
   #import "AppContext.h"
+  #import "UIView+AutoLayout.h"
 #endif
