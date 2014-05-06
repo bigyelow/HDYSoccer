@@ -7,12 +7,12 @@
 //
 
 #import "JSONModel.h"
-#import "TeamScore.h"
+@class TeamScoreCollection;
 
 @interface TeamScoreTable : JSONModel
 
 @property (nonatomic, copy, readonly) NSString *results;
-@property (nonatomic, strong, readonly) TeamScore *homeTeamScore;
-@property (nonatomic, strong, readonly) TeamScore *visitTeamScore;
+@property (nonatomic, strong, readonly) TeamScoreCollection *homeTeamScore;
+@property (nonatomic, strong, readonly) TeamScoreCollection *visitTeamScore;
 
 @end

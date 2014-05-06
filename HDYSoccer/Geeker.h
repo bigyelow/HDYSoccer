@@ -7,6 +7,7 @@
 //
 
 #import "JSONModel.h"
+@class GeekerAbility;
 
 @interface Geeker : JSONModel
 
@@ -18,5 +19,6 @@
 @property (nonatomic, copy, readonly) NSString *character;
 @property (nonatomic, strong, readonly) NSArray *recentStatusScore;
 @property (nonatomic, copy, readonly) NSString *status;
+@property (nonatomic, strong, readonly) GeekerAbility *geekerAbility;
 
 @end

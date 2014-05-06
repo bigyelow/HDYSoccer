@@ -8,6 +8,10 @@
 
 #import "JSONModel.h"
 
+@protocol SimpleGeekerInfo
+
+@end
+
 @interface SimpleGeekerInfo : JSONModel
 
 @property (nonatomic, copy, readonly) NSString *geekerID;

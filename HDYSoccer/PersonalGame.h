@@ -7,6 +7,7 @@
 //
 
 #import "JSONModel.h"
+#import "SimpleGeekerInfo.h"
 
 @interface PersonalGame : JSONModel
 
@@ -20,6 +21,6 @@
 @property (nonatomic, copy, readonly) NSString *contact;
 @property (nonatomic, copy, readonly) NSString *remark;
 @property (nonatomic, copy, readonly) NSString *averageScore;
-@property (nonatomic, strong, readonly) NSArray *participants;
+@property (nonatomic, strong, readonly) NSArray<SimpleGeekerInfo> *participants;
 
 @end

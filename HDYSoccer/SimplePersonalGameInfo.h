@@ -8,6 +8,9 @@
 
 #import "JSONModel.h"
 
+@protocol SimplePersonalGameInfo
+@end
+
 @interface SimplePersonalGameInfo : JSONModel
 
 @property (nonatomic, copy, readonly) NSString *personalGameID;

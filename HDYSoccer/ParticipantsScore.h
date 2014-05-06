@@ -7,7 +7,12 @@
 //
 
 #import "JSONModel.h"
-#import "GeekerAbility.h"
+@class GeekerAbility;
+
+@protocol ParticipantsScore
+
+
+@end
 
 @interface ParticipantsScore : JSONModel
 
