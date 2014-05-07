@@ -11,6 +11,7 @@
 
 @interface Location : JSONModel
 
+@property (nonatomic, assign) BOOL locateAllowed;
 @property (nonatomic, copy) NSString *latitude;
 @property (nonatomic, copy) NSString *lontitude;
 @property (nonatomic, copy) NSString *city;

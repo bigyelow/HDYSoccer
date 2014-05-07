@@ -18,4 +18,5 @@
   #import "ProjectCandy.h"
   #import "AppContext.h"
   #import "UIView+AutoLayout.h"
+  #import "TextMacro.h"
 #endif

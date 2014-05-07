@@ -9,5 +9,6 @@
 #ifndef HDYSoccer_TextMacro_h
 #define HDYSoccer_TextMacro_h
 
+#define TEXT_CITY @"市"
 
 #endif
