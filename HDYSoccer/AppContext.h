@@ -7,9 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#define APP_DELEGATE  ((AppDelegate *)[UIApplication sharedApplication].delegate)
+#import "Location.h"
+#import "Authorization.h"
 
 @interface AppContext : NSObject
 
+@property (nonatomic, strong) Authorization *auth;
+@property (nonatomic, strong) Location *location;
+@property (nonatomic, assign) BOOL isLogin;
+@property (nonatomic, copy) NSString *appVersion;
+
+- (void)synchronize;
++ (AppContext *)appContext;
 @end
