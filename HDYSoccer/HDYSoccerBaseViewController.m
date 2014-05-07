@@ -8,6 +8,7 @@
 
 #import "HDYSoccerBaseViewController.h"
 #import "AppDelegate.h"
+#import "HDYSoccerAPIClient.h"
 
 @interface HDYSoccerBaseViewController ()
 
@@ -49,6 +50,23 @@
 {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - API Client
+- (HDYSoccerAPIClient *)httpClient
+{
+  if (!_httpClient) {
+    _httpClient = [HDYSoccerAPIClient newHttpClient];
+  }
+  return _httpClient;
+}
+
+- (HDYSoccerAPIClient *)httpsClient
+{
+  if (!_httpsClient) {
+    _httpsClient = [HDYSoccerAPIClient newHttpsClient];
+  }
+  return _httpsClient;
 }
 
 @end

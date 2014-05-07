@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class HDYSoccerAPIClient;
 
 @interface HDYSoccerBaseViewController : UIViewController
+
+@property (nonatomic, strong) HDYSoccerAPIClient *httpClient;
+@property (nonatomic, strong) HDYSoccerAPIClient *httpsClient;
 
 @end
