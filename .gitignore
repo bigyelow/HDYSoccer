@@ -13,6 +13,7 @@ xcuserdata
 profile
 *.moved-aside
 .DS_Store
+*.xcscheme
 
 # package & UItest
 DoubanMovie/build/*
