@@ -8,11 +8,15 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+Setup.h"
+#import "AppDelegate+Configuration.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [self configStandardsDefaults];
+  [self configLocation];
+  
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   
   [self loadFrostedView];
