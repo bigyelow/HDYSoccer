@@ -14,5 +14,14 @@
 @property (nonatomic, assign) UITableViewStyle style;
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, assign) BOOL enableTopPullToRefresh;
+@property (nonatomic, assign) BOOL enableBottomPullToLoadMore;
+
 - (id)initWithStyle:(UITableViewStyle)style;
+
+#pragma mark - pull to refresh and load more
+- (void)setEnableTopPullToRefresh:(BOOL)enableTopPullToRefresh
+                    actionHandler:(void (^)(void))actionHandler;
+- (void)setEnableBottomPullToLoadMore:(BOOL)enableBottomPullToLoadMore
+                        actionHandler:(void (^)(void))actionHandler;
 @end

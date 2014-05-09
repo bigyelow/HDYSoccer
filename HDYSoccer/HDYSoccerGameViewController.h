@@ -12,6 +12,6 @@
 @interface HDYSoccerGameViewController : UIViewController
 <UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout>
 
-@property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end

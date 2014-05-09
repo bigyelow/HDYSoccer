@@ -13,6 +13,8 @@
 #import "HDYSoccerGameFooter.h"
 #import "AppDelegate.h"
 
+#import "SVPullToRefresh.h"
+
 @interface HDYSoccerGameViewController ()
 
 @end
@@ -37,6 +39,8 @@
   
   [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(panGestureRecognized:)]];
+  
+  [self configPullToRefreshAndLoadMore];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -62,6 +66,14 @@
 {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - pull to refresh and load more
+- (void)configPullToRefreshAndLoadMore
+{
+  [self.collectionView addInfiniteScrollingWithActionHandler:^{
+    
+  }];
 }
 
 #pragma mark - uiconfiguration
