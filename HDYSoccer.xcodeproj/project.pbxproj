@@ -480,14 +480,14 @@
 		71CB8C4A18E0333F0073E913 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				7194331D1919E81E009BA1D6 /* App */,
-				719432EA191783B0009BA1D6 /* APIClients */,
 				71CB8C4D18E0346B0073E913 /* ProjectCandy.h */,
 				71CB8C8018E18B960073E913 /* TextMacro.h */,
 				71568A1118E3EB2600518C7D /* UIConfiguration.h */,
 				71568A1218E3EB2600518C7D /* UIConfiguration.m */,
 				715AD73518E66BAB0068E6E1 /* UIConfiguration+Color.h */,
 				715AD73618E66BAB0068E6E1 /* UIConfiguration+Color.m */,
+				7194331D1919E81E009BA1D6 /* App */,
+				719432EA191783B0009BA1D6 /* APIClients */,
 			);
 			name = Utility;
 			sourceTree = "<group>";

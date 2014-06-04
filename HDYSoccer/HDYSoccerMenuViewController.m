@@ -110,7 +110,7 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
   }
   
-  NSArray *titles = @[CELL_TITLE_PLAYER, CELL_TITLE_PLAY, CELL_TITLE_STADUM, CELL_TITLE_TACTICAL_BOARD];
+  NSArray *titles = @[CELL_TITLE_PLAY, CELL_TITLE_PLAYER, CELL_TITLE_STADUM, CELL_TITLE_TACTICAL_BOARD];
   cell.textLabel.text = titles[indexPath.row];
   
   return cell;
@@ -118,16 +118,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  
   switch (indexPath.section) {
     case 0:
       switch (indexPath.row) {
         case 0: {
-          self.frostedViewController.contentViewController = APP_DELEGATE.geekerNav;
+          self.frostedViewController.contentViewController = APP_DELEGATE.gameNav;
         }
           break;
           
         case 1:{
-          self.frostedViewController.contentViewController = APP_DELEGATE.gameNav;
+          self.frostedViewController.contentViewController = APP_DELEGATE.geekerNav;
         }
           break;
           

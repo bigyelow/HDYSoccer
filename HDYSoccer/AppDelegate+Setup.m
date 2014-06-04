@@ -42,7 +42,7 @@
   
   // Create frosted view controller
   HDYSoccerMenuViewController *menuController = [[HDYSoccerMenuViewController alloc] initWithStyle:UITableViewStylePlain];
-  REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:self.geekerNav
+  REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:self.gameNav
                                                                                                menuViewController:menuController];
   frostedViewController.direction = REFrostedViewControllerDirectionLeft;
   frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
