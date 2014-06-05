@@ -52,19 +52,25 @@
 - (AFHTTPRequestOperationManager *)operationManager
 {
   if (!_operationManager) {
+    _operationManager  = [[AFHTTPRequestOperationManager alloc] init];
     [_operationManager.requestSerializer setValue:_headerAccept forHTTPHeaderField:@"Accept"];
     [_operationManager.requestSerializer setValue:[self headerUserAgent] forHTTPHeaderField:@"UserAgent"];
   }
   
-  [self updateOperationManagerAuth];
+#warning only set YES when debuging, should change it to NO later
+  [self updateOperationManagerAuth:YES];
   
   return _operationManager;
 }
 
-- (void)updateOperationManagerAuth
+- (void)updateOperationManagerAuth:(BOOL)allowInvalidCert
 {
   if ([_baseURL hasPrefix:@"https"]) {
-    [_operationManager.requestSerializer setValue:[AppContext appContext].auth.accessToken forKey:@"Authorization"];
+    [_operationManager.requestSerializer setValue:[AppContext appContext].auth.accessToken forHTTPHeaderField:@"Authorization"];
+    
+    AFSecurityPolicy *policy = [[AFSecurityPolicy alloc] init];
+    [policy setAllowInvalidCertificates:allowInvalidCert];
+    _operationManager.securityPolicy = policy;
   }
 }
 

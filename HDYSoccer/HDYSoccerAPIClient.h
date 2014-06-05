@@ -12,6 +12,7 @@
 @class AFHTTPRequestOperationManager;
 
 typedef void (^SucceededGettingDictionaryBlock)(NSDictionary *dictionary);
+typedef void (^SucceededGettingJsonStringBlock)(NSString *jsonString);
 typedef void (^FailedBlock)(HDYSoccerAPIError * error);
 
 @interface HDYSoccerAPIClient : NSObject

@@ -14,8 +14,8 @@
 #define REDIRECT_URL @""
 
 // url
-#define API_HTTP_BASE_URL @""
-#define API_HTTPS_BASE_URL @""
+#define API_HTTP_BASE_URL @"http://mock.qa-dev.intra.douban.com/prototest/"
+#define API_HTTPS_BASE_URL @"https://mock.qa-dev.intra.douban.com/prototest/"
 
 @interface HDYSoccerAPIClientParams : NSObject
 
