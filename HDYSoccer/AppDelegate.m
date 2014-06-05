@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Setup.h"
 #import "AppDelegate+Configuration.h"
+#import "AppDelegate+LogicTest.h"
 
 @implementation AppDelegate
 
@@ -23,6 +24,11 @@
   
   self.window.backgroundColor = [UIColor whiteColor];
   [self.window makeKeyAndVisible];
+  
+  // api test
+  [self testRegister];
+  [self testLogin];
+  
   return YES;
 }
 
