@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HDYSoccerBaseViewController.h"
 #import "CHTCollectionViewWaterfallLayout.h"
 
-@interface HDYSoccerGameViewController : UIViewController
+@interface HDYSoccerGameViewController : HDYSoccerBaseViewController
 <UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;

@@ -12,4 +12,5 @@
 
 - (void)testRegister;
 - (void)testLogin;
+- (void)testLogout;
 @end

@@ -24,6 +24,9 @@
                   succeeded:(SucceededGettingDictionaryBlock)succeeded
                      failed:(FailedBlock)failed
 {
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
   NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
                                     [HDYSoccerAPIClient defaultParameters]];
   [parameter setObject:type forKey:@"type"];
@@ -52,6 +55,9 @@
                     succeeded:(SucceededGettingDictionaryBlock)succeeded
                        failed:(FailedBlock)failed
 {
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
   NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
                                     [HDYSoccerAPIClient defaultParameters]];
 
