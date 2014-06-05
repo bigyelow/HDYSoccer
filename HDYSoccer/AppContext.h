@@ -18,5 +18,7 @@
 @property (nonatomic, copy) NSString *appVersion;
 
 - (void)synchronize;
+- (void)updateInfoWithAuth:(Authorization *)auth;
+- (void)clearInfo;
 + (AppContext *)appContext;
 @end

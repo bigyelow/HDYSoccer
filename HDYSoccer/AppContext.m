@@ -53,6 +53,20 @@ static AppContext *sharedInstance = nil;
 //  }
 }
 
+- (void)updateInfoWithAuth:(Authorization *)auth
+{
+  self.auth = auth;
+  self.isLogin = YES;
+  [self synchronize];
+}
+
+- (void)clearInfo
+{
+  self.auth = nil;
+  self.isLogin = NO;
+  [self synchronize];
+}
+
 - (void)synchronize
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
