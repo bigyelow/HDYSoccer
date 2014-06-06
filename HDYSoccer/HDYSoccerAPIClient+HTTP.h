@@ -10,4 +10,13 @@
 
 @interface HDYSoccerAPIClient (HTTP)
 
+- (void)getGameListWithType:(NSString *)type
+                   latitude:(NSString *)latitude
+                 longtitude:(NSString *)longtitude
+                       time:(NSString *)time
+                      field:(NSString *)field
+                      start:(NSInteger)start
+                      count:(NSInteger)count
+                  succeeded:(SucceededGettingDictionaryBlock)succeeded
+                     failed:(FailedBlock)failed;
 @end

@@ -16,7 +16,7 @@
 - (void)registerWithEmail:(NSString *)email
                     phone:(NSString *)phone
                  password:(NSString *)psw
-                succeeded:(SucceededGettingJsonStringBlock)succeeded
+                succeeded:(SucceededGettingDictionaryBlock)succeeded
                    failed:(FailedBlock)failed
 {
   NSParameterAssert(succeeded != NULL);
@@ -32,7 +32,9 @@
   [self.operationManager POST:path
                    parameters:parameter
                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                        succeeded(operation.responseString);
+                        NSDictionary *resultDic = responseObject;
+                        succeeded(resultDic);
+                        
                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                         HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
                         failed(hdyApiError);
@@ -41,7 +43,7 @@
 
 - (void)loginWithUserName:(NSString *)name
                    passwd:(NSString *)psw
-                succeeded:(SucceededGettingJsonStringBlock)succeeded
+                succeeded:(SucceededGettingDictionaryBlock)succeeded
                    failed:(FailedBlock)failed
 {
   NSParameterAssert(succeeded != NULL);
@@ -56,7 +58,9 @@
   [self.operationManager POST:path
                    parameters:path
                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                        succeeded(operation.responseString);
+                        NSDictionary *resultDic = responseObject;
+                        succeeded(resultDic);
+                        
                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                         HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
                         failed(hdyApiError);

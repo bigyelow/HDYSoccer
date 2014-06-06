@@ -30,21 +30,34 @@
   NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
                                     [HDYSoccerAPIClient defaultParameters]];
   [parameter setObject:type forKey:@"type"];
-  [parameter setObject:latitude forKey:@"lat"];
-  [parameter setObject:longtitude forKey:@"log"];
   [parameter setObject:time forKey:@"time"];
   [parameter setObject:field forKey:@"field"];
   [parameter setObject:[NSNumber numberWithInteger:start] forKey:@"start"];
   [parameter setObject:[NSNumber numberWithInteger:count] forKey:@"count"];
+  if (latitude) {
+    [parameter setObject:latitude forKey:@"lat"];
+  }
+  if (longtitude) {
+    [parameter setObject:longtitude forKey:@"log"];
+  }
   
   NSString *path = [self pathWithSubpath:@"game/game_list"];
+  
   [self.operationManager GET:path
                   parameters:parameter
                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                    NSDictionary *resultDic = (NSDictionary *)responseObject;
-                    succeeded(resultDic);
-                  }
-                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       NSDictionary *dic = responseObject;
+                       NSArray *list = [dic objectForKey:@"game_list"];
+                       NSMutableArray *tempArray = [NSMutableArray array];
+                       for (NSDictionary *gameDic in list) {
+                         SimplePersonalGameInfo *simpleGameInfo = [SimplePersonalGameInfo objectWithDictionary:gameDic];
+                         [tempArray addObject:simpleGameInfo];
+                       }
+                       NSMutableDictionary *tempDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+                       [tempDic setObject:tempArray forKey:@"game_list"];
+                       succeeded(tempDic);
+                       
+                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
 #warning todo - implement failed method
                     failed(hdyApiError);

@@ -14,10 +14,10 @@
 - (void)registerWithEmail:(NSString *)email
                     phone:(NSString *)phone
                  password:(NSString *)psw
-                succeeded:(SucceededGettingJsonStringBlock)succeeded
+                succeeded:(SucceededGettingDictionaryBlock)succeeded
                    failed:(FailedBlock)failed;
 - (void)loginWithUserName:(NSString *)name
                    passwd:(NSString *)psw
-                succeeded:(SucceededGettingJsonStringBlock)succeeded
+                succeeded:(SucceededGettingDictionaryBlock)succeeded
                    failed:(FailedBlock)failed;
 @end
