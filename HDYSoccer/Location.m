@@ -10,4 +10,25 @@
 
 @implementation Location
 
+- (BOOL)locateAllowed
+{
+  NSNumber *locateAllowed = [self.dictionary objectForKey:@"locate_allowed"];
+  return locateAllowed.boolValue;
+}
+
+- (NSString *)latitude
+{
+  return [self.dictionary objectForKey:@"latitude"];
+}
+
+- (NSString *)longtitude
+{
+  return [self.dictionary objectForKey:@"longtitude"];
+}
+
+- (NSString *)city
+{
+  return [self.dictionary objectForKey:@"city"];
+}
+
 @end

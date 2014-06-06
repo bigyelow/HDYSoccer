@@ -10,4 +10,8 @@
 
 @implementation PersonalGameList
 
+- (SimplePersonalGameInfo *)gameList
+{
+  return [self.dictionary objectForKey:@"game_list"];
+}
 @end

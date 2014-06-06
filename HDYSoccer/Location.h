@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSONModel.h"
+#import "BaseObject.h"
 
-@interface Location : JSONModel
+@interface Location : BaseObject
 
 @property (nonatomic, assign) BOOL locateAllowed;
 @property (nonatomic, copy) NSString *latitude;
-@property (nonatomic, copy) NSString *lontitude;
+@property (nonatomic, copy) NSString *longtitude;
 @property (nonatomic, copy) NSString *city;
 
 @end

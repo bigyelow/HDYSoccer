@@ -10,15 +10,29 @@
 
 @implementation Authorization
 
-+(JSONKeyMapper*)keyMapper
+- (NSString *)accessToken
 {
-  return [[JSONKeyMapper alloc] initWithDictionary:@{
-                                                     @"access_token": @"accessToken",
-                                                     @"refresh_token": @"refreshToken",
-                                                     @"expire_in": @"expireIn",
-                                                     @"user_id": @"userID",
-                                                     @"user_name": @"userName"
-                                                     }];
+  return [self.dictionary objectForKey:@"access_token"];
+}
+
+- (NSString *)refreshToken
+{
+  return [self.dictionary objectForKey:@"refresh_token"];
+}
+
+- (NSString *)expireIn
+{
+  return [self.dictionary objectForKey:@"expire_in"];
+}
+
+- (NSString *)userID
+{
+  return [self.dictionary objectForKey:@"user_id"];
+}
+
+- (NSString *)userName
+{
+  return [self.dictionary objectForKey:@"user_name"];
 }
 
 @end

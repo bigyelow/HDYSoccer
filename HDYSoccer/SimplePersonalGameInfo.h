@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "BaseObject.h"
 
 @protocol SimplePersonalGameInfo
 @end
 
-@interface SimplePersonalGameInfo : JSONModel
+@interface SimplePersonalGameInfo : BaseObject
 
 @property (nonatomic, copy, readonly) NSString *personalGameID;
 @property (nonatomic, copy, readonly) NSString *avatarURL;
