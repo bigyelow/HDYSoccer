@@ -58,17 +58,18 @@
   __weak typeof(self) weakSelf = self;
   [collectionView addPullToRefreshWithActionHandler:^{
     NSInteger segIndex = weakSelf.segControl.selectedSegmentIndex;
+    BOOL refreshing = [weakSelf getRefreshingIndex:segIndex];
     BOOL loadingMore = [weakSelf getLoadingMoreIndex:segIndex];
 
-    if (!loadingMore) {
+    if (!loadingMore && !refreshing) {
       [weakSelf setRefreshingValueIndex:segIndex refreshing:YES];
       [weakSelf.filterItem setEnabled:NO];
       
-      NSString *time = @"";
-      NSString *field = @"";
+      NSDate *time = [weakSelf getFilterParamTime:segIndex];
+      NSString *field = [weakSelf getFilterParamField:segIndex];
       NSInteger start = 0;
       [weakSelf loadGameListWithSegIndex:segIndex
-                                    time:time
+                                    time:[Tools dateminuteToStr:time preferUTC:NO]
                                    field:field
                                    start:start];
     }
@@ -78,16 +79,17 @@
   [collectionView addInfiniteScrollingWithActionHandler:^{
     NSInteger segIndex = weakSelf.segControl.selectedSegmentIndex;
     BOOL refreshing = [weakSelf getRefreshingIndex:segIndex];
+    BOOL loadingMore = [weakSelf getLoadingMoreIndex:segIndex];
     
-    if (!refreshing) {
+    if (!refreshing && !loadingMore) {
       [weakSelf setLoadingMoreValueIndex:segIndex loadingMore:YES];
       [weakSelf.filterItem setEnabled:NO];
       
-      NSString *time = @"";
-      NSString *field = @"";
+      NSDate *time = [weakSelf getFilterParamTime:segIndex];
+      NSString *field = [weakSelf getFilterParamField:segIndex];
       NSInteger start = [[weakSelf getGameListIndex:segIndex] count];
       [weakSelf loadMoreGameListWithSegIndex:segIndex
-                                        time:time
+                                        time:[Tools dateminuteToStr:time preferUTC:NO]
                                        field:field
                                        start:start];
     }
@@ -136,16 +138,25 @@
 #define PARAM_GAMELIST @"gameList"
 #define PARAM_REFRESHING @"refreshing"
 #define PARAM_LOADING_MORE @"loadingMore"
+#define PARAM_FILTER_LIMIT_TIME @"filterTime"
+#define PARAM_FILTER_LIMIT_FIELD @"filterField"
 
 - (void)initCollectionViewParams
 {
   NSMutableArray *tempArray = [NSMutableArray array];
   for (int i = 0; i < [self.collectionViewArray count]; ++i) {
     NSMutableDictionary *tempDic = [NSMutableDictionary dictionary];
-    [tempDic setObject:[NSNumber numberWithBool:NO] forKey:PARAM_LOADED_ONCE];
+    // collection view datasource
     [tempDic setObject:[NSMutableArray array] forKey:PARAM_GAMELIST];
+
+    // collection view load status
+    [tempDic setObject:[NSNumber numberWithBool:NO] forKey:PARAM_LOADED_ONCE];
     [tempDic setObject:[NSNumber numberWithBool:NO] forKey:PARAM_REFRESHING];
     [tempDic setObject:[NSNumber numberWithBool:NO] forKey:PARAM_LOADING_MORE];
+    
+    // collection view filter params
+    [tempDic setObject:[NSDate date] forKey:PARAM_FILTER_LIMIT_TIME];
+    [tempDic setObject:@"" forKey:PARAM_FILTER_LIMIT_FIELD];
     
     [tempArray addObject:tempDic];
   }
@@ -212,6 +223,34 @@
 {
   NSMutableDictionary *dic = self.collectionViewParams[index];
   [dic setObject:[NSNumber numberWithBool:loadingMore] forKey:PARAM_LOADING_MORE];
+}
+
+// filter time
+- (NSDate *)getFilterParamTime:(NSInteger)index
+{
+  NSMutableDictionary *dic = self.collectionViewParams[index];
+  return [dic objectForKey:PARAM_FILTER_LIMIT_TIME];
+}
+
+- (void)setfilterParam:(NSInteger)index
+                  date:(NSDate *)date
+{
+  NSMutableDictionary *dic = self.collectionViewParams[index];
+  [dic setObject:date forKey:PARAM_FILTER_LIMIT_TIME];
+}
+
+// filter field
+- (NSString *)getFilterParamField:(NSInteger)index
+{
+  NSMutableDictionary *dic = self.collectionViewParams[index];
+  return [dic objectForKey:PARAM_FILTER_LIMIT_FIELD];
+}
+
+- (void)setfilterParam:(NSInteger)index
+                 field:(NSString *)field
+{
+  NSMutableDictionary *dic = self.collectionViewParams[index];
+  [dic setObject:field forKey:PARAM_FILTER_LIMIT_FIELD];
 }
 
 @end

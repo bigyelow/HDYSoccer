@@ -31,4 +31,12 @@
 - (BOOL)getLoadingMoreIndex:(NSInteger)index;
 - (void)setLoadingMoreValueIndex:(NSInteger)index
                      loadingMore:(BOOL)loadingMore;
+
+- (NSDate *)getFilterParamTime:(NSInteger)index;
+- (void)setfilterParam:(NSInteger)index
+                  date:(NSDate *)date;
+
+- (NSString *)getFilterParamField:(NSInteger)index;
+- (void)setfilterParam:(NSInteger)index
+                 field:(NSString *)field;
 @end
