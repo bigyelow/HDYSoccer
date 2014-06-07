@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^performBlock)();
+
 @interface Tools : NSObject
+
+// perform
++ (void)performAfterDelay:(double)delayInSeconds
+                    block:(performBlock)block;
 
 // date
 + (NSDate*) strToDate:(NSString*)dateStr preferUTC:(BOOL)isUTC;

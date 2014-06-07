@@ -10,6 +10,17 @@
 
 @implementation Tools
 
+#pragma mark - perform delay
++ (void)performAfterDelay:(double)delayInSeconds
+                    block:(performBlock)block
+
+{
+  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    block();
+  });
+}
+
 #pragma mark - date
 NSString* const kUTCDatetimeFormat = @"yyyy-MM-dd'T'HH:mm:ssz";
 NSString* const kDefaultDatetimeFormat = @"yyyy-MM-dd HH:mm:ss";
