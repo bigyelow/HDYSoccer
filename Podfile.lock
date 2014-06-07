@@ -61,6 +61,7 @@ PODS:
     - SDWebImage (~> 3.5.4)
   - PSTCollectionView (1.2.0)
   - REFrostedViewController (2.4.5)
+  - RMDateSelectionViewController (1.2.1)
   - SDWebImage (3.5.4):
     - SDWebImage/Core
   - SDWebImage/Core (3.5.4)
@@ -75,23 +76,25 @@ DEPENDENCIES:
   - MRProgress (~> 0.4.3)
   - MWPhotoBrowser (~> 1.4.0)
   - REFrostedViewController (~> 2.4.5)
+  - RMDateSelectionViewController (~> 1.2.1)
   - SDWebImage (~> 3.5.4)
   - SVPullToRefresh (~> 0.4.1)
   - UIView+AutoLayout (~> 1.3.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
-  AMWaveTransition: 64341cb180c9d4b399f40aeb5f8c8da7043140e6
-  CHTCollectionViewWaterfallLayout: accc91bfcd82710e44025d48961b79473d84375a
-  DACircularProgress: 659d6fd11b5fc099c13ba9350239d9dca324916a
-  JSONModel: 1ce27c7d59de0ada0048e64f20006ce02e9ce73d
-  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  MRProgress: c04ecd74ba9ad5a32f9188014db20554dd74eba9
-  MWPhotoBrowser: b85e89fcf0575062f32c472d389265dce1f068e1
-  PSTCollectionView: fb2ad2790c6efa306b2caf10315b2c1464d1f5c6
-  REFrostedViewController: ab017bbd8d8ab3b23615ef308707711d8576999b
-  SDWebImage: 1a62010700adbba823b621fc217906739dbf6aa5
-  SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
-  UIView+AutoLayout: 43373a18797954fd8ee3b1423af364f1b80a2af8
+  AFNetworking: 47947303319594706f48a55185ea95a95159ab94
+  AMWaveTransition: 270b861311986502563b41edb9923b22a73d8e13
+  CHTCollectionViewWaterfallLayout: 849ae31d979db744b5170e48bcf3e7e726f5d682
+  DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
+  JSONModel: 62ea96b49ea18a8b91ef89c249dba291d8601d82
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+  MRProgress: e588fb8d0fba293715eaf0e485dd8402f4ce1de6
+  MWPhotoBrowser: 4efcdb9da34751f97992128a5356f3929d1af537
+  PSTCollectionView: e82c1a71ec6469f88490b674c0f66f0bbf1de001
+  REFrostedViewController: 93c85bf09c95c8166fc5314aa6811fb33611afb7
+  RMDateSelectionViewController: f633c22b50c35ab1e7dc3178e790842569fbf92a
+  SDWebImage: 571295c8acbb699505a0f68e54506147c3de9ea7
+  SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
+  UIView+AutoLayout: dc24ec6114498617510af759148a05b957af1b38
 
 COCOAPODS: 0.32.1
