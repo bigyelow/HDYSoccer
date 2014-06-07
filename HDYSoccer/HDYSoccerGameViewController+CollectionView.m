@@ -54,25 +54,64 @@
   [collectionView registerClass:[HDYSoccerGameCell class]
      forCellWithReuseIdentifier:GAME_CELL_IDENTIFIER];
   
+  // pull to refresh
   __weak typeof(self) weakSelf = self;
   [collectionView addPullToRefreshWithActionHandler:^{
-    NSString *time = @"";
-    NSString *field = @"";
-    NSInteger start = 0;
-    [weakSelf loadGameListWithSegIndex:weakSelf.segControl.selectedSegmentIndex
-                                  time:time
-                                 field:field
-                                 start:start];
+    NSInteger segIndex = weakSelf.segControl.selectedSegmentIndex;
+    BOOL loadingMore = [weakSelf getLoadingMoreIndex:segIndex];
+
+    if (!loadingMore) {
+      [weakSelf setRefreshingValueIndex:segIndex refreshing:YES];
+      
+      NSString *time = @"";
+      NSString *field = @"";
+      NSInteger start = 0;
+      [weakSelf loadGameListWithSegIndex:segIndex
+                                    time:time
+                                   field:field
+                                   start:start];
+    }
   }];
   
-  
+  // load more
   [collectionView addInfiniteScrollingWithActionHandler:^{
+    NSInteger segIndex = weakSelf.segControl.selectedSegmentIndex;
+    BOOL refreshing = [weakSelf getRefreshingIndex:segIndex];
     
+    if (!refreshing) {
+      [weakSelf setLoadingMoreValueIndex:segIndex loadingMore:YES];
+      
+      NSString *time = @"";
+      NSString *field = @"";
+      NSInteger start = [[weakSelf getGameListIndex:segIndex] count];
+      [weakSelf loadMoreGameListWithSegIndex:segIndex
+                                        time:time
+                                       field:field
+                                       start:start];
+    }
   }];
   
   [self customPullToRefresh:collectionView];
   
   return collectionView;
+}
+
+#define TEXT_PULL_TO_REFRESH @"下拉刷新"
+#define TEXT_RELEASE_TO_REFRESH @"松开刷新"
+#define REFRESH_TITLE_FONT_SIZE 13.0f
+#define REFRESH_ARROW_COLOR @"#dfdfdf"
+#define REFRESH_X_PLUS 35.0f
+
+- (void)customPullToRefresh:(UIScrollView *)scrollView
+{
+  [scrollView.pullToRefreshView setTitle:TEXT_PULL_TO_REFRESH forState:SVPullToRefreshStateStopped];
+  [scrollView.pullToRefreshView setTitle:TEXT_RELEASE_TO_REFRESH forState:SVPullToRefreshStateTriggered];
+  [scrollView.pullToRefreshView.titleLabel setFont:[UIFont systemFontOfSize:REFRESH_TITLE_FONT_SIZE]];
+  
+  CGFloat centerX = scrollView.center.x + REFRESH_X_PLUS;
+  CGFloat centerY = scrollView.pullToRefreshView.center.y;
+  [scrollView.pullToRefreshView setCenter:CGPointMake(centerX, centerY)];
+  [scrollView.pullToRefreshView setArrowColor:[UIConfiguration colorForHex:REFRESH_ARROW_COLOR]];
 }
 
 - (void)updateCollecionViewDisplayWithIndex:(NSInteger)index
@@ -89,10 +128,13 @@
   }
 }
 
-#pragma mark - params
+#pragma mark - params management
 
 #define PARAM_LOADED_ONCE @"loadedOnce"
 #define PARAM_GAMELIST @"gameList"
+#define PARAM_REFRESHING @"refreshing"
+#define PARAM_LOADING_MORE @"loadingMore"
+
 - (void)initCollectionViewParams
 {
   NSMutableArray *tempArray = [NSMutableArray array];
@@ -100,6 +142,8 @@
     NSMutableDictionary *tempDic = [NSMutableDictionary dictionary];
     [tempDic setObject:[NSNumber numberWithBool:NO] forKey:PARAM_LOADED_ONCE];
     [tempDic setObject:[NSMutableArray array] forKey:PARAM_GAMELIST];
+    [tempDic setObject:[NSNumber numberWithBool:NO] forKey:PARAM_REFRESHING];
+    [tempDic setObject:[NSNumber numberWithBool:NO] forKey:PARAM_LOADING_MORE];
     
     [tempArray addObject:tempDic];
   }
@@ -138,25 +182,34 @@
   [dic setObject:[NSNumber numberWithBool:loadedOnce] forKey:PARAM_LOADED_ONCE];
 }
 
-
-#pragma mark - pull to refresh
-
-#define TEXT_PULL_TO_REFRESH @"下拉刷新"
-#define TEXT_RELEASE_TO_REFRESH @"松开刷新"
-#define REFRESH_TITLE_FONT_SIZE 13.0f
-#define REFRESH_ARROW_COLOR @"#dfdfdf"
-#define REFRESH_X_PLUS 35.0f
-
-- (void)customPullToRefresh:(UIScrollView *)scrollView
+// refreshing
+- (BOOL)getRefreshingIndex:(NSInteger)index
 {
-  [scrollView.pullToRefreshView setTitle:TEXT_PULL_TO_REFRESH forState:SVPullToRefreshStateStopped];
-  [scrollView.pullToRefreshView setTitle:TEXT_RELEASE_TO_REFRESH forState:SVPullToRefreshStateTriggered];
-  [scrollView.pullToRefreshView.titleLabel setFont:[UIFont systemFontOfSize:REFRESH_TITLE_FONT_SIZE]];
-  
-  CGFloat centerX = scrollView.center.x + REFRESH_X_PLUS;
-  CGFloat centerY = scrollView.pullToRefreshView.center.y;
-  [scrollView.pullToRefreshView setCenter:CGPointMake(centerX, centerY)];
-  [scrollView.pullToRefreshView setArrowColor:[UIConfiguration colorForHex:REFRESH_ARROW_COLOR]];
+  NSMutableDictionary *dic = self.collectionViewParams[index];
+  NSNumber *refreshing = [dic objectForKey:PARAM_REFRESHING];
+  return refreshing.boolValue;
+}
+
+- (void)setRefreshingValueIndex:(NSInteger)index
+                     refreshing:(BOOL)refreshing
+{
+  NSMutableDictionary *dic = self.collectionViewParams[index];
+  [dic setObject:[NSNumber numberWithBool:refreshing] forKey:PARAM_REFRESHING];
+}
+
+// loading more
+- (BOOL)getLoadingMoreIndex:(NSInteger)index
+{
+  NSMutableDictionary *dic = self.collectionViewParams[index];
+  NSNumber *loadingMore = [dic objectForKey:PARAM_LOADING_MORE];
+  return loadingMore.boolValue;
+}
+
+- (void)setLoadingMoreValueIndex:(NSInteger)index
+                     loadingMore:(BOOL)loadingMore
+{
+  NSMutableDictionary *dic = self.collectionViewParams[index];
+  [dic setObject:[NSNumber numberWithBool:loadingMore] forKey:PARAM_LOADING_MORE];
 }
 
 @end

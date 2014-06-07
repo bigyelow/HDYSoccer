@@ -43,13 +43,14 @@
                       // init game list for index
                       PersonalGameList *gameList = [PersonalGameList objectWithDictionary:dictionary];
                       NSArray *listArray = gameList.gameList;
-                      [weakSelf setGameListIndex:segIndex gameList:[NSMutableArray arrayWithArray:listArray]];
                       
                       // update collection view
                       UICollectionView *collectionView = weakSelf.collectionViewArray[segIndex];
                       if (listArray) {
+                        [weakSelf setGameListIndex:segIndex gameList:[NSMutableArray arrayWithArray:listArray]];
                         [collectionView reloadData];
                         
+                        // may be empty
                         if ([listArray count]) {
                           NSIndexPath *firstIndex = [NSIndexPath indexPathForItem:0 inSection:0];
                           [collectionView scrollToItemAtIndexPath:firstIndex
@@ -63,6 +64,7 @@
                       
                       // upate params
                       [weakSelf setLoadedOnceValueIndex:segIndex loadedOnce:YES];
+                      [weakSelf setRefreshingValueIndex:segIndex refreshing:NO];
                       
                     } failed:^(HDYSoccerAPIError *error) {
                       
@@ -72,6 +74,75 @@
                         [collectionView.pullToRefreshView stopAnimating];
                       }];
                       
+                      // update params
+                      [weakSelf setRefreshingValueIndex:segIndex refreshing:NO];
                     }];
+}
+
+- (void)loadMoreGameListWithSegIndex:(NSInteger)segIndex
+                                time:(NSString *)time
+                               field:(NSString *)field
+                               start:(NSInteger)start
+{
+  NSString *type = [self getSegmentTypeWithIndex:segIndex];
+  NSString *lat = [AppContext appContext].location.latitude;
+  NSString *log = [AppContext appContext].location.longtitude;
+  
+  HDYSoccerAPIClient *client = [HDYSoccerAPIClient newHttpsClient];
+  
+  __weak typeof(self) weakSelf = self;
+  
+  [client getGameListWithType:type
+                     latitude:lat
+                   longtitude:log
+                         time:time
+                        field:field
+                        start:start
+                        count:GAME_LIST_COUNT_LIMIT
+                    succeeded:^(NSDictionary *dictionary) {
+                      
+                      // update game list for index
+                      PersonalGameList *gameList = [PersonalGameList objectWithDictionary:dictionary];
+                      NSArray *listArray = gameList.gameList;
+                      
+                      // update collection view
+                      UICollectionView *collectionView = weakSelf.collectionViewArray[segIndex];
+                      if (listArray && [listArray count]) {
+                        // generate indexpaths
+                        NSMutableArray *gameList = [weakSelf getGameListIndex:segIndex];
+                        NSInteger count = [gameList count];
+                        NSMutableArray *indexPaths = [NSMutableArray array];
+                        for (int i = count; i < count + [listArray count]; i++) {
+                          [indexPaths addObject:[NSIndexPath indexPathForItem:i inSection:0]];
+                        }
+                        
+                        // add new game list
+                        [gameList addObjectsFromArray:listArray];
+                        [weakSelf setGameListIndex:segIndex gameList:gameList];
+                        
+                        // reload collection view
+                        [collectionView performBatchUpdates:^{
+                          [collectionView insertItemsAtIndexPaths:indexPaths];
+                        } completion:^(BOOL finished) {
+                          // upate params
+                          [weakSelf setLoadingMoreValueIndex:segIndex loadingMore:NO];
+                        }];
+                      }
+                      
+                      [collectionView.infiniteScrollingView stopAnimating];
+                    } failed:^(HDYSoccerAPIError *error) {
+                      
+                      // update collection view
+                      UICollectionView *collectionView = weakSelf.collectionViewArray[segIndex];
+                      [Tools performAfterDelay:STOP_PULLTOREFRESH_DELAY block:^{
+                        [collectionView.pullToRefreshView stopAnimating];
+                      }];
+                      
+                      // update params
+                      [weakSelf setLoadingMoreValueIndex:segIndex loadingMore:NO];
+                      
+                      [collectionView.infiniteScrollingView stopAnimating];
+                    }];
+
 }
 @end

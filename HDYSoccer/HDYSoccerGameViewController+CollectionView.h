@@ -24,4 +24,11 @@
 - (void)setLoadedOnceValueIndex:(NSInteger)index
                      loadedOnce:(BOOL)loadedOnce;
 
+- (BOOL)getRefreshingIndex:(NSInteger)index;
+- (void)setRefreshingValueIndex:(NSInteger)index
+                     refreshing:(BOOL)refreshing;
+
+- (BOOL)getLoadingMoreIndex:(NSInteger)index;
+- (void)setLoadingMoreValueIndex:(NSInteger)index
+                     loadingMore:(BOOL)loadingMore;
 @end

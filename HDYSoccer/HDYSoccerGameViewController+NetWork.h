@@ -14,4 +14,8 @@
                             time:(NSString *)time
                            field:(NSString *)field
                            start:(NSInteger)start;
+- (void)loadMoreGameListWithSegIndex:(NSInteger)segIndex
+                                time:(NSString *)time
+                               field:(NSString *)field
+                               start:(NSInteger)start;
 @end
