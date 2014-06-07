@@ -12,7 +12,9 @@
 #import "HDYSoccerGameHeader.h"
 #import "HDYSoccerGameFooter.h"
 #import "AppDelegate.h"
-
+#import "HDYSoccerGameViewController+CollectionView.h"
+#import "HDYSoccerGameViewController+NetWork.h"
+#import "HDYSoccerGameViewController+SegmentControl.h"
 #import "SVPullToRefresh.h"
 
 @interface HDYSoccerGameViewController ()
@@ -35,31 +37,34 @@
   [super viewDidLoad];
   [self setTitle:GAME_TITLE];
   
-  [self.view addSubview:self.collectionView];
+  [self configSegControlWithIndex:0];
   
   [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(panGestureRecognized:)]];
-  
-  [self configPullToRefreshAndLoadMore];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
-  [self updateLayoutForOrientation:[UIApplication sharedApplication].statusBarOrientation];
+  [self updateCollectionViewLayout];
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
   [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
-  [self updateLayoutForOrientation:toInterfaceOrientation];
+  [self updateCollectionViewLayout];
 }
 
-- (void)updateLayoutForOrientation:(UIInterfaceOrientation)orientation
+- (void)updateCollectionViewLayout
 {
-  CHTCollectionViewWaterfallLayout *layout =
-  (CHTCollectionViewWaterfallLayout *)self.collectionView.collectionViewLayout;
-  layout.columnCount = COLUMN_NUMBER;
+  if (self.collectionViewArray) {
+    for (int i = 0; i < [self.collectionViewArray count]; ++i) {
+      UICollectionView *collectionView = (UICollectionView *)[self.collectionViewArray objectAtIndex:i];
+      CHTCollectionViewWaterfallLayout *layout =
+      (CHTCollectionViewWaterfallLayout *)collectionView.collectionViewLayout;
+      layout.columnCount = COLUMN_NUMBER;
+    }
+  }
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,47 +73,17 @@
   // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - pull to refresh and load more
-- (void)configPullToRefreshAndLoadMore
-{
-  [self.collectionView addInfiniteScrollingWithActionHandler:^{
-    
-  }];
-}
-
-#pragma mark - uiconfiguration
-- (UICollectionView *)collectionView {
-  if (!_collectionView) {
-    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
-    
-    layout.sectionInset = SECTION_INSET;
-    layout.headerHeight = HEADER_HEIGHT;
-    layout.footerHeight = FOOTER_HEIGHT;
-    layout.minimumColumnSpacing = MINIMUM_COLUMN_SPACE;
-    layout.minimumInteritemSpacing = MINIMUM_INTERITEM_SPACE;
-    
-    _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    _collectionView.dataSource = self;
-    _collectionView.delegate = self;
-    _collectionView.backgroundColor = [UIColor whiteColor];
-    [_collectionView registerClass:[HDYSoccerGameCell class]
-        forCellWithReuseIdentifier:CELL_IDENTIFIER];
-    [_collectionView registerClass:[HDYSoccerGameHeader class]
-        forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader
-               withReuseIdentifier:HEADER_IDENTIFIER];
-    [_collectionView registerClass:[HDYSoccerGameHeader class]
-        forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter
-               withReuseIdentifier:FOOTER_IDENTIFIER];
-  }
-  return _collectionView;
-}
-
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-  return CELL_COUNT;
+  if ([self.collectionViewArray containsObject:collectionView]) {
+    NSInteger index = [self.collectionViewArray indexOfObject:collectionView];
+    NSMutableArray *list = [self getGameListIndex:index];
+    
+    return [list count];
+  }
+  return 0;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -118,28 +93,17 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  HDYSoccerGameCell *cell =
-  (HDYSoccerGameCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CELL_IDENTIFIER
-                                                                              forIndexPath:indexPath];
-  cell.displayString = [NSString stringWithFormat:@"%ld", (long)indexPath.item];
-  return cell;
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-  UICollectionReusableView *reusableView = nil;
-  
-  if ([kind isEqualToString:CHTCollectionElementKindSectionHeader]) {
-    reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                      withReuseIdentifier:HEADER_IDENTIFIER
-                                                             forIndexPath:indexPath];
-  } else if ([kind isEqualToString:CHTCollectionElementKindSectionFooter]) {
-    reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                      withReuseIdentifier:FOOTER_IDENTIFIER
-                                                             forIndexPath:indexPath];
+  HDYSoccerGameCell *cell = nil;
+  if ([self.collectionViewArray containsObject:collectionView]) {
+    NSInteger index = [self.collectionViewArray indexOfObject:collectionView];
+    NSMutableArray *list = [self getGameListIndex:index];
+    SimplePersonalGameInfo *gameInfo = list[indexPath.row];
+    
+    cell = (HDYSoccerGameCell *)[collectionView dequeueReusableCellWithReuseIdentifier:GAME_CELL_IDENTIFIER
+                                                                   forIndexPath:indexPath];
+    [cell configWithGameInfo:gameInfo];
   }
-  
-  return reusableView;
+  return cell;
 }
 
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout

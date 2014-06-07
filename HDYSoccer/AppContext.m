@@ -36,7 +36,7 @@ static AppContext *sharedInstance = nil;
 
   self.isLogin = [[defaults objectForKey:IS_LOGIN_KEY] boolValue];
   self.location.latitude = [defaults objectForKey:LATITUDE_KEY];
-  self.location.lontitude = [defaults objectForKey:LONGTITUDE_KEY];
+  self.location.longtitude = [defaults objectForKey:LONGTITUDE_KEY];
   self.auth.accessToken = [defaults objectForKey:ACCESS_TOKEN_KEY];
   self.auth.refreshToken= [defaults objectForKey:REFRESH_TOKEN_KEY];
   self.auth.userID = [defaults objectForKey:USER_ID_KEY];
@@ -78,8 +78,8 @@ static AppContext *sharedInstance = nil;
     [defaults removeObjectForKey:LATITUDE_KEY];
   }
   
-  if (self.location.lontitude) {
-    [defaults setObject:self.location.lontitude forKey:LONGTITUDE_KEY];
+  if (self.location.longtitude) {
+    [defaults setObject:self.location.longtitude forKey:LONGTITUDE_KEY];
   }
   else {
     [defaults removeObjectForKey:LONGTITUDE_KEY];

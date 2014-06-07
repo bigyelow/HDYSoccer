@@ -16,22 +16,21 @@
 #define GAME_TITLE @"约球"
 
 // layout
-#define HEADER_HEIGHT 15.0f
-#define FOOTER_HEIGHT 10.0f
+#define HEADER_HEIGHT 0.0f
+#define FOOTER_HEIGHT 0.0f
 
-#define MINIMUM_COLUMN_SPACE 10.0f
-#define MINIMUM_INTERITEM_SPACE 20.0f
+#define MINIMUM_COLUMN_SPACE 10.0f  // 列距
+#define MINIMUM_INTERITEM_SPACE 20.0f // 行距
 
-#define COLUMN_NUMBER 3
-#define SECTION_NUMBER 2
+#define COLUMN_NUMBER 2
+#define SECTION_NUMBER 1
 #define SECTION_BACKGROUND_COLOR @"#e7f9ff"
 #define SECTION_INSET (UIEdgeInsetsMake(10, 10, 10, 10))
 
 // cell
-#define CELL_IDENTIFIER @"GameCell"
-#define CELL_COUNT 30
+#define GAME_CELL_IDENTIFIER @"GameCell"
 #define CELL_HEIGHT 100.0f
-#define CELL_WIDTH 100.0f
+#define CELL_WIDTH 80.0f
 #define CELL_BACKGROUND_COLOR @"#eeeeee"
 
 #endif

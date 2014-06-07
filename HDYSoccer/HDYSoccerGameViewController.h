@@ -13,6 +13,13 @@
 @interface HDYSoccerGameViewController : HDYSoccerBaseViewController
 <UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+// segment control
+@property (nonatomic, strong) UISegmentedControl *segControl;
+
+// collection view
+@property (nonatomic, strong) NSArray *collectionViewArray;
+@property (nonatomic, strong) NSArray *collectionViewParams;
+@property (nonatomic, strong) UIView *collectionBackgroundView;
+- (void)updateCollectionViewLayout;
 
 @end

@@ -80,7 +80,7 @@
   NSString *longitude =[NSString stringWithFormat:@"%f",location.longitude];//经度
   
   [AppContext appContext].location.latitude = latitude;
-  [AppContext appContext].location.lontitude = longitude;
+  [AppContext appContext].location.longtitude = longitude;
   [AppContext appContext].location.locateAllowed = YES;
   
   if (_locationCounts > MAX_LOCATED_LIMIT) {

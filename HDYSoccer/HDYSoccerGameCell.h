@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SimplePersonalGameInfo;
 
 @interface HDYSoccerGameCell : UICollectionViewCell
 
 @property (nonatomic, copy) NSString *displayString;
 @property (nonatomic, strong) IBOutlet UILabel *displayLabel;
+
+//
+@property (nonatomic, strong) UIImageView *imageView;
+- (void)configWithGameInfo:(SimplePersonalGameInfo *)gameInfo;
 @end

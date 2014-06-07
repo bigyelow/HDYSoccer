@@ -9,8 +9,28 @@
 #import "HDYSoccerGameCell.h"
 #import "UIConfiguration+Color.h"
 #import "GameViewParams.h"
+#import "SimplePersonalGameInfo.h"
+#import "UIImageView+WebCache.h"
 
 @implementation HDYSoccerGameCell
+
+- (id)initWithFrame:(CGRect)frame
+{
+	if (self = [super initWithFrame:frame]) {
+    [self.contentView setBackgroundColor:[UIColor lightGrayColor]];
+    if (!self.imageView) {
+      UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
+      self.imageView = imageView;
+      [self.contentView addSubview:self.imageView];
+    }
+	}
+	return self;
+}
+
+- (void)configWithGameInfo:(SimplePersonalGameInfo *)gameInfo
+{
+  [self.imageView setImageWithURL:[NSURL URLWithString:gameInfo.avatarURL] placeholderImage:nil];
+}
 
 #pragma mark - Accessors
 - (UILabel *)displayLabel
@@ -33,19 +53,5 @@
 	}
 }
 
-#pragma mark - Life Cycle
-- (void)dealloc
-{
-	[_displayLabel removeFromSuperview];
-	_displayLabel = nil;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-	if (self = [super initWithFrame:frame]) {
-		[self.contentView addSubview:self.displayLabel];
-	}
-	return self;
-}
 
 @end
