@@ -62,6 +62,7 @@
 
     if (!loadingMore) {
       [weakSelf setRefreshingValueIndex:segIndex refreshing:YES];
+      [weakSelf.filterItem setEnabled:NO];
       
       NSString *time = @"";
       NSString *field = @"";
@@ -80,6 +81,7 @@
     
     if (!refreshing) {
       [weakSelf setLoadingMoreValueIndex:segIndex loadingMore:YES];
+      [weakSelf.filterItem setEnabled:NO];
       
       NSString *time = @"";
       NSString *field = @"";

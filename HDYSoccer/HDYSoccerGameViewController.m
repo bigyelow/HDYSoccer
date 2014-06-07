@@ -15,6 +15,7 @@
 #import "HDYSoccerGameViewController+CollectionView.h"
 #import "HDYSoccerGameViewController+NetWork.h"
 #import "HDYSoccerGameViewController+SegmentControl.h"
+#import "HDYSoccerGameViewController+Filter.h"
 #import "SVPullToRefresh.h"
 
 @interface HDYSoccerGameViewController ()
@@ -37,6 +38,7 @@
   [super viewDidLoad];
   [self setTitle:GAME_TITLE];
   
+  [self configTopFilterButton];
   [self configSegControlWithIndex:0];
   
   [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self

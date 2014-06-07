@@ -22,4 +22,7 @@
 @property (nonatomic, strong) UIView *collectionBackgroundView;
 - (void)updateCollectionViewLayout;
 
+// filter item
+@property (nonatomic, strong) UIBarButtonItem *filterItem;
+
 @end
