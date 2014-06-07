@@ -17,8 +17,9 @@ typedef void (^performBlock)();
                     block:(performBlock)block;
 
 // date
-+ (NSDate*) strToDate:(NSString*)dateStr preferUTC:(BOOL)isUTC;
-+ (NSString*) dateToStr:(NSDate*)date preferUTC:(BOOL)isUTC;
++ (NSDate*)strToDate:(NSString*)dateStr preferUTC:(BOOL)isUTC;
++ (NSString*)dateToStr:(NSDate*)date preferUTC:(BOOL)isUTC;
++ (NSString*)dateminuteToStr:(NSDate *)date preferUTC:(BOOL)isUTC;
 + (NSString*)dateOnlyToStr:(NSDate *)date preferUTC:(BOOL)isUTC;
 + (NSString*)getCouponDateOf:(NSString*)time;
 @end

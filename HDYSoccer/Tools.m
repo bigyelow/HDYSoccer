@@ -24,6 +24,7 @@
 #pragma mark - date
 NSString* const kUTCDatetimeFormat = @"yyyy-MM-dd'T'HH:mm:ssz";
 NSString* const kDefaultDatetimeFormat = @"yyyy-MM-dd HH:mm:ss";
+NSString* const kDefaultDateminuteFormat = @"yyyy-MM-dd HH:mm";
 NSString* const kDefaultDateFormat = @"yyyy-MM-dd";
 
 + (NSDate*)strToDate:(NSString *)dateStr preferUTC:(BOOL)isUTC{
@@ -45,6 +46,18 @@ NSString* const kDefaultDateFormat = @"yyyy-MM-dd";
     [formatter setDateFormat:kUTCDatetimeFormat];
   }else {
     [formatter setDateFormat:kDefaultDatetimeFormat];
+  }
+  NSString* dateStr = [formatter stringFromDate:date];
+  return dateStr;
+}
+
++ (NSString*)dateminuteToStr:(NSDate *)date preferUTC:(BOOL)isUTC{
+  NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+  if (isUTC) {
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    [formatter setDateFormat:kUTCDatetimeFormat];
+  }else {
+    [formatter setDateFormat:kDefaultDateminuteFormat];
   }
   NSString* dateStr = [formatter stringFromDate:date];
   return dateStr;

@@ -10,5 +10,7 @@
 #define HDYSoccer_TextMacro_h
 
 #define TEXT_CITY @"市"
+#define TEXT_OK @"确定"
+#define TEXT_CANCEL @"取消"
 
 #endif
