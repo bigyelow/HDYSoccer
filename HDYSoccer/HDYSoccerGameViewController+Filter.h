@@ -7,8 +7,10 @@
 //
 
 #import "HDYSoccerGameViewController.h"
+#import "GameListFilterViewController.h"
 
 @interface HDYSoccerGameViewController (Filter)
+<reloadGameListDelegate>
 
 - (void)configTopFilterButton;
 @end
