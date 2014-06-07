@@ -31,7 +31,7 @@
 {
   [super viewDidLoad];
 
-  self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+  self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:self.style];
   self.tableView.backgroundView = nil;
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
