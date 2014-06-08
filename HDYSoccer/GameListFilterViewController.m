@@ -83,7 +83,7 @@
 
 #define FILTER_CELL_ID @"filter_cell"
 
-#define SELECT_TIME_TITLE @"选择去踢球的大概时间"
+#define SELECT_TIME_TITLE @"选择时间"
 #define SELECT_FIELD_TITLE @"选择场地"
 #define SELECT_TIME_FORMAT_TITLE @"踢球时间：%@"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

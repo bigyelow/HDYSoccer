@@ -40,6 +40,9 @@
 		7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF5F194197BD00B29EC5 /* BaseObject.m */; };
 		7197DF6C1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */; };
 		7197DF701942E82A00B29EC5 /* GameListFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6F1942E82A00B29EC5 /* GameListFilterViewController.m */; };
+		7197DF731944129500B29EC5 /* HDYSoccerGameViewController+CreateGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF721944129500B29EC5 /* HDYSoccerGameViewController+CreateGame.m */; };
+		7197DF771944138200B29EC5 /* CreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF761944138200B29EC5 /* CreateGameViewController.m */; };
+		7197DF7A1944177E00B29EC5 /* CreateGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF791944177E00B29EC5 /* CreateGameDetailViewController.m */; };
 		719D522219166E04006304D3 /* Geeker.m in Sources */ = {isa = PBXBuildFile; fileRef = 719D522119166E04006304D3 /* Geeker.m */; };
 		719D52261916732E006304D3 /* SimpleGeekerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719D52251916732E006304D3 /* SimpleGeekerInfo.m */; };
 		719D522D19167482006304D3 /* SimplePersonalGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719D522C19167482006304D3 /* SimplePersonalGameInfo.m */; };
@@ -154,6 +157,12 @@
 		7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGameViewController+Filter.m"; sourceTree = "<group>"; };
 		7197DF6E1942E82A00B29EC5 /* GameListFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListFilterViewController.h; sourceTree = "<group>"; };
 		7197DF6F1942E82A00B29EC5 /* GameListFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListFilterViewController.m; sourceTree = "<group>"; };
+		7197DF711944129500B29EC5 /* HDYSoccerGameViewController+CreateGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGameViewController+CreateGame.h"; sourceTree = "<group>"; };
+		7197DF721944129500B29EC5 /* HDYSoccerGameViewController+CreateGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGameViewController+CreateGame.m"; sourceTree = "<group>"; };
+		7197DF751944138200B29EC5 /* CreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGameViewController.h; sourceTree = "<group>"; };
+		7197DF761944138200B29EC5 /* CreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGameViewController.m; sourceTree = "<group>"; };
+		7197DF781944177E00B29EC5 /* CreateGameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGameDetailViewController.h; sourceTree = "<group>"; };
+		7197DF791944177E00B29EC5 /* CreateGameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGameDetailViewController.m; sourceTree = "<group>"; };
 		719D522019166E04006304D3 /* Geeker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geeker.h; sourceTree = "<group>"; };
 		719D522119166E04006304D3 /* Geeker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geeker.m; sourceTree = "<group>"; };
 		719D52241916732E006304D3 /* SimpleGeekerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleGeekerInfo.h; sourceTree = "<group>"; };
@@ -270,6 +279,7 @@
 		715AD72218E662960068E6E1 /* GameList */ = {
 			isa = PBXGroup;
 			children = (
+				7197DF741944132600B29EC5 /* aGame */,
 				7197DF6D1942E6E500B29EC5 /* TopFilteView */,
 				715AD73218E6654E0068E6E1 /* GameViewParams.h */,
 				715AD72318E663190068E6E1 /* HDYSoccerGameViewController.h */,
@@ -280,6 +290,8 @@
 				7141A1961940738100B34295 /* HDYSoccerGameViewController+CollectionView.m */,
 				7197DF6A1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.h */,
 				7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */,
+				7197DF711944129500B29EC5 /* HDYSoccerGameViewController+CreateGame.h */,
+				7197DF721944129500B29EC5 /* HDYSoccerGameViewController+CreateGame.m */,
 				7141A1981940748000B34295 /* HDYSoccerGameViewController+NetWork.h */,
 				7141A1991940748000B34295 /* HDYSoccerGameViewController+NetWork.m */,
 				715AD72618E663A90068E6E1 /* HDYSoccerGameCell.h */,
@@ -357,6 +369,17 @@
 				7197DF6F1942E82A00B29EC5 /* GameListFilterViewController.m */,
 			);
 			name = TopFilteView;
+			sourceTree = "<group>";
+		};
+		7197DF741944132600B29EC5 /* aGame */ = {
+			isa = PBXGroup;
+			children = (
+				7197DF751944138200B29EC5 /* CreateGameViewController.h */,
+				7197DF761944138200B29EC5 /* CreateGameViewController.m */,
+				7197DF781944177E00B29EC5 /* CreateGameDetailViewController.h */,
+				7197DF791944177E00B29EC5 /* CreateGameDetailViewController.m */,
+			);
+			name = aGame;
 			sourceTree = "<group>";
 		};
 		719D522319166E0D006304D3 /* Geeker */ = {
@@ -774,6 +797,7 @@
 				719D522219166E04006304D3 /* Geeker.m in Sources */,
 				71CB8C4818E032C70073E913 /* HDYSoccerBaseViewController.m in Sources */,
 				71DD43D518E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m in Sources */,
+				7197DF731944129500B29EC5 /* HDYSoccerGameViewController+CreateGame.m in Sources */,
 				719D523019167526006304D3 /* SimpleTeamGameInfo.m in Sources */,
 				7141A19A1940748000B34295 /* HDYSoccerGameViewController+NetWork.m in Sources */,
 				719432FF19179F3F009BA1D6 /* TeamGameList.m in Sources */,
@@ -794,6 +818,7 @@
 				719432F919179A8A009BA1D6 /* HDYSoccerAPIError.m in Sources */,
 				71568A1318E3EB2600518C7D /* UIConfiguration.m in Sources */,
 				719432F0191785BD009BA1D6 /* HDYSoccerAPIClient.m in Sources */,
+				7197DF771944138200B29EC5 /* CreateGameViewController.m in Sources */,
 				7194332B191A180F009BA1D6 /* AppDelegate+Configuration.m in Sources */,
 				71CB8C4318E028F80073E913 /* HDYSoccerTabBarController+UIConfiguration.m in Sources */,
 				719D52401916781D006304D3 /* TeamScoreCollection.m in Sources */,
@@ -821,6 +846,7 @@
 				719D523D19167758006304D3 /* ParticipantsScore.m in Sources */,
 				71943324191A12E6009BA1D6 /* Authorization.m in Sources */,
 				71CCC3D418E283CF00D6F974 /* HDYSoccerMenuViewController.m in Sources */,
+				7197DF7A1944177E00B29EC5 /* CreateGameDetailViewController.m in Sources */,
 				71CB8C3918E01D570073E913 /* HDYSoccerTabBarController.m in Sources */,
 				719D5243191678A0006304D3 /* TeamScoreTable.m in Sources */,
 			);
