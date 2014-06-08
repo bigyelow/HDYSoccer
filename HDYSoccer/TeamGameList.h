@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "JSONModel.h"
 #import "SimpleTeamGameInfo.h"
 
-@interface TeamGameList : JSONModel
+@interface TeamGameList : BaseObject
 
-@property (nonatomic, strong, readonly) NSArray<SimpleTeamGameInfo> *gamelist;
+@property (nonatomic, strong, readonly) NSArray *gameList;
 @end

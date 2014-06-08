@@ -8,9 +8,6 @@
 
 #import "BaseObject.h"
 
-@protocol SimplePersonalGameInfo
-@end
-
 @interface SimplePersonalGameInfo : BaseObject
 
 @property (nonatomic, copy, readonly) NSString *personalGameID;

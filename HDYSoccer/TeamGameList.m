@@ -10,4 +10,8 @@
 
 @implementation TeamGameList
 
+- (NSArray *)gameList
+{
+  return [self.dictionary objectForKey:@"game_list"];
+}
 @end

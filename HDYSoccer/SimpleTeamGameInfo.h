@@ -6,13 +6,9 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "BaseObject.h"
 
-@protocol SimpleTeamGameInfo
-
-@end
-
-@interface SimpleTeamGameInfo : JSONModel
+@interface SimpleTeamGameInfo : BaseObject
 
 @property (nonatomic, copy, readonly) NSString *teamGameID;
 @property (nonatomic, copy, readonly) NSString *teamName;
