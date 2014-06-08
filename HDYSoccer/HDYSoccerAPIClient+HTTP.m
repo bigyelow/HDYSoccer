@@ -9,6 +9,7 @@
 #import "HDYSoccerAPIClient+HTTP.h"
 #import "AFNetworking.h"
 #import "PersonalGameList.h"
+#import "SimpleTeamGameInfo.h"
 #import "HDYSoccerAPIError.h"
 
 @implementation HDYSoccerAPIClient (HTTP)
@@ -29,7 +30,6 @@
   
   NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
                                     [HDYSoccerAPIClient defaultParameters]];
-  [parameter setObject:type forKey:@"type"];
   [parameter setObject:time forKey:@"time"];
   [parameter setObject:field forKey:@"field"];
   [parameter setObject:[NSNumber numberWithInteger:start] forKey:@"start"];
@@ -41,7 +41,8 @@
     [parameter setObject:longtitude forKey:@"log"];
   }
   
-  NSString *path = [self pathWithSubpath:@"game/game_list"];
+  NSString *subPath = [NSString stringWithFormat:@"game/game_list/%@", type];
+  NSString *path = [self pathWithSubpath:subPath];
   
   [self.operationManager GET:path
                   parameters:parameter
@@ -50,8 +51,14 @@
                        NSArray *list = [dic objectForKey:@"game_list"];
                        NSMutableArray *tempArray = [NSMutableArray array];
                        for (NSDictionary *gameDic in list) {
-                         SimplePersonalGameInfo *simpleGameInfo = [SimplePersonalGameInfo objectWithDictionary:gameDic];
-                         [tempArray addObject:simpleGameInfo];
+                         if ([type isEqualToString:@"personal"]) {
+                           SimplePersonalGameInfo *simpleGameInfo = [SimplePersonalGameInfo objectWithDictionary:gameDic];
+                           [tempArray addObject:simpleGameInfo];
+                         }
+                         else if ([type isEqualToString:@"team"]) {
+                           SimpleTeamGameInfo *simpleGameInfo = [SimpleTeamGameInfo objectWithDictionary:gameDic];
+                           [tempArray addObject:simpleGameInfo];
+                         }
                        }
                        NSMutableDictionary *tempDic = [NSMutableDictionary dictionaryWithDictionary:dic];
                        [tempDic setObject:tempArray forKey:@"game_list"];
