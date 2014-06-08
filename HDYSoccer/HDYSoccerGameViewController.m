@@ -99,11 +99,18 @@
   if ([self.collectionViewArray containsObject:collectionView]) {
     NSInteger index = [self.collectionViewArray indexOfObject:collectionView];
     NSMutableArray *list = [self getGameListIndex:index];
-    SimplePersonalGameInfo *gameInfo = list[indexPath.row];
     
     cell = (HDYSoccerGameCell *)[collectionView dequeueReusableCellWithReuseIdentifier:GAME_CELL_IDENTIFIER
-                                                                   forIndexPath:indexPath];
-    [cell configWithGameInfo:gameInfo];
+                                                                          forIndexPath:indexPath];
+    
+    if (index == 0) {
+      SimplePersonalGameInfo *gameInfo = list[indexPath.row];
+      [cell configWithPersonalGameInfo:gameInfo];
+    }
+    else if (index == 1) {
+      SimpleTeamGameInfo *gameInfo = list[indexPath.row];
+      [cell configWithTeamGameInfo:gameInfo];
+    }
   }
   return cell;
 }

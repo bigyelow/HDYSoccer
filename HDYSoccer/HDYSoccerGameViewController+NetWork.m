@@ -11,6 +11,7 @@
 #import "HDYSoccerGameViewController+CollectionView.h"
 #import "HDYSoccerAPIClient+HTTP.h"
 #import "PersonalGameList.h"
+#import "TeamGameList.h"
 #import "SVPullToRefresh.h"
 
 @implementation HDYSoccerGameViewController (NetWork)
@@ -41,9 +42,16 @@
                     succeeded:^(NSDictionary *dictionary) {
                       
                       // init game list for index
-                      PersonalGameList *gameList = [PersonalGameList objectWithDictionary:dictionary];
-                      NSArray *listArray = gameList.gameList;
-                      
+                      NSArray *listArray;
+                      if (segIndex == 0) {  // person
+                        PersonalGameList *gameList = [PersonalGameList objectWithDictionary:dictionary];
+                        listArray = gameList.gameList;
+                      }
+                      else if (segIndex == 1) { // team
+                        TeamGameList *gameList = [TeamGameList objectWithDictionary:dictionary];
+                        listArray = gameList.gameList;
+                      }
+
                       // update collection view
                       UICollectionView *collectionView = weakSelf.collectionViewArray[segIndex];
                       if (listArray) {
@@ -108,8 +116,15 @@
                     succeeded:^(NSDictionary *dictionary) {
                       
                       // update game list for index
-                      PersonalGameList *gameList = [PersonalGameList objectWithDictionary:dictionary];
-                      NSArray *listArray = gameList.gameList;
+                      NSArray *listArray;
+                      if (segIndex == 0) {  // person
+                        PersonalGameList *gameList = [PersonalGameList objectWithDictionary:dictionary];
+                        listArray = gameList.gameList;
+                      }
+                      else if (segIndex == 1) { // team
+                        TeamGameList *gameList = [TeamGameList objectWithDictionary:dictionary];
+                        listArray = gameList.gameList;
+                      }
                       
                       // update collection view
                       UICollectionView *collectionView = weakSelf.collectionViewArray[segIndex];

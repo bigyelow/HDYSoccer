@@ -10,6 +10,7 @@
 #import "UIConfiguration+Color.h"
 #import "GameViewParams.h"
 #import "SimplePersonalGameInfo.h"
+#import "SimpleTeamGameInfo.h"
 #import "UIImageView+WebCache.h"
 
 @implementation HDYSoccerGameCell
@@ -27,9 +28,14 @@
 	return self;
 }
 
-- (void)configWithGameInfo:(SimplePersonalGameInfo *)gameInfo
+- (void)configWithPersonalGameInfo:(SimplePersonalGameInfo *)gameInfo
 {
   [self.imageView setImageWithURL:[NSURL URLWithString:gameInfo.avatarURL] placeholderImage:nil];
+}
+
+- (void)configWithTeamGameInfo:(SimpleTeamGameInfo *)gameInfo
+{
+  [self.imageView setImageWithURL:[NSURL URLWithString:gameInfo.teamAvatarURL] placeholderImage:nil];
 }
 
 #pragma mark - Accessors

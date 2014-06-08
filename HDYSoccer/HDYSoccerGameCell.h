@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class SimplePersonalGameInfo;
+@class SimpleTeamGameInfo;
 
 @interface HDYSoccerGameCell : UICollectionViewCell
 
@@ -16,5 +17,6 @@
 
 //
 @property (nonatomic, strong) UIImageView *imageView;
-- (void)configWithGameInfo:(SimplePersonalGameInfo *)gameInfo;
+- (void)configWithPersonalGameInfo:(SimplePersonalGameInfo *)gameInfo;
+- (void)configWithTeamGameInfo:(SimpleTeamGameInfo *)gameInfo;
 @end
