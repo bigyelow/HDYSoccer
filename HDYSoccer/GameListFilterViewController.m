@@ -166,7 +166,7 @@
 
 - (void)dateSelectionViewControllerDidCancel:(RMDateSelectionViewController *)vc
 {
-  NSLog(@"Date selection was canceled");
+  
 }
 
 @end
