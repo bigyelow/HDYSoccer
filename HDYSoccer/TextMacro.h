@@ -12,5 +12,10 @@
 #define TEXT_CITY @"市"
 #define TEXT_OK @"确定"
 #define TEXT_CANCEL @"取消"
+#define TEXT_REMARK @"备注"
+
+// measure
+#define TEXT_CHINESE_MEASURE @"元"
+
 
 #endif

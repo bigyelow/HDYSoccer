@@ -8,8 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, ScrollDirection) {
+  ScrollDirectionNone,
+  ScrollDirectionRight,
+  ScrollDirectionLeft,
+  ScrollDirectionUp,
+  ScrollDirectionDown
+};
+
 @interface UIConfiguration : NSObject
 
+#pragma mark - frame
 + (void)moveSubviewXToSuperviewCenter:(UIView *)superView
                               subview:(UIView *)subview;
++ (void)moveSubviewYToSuperviewCenter:(UIView *)superView 
+                              subview:(UIView *)subview;
+
++ (void)setView:(UIView *)view height:(CGFloat)height;
++ (void)setView:(UIView *)view width:(CGFloat)width;
++ (void)setView:(UIView *)view y:(CGFloat)y;
++ (void)setView:(UIView *)view x:(CGFloat)x;
+
+#pragma mark - keyboard
++ (CGRect)keyBoardRect:(NSNotification *)notification;
 @end
