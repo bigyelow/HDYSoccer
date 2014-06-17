@@ -7,6 +7,7 @@
 //
 
 #import "CreateGameViewController.h"
+#import "CreateGameDetailViewController.h"
 
 #define CREATE_GAME_TITLE @"创建约球"
 
@@ -57,8 +58,7 @@
 }
 
 #define CREATE_GAME_CELL_ID @"createGameCell"
-#define CREATE_PERSONAL_GAME @"创建小场活动"
-#define CREATE_TEAM_GAME @"创建大场比赛"
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   static NSString *identifier = CREATE_GAME_CELL_ID;
@@ -89,16 +89,26 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
+  GameType gameType = kGameTypePersonal;
+  switch (indexPath.section) {
+    case 0:
+      gameType = kGameTypePersonal;
+      break;
+      
+    case 1:
+      gameType = kGameTypeTeam;
+      break;
+  
+    default:
+      break;
+  }
+  
+  
+  CreateGameDetailViewController *createCtr = [[CreateGameDetailViewController alloc]
+                                               initWithStyle:UITableViewStyleGrouped
+                                               gameType:gameType];
+  [self.navigationController pushViewController:createCtr animated:YES];
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
