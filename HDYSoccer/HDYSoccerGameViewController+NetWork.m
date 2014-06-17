@@ -66,9 +66,7 @@
                                                          animated:NO];
                         }
                       }
-                      [Tools performAfterDelay:STOP_PULLTOREFRESH_DELAY block:^{
-                        [collectionView.pullToRefreshView stopAnimating];
-                      }];
+                      [collectionView.pullToRefreshView stopAnimating];
                       
                       // update top buttons
                       [weakSelf.filterItem setEnabled:YES];
@@ -81,9 +79,7 @@
                       
                       // update collection view
                       UICollectionView *collectionView = weakSelf.collectionViewArray[segIndex];
-                      [Tools performAfterDelay:STOP_PULLTOREFRESH_DELAY block:^{
-                        [collectionView.pullToRefreshView stopAnimating];
-                      }];
+                      [collectionView.pullToRefreshView stopAnimating];
                       
                       // update top buttons
                       [weakSelf.filterItem setEnabled:YES];
@@ -158,9 +154,7 @@
                       
                       // update collection view
                       UICollectionView *collectionView = weakSelf.collectionViewArray[segIndex];
-                      [Tools performAfterDelay:STOP_PULLTOREFRESH_DELAY block:^{
-                        [collectionView.pullToRefreshView stopAnimating];
-                      }];
+                      [collectionView.pullToRefreshView stopAnimating];
                       
                       // update top buttons
                       [weakSelf.filterItem setEnabled:YES];
