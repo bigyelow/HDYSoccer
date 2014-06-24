@@ -20,4 +20,24 @@
                    passwd:(NSString *)psw
                 succeeded:(SucceededGettingDictionaryBlock)succeeded
                    failed:(FailedBlock)failed;
+
+#pragma mark - game
+- (void)createPersonalGameWithTime:(NSString *)time
+                             field:(NSString *)field
+                       playerCount:(NSInteger)playerCount
+                           players:(NSArray *)players
+                           contact:(NSString *)contact
+                           remarks:(NSString *)remarks
+                              cost:(NSString *)cost
+                         succeeded:(SucceededGettingDictionaryBlock)succeeded
+                            failed:(FailedBlock)failed;
+- (void)createTeamGameWithTime:(NSString *)time
+                         field:(NSString *)field
+                   playerCount:(NSInteger)playerCount
+                        teamID:(NSString *)teamID
+                       contact:(NSString *)contact
+                       remarks:(NSString *)remarks
+                          cost:(NSString *)cost
+                     succeeded:(SucceededGettingDictionaryBlock)succeeded
+                        failed:(FailedBlock)failed;
 @end
