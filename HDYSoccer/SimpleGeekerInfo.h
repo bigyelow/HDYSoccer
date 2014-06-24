@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "BaseObject.h"
 
 @protocol SimpleGeekerInfo
 
 @end
 
-@interface SimpleGeekerInfo : JSONModel
+@interface SimpleGeekerInfo : BaseObject
 
 @property (nonatomic, copy, readonly) NSString *geekerID;
 @property (nonatomic, copy, readonly) NSString *avatarURL;
@@ -20,5 +20,6 @@
 @property (nonatomic, copy, readonly) NSString *score;
 @property (nonatomic, copy, readonly) NSString *position;
 @property (nonatomic, copy, readonly) NSString *status;
+@property (nonatomic, strong, readonly) NSArray *tagsArray;
 
 @end

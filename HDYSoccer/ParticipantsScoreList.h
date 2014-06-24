@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "BaseObject.h"
 #import "ParticipantsScore.h"
 
-@interface ParticipantsScoreList : JSONModel
+@interface ParticipantsScoreList : BaseObject
 
-@property (nonatomic, strong, readonly) NSArray<ParticipantsScore> *participantsList;
+@property (nonatomic, strong, readonly) NSArray *participantsList;
 
 @end

@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "BaseObject.h"
 #import "SimpleGeekerInfo.h"
 
-@interface GeekerList : JSONModel
+@interface GeekerList : BaseObject
 
-@property (nonatomic, strong, readonly) NSArray<SimpleGeekerInfo> *geekerlist;
+@property (nonatomic, strong, readonly) NSArray *geekerlist;
 
 @end

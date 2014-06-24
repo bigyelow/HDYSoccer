@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "BaseObject.h"
 
-@interface GeekerAbility : JSONModel
+@interface GeekerAbility : BaseObject
 
 @property (nonatomic, copy, readonly) NSString *speed;
 

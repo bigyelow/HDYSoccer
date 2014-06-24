@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "BaseObject.h"
 #import "SimpleGeekerInfo.h"
 
-@interface TeamScoreCollection : JSONModel
+@interface TeamScoreCollection : BaseObject
 
 @property (nonatomic, copy, readonly) NSString *teamScore;
-@property (nonatomic, strong, readonly) NSArray<SimpleGeekerInfo> *geekerList;
+@property (nonatomic, strong, readonly) NSArray *geekerList;
 
 @end

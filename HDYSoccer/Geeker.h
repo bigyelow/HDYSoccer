@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "JSONModel.h"
+#import "BaseObject.h"
 @class GeekerAbility;
 
-@interface Geeker : JSONModel
+@interface Geeker : BaseObject
 
 @property (nonatomic, copy, readonly) NSString *geekerID;
 @property (nonatomic, copy, readonly) NSString *avatarURL;
