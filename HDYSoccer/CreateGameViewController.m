@@ -108,6 +108,8 @@
   CreateGameDetailViewController *createCtr = [[CreateGameDetailViewController alloc]
                                                initWithStyle:UITableViewStyleGrouped
                                                gameType:gameType];
+  [createCtr setCreateGameDelegate:self.createGameDelegate];
+  
   [self.navigationController pushViewController:createCtr animated:YES];
 }
 

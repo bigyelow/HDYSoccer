@@ -7,8 +7,29 @@
 //
 
 #import "UIConfiguration.h"
+#import "MRProgress.h"
 
 @implementation UIConfiguration
+
+#pragma mark - loading view
++ (void)showTipMessageToView:(UIView *)view
+                       title:(NSString *)title
+{
+  [MRProgressOverlayView showOverlayAddedTo:view
+                                      title:title
+                                       mode:MRProgressOverlayViewModeIndeterminate
+                                   animated:NO];
+}
+
++ (void)showTipMessageToView:(UIView *)view
+{
+  [UIConfiguration showTipMessageToView:view title:TEXT_LOADING];
+}
+
++ (void)hideTipMessageOnView:(UIView *)view
+{
+  [MRProgressOverlayView dismissOverlayForView:view animated:YES];
+}
 
 #pragma mark - position adjust
 + (void)moveSubviewXToSuperviewCenter:(UIView *)superView

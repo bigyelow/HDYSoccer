@@ -33,7 +33,7 @@
 
 - (NSDate *)time
 {
-  if (_time) {
+  if (!_time) {
     NSString *timeStr = [self.dictionary objectForKey:@"time"];
     _time = [Tools strToDate:timeStr preferUTC:NO];
   }

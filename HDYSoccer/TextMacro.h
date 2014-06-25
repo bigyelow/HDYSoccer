@@ -13,6 +13,9 @@
 #define TEXT_OK @"确定"
 #define TEXT_CANCEL @"取消"
 #define TEXT_REMARK @"备注"
+#define TEXT_LOADING @"加载中..."
+#define TEXT_CREATING @"创建中..."
+#define TEXT_ACCOMPLISH @"完成"
 
 // measure
 #define TEXT_CHINESE_MEASURE @"元"

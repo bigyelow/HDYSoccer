@@ -85,4 +85,9 @@
   }
   return _participants;
 }
+
+- (NSString *)gameName
+{
+  return [self.dictionary objectForKey:@"personal_game_name"];
+}
 @end

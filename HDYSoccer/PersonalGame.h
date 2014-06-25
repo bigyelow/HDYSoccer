@@ -22,5 +22,6 @@
 @property (nonatomic, copy, readonly) NSString *remark;
 @property (nonatomic, copy, readonly) NSString *averageScore;
 @property (nonatomic, strong, readonly) NSArray *participants;
+@property (nonatomic, copy, readonly) NSString *gameName;
 
 @end

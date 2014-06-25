@@ -34,9 +34,17 @@ typedef NS_ENUM(NSUInteger, GameType)
 <RMDateSelectionViewControllerDelegate>
 
 @property (nonatomic, assign) GameType gameType;
+@property (nonatomic, strong) id createGameDelegate;
 
 // game related params
 @property (nonatomic, strong) NSDate *gameTime;
+@property (nonatomic, copy) NSString *gameField;
+@property (nonatomic, assign) NSInteger playerCount;
+@property (nonatomic, strong) NSArray *players;
+@property (nonatomic, copy) NSString *contact;
+@property (nonatomic, copy) NSString *cost;
+@property (nonatomic, copy) NSString *remarks;
+@property (nonatomic, copy) NSString *teamID;
 
 // cell
 @property (nonatomic, strong) ChoosePlayerCell *playerCell;

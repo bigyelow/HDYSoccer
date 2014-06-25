@@ -13,7 +13,7 @@
 #import "CostCell.h"
 #import "RemarkCell.h"
 #import "ChooseTeamCell.h"
-#import "CreateGameDetailViewController+UIConfiguration.h"
+#import "CreateGameDetailViewController+TopButtons.h"
 
 @interface CreateGameDetailViewController ()
 {
@@ -187,6 +187,7 @@
   return 44.0f;
 }
 
+#define SELECT_TIME_FORMAT_TITLE @"踢球时间：%@"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   static NSString *identifier = CREATE_GAME_DETAIL_CELL_ID;
@@ -202,7 +203,13 @@
   
   switch (indexPath.section) {
     case 0:
-      cellTitle = SELECT_TIME_TITLE;
+      if (!self.gameTime) {
+        cellTitle = SELECT_TIME_TITLE;
+      }
+      else {
+        NSString *time = [Tools dateminuteToStr:self.gameTime preferUTC:NO];
+        cellTitle = [NSString stringWithFormat:SELECT_TIME_FORMAT_TITLE, time];
+      }
       break;
       
     case 1:
@@ -292,6 +299,7 @@
 
 - (void)dateSelectionViewController:(RMDateSelectionViewController *)vc didSelectDate:(NSDate *)aDate
 {
+  [self setGameTime:aDate];
   [self.tableView reloadData];
 }
 

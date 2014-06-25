@@ -7,8 +7,8 @@
 //
 
 #import "HDYSoccerGameViewController+CreateGame.h"
-#import "CreateGameViewController.h"
 #import "HDYSoccerNavigationController.h"
+#import "GameDetailViewController.h"
 
 @implementation HDYSoccerGameViewController (CreateGame)
 
@@ -23,6 +23,18 @@
 - (void)createGameButtonPressed
 {
   CreateGameViewController *viewCtr = [[CreateGameViewController alloc] initWithStyle:UITableViewStyleGrouped];
+  HDYSoccerNavigationController *navCtr = [[HDYSoccerNavigationController alloc] initWithRootViewController:viewCtr];
+  
+  [viewCtr setCreateGameDelegate:self];
+  
+  [self presentViewController:navCtr animated:YES completion:nil];
+}
+
+#pragma mark - create game delegate
+- (void)createGameSucceeded:(NSDictionary *)dic
+{ 
+  GameDetailViewController *viewCtr = [[GameDetailViewController alloc] initWithGameInfo:dic
+                                                                          tableViewStyle:UITableViewStyleGrouped];
   HDYSoccerNavigationController *navCtr = [[HDYSoccerNavigationController alloc] initWithRootViewController:viewCtr];
   
   [self presentViewController:navCtr animated:YES completion:nil];

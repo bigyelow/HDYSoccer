@@ -18,6 +18,12 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 
 @interface UIConfiguration : NSObject
 
+#pragma mark - loading view
++ (void)showTipMessageToView:(UIView *)view;
++ (void)hideTipMessageOnView:(UIView *)view;
++ (void)showTipMessageToView:(UIView *)view
+                       title:(NSString *)title;
+
 #pragma mark - frame
 + (void)moveSubviewXToSuperviewCenter:(UIView *)superView
                               subview:(UIView *)subview;

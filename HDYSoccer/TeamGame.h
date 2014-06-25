@@ -23,5 +23,6 @@
 @property (nonatomic, copy, readonly) NSString *totalCost;
 @property (nonatomic, copy, readonly) NSString *contact;
 @property (nonatomic, copy, readonly) NSString *remark;
+@property (nonatomic, copy, readonly) NSString *gameName;
 
 @end

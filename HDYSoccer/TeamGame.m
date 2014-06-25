@@ -86,4 +86,9 @@
 {
   return [self.dictionary objectForKey:@"remark"];
 }
+
+- (NSString *)gameName
+{
+  return [self.dictionary objectForKey:@"team_game_name"];
+}
 @end
