@@ -11,6 +11,7 @@
 #import "PersonalGame.h"
 #import "TeamGame.h"
 #import "GameDetailViewController+TopButtons.h"
+#import "GameDetailViewController+Network.h"
 
 @interface GameDetailViewController ()
 
@@ -31,6 +32,7 @@
 {
   NSNumber *number = [gameInfo objectForKey:KEY_GAME_TYPE];
   self.gameType = number.integerValue;
+  self.newCreated = YES;
   
   switch (self.gameType) {
     case kGameTypePersonal:
@@ -49,12 +51,31 @@
   }
 }
 
+- (id)initWithgameID:(NSString *)gameID
+            gameType:(GameType)gameType
+      tableviewStyle:(UITableViewStyle)style
+{
+  self = [super initWithStyle:style];
+  if (self) {
+    self.gameID = gameID;
+    self.gameType = gameType;
+  }
+  return self;
+}
+
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
 
-  [self configTopItems];
+  if (self.newCreated) {
+    [self configTopItems];  // add confirm button to new created game
+  }
+  
+  if (self.newCreated == NO) {  // load from game list
+    [self.tableView setHidden:YES];
+    [self loadGameInfoWithGameID:self.gameID gameType:self.gameType];
+  }
 }
 
 - (void)didReceiveMemoryWarning

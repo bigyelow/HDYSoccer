@@ -8,7 +8,6 @@
 
 #import "CreateGameDetailViewController+TopButtons.h"
 #import "HDYSoccerAPIClient+HTTPS.h"
-#import "MRProgress.h"
 #import "PersonalGame.h"
 #import "TeamGame.h"
 #import "GameDetailViewController.h"
@@ -44,7 +43,7 @@
       HDYSoccerAPIClient *client = [HDYSoccerAPIClient newHttpsClient];
       __weak typeof(self) weakSelf = self;
       
-      [UIConfiguration showTipMessageToView:self.navigationController.view title:TEXT_CREATING];
+      [UIConfiguration showTipMessageToView:self.view title:TEXT_CREATING];
       [client createPersonalGameWithTime:time
                                    field:field
                              playerCount:playerCount
@@ -53,7 +52,7 @@
                                  remarks:remarks
                                     cost:cost
                                succeeded:^(NSDictionary *dictionary) {
-                                 [UIConfiguration hideTipMessageOnView:weakSelf.navigationController.view];
+                                 [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                  
                                  PersonalGame *personalGame = [PersonalGame objectWithDictionary:dictionary];
 //                                 SimpleGeekerInfo *participant = personalGame.participants[0];
@@ -69,7 +68,7 @@
                                    [weakSelf openGameDetailViewControllerWithObject:dic];
                                  }];
                                } failed:^(HDYSoccerAPIError *error) {
-                                 [UIConfiguration hideTipMessageOnView:weakSelf.navigationController.view];
+                                 [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                  
                                }];
       break;
@@ -79,7 +78,7 @@
       HDYSoccerAPIClient *client = [HDYSoccerAPIClient newHttpsClient];
       __weak typeof(self) weakSelf = self;
       
-      [UIConfiguration showTipMessageToView:self.navigationController.view title:TEXT_CREATING];
+      [UIConfiguration showTipMessageToView:self.view title:TEXT_CREATING];
       [client createTeamGameWithTime:time
                                field:field
                          playerCount:playerCount
@@ -88,7 +87,7 @@
                              remarks:remarks
                                 cost:cost
                            succeeded:^(NSDictionary *dictionary) {
-                             [UIConfiguration hideTipMessageOnView:weakSelf.navigationController.view];
+                             [UIConfiguration hideTipMessageOnView:weakSelf.view];
 
                              TeamGame *teamGame = [TeamGame objectWithDictionary:dictionary];
 //                             TeamGameRecords *record = teamGame.gameRecords[0];
@@ -102,7 +101,7 @@
                                [weakSelf openGameDetailViewControllerWithObject:dic];
                              }];
                            } failed:^(HDYSoccerAPIError *error) {
-                             [UIConfiguration hideTipMessageOnView:weakSelf.navigationController.view];
+                             [UIConfiguration hideTipMessageOnView:weakSelf.view];
                              
                            }];
       break;

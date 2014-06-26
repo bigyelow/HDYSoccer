@@ -18,6 +18,10 @@
 #import "HDYSoccerGameViewController+Filter.h"
 #import "HDYSoccerGameViewController+CreateGame.h"
 #import "SVPullToRefresh.h"
+#import "CreateGameDetailViewController.h"
+#import "SimplePersonalGameInfo.h"
+#import "SimpleTeamGameInfo.h"
+#import "GameDetailViewController.h"
 
 @interface HDYSoccerGameViewController ()
 
@@ -118,6 +122,32 @@
     }
   }
   return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  NSInteger index = [self.collectionViewArray indexOfObject:collectionView];
+  NSMutableArray *list = [self getGameListIndex:index];
+  
+  GameType gameType;
+  NSString *gameID;
+  if (index == 0) {
+    SimplePersonalGameInfo *gameInfo = list[indexPath.row];
+    gameType = kGameTypePersonal;
+    gameID = gameInfo.personalGameID;
+    gameID = @"1000";
+  }
+  else {
+    SimpleTeamGameInfo *gameInfo = list[indexPath.row];
+    gameType = kGameTypeTeam;
+    gameID = gameInfo.teamGameID;
+    gameID = @"2000";
+  }
+  
+  GameDetailViewController *viewCtr = [[GameDetailViewController alloc] initWithgameID:gameID
+                                                                              gameType:gameType
+                                                                        tableviewStyle:UITableViewStyleGrouped];
+  [self.navigationController pushViewController:viewCtr animated:YES];
 }
 
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout

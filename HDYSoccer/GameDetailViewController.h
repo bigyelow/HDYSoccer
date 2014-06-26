@@ -18,11 +18,17 @@
 @property (nonatomic, strong) TeamGame *teamGame;
 
 // game info
-@property (nonatomic, strong) NSString *time;
-@property (nonatomic, strong) NSString *field;
-@property (nonatomic, strong) NSString *totalCost;
-@property (nonatomic, strong) NSString *contact;
-@property (nonatomic, strong) NSString *remarks;
+@property (nonatomic, copy) NSString *gameID;
+@property (nonatomic, copy) NSString *time;
+@property (nonatomic, copy) NSString *field;
+@property (nonatomic, copy) NSString *totalCost;
+@property (nonatomic, copy) NSString *contact;
+@property (nonatomic, copy) NSString *remarks;
+
+@property (nonatomic, assign) BOOL newCreated;
 
 - (id)initWithGameInfo:(NSDictionary *)gameInfo tableViewStyle:(UITableViewStyle)style;
+- (id)initWithgameID:(NSString *)gameID
+            gameType:(GameType)gameType
+      tableviewStyle:(UITableViewStyle)style;
 @end
