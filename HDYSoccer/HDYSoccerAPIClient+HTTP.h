@@ -19,4 +19,10 @@
                       count:(NSInteger)count
                   succeeded:(SucceededGettingDictionaryBlock)succeeded
                      failed:(FailedBlock)failed;
+- (void)getPersonalGameWithID:(NSString *)personalGameID
+                    succeeded:(SucceededGettingDictionaryBlock)succeeded
+                       failed:(FailedBlock)failed;
+- (void)getTeamGameWithID:(NSString *)teamGameID
+                succeeded:(SucceededGettingDictionaryBlock)succeeded
+                   failed:(FailedBlock)failed;
 @end

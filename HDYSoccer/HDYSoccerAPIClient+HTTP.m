@@ -83,6 +83,7 @@
 
   NSString *subpath = [NSString stringWithFormat:@"game/personal/%@", personalGameID];
   NSString *path = [self pathWithSubpath:subpath];
+  
   [self.operationManager GET:path
                   parameters:parameter
                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -95,4 +96,28 @@
                      }];
 }
 
+- (void)getTeamGameWithID:(NSString *)teamGameID
+                succeeded:(SucceededGettingDictionaryBlock)succeeded
+                   failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  
+  NSString *subpath = [NSString stringWithFormat:@"game/team/%@", teamGameID];
+  NSString *path = [self pathWithSubpath:subpath];
+  
+  [self.operationManager GET:path
+                  parameters:parameter
+                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSDictionary *resultDic = (NSDictionary *)responseObject;
+                       succeeded(resultDic);
+                     }
+                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                       failed(hdyApiError);
+                     }];
+}
 @end
