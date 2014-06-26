@@ -59,7 +59,7 @@ PODS:
     - MBProgressHUD (~> 0.8)
     - PSTCollectionView (~> 1.2)
     - SDWebImage (~> 3.5.4)
-  - PSTCollectionView (1.2.0)
+  - PSTCollectionView (1.2.1)
   - REFrostedViewController (2.4.5)
   - RMDateSelectionViewController (1.2.1)
   - SDWebImage (3.5.4):
@@ -73,6 +73,7 @@ DEPENDENCIES:
   - AMWaveTransition (~> 0.3)
   - CHTCollectionViewWaterfallLayout (~> 0.6)
   - JSONModel (~> 0.13.0)
+  - MBProgressHUD (~> 0.8)
   - MRProgress (~> 0.4.3)
   - MWPhotoBrowser (~> 1.4.0)
   - REFrostedViewController (~> 2.4.5)
@@ -90,7 +91,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   MRProgress: e588fb8d0fba293715eaf0e485dd8402f4ce1de6
   MWPhotoBrowser: 4efcdb9da34751f97992128a5356f3929d1af537
-  PSTCollectionView: e82c1a71ec6469f88490b674c0f66f0bbf1de001
+  PSTCollectionView: a63299550ad566b579479d07cb5e2bf61148686b
   REFrostedViewController: 93c85bf09c95c8166fc5314aa6811fb33611afb7
   RMDateSelectionViewController: f633c22b50c35ab1e7dc3178e790842569fbf92a
   SDWebImage: 571295c8acbb699505a0f68e54506147c3de9ea7
