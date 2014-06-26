@@ -16,6 +16,11 @@
 #define TEXT_LOADING @"加载中..."
 #define TEXT_CREATING @"创建中..."
 #define TEXT_ACCOMPLISH @"完成"
+#define TEXT_TIME @"时间"
+#define TEXT_FIELD @"球场"
+#define TEXT_COST @"费用"
+#define TEXT_CONTACT @"联系方式"
+#define TEXT_REMARKS @"备注"
 
 // measure
 #define TEXT_CHINESE_MEASURE @"元"

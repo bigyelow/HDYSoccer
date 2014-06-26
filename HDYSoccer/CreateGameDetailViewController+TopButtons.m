@@ -56,10 +56,10 @@
                                  [UIConfiguration hideTipMessageOnView:weakSelf.navigationController.view];
                                  
                                  PersonalGame *personalGame = [PersonalGame objectWithDictionary:dictionary];
-                                 SimpleGeekerInfo *participant = personalGame.participants[0];
-                                 NSDate *time = personalGame.time;
-                                 NSLog(@"%@", participant.geekerID);
-                                 NSLog(@"%@", time);
+//                                 SimpleGeekerInfo *participant = personalGame.participants[0];
+//                                 NSDate *time = personalGame.time;
+//                                 NSLog(@"%@", participant.geekerID);
+//                                 NSLog(@"%@", time);
                                  
                                  [weakSelf dismissViewControllerAnimated:YES completion:^{
                                    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -91,8 +91,8 @@
                              [UIConfiguration hideTipMessageOnView:weakSelf.navigationController.view];
 
                              TeamGame *teamGame = [TeamGame objectWithDictionary:dictionary];
-                             TeamGameRecords *record = teamGame.gameRecords[0];
-                             NSLog(@"%@", record.time);
+//                             TeamGameRecords *record = teamGame.gameRecords[0];
+//                             NSLog(@"%@", record.time);
                              
                              [weakSelf dismissViewControllerAnimated:YES completion:^{
                                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
