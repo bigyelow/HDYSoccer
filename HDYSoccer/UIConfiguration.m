@@ -7,7 +7,7 @@
 //
 
 #import "UIConfiguration.h"
-#import "MRProgress.h"
+#import "MBProgresshud.h"
 
 @implementation UIConfiguration
 
@@ -15,10 +15,9 @@
 + (void)showTipMessageToView:(UIView *)view
                        title:(NSString *)title
 {
-  [MRProgressOverlayView showOverlayAddedTo:view
-                                      title:title
-                                       mode:MRProgressOverlayViewModeIndeterminate
-                                   animated:NO];
+  MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:NO];
+  [hud setMode:MBProgressHUDModeIndeterminate];
+  [hud setLabelText:title];
 }
 
 + (void)showTipMessageToView:(UIView *)view
@@ -28,7 +27,7 @@
 
 + (void)hideTipMessageOnView:(UIView *)view
 {
-  [MRProgressOverlayView dismissOverlayForView:view animated:YES];
+  [MBProgressHUD hideAllHUDsForView:view animated:YES];
 }
 
 #pragma mark - position adjust
