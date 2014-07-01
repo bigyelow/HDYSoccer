@@ -6,6 +6,15 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
+typedef NS_ENUM(NSInteger, GeekerStatus)
+{
+  GeekerStatusLowest,
+  GeekerStatusLow,
+  GeekerStatusNormal,
+  GeekerStatusGood,
+  GeekerStatusGreate
+};
+
 #import "BaseObject.h"
 
 @protocol SimpleGeekerInfo
@@ -18,8 +27,8 @@
 @property (nonatomic, copy, readonly) NSString *avatarURL;
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *score;
-@property (nonatomic, copy, readonly) NSString *position;
-@property (nonatomic, copy, readonly) NSString *status;
+@property (nonatomic, strong) NSArray *position;
+@property (nonatomic, assign) GeekerStatus status;
 @property (nonatomic, strong, readonly) NSArray *tagsArray;
 
 @end

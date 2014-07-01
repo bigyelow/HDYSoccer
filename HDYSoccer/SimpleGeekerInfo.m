@@ -46,4 +46,41 @@
   }
   return _tagsArray;
 }
+
+- (NSArray *)position
+{
+  return [self.dictionary objectForKey:@"position"];
+}
+
+- (GeekerStatus)status
+{
+  NSNumber *number = [self.dictionary objectForKey:@"status"];
+  
+  GeekerStatus tempStatus = GeekerStatusLowest;
+  switch (number.integerValue) {
+    case 1:
+      break;
+      
+    case 2:
+      tempStatus = GeekerStatusLow;
+      break;
+      
+    case 3:
+      tempStatus = GeekerStatusNormal;
+      break;
+      
+    case 4:
+      tempStatus = GeekerStatusGood;
+      break;
+      
+    case 5:
+      tempStatus = GeekerStatusGreate;
+      break;
+      
+    default:
+      break;
+  }
+  
+  return tempStatus;
+}
 @end

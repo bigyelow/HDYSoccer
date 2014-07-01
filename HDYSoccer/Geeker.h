@@ -7,6 +7,7 @@
 //
 
 #import "BaseObject.h"
+#import "SimpleGeekerInfo.h"
 @class GeekerAbility;
 
 @interface Geeker : BaseObject
@@ -15,10 +16,9 @@
 @property (nonatomic, copy, readonly) NSString *avatarURL;
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *score;
-@property (nonatomic, copy, readonly) NSString *position;
-@property (nonatomic, copy, readonly) NSString *character;
-@property (nonatomic, strong, readonly) NSArray *recentStatusScore;
-@property (nonatomic, copy, readonly) NSString *status;
-@property (nonatomic, strong, readonly) GeekerAbility *geekerAbility;
+@property (nonatomic, strong) NSArray *position;
+@property (nonatomic, assign) GeekerStatus status;
+@property (nonatomic, strong) GeekerAbility *ability;
+@property (nonatomic, strong, readonly) NSArray *tagsArray;
 
 @end

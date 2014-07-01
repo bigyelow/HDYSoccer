@@ -10,5 +10,14 @@
 
 @implementation GeekerTag
 
+- (NSString *)tagName
+{
+  return [self.dictionary objectForKey:@"tag_name"];
+}
 
+- (NSInteger)up
+{
+  NSNumber *number = [self.dictionary objectForKey:@"up"];
+  return number.integerValue;
+}
 @end

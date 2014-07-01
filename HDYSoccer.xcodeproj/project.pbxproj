@@ -422,9 +422,14 @@
 		719D522319166E0D006304D3 /* Geeker&Team */ = {
 			isa = PBXGroup;
 			children = (
+				719D52241916732E006304D3 /* SimpleGeekerInfo.h */,
+				719D52251916732E006304D3 /* SimpleGeekerInfo.m */,
+				719D88651959602C00F77ACB /* GeekerTag.h */,
+				719D88661959602C00F77ACB /* GeekerTag.m */,
+				719D522019166E04006304D3 /* Geeker.h */,
 				719D522119166E04006304D3 /* Geeker.m */,
 				719433081918E01A009BA1D6 /* GeekerList.h */,
-				719D523919167701006304D3 /* GeekerAbility.m */,
+				719433091918E01A009BA1D6 /* GeekerList.m */,
 			);
 			name = "Geeker&Team";
 			sourceTree = "<group>";
@@ -448,13 +453,6 @@
 				719D8869195963D700F77ACB /* TeamScore.m */,
 				719D886B195964DE00F77ACB /* TeamGameRecords.h */,
 				719D886C195964DE00F77ACB /* TeamGameRecords.m */,
-				719D52241916732E006304D3 /* SimpleGeekerInfo.h */,
-				719D52251916732E006304D3 /* SimpleGeekerInfo.m */,
-				719D522019166E04006304D3 /* Geeker.h */,
-				719433091918E01A009BA1D6 /* GeekerList.m */,
-				719D523819167701006304D3 /* GeekerAbility.h */,
-				719D88651959602C00F77ACB /* GeekerTag.h */,
-				719D88661959602C00F77ACB /* GeekerTag.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -462,6 +460,8 @@
 		719D5237191676DF006304D3 /* Score */ = {
 			isa = PBXGroup;
 			children = (
+				719D523819167701006304D3 /* GeekerAbility.h */,
+				719D523919167701006304D3 /* GeekerAbility.m */,
 				719D523B19167758006304D3 /* ParticipantsScore.h */,
 				719D523C19167758006304D3 /* ParticipantsScore.m */,
 				7194330E1918E1DA009BA1D6 /* ParticipantsScoreList.h */,
