@@ -25,4 +25,8 @@
 - (void)getTeamGameWithID:(NSString *)teamGameID
                 succeeded:(SucceededGettingDictionaryBlock)succeeded
                    failed:(FailedBlock)failed;
+#pragma mark - Geeker
+- (void)getGeekerInfoWithGeekerID:(NSString *)geekerID
+                        succeeded:(SucceededGettingDictionaryBlock)succeeded
+                           failed:(FailedBlock)failed;
 @end

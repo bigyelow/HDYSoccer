@@ -120,4 +120,29 @@
                        failed(hdyApiError);
                      }];
 }
+
+#pragma mark - Geeker
+- (void)getGeekerInfoWithGeekerID:(NSString *)geekerID
+                        succeeded:(SucceededGettingDictionaryBlock)succeeded
+                           failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  
+  NSString *subpath = [NSString stringWithFormat:@"geeker/%@", geekerID];
+  NSString *path = [self pathWithSubpath:subpath];
+  
+  [self.operationManager GET:path
+                  parameters:parameter
+                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSDictionary *resultDic = responseObject;
+                       succeeded(resultDic);
+                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                       failed(hdyApiError);
+                     }];
+}
 @end

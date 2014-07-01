@@ -11,6 +11,7 @@
 #import "HDYSoccerAPIError.h"
 #import "PersonalGame.h"
 #import "TeamGame.h"
+#import "SimpleGeekerInfo.h"
 
 @implementation HDYSoccerAPIClient (HTTPS)
 
@@ -138,5 +139,32 @@
                         HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
                         failed(hdyApiError);
                       }];
+}
+
+#pragma mark - geeker
+- (void)getMyFriendsSucceeded:(SucceededGettingArrayBlock)succeeded
+                       failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  
+  NSString *path = [self pathWithSubpath:@"geeker/geeker_list"];
+  [self.operationManager GET:path
+                  parameters:parameter
+                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSArray *resultArray = responseObject;
+                       NSMutableArray *tempArray = [NSMutableArray array];
+                       for (NSDictionary *dic in resultArray) {
+                         SimpleGeekerInfo *geekerInfo = [SimpleGeekerInfo objectWithDictionary:dic];
+                         [tempArray addObject:geekerInfo];
+                       }
+                       succeeded(tempArray);
+                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                       failed(hdyApiError);
+                     }];
 }
 @end

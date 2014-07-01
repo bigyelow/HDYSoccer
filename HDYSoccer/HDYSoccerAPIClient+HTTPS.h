@@ -40,4 +40,7 @@
                           cost:(NSString *)cost
                      succeeded:(SucceededGettingDictionaryBlock)succeeded
                         failed:(FailedBlock)failed;
+#pragma mark - geeker
+- (void)getMyFriendsSucceeded:(SucceededGettingArrayBlock)succeeded
+                       failed:(FailedBlock)failed;
 @end
