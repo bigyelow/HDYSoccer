@@ -8,9 +8,12 @@
 
 #import "HDYSoccerGeekerViewController.h"
 #import "GeekerViewParams.h"
-#import "HDYSoccerGeekerViewController+UIConfiguration.h"
+#import "HDYSoccerGeekerViewController+SegmentControl.h"
 #import "HDYSoccerGeekerDetailViewController.h"
 #import "AppDelegate.h"
+#import "HDYSoccerGeekerViewController+Network.h"
+#import "SimpleGeekerInfo.h"
+#import "GeekerListCell.h"
 
 @interface HDYSoccerGeekerViewController ()
 
@@ -19,11 +22,13 @@
 
 @implementation HDYSoccerGeekerViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithStyle:(UITableViewStyle)style
 {
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  self = [super initWithStyle:style];
   if (self) {
-    [self initSampleDatas];
+    self.style = style;
+    self.geekersArray = [NSMutableArray array];
+    self.teamsArray = [NSMutableArray array];
   }
   return self;
 }
@@ -34,6 +39,7 @@
 	// Do any additional setup after loading the view.
   
   [self setTitle:TEXT_TITLE];
+  [self.tableView setHidden:YES];
   [self configSegmentView];
   
   [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
@@ -47,6 +53,7 @@
 }
 
 #pragma mark - customization
+// just for sample
 - (void)initSampleDatas
 {
   self.sampleDatas = [NSArray
@@ -60,34 +67,52 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return CELL_HEIGHT;
+  return GEEKER_LIST_CELL_HEIGHT;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return [self.sampleDatas count];
+  NSInteger index = self.segControl.selectedSegmentIndex;
+  if (index == 0) {
+    return [self.geekersArray count];
+  }
+  else {
+    return [self.teamsArray count];
+  }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  static NSString *cellID = CELL_IDENTIFIER;
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-  if (cell == nil) {
-    cell  = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-  }
+  NSInteger index = self.segControl.selectedSegmentIndex;
+  if (index == 0) {
+    SimpleGeekerInfo *geekerInfo = self.geekersArray[indexPath.row];
 
-  [cell.textLabel setText:[self.sampleDatas objectAtIndex:indexPath.row]];
-  [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-  
-  return cell;
+    static NSString *cellID = GEEKER_CELL_IDENTIFIER;
+    GeekerListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (cell == nil) {
+      cell = [[GeekerListCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                   reuseIdentifier:cellID
+                                        geekerInfo:geekerInfo];
+    }
+    return cell;
+  }
+  else {
+    return nil;
+  }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSString *geekerName = self.sampleDatas[indexPath.row];
-  HDYSoccerGeekerDetailViewController *geekerDetailVC = [[HDYSoccerGeekerDetailViewController alloc] initWithGeeker:geekerName];
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
   
-  [self.navigationController pushViewController:geekerDetailVC animated:YES];
+  NSInteger index = self.segControl.selectedSegmentIndex;
+  if (index == 0) {
+    SimpleGeekerInfo *geekerInfo = self.geekersArray[indexPath.row];
+    HDYSoccerGeekerDetailViewController *geekerDetailVC = [[HDYSoccerGeekerDetailViewController alloc]
+                                                           initWithGeeker:geekerInfo.name];
+    
+    [self.navigationController pushViewController:geekerDetailVC animated:YES];
+  }
 }
 
 #pragma mark Gesture recognizer

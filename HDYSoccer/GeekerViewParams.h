@@ -15,8 +15,7 @@
 #define TEXT_TITLE @"球员"
 
 // cell
-#define CELL_IDENTIFIER @"PlayerCell"
-#define CELL_HEIGHT 80.0f
+#define GEEKER_CELL_IDENTIFIER @"PlayerCell"
 
 // segment
 #define SEGMENT_ITEM_WIDTH 100.0f
@@ -25,7 +24,7 @@
 #define SEGMENT_ITEM_TEAM @"球队"
 
 // segment control
-#define SEGMENT_CONTROL_TOP_MARGIN 10.0f
-#define SEGMENT_CONTROL_BOTTOM_MARGIN 0.0f
+#define SEGMENT_CONTROL_TOP_MARGIN 5.0f
+#define SEGMENT_CONTROL_BOTTOM_MARGIN 10.0f
 
 #endif
