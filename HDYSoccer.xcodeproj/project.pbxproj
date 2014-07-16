@@ -48,6 +48,7 @@
 		71943328191A1365009BA1D6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 71943327191A1365009BA1D6 /* Location.m */; };
 		7194332B191A180F009BA1D6 /* AppDelegate+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194332A191A180F009BA1D6 /* AppDelegate+Configuration.m */; };
 		71967A421976418E002B9621 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71967A411976418E002B9621 /* SegmentView.m */; };
+		71967A4B1976A2B5002B9621 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71967A4A1976A2B5002B9621 /* background1.jpg */; };
 		7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF5F194197BD00B29EC5 /* BaseObject.m */; };
 		7197DF6C1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */; };
 		7197DF701942E82A00B29EC5 /* GameListFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6F1942E82A00B29EC5 /* GameListFilterViewController.m */; };
@@ -189,6 +190,7 @@
 		7194332A191A180F009BA1D6 /* AppDelegate+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Configuration.m"; sourceTree = "<group>"; };
 		71967A401976418E002B9621 /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
 		71967A411976418E002B9621 /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
+		71967A4A1976A2B5002B9621 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
 		7197DF5E194197BD00B29EC5 /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
 		7197DF5F194197BD00B29EC5 /* BaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseObject.m; sourceTree = "<group>"; };
 		7197DF6A1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGameViewController+Filter.h"; sourceTree = "<group>"; };
@@ -417,6 +419,14 @@
 				71967A411976418E002B9621 /* SegmentView.m */,
 			);
 			name = SegementView;
+			sourceTree = "<group>";
+		};
+		71967A491976A291002B9621 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				71967A4A1976A2B5002B9621 /* background1.jpg */,
+			);
+			name = Background;
 			sourceTree = "<group>";
 		};
 		7197DF6D1942E6E500B29EC5 /* TopFilteView */ = {
@@ -751,6 +761,7 @@
 		71DD43D718E29F45008094E0 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				71967A491976A291002B9621 /* Background */,
 				71DD43D818E29F4F008094E0 /* MenuView */,
 			);
 			name = Image;
@@ -845,6 +856,7 @@
 				71CB8C0A18E019060073E913 /* InfoPlist.strings in Resources */,
 				71DD43DC18E29FBF008094E0 /* bigyelow_avatar.jpg in Resources */,
 				71CB8C1218E019060073E913 /* Images.xcassets in Resources */,
+				71967A4B1976A2B5002B9621 /* background1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
