@@ -47,6 +47,7 @@
 		71943324191A12E6009BA1D6 /* Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 71943323191A12E6009BA1D6 /* Authorization.m */; };
 		71943328191A1365009BA1D6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 71943327191A1365009BA1D6 /* Location.m */; };
 		7194332B191A180F009BA1D6 /* AppDelegate+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194332A191A180F009BA1D6 /* AppDelegate+Configuration.m */; };
+		71967A421976418E002B9621 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71967A411976418E002B9621 /* SegmentView.m */; };
 		7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF5F194197BD00B29EC5 /* BaseObject.m */; };
 		7197DF6C1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */; };
 		7197DF701942E82A00B29EC5 /* GameListFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6F1942E82A00B29EC5 /* GameListFilterViewController.m */; };
@@ -186,6 +187,8 @@
 		71943327191A1365009BA1D6 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		71943329191A180F009BA1D6 /* AppDelegate+Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Configuration.h"; sourceTree = "<group>"; };
 		7194332A191A180F009BA1D6 /* AppDelegate+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Configuration.m"; sourceTree = "<group>"; };
+		71967A401976418E002B9621 /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
+		71967A411976418E002B9621 /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
 		7197DF5E194197BD00B29EC5 /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
 		7197DF5F194197BD00B29EC5 /* BaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseObject.m; sourceTree = "<group>"; };
 		7197DF6A1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGameViewController+Filter.h"; sourceTree = "<group>"; };
@@ -407,6 +410,15 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
+		71967A3F19764177002B9621 /* SegementView */ = {
+			isa = PBXGroup;
+			children = (
+				71967A401976418E002B9621 /* SegmentView.h */,
+				71967A411976418E002B9621 /* SegmentView.m */,
+			);
+			name = SegementView;
+			sourceTree = "<group>";
+		};
 		7197DF6D1942E6E500B29EC5 /* TopFilteView */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +631,7 @@
 		71CB8C3318E01CFF0073E913 /* BaseComponents */ = {
 			isa = PBXGroup;
 			children = (
+				71967A3F19764177002B9621 /* SegementView */,
 				71CB8C4418E02C550073E913 /* TabBar */,
 				71CB8C5118E0372E0073E913 /* NavigationController */,
 				71CB8C4518E02C730073E913 /* BaseViewController */,
@@ -899,6 +912,7 @@
 				715AD72E18E664980068E6E1 /* HDYSoccerGameFooter.m in Sources */,
 				712D16F7194F00B200396B1F /* CreateGameDetailViewController+TopButtons.m in Sources */,
 				7197DF701942E82A00B29EC5 /* GameListFilterViewController.m in Sources */,
+				71967A421976418E002B9621 /* SegmentView.m in Sources */,
 				7141A17B1940090B00B34295 /* HDYSoccerAPIClient+HTTPS.m in Sources */,
 				71CB8C5818E03B040073E913 /* AppContext.m in Sources */,
 				715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */,

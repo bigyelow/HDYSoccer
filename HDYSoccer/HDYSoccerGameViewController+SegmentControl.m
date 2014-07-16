@@ -9,6 +9,7 @@
 #import "HDYSoccerGameViewController+SegmentControl.h"
 #import "HDYSoccerGameViewController+CollectionView.h"
 #import "SVPullToRefresh.h"
+#import "SegmentView.h"
 
 @implementation HDYSoccerGameViewController (SegmentControl)
 
@@ -17,17 +18,22 @@
 
 - (void)configSegControlWithIndex:(NSInteger)segIndex
 {
-  NSArray *segments = [[NSArray alloc] initWithObjects:SEGMENT_TITLE_PERSONAL,
+  // segment view
+  NSArray *segments = [[NSArray alloc] initWithObjects:
+                       SEGMENT_TITLE_PERSONAL,
                        SEGMENT_TITLE_TEAM,
                        nil];
-  self.segControl = [[UISegmentedControl alloc] initWithItems:segments];
-  [UIConfiguration moveSubviewXToSuperviewCenter:self.view subview:self.segControl];
+  SegmentView *segmentView = [[SegmentView alloc] initWithFrame:
+                              CGRectMake(0, 0, CGRectGetWidth(self.view.frame), SEGMENT_VIEW_HEIGHT)
+                                                       segments:segments];
+  self.segmentBackView = segmentView;
+  [self.view addSubview:segmentView];
   
+  self.segControl = segmentView.segControl;
   [self.segControl addTarget:self
                       action:@selector(segmentChanged:)
             forControlEvents:UIControlEventValueChanged];
   
-  [self.view addSubview:self.segControl];
   [self configCollectionViewWithCount:[segments count]];  // add collection views according to the number of segcontrol
   
   [self.segControl setSelectedSegmentIndex:segIndex];

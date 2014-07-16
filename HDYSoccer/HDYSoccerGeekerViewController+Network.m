@@ -22,9 +22,9 @@
       weakSelf.geekersArray = [NSMutableArray arrayWithArray:array];
     }
     
-    [weakSelf.tableView reloadData];
+    [weakSelf.geekerTable reloadData];
     [weakSelf setGeekersLoadedOnce:YES];
-    [weakSelf.tableView setHidden:NO];
+    [weakSelf.geekerTable setHidden:NO];
   } failed:^(HDYSoccerAPIError *error) {
     [UIConfiguration hideTipMessageOnView:weakSelf.view];
 

@@ -39,7 +39,7 @@
 	// Do any additional setup after loading the view.
   
   [self setTitle:TEXT_TITLE];
-  [self.tableView setHidden:YES];
+  [self.geekerTable setHidden:YES];
   [self configSegmentView];
   
   [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self

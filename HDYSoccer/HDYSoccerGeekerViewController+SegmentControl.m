@@ -10,47 +10,40 @@
 #import "HDYSoccerGeekerViewController+Network.h"
 #import "GeekerViewParams.h"
 #import "UIConfiguration.h"
-
-#define SEGMENT_VIEW_HEIGHT 40.0f
+#import "SegmentView.h"
 
 @implementation HDYSoccerGeekerViewController (SegmentControl)
 
 - (void)configSegmentView
 {
-  // config segment view
-  CGRect segmentViewRect = CGRectMake(0, 0, self.view.bounds.size.width, SEGMENT_VIEW_HEIGHT);
-  UIView *segmentView = [[UIView alloc] initWithFrame:segmentViewRect];
+  // segment view
+  NSArray *segments = @[SEGMENT_ITEM_FRIENDS, SEGMENT_ITEM_TEAM];
+  CGRect segmentRect = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), SEGMENT_VIEW_HEIGHT);
+  SegmentView *segmentView = [[SegmentView alloc] initWithFrame:segmentRect segments:segments];
   [self.view addSubview:segmentView];
   
-  // segControl
-  self.segControl = [[UISegmentedControl alloc] initWithItems:@[SEGMENT_ITEM_FRIENDS, SEGMENT_ITEM_TEAM]];
-  for (NSInteger index = 0; index < self.segControl.numberOfSegments; ++index) {
-    [self.segControl setWidth:SEGMENT_ITEM_WIDTH forSegmentAtIndex:index];
-  }
-  [self.segControl setBackgroundColor:[UIColor whiteColor]];
-
-  CGRect segControlRect = self.segControl.frame;
-  segControlRect.origin.y = SEGMENT_CONTROL_TOP_MARGIN;
-  segControlRect.size.height = SEGMENT_VIEW_HEIGHT - SEGMENT_CONTROL_TOP_MARGIN - SEGMENT_CONTROL_BOTTOM_MARGIN;
-  [self.segControl setFrame:segControlRect];
-  
-  [UIConfiguration moveSubviewXToSuperviewCenter:self.view subview:self.segControl];
-  [segmentView addSubview:self.segControl];
-  
+  self.segControl = segmentView.segControl;
   [self.segControl addTarget:self
                       action:@selector(segmentChanged:)
             forControlEvents:UIControlEventValueChanged];
   
   // update tableview frame
   // geeker
-  CGRect tableRect = self.tableView.frame;
-  tableRect.origin.y += SEGMENT_VIEW_HEIGHT;
-  tableRect.size.height -= SEGMENT_VIEW_HEIGHT;
-  self.tableView.frame = tableRect;
+  CGFloat tableHeight = CGRectGetHeight(self.view.frame) - CGRectGetHeight(segmentView.frame);
+  CGFloat tableWidth = CGRectGetWidth(self.view.frame);
+  CGFloat tableY = CGRectGetHeight(segmentView.frame);
+  CGRect tableRect = CGRectMake(0, tableY, tableWidth, tableHeight);
+
+  self.geekerTable = [[UITableView alloc] initWithFrame:tableRect style:self.style];
+  [self.geekerTable setDelegate:self];
+  [self.geekerTable setDataSource:self];
+  [self.view addSubview:self.geekerTable];
   
   // team
   self.teamTable = [[UITableView alloc] initWithFrame:tableRect style:self.style];
   [self.teamTable setHidden:YES];
+  [self.teamTable setDelegate:self];
+  [self.teamTable setDataSource:self];
   [self.view addSubview:self.teamTable];
   
   [self.segControl setSelectedSegmentIndex:0];
@@ -66,17 +59,17 @@
       [self loadMyFriends];
     }
     else {
-      [self.tableView setHidden:NO];
+      [self.geekerTable setHidden:NO];
       [self.teamTable setHidden:YES];
     }
   }
   else {  // team list
     if (self.teamLoadedOnce == NO) {
-      [self.tableView setHidden:YES];
+      [self.geekerTable setHidden:YES];
       [self.teamTable setHidden:NO];
     }
     else {
-      [self.tableView setHidden:YES];
+      [self.geekerTable setHidden:YES];
       [self.teamTable setHidden:NO];
     }
   }

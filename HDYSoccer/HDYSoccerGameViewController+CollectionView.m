@@ -42,8 +42,8 @@
   layout.minimumColumnSpacing = MINIMUM_COLUMN_SPACE;
   layout.minimumInteritemSpacing = MINIMUM_INTERITEM_SPACE;
   
-  CGFloat collectionY = self.segControl.frame.size.height;
-  CGFloat collectionHeight = self.view.frame.size.height - self.segControl.frame.size.height;
+  CGFloat collectionY = self.segmentBackView.frame.size.height;
+  CGFloat collectionHeight = self.view.frame.size.height - self.segmentBackView.frame.size.height;
   CGRect collectionRect = CGRectMake(0, collectionY, self.view.bounds.size.width, collectionHeight);
   UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:collectionRect collectionViewLayout:layout];
   

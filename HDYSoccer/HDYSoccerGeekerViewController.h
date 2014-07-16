@@ -15,6 +15,7 @@
 // geekers
 @property (nonatomic, assign) BOOL geekersLoadedOnce;
 @property (nonatomic, strong) NSMutableArray *geekersArray;
+@property (nonatomic, strong) UITableView *geekerTable;
 
 // team
 @property (nonatomic, assign) BOOL teamLoadedOnce;
