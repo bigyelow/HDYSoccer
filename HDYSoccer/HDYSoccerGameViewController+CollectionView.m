@@ -47,7 +47,7 @@
   CGRect collectionRect = CGRectMake(0, collectionY, self.view.bounds.size.width, collectionHeight);
   UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:collectionRect collectionViewLayout:layout];
   
-  [collectionView setBackgroundColor:[UIColor whiteColor]];
+  [collectionView setBackgroundColor:[UIColor clearColor]];
   collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
   collectionView.dataSource = self;
   collectionView.delegate = self;

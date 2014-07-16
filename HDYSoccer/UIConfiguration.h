@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define GAME_LIST_BACKGROUND_IMAGE @"background1.jpg"
+
 typedef NS_ENUM(NSUInteger, ScrollDirection) {
   ScrollDirectionNone,
   ScrollDirectionRight,

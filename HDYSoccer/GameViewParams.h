@@ -29,7 +29,7 @@
 
 // cell
 #define GAME_CELL_IDENTIFIER @"GameCell"
-#define CELL_HEIGHT 100.0f
+#define CELL_HEIGHT 80.0f
 #define CELL_WIDTH 80.0f
 #define CELL_BACKGROUND_COLOR @"#eeeeee"
 
