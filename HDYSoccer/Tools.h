@@ -11,6 +11,9 @@
 typedef void (^performBlock)();
 
 @interface Tools : NSObject
+// view effect
++ (void)blurView:(UIView *)view
+           image:(UIImage *)image;
 
 // perform
 + (void)performAfterDelay:(double)delayInSeconds

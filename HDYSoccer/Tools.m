@@ -7,8 +7,20 @@
 //
 
 #import "Tools.h"
+#import "GPUImage.h"
 
 @implementation Tools
+
+#pragma mark - view effect
++ (void)blurView:(UIView *)view
+           image:(UIImage *)image
+{
+  GPUImageiOSBlurFilter *filter = [GPUImageiOSBlurFilter new];
+  CGFloat blurRadius = 2.0f;
+  [filter setBlurRadiusInPixels:blurRadius];
+  UIImage *blurredSnapshotImage = [filter imageByFilteringImage:image];
+  view.backgroundColor = [UIColor colorWithPatternImage:blurredSnapshotImage];
+}
 
 #pragma mark - perform delay
 + (void)performAfterDelay:(double)delayInSeconds
