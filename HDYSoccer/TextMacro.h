@@ -22,6 +22,9 @@
 #define TEXT_CONTACT @"联系方式"
 #define TEXT_REMARKS @"备注"
 
+#define TEXT_GAME_AVERAGE_SCORE_TITLE @",%@"
+#define TEXT_DISTANCE @",%@km"
+
 // measure
 #define TEXT_CHINESE_MEASURE @"元"
 

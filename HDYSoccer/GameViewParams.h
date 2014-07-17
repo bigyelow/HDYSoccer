@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
+#import "HDYSoccerGameCell.h"
+
 #ifndef HDYSoccer_GameViewParams_h
 #define HDYSoccer_GameViewParams_h
 
@@ -29,8 +31,8 @@
 
 // cell
 #define GAME_CELL_IDENTIFIER @"GameCell"
-#define CELL_HEIGHT 80.0f
-#define CELL_WIDTH 80.0f
+#define CELL_HEIGHT 150
+#define CELL_WIDTH 125
 #define CELL_BACKGROUND_COLOR @"#eeeeee"
 
 #endif
