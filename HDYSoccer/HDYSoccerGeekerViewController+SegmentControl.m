@@ -29,6 +29,8 @@
   
   // update tableview frame
   // geeker
+  [self.tableView removeFromSuperview];
+  
   CGFloat tableHeight = CGRectGetHeight(self.view.frame) - CGRectGetHeight(segmentView.frame);
   CGFloat tableWidth = CGRectGetWidth(self.view.frame);
   CGFloat tableY = CGRectGetHeight(segmentView.frame);
@@ -37,6 +39,7 @@
   self.geekerTable = [[UITableView alloc] initWithFrame:tableRect style:self.style];
   [self.geekerTable setDelegate:self];
   [self.geekerTable setDataSource:self];
+  [self.geekerTable setBackgroundColor:[UIColor clearColor]];
   [self.view addSubview:self.geekerTable];
   
   // team
@@ -44,6 +47,7 @@
   [self.teamTable setHidden:YES];
   [self.teamTable setDelegate:self];
   [self.teamTable setDataSource:self];
+  [self.teamTable setBackgroundColor:[UIColor clearColor]];
   [self.view addSubview:self.teamTable];
   
   [self.segControl setSelectedSegmentIndex:0];

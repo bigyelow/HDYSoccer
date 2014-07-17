@@ -44,6 +44,10 @@
   
   [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(panGestureRecognized:)]];
+  
+  // background view
+  [Tools blurView:self.view image:[UIImage imageNamed:GEEKER_LIST_BACKGROUND_IMAGE]];
+
 }
 
 - (void)didReceiveMemoryWarning

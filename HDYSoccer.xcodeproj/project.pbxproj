@@ -31,6 +31,7 @@
 		715AD73718E66BAB0068E6E1 /* UIConfiguration+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73618E66BAB0068E6E1 /* UIConfiguration+Color.m */; };
 		715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73A18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m */; };
 		715AD73E18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73D18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m */; };
+		7187BE041976BDCA00748563 /* background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7187BE031976BDCA00748563 /* background2.jpg */; };
 		718A49BE194FDB56001DF516 /* RemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718A49BD194FDB56001DF516 /* RemarkCell.m */; };
 		718A49C1194FF0A3001DF516 /* ChooseTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718A49C0194FF0A3001DF516 /* ChooseTeamCell.m */; };
 		71931E4E195C008A00E87624 /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71931E4D195C008A00E87624 /* PlayersCell.m */; };
@@ -156,6 +157,7 @@
 		715AD73C18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGeekerDetailViewController+UIConfiguration.h"; sourceTree = "<group>"; };
 		715AD73D18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGeekerDetailViewController+UIConfiguration.m"; sourceTree = "<group>"; };
 		715AD73F18E695130068E6E1 /* GeekerDetailParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeekerDetailParams.h; sourceTree = "<group>"; };
+		7187BE031976BDCA00748563 /* background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpg; sourceTree = "<group>"; };
 		718A49BC194FDB56001DF516 /* RemarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemarkCell.h; sourceTree = "<group>"; };
 		718A49BD194FDB56001DF516 /* RemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarkCell.m; sourceTree = "<group>"; };
 		718A49BF194FF0A3001DF516 /* ChooseTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTeamCell.h; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 		71967A491976A291002B9621 /* Background */ = {
 			isa = PBXGroup;
 			children = (
+				7187BE031976BDCA00748563 /* background2.jpg */,
 				71967A4A1976A2B5002B9621 /* background1.jpg */,
 			);
 			name = Background;
@@ -855,6 +858,7 @@
 			files = (
 				71CB8C0A18E019060073E913 /* InfoPlist.strings in Resources */,
 				71DD43DC18E29FBF008094E0 /* bigyelow_avatar.jpg in Resources */,
+				7187BE041976BDCA00748563 /* background2.jpg in Resources */,
 				71CB8C1218E019060073E913 /* Images.xcassets in Resources */,
 				71967A4B1976A2B5002B9621 /* background1.jpg in Resources */,
 			);

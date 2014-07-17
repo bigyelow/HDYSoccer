@@ -10,6 +10,8 @@
 #import "UIViewController+REFrostedViewController.h"
 #import "HDYSoccerMenuViewController.h"
 
+#define NAVIGATION_BACKGROUND_IMAGE @"background2.jpg"
+
 @interface HDYSoccerNavigationController ()
 
 @end
@@ -19,6 +21,11 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+
+//  UIImage *image = [Tools blurImage:[UIImage imageNamed:NAVIGATION_BACKGROUND_IMAGE]];
+//  [self.navigationBar setTintColor:[UIColor whiteColor]];
+//  [self.navigationBar setBackgroundImage:image
+//                           forBarMetrics:UIBarMetricsDefault];
 }
 
 /*

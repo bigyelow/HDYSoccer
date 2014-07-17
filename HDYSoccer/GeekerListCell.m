@@ -33,6 +33,7 @@
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
+    [self setBackgroundColor:[UIColor clearColor]];
     // height
     [UIConfiguration setView:self.contentView height:GEEKER_LIST_CELL_HEIGHT];
     
