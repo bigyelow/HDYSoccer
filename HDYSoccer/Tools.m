@@ -15,11 +15,23 @@
 + (void)blurView:(UIView *)view
            image:(UIImage *)image
 {
-  GPUImageiOSBlurFilter *filter = [GPUImageiOSBlurFilter new];
+  UIImage *blurredSnapshotImage = [self blurImage:image];
+  view.backgroundColor = [UIColor colorWithPatternImage:blurredSnapshotImage];
+}
+
++ (UIImage *)blurImage:(UIImage *)image
+{
   CGFloat blurRadius = 2.0f;
+  return [self blurImage:image blurRadius:blurRadius];
+}
+
++ (UIImage *)blurImage:(UIImage *)image
+            blurRadius:(CGFloat)blurRadius
+{
+  GPUImageiOSBlurFilter *filter = [GPUImageiOSBlurFilter new];
   [filter setBlurRadiusInPixels:blurRadius];
   UIImage *blurredSnapshotImage = [filter imageByFilteringImage:image];
-  view.backgroundColor = [UIColor colorWithPatternImage:blurredSnapshotImage];
+  return blurredSnapshotImage;
 }
 
 #pragma mark - perform delay
