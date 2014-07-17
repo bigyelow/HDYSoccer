@@ -45,6 +45,7 @@
 - (void)segmentChanged:(UISegmentedControl *)paramSender
 {
   NSInteger index = paramSender.selectedSegmentIndex;
+  [self configBackgroundImageWithIndex:index];
   [self updateCollecionViewDisplayWithIndex:index];
 
   UICollectionView *collectView = self.collectionViewArray[index];
@@ -56,6 +57,16 @@
   }
   else if (!loadedOnce) {
     [collectView triggerPullToRefresh];
+  }
+}
+
+- (void)configBackgroundImageWithIndex:(NSInteger)index
+{
+  if (index == 0) {
+    [Tools blurView:self.view image:[UIImage imageNamed:GAME_LIST_PERSONAL_BACKGROUND_IMAGE]];
+  }
+  else {
+    [Tools blurView:self.view image:[UIImage imageNamed:GAME_LIST_TEAM_BACKGROUND_IMAGE]];
   }
 }
 

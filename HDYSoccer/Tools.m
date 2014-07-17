@@ -30,7 +30,7 @@
 
 + (UIImage *)blurImage:(UIImage *)image
 {
-  CGFloat blurRadius = 6.0f;
+  CGFloat blurRadius = 4.0f;
   return [self blurImage:image blurRadius:blurRadius];
 }
 
