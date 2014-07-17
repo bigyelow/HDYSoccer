@@ -11,6 +11,15 @@
 
 @implementation Tools
 
+#pragma mark - string
++ (BOOL)isNilOrEmpty:(NSString *)string
+{
+  if (string == nil || [string isEqualToString:@""]) {
+    return true;
+  }
+  return false;
+}
+
 #pragma mark - view effect
 + (void)blurView:(UIView *)view
            image:(UIImage *)image
@@ -21,7 +30,7 @@
 
 + (UIImage *)blurImage:(UIImage *)image
 {
-  CGFloat blurRadius = 2.0f;
+  CGFloat blurRadius = 6.0f;
   return [self blurImage:image blurRadius:blurRadius];
 }
 

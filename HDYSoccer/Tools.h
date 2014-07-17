@@ -11,6 +11,9 @@
 typedef void (^performBlock)();
 
 @interface Tools : NSObject
+// string
++ (BOOL)isNilOrEmpty:(NSString *)string;
+
 // view effect
 + (UIImage *)blurImage:(UIImage *)image;
 + (void)blurView:(UIView *)view
