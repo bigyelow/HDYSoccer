@@ -60,6 +60,8 @@
 #define FIELD_FONT_COLOR @"#9c9c9c"
 #define PARTICIPANT_FONT_COLOR @"#4c4c4c"
 
+#define GAMELIST_CELL_FONT_NAME @"Verdana"
+
 - (void)configWithPersonalGameInfo:(SimplePersonalGameInfo *)gameInfo
 {
   [self.imageView setImageWithURL:[NSURL URLWithString:gameInfo.avatarURL] placeholderImage:nil];
@@ -73,7 +75,7 @@
   self.participantLabel = [[UILabel alloc] initWithFrame:CGRectZero];
   [self.participantLabel setText:participantsStr];
   [self.participantLabel setTextColor:[UIConfiguration colorForHex:PARTICIPANT_FONT_COLOR]];
-  [self.participantLabel setFont:[UIFont fontWithName:@"Chalkduster" size:PARTICIPANT_FONT_SIZE]];
+  [self.participantLabel setFont:[UIFont fontWithName:GAMELIST_CELL_FONT_NAME size:PARTICIPANT_FONT_SIZE]];
   [self.participantLabel sizeToFit];
   [UIConfiguration setView:self.participantLabel x:TEXT_LEFT_MARGIN];
   [UIConfiguration setView:self.participantLabel y:TEXT_TOP_MARGIN];
@@ -87,7 +89,7 @@
     NSString *scoreText = [NSString stringWithFormat:TEXT_GAME_AVERAGE_SCORE_TITLE, gameInfo.averageScore];
     [self.averageScoreLabel setText:scoreText];
     [self.averageScoreLabel setTextColor:[UIConfiguration colorForHex:PARTICIPANT_FONT_COLOR]];
-    [self.averageScoreLabel setFont:[UIFont fontWithName:@"Chalkduster" size:PARTICIPANT_FONT_SIZE]];
+    [self.averageScoreLabel setFont:[UIFont fontWithName:GAMELIST_CELL_FONT_NAME size:PARTICIPANT_FONT_SIZE]];
     [self.averageScoreLabel sizeToFit];
     [UIConfiguration setView:self.averageScoreLabel x:scoreX];
     [UIConfiguration setView:self.averageScoreLabel y:TEXT_TOP_MARGIN];
@@ -121,7 +123,7 @@
     self.distanceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     NSString *distanceStr = [NSString stringWithFormat:TEXT_DISTANCE, gameInfo.distance];
     [self.distanceLabel setText:distanceStr];
-    [self.distanceLabel setFont:[UIFont fontWithName:@"Chalkduster" size:FIELD_FONT_SIZE]];
+    [self.distanceLabel setFont:[UIFont fontWithName:GAMELIST_CELL_FONT_NAME size:FIELD_FONT_SIZE]];
     [self.distanceLabel setTextColor:[UIConfiguration colorForHex:FIELD_FONT_COLOR]];
     [self.distanceLabel sizeToFit];
     [UIConfiguration setView:self.distanceLabel width:DISTANCE_WIDTH];
