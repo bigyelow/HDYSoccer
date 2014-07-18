@@ -32,7 +32,7 @@
   [super viewDidLoad];
   
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    [self setEdgesForExtendedLayout:UIRectEdgeAll];
     [self setAutomaticallyAdjustsScrollViewInsets:YES];
   }
   [self.view setBackgroundColor:[UIColor whiteColor]];
