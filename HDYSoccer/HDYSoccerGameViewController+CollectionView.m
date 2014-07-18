@@ -13,6 +13,7 @@
 #import "SVPullToRefresh.h"
 #import "UIConfiguration+Color.h"
 #import "HDYSoccerGameCell.h"
+#import "HDYSoccerGameHeader.h"
 
 @implementation HDYSoccerGameViewController (CollectionView)
 
@@ -37,7 +38,7 @@
   CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
   
   layout.sectionInset = SECTION_INSET;
-  layout.headerHeight = HEADER_HEIGHT;
+  layout.headerHeight = TOP_BAR_HEIGHT;
   layout.footerHeight = FOOTER_HEIGHT;
   layout.minimumColumnSpacing = MINIMUM_COLUMN_SPACE;
   layout.minimumInteritemSpacing = MINIMUM_INTERITEM_SPACE;
@@ -53,6 +54,9 @@
   collectionView.delegate = self;
   [collectionView registerClass:[HDYSoccerGameCell class]
      forCellWithReuseIdentifier:GAME_CELL_IDENTIFIER];
+  [collectionView registerClass:[HDYSoccerGameHeader class]
+      forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader
+             withReuseIdentifier:HEADER_IDENTIFIER];
   
   // pull to refresh
   __weak typeof(self) weakSelf = self;
@@ -113,9 +117,9 @@
   [scrollView.pullToRefreshView.titleLabel setFont:[UIFont systemFontOfSize:REFRESH_TITLE_FONT_SIZE]];
   
   CGFloat centerX = scrollView.center.x + REFRESH_X_PLUS;
-  CGFloat centerY = scrollView.pullToRefreshView.center.y;
+  CGFloat centerY = scrollView.pullToRefreshView.center.y + TOP_BAR_HEIGHT;
   [scrollView.pullToRefreshView setCenter:CGPointMake(centerX, centerY)];
-  [scrollView.pullToRefreshView setArrowColor:[UIConfiguration colorForHex:REFRESH_ARROW_COLOR]];
+  [scrollView.pullToRefreshView setArrowColor:[UIColor lightGrayColor]];
 }
 
 - (void)updateCollecionViewDisplayWithIndex:(NSInteger)index

@@ -12,13 +12,12 @@
 #define HDYSoccer_GameViewParams_h
 
 
-#define HEADER_IDENTIFIER @"GameHeader"
-#define FOOTER_IDENTIFIER @"GameFooter"
+#define HEADER_IDENTIFIER @"GameListHeader"
+#define FOOTER_IDENTIFIER @"GameListFooter"
 
 #define GAME_TITLE @"约球"
 
 // layout
-#define HEADER_HEIGHT 0.0f
 #define FOOTER_HEIGHT 0.0f
 
 #define MINIMUM_COLUMN_SPACE 10.0f  // 列距

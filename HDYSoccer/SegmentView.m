@@ -8,7 +8,7 @@
 
 #import "SegmentView.h"
 
-#define SEGMENT_BACKGROUND_COLOR @"#F1F1F1"
+#define SEGMENT_BACKGROUND_COLOR @"#e9e9e9"
 #define SEGCONTROL_HEIGHT 28.0F
 #define SEGMENT_ITEM_WIDTH 100.0f
 
@@ -22,6 +22,7 @@
     // segcontrol background view
     CGFloat lineHeight = 0.5f;
     [self setBackgroundColor:[UIConfiguration colorForHex:SEGMENT_BACKGROUND_COLOR]];
+    [self setAlpha:0.95];
     
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(frame) - lineHeight, CGRectGetWidth(frame), lineHeight)];
     [line setBackgroundColor:[UIColor lightGrayColor]];
@@ -35,6 +36,7 @@
     [UIConfiguration setView:self.segControl height:SEGCONTROL_HEIGHT];
     [UIConfiguration moveSubviewYToSuperviewCenter:self subview:self.segControl];
     [UIConfiguration moveSubviewXToSuperviewCenter:self subview:self.segControl];
+    [UIConfiguration setView:self.segControl y:CGRectGetMinY(self.segControl.frame) - CGRectGetMinY(self.frame)];
     
     [self addSubview:self.segControl];
   }

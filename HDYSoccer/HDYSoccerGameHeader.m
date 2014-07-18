@@ -15,7 +15,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
   if (self = [super initWithFrame:frame]) {
-    self.backgroundColor = [UIConfiguration colorForHex:SECTION_BACKGROUND_COLOR];
+    self.backgroundColor = [UIColor clearColor];
   }
   return self;
 }

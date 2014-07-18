@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-#define GAME_LIST_PERSONAL_BACKGROUND_IMAGE @"background1.jpg"
+#pragma mark - resouce name
+
+#define GAME_LIST_PERSONAL_BACKGROUND_IMAGE @"background2.jpg"
 #define GAME_LIST_TEAM_BACKGROUND_IMAGE @"background2.jpg"
 #define GEEKER_LIST_BACKGROUND_IMAGE @"background2.jpg"
+
+#pragma mark - ui params
+
+#define STATUS_BAR_HEIGHT ([[UIApplication sharedApplication] statusBarFrame].size.height)
+#define NAVIGATION_BAR_HEIGHT (self.navigationController.navigationBar.frame.size.height)
+#define TOP_BAR_HEIGHT (STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT)
 
 typedef NS_ENUM(NSUInteger, ScrollDirection) {
   ScrollDirectionNone,
