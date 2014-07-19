@@ -28,7 +28,6 @@
     // image
     if (!self.imageView) {
       UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
-//      [UIConfiguration setView:imageView height:imageH];
       self.imageView = imageView;
       [self.contentView addSubview:self.imageView];
     }
@@ -39,7 +38,7 @@
       [UIConfiguration setView:infoView height:infoH];
       
       [infoView setBackgroundColor:[UIConfiguration colorForHex:@"#f0f0f0"]];
-      [infoView setAlpha:0.9];
+      [infoView setAlpha:0.96];
       [self.contentView addSubview:infoView];
       
       self.infoView = infoView;
@@ -57,10 +56,13 @@
 #define DISTANCE_WIDTH 50.0f
 
 #define FIELD_FONT_SIZE 12.0f
-#define FIELD_FONT_COLOR @"#9c9c9c"
+#define FIELD_FONT_COLOR @"#919191"
 #define PARTICIPANT_FONT_COLOR @"#4c4c4c"
 
 #define GAMELIST_CELL_FONT_NAME @"Verdana"
+
+#define AVERAGE_SCORE_COLOR @"#ff2b00"
+#define AVERAGE_SCORE_COLOR_LIMIT 75
 
 - (void)configWithPersonalGameInfo:(SimplePersonalGameInfo *)gameInfo
 {
@@ -88,7 +90,11 @@
     self.averageScoreLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     NSString *scoreText = [NSString stringWithFormat:TEXT_GAME_AVERAGE_SCORE_TITLE, gameInfo.averageScore];
     [self.averageScoreLabel setText:scoreText];
-    [self.averageScoreLabel setTextColor:[UIConfiguration colorForHex:PARTICIPANT_FONT_COLOR]];
+    UIColor *scoreColor = nil;
+    if (gameInfo.averageScore.doubleValue >= AVERAGE_SCORE_COLOR_LIMIT) {
+      scoreColor = [UIConfiguration colorForHex:AVERAGE_SCORE_COLOR];
+    }
+    [self.averageScoreLabel setTextColor:scoreColor];
     [self.averageScoreLabel setFont:[UIFont fontWithName:GAMELIST_CELL_FONT_NAME size:PARTICIPANT_FONT_SIZE]];
     [self.averageScoreLabel sizeToFit];
     [UIConfiguration setView:self.averageScoreLabel x:scoreX];
@@ -134,9 +140,84 @@
   }
 }
 
+#define TEAM_NAME_TOP_MARGIN 3.0F
+#define TEAM_NAME_LEFT_MARGIN 7.0F
+#define TEAM_NAME_FONT_SIZE 14.0F
+
+#define AVERAGE_SCORE_WIDTH 30.0F
+
 - (void)configWithTeamGameInfo:(SimpleTeamGameInfo *)gameInfo
 {
   [self.imageView setImageWithURL:[NSURL URLWithString:gameInfo.teamAvatarURL] placeholderImage:nil];
+  
+  UIFont *teamInfoFont = [UIFont fontWithName:GAMELIST_CELL_FONT_NAME size:TEAM_NAME_FONT_SIZE];
+  
+  // name
+  CGFloat maxNameW = self.contentView.frame.size.width - TEAM_NAME_LEFT_MARGIN - AVERAGE_SCORE_WIDTH;
+  UILabel *nameLabel = [UIConfiguration labelWithText:gameInfo.teamName
+                                            textColor:nil
+                                                 font:teamInfoFont
+                                        numberOfLines:1];
+  self.teamNameLabel = nameLabel;
+  if (nameLabel.frame.size.width > maxNameW) {
+    [UIConfiguration setView:nameLabel width:maxNameW];
+  }
+  [UIConfiguration setView:nameLabel origin:CGPointMake(TEAM_NAME_LEFT_MARGIN, TEAM_NAME_TOP_MARGIN)];
+  
+  [self.infoView addSubview:nameLabel];
+  
+  // score
+  if ([Tools isNilOrEmpty:gameInfo.averageScore] == NO) {
+    CGFloat scoreX = CGRectGetMaxX(nameLabel.frame);
+    NSString *scoreText = [NSString stringWithFormat:TEXT_GAME_AVERAGE_SCORE_TITLE, gameInfo.averageScore];
+    UIColor *scoreColor = nil;
+    if (gameInfo.averageScore.doubleValue >= AVERAGE_SCORE_COLOR_LIMIT) {
+      scoreColor = [UIConfiguration colorForHex:AVERAGE_SCORE_COLOR];
+    }
+    UILabel *scoreLabel = [UIConfiguration labelWithText:scoreText
+                                               textColor:scoreColor
+                                                    font:teamInfoFont];
+    [UIConfiguration setView:scoreLabel width:AVERAGE_SCORE_WIDTH];
+    [UIConfiguration setView:scoreLabel origin:CGPointMake(scoreX, TEAM_NAME_TOP_MARGIN)];
+    
+    [self.infoView addSubview:scoreLabel];
+  }
+
+  // field
+  if ([Tools isNilOrEmpty:gameInfo.field] == NO) {
+    CGFloat fieldY = CGRectGetMaxY(self.teamNameLabel.frame) + FIELD_TOP_MARGIN;
+    self.fieldLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.fieldLabel setText:gameInfo.field];
+    [self.fieldLabel setFont:[UIFont systemFontOfSize:FIELD_FONT_SIZE]];
+    [self.fieldLabel setTextColor:[UIConfiguration colorForHex:FIELD_FONT_COLOR]];
+    [self.fieldLabel setNumberOfLines:1];
+    [self.fieldLabel sizeToFit];
+    
+    CGFloat maxWidth = CGRectGetWidth(self.contentView.frame) - TEAM_NAME_LEFT_MARGIN - DISTANCE_WIDTH;
+    if (CGRectGetWidth(self.fieldLabel.frame) > maxWidth) {
+      [UIConfiguration setView:self.fieldLabel width:maxWidth];
+    }
+    [UIConfiguration setView:self.fieldLabel x:TEAM_NAME_LEFT_MARGIN];
+    [UIConfiguration setView:self.fieldLabel y:fieldY];
+    
+    [self.infoView addSubview:self.fieldLabel];
+  }
+  
+  // distance
+  if ([Tools isNilOrEmpty:gameInfo.distance] == NO) {
+    CGFloat distanceX = CGRectGetMaxX(self.fieldLabel.frame) + DISTANCE_LEFT_MARGIN;
+    self.distanceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    NSString *distanceStr = [NSString stringWithFormat:TEXT_DISTANCE, gameInfo.distance];
+    [self.distanceLabel setText:distanceStr];
+    [self.distanceLabel setFont:[UIFont fontWithName:GAMELIST_CELL_FONT_NAME size:FIELD_FONT_SIZE]];
+    [self.distanceLabel setTextColor:[UIConfiguration colorForHex:FIELD_FONT_COLOR]];
+    [self.distanceLabel sizeToFit];
+    [UIConfiguration setView:self.distanceLabel width:DISTANCE_WIDTH];
+    [UIConfiguration setView:self.distanceLabel x:distanceX];
+    [UIConfiguration setView:self.distanceLabel y:CGRectGetMinY(self.fieldLabel.frame)];
+    
+    [self.infoView addSubview:self.distanceLabel];
+  }
 }
 
 @end

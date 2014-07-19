@@ -22,7 +22,7 @@
     // segcontrol background view
     CGFloat lineHeight = 0.5f;
     [self setBackgroundColor:[UIConfiguration colorForHex:SEGMENT_BACKGROUND_COLOR]];
-    [self setAlpha:0.95];
+    [self setAlpha:0.96];
     
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(frame) - lineHeight, CGRectGetWidth(frame), lineHeight)];
     [line setBackgroundColor:[UIColor lightGrayColor]];
