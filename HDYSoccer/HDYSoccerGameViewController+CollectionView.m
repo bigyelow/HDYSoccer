@@ -38,13 +38,13 @@
   CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
   
   layout.sectionInset = SECTION_INSET;
-  layout.headerHeight = TOP_BAR_HEIGHT;
+  layout.headerHeight = 0;
   layout.footerHeight = FOOTER_HEIGHT;
   layout.minimumColumnSpacing = MINIMUM_COLUMN_SPACE;
   layout.minimumInteritemSpacing = MINIMUM_INTERITEM_SPACE;
   
-  CGFloat collectionY = self.segmentBackView.frame.size.height;
-  CGFloat collectionHeight = self.view.frame.size.height - self.segmentBackView.frame.size.height;
+  CGFloat collectionY = 0;
+  CGFloat collectionHeight = self.view.frame.size.height;
   CGRect collectionRect = CGRectMake(0, collectionY, self.view.bounds.size.width, collectionHeight);
   UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:collectionRect collectionViewLayout:layout];
   
@@ -54,9 +54,6 @@
   collectionView.delegate = self;
   [collectionView registerClass:[HDYSoccerGameCell class]
      forCellWithReuseIdentifier:GAME_CELL_IDENTIFIER];
-  [collectionView registerClass:[HDYSoccerGameHeader class]
-      forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader
-             withReuseIdentifier:HEADER_IDENTIFIER];
   
   // pull to refresh
   __weak typeof(self) weakSelf = self;
@@ -117,7 +114,7 @@
   [scrollView.pullToRefreshView.titleLabel setFont:[UIFont systemFontOfSize:REFRESH_TITLE_FONT_SIZE]];
   
   CGFloat centerX = scrollView.center.x + REFRESH_X_PLUS;
-  CGFloat centerY = scrollView.pullToRefreshView.center.y + TOP_BAR_HEIGHT;
+  CGFloat centerY = scrollView.pullToRefreshView.center.y + TOP_BAR_HEIGHT + self.segmentBackView.frame.size.height;
   [scrollView.pullToRefreshView setCenter:CGPointMake(centerX, centerY)];
   [scrollView.pullToRefreshView setArrowColor:[UIColor lightGrayColor]];
 }

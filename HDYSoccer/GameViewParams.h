@@ -7,6 +7,7 @@
 //
 
 #import "HDYSoccerGameCell.h"
+#import "SegmentView.h"
 
 #ifndef HDYSoccer_GameViewParams_h
 #define HDYSoccer_GameViewParams_h
@@ -26,7 +27,7 @@
 #define COLUMN_NUMBER 2
 #define SECTION_NUMBER 1
 #define SECTION_BACKGROUND_COLOR @"#e7f9ff"
-#define SECTION_INSET (UIEdgeInsetsMake(10, 10, 10, 10))
+#define SECTION_INSET (UIEdgeInsetsMake(TOP_BAR_HEIGHT + 10 + SEGMENT_VIEW_HEIGHT, 10, 10, 10))
 
 // cell
 #define GAME_CELL_IDENTIFIER @"GameCell"

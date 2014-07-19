@@ -150,20 +150,6 @@
   [self.navigationController pushViewController:viewCtr animated:YES];
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
-           viewForSupplementaryElementOfKind:(NSString *)kind
-                                 atIndexPath:(NSIndexPath *)indexPath {
-  UICollectionReusableView *reusableView = nil;
-  
-  if ([kind isEqualToString:CHTCollectionElementKindSectionHeader]) {
-    reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                      withReuseIdentifier:HEADER_IDENTIFIER
-                                                             forIndexPath:indexPath];
-  }
-  
-  return reusableView;
-}
-
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {

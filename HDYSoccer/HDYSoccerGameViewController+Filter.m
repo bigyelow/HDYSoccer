@@ -29,7 +29,7 @@
 - (void)filterButtonPressed
 {
   GameListFilterViewController *filterCtr = [[GameListFilterViewController alloc]
-                                             initWithStyle:UITableViewStyleGrouped];
+                                             initWithStyle:UITableViewStylePlain];
   [filterCtr setReloadGameListDelegate:self];
   HDYSoccerNavigationController *filterNav = [[HDYSoccerNavigationController alloc]
                                               initWithRootViewController:filterCtr];
