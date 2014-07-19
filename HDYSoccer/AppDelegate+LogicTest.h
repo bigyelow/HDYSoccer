@@ -10,7 +10,17 @@
 
 @interface AppDelegate (LogicTest)
 
+// user management
 - (void)testRegister;
 - (void)testLogin;
 - (void)testLogout;
+
+// game
+- (void)testLoadGameList;
+- (void)testCreatePersonalGame;
+- (void)testGetPersonalGame;
+
+// geeker
+- (void)testGetMyFriends;
+- (void)testGetGeekerInfo;
 @end

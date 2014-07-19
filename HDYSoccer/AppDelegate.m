@@ -26,8 +26,13 @@
   [self.window makeKeyAndVisible];
   
   // api test
-  [self testRegister];
-  [self testLogin];
+//  [self testRegister];
+//  [self testLogin];
+//  [self testLoadGameList];
+//  [self testCreatePersonalGame];
+//  [self testGetPersonalGame];
+//  [self testGetMyFriends];
+//  [self testGetGeekerInfo];
   
   return YES;
 }
