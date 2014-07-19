@@ -30,6 +30,16 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 
 @interface UIConfiguration : NSObject
 
+#pragma mark - label
++ (UILabel *)labelWithText:(NSString *)text
+                 textColor:(UIColor *)textColor
+                      font:(UIFont *)font
+             numberOfLines:(NSInteger)numberOfLines;
+
++ (UILabel *)labelWithText:(NSString *)text
+                 textColor:(UIColor *)textColor
+                      font:(UIFont *)font;
+
 #pragma mark - loading view
 + (void)showTipMessageToView:(UIView *)view;
 + (void)hideTipMessageOnView:(UIView *)view;
@@ -42,6 +52,7 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 + (void)moveSubviewYToSuperviewCenter:(UIView *)superView 
                               subview:(UIView *)subview;
 
++ (void)setView:(UIView *)view origin:(CGPoint)origin;
 + (void)setView:(UIView *)view height:(CGFloat)height;
 + (void)setView:(UIView *)view width:(CGFloat)width;
 + (void)setView:(UIView *)view y:(CGFloat)y;
@@ -49,4 +60,6 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 
 #pragma mark - keyboard
 + (CGRect)keyBoardRect:(NSNotification *)notification;
+
+#pragma mark - uilabel
 @end

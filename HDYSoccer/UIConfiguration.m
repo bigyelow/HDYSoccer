@@ -11,6 +11,34 @@
 
 @implementation UIConfiguration
 
+#pragma mark - label
++ (UILabel *)labelWithText:(NSString *)text
+                 textColor:(UIColor *)textColor
+                      font:(UIFont *)font
+             numberOfLines:(NSInteger)numberOfLines
+{
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+  [label setText:text];
+  if (textColor) {
+    [label setTextColor:textColor];
+  }
+  if (font) {
+    [label setFont:font];
+  }
+  [label setNumberOfLines:numberOfLines];
+  [label sizeToFit];
+  
+  return label;
+}
+
++ (UILabel *)labelWithText:(NSString *)text
+                 textColor:(UIColor *)textColor
+                      font:(UIFont *)font
+{
+  NSInteger numberOfLines = 0;
+  return [self labelWithText:text textColor:textColor font:font numberOfLines:numberOfLines];
+}
+
 #pragma mark - loading view
 + (void)showTipMessageToView:(UIView *)view
                        title:(NSString *)title
@@ -47,6 +75,12 @@
   CGFloat y = superView.center.y;
   
   [subview setCenter:CGPointMake(x, y)];
+}
+
++ (void)setView:(UIView *)view origin:(CGPoint)origin
+{
+  [self setView:view x:origin.x];
+  [self setView:view y:origin.y];
 }
 
 + (void)setView:(UIView *)view x:(CGFloat)x
