@@ -15,6 +15,9 @@ typedef void (^performBlock)();
 + (BOOL)isNilOrEmpty:(NSString *)string;
 
 // view effect
++ (void)blurView:(UIView *)view
+           image:(UIImage *)image
+      blurRadius:(CGFloat)blurRadis;
 + (UIImage *)blurImage:(UIImage *)image;
 + (void)blurView:(UIView *)view
            image:(UIImage *)image;

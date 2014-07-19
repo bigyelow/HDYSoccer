@@ -28,6 +28,14 @@
   view.backgroundColor = [UIColor colorWithPatternImage:blurredSnapshotImage];
 }
 
++ (void)blurView:(UIView *)view
+           image:(UIImage *)image
+      blurRadius:(CGFloat)blurRadis
+{
+  UIImage *blurredSnapshotImage = [self blurImage:image blurRadius:blurRadis];
+  view.backgroundColor = [UIColor colorWithPatternImage:blurredSnapshotImage];
+}
+
 + (UIImage *)blurImage:(UIImage *)image
 {
   CGFloat blurRadius = 4.0f;
