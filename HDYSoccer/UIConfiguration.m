@@ -123,4 +123,20 @@
   return [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
 }
 
+#pragma mark - image
++ (UIImage *)resizeImage:(UIImage *)srcImage width:(NSUInteger)width height:(NSUInteger)height
+{
+  if (srcImage == nil || width == 0 || height == 0) {
+    return nil;
+  }
+  
+  UIGraphicsBeginImageContext(CGSizeMake((CGFloat)width, (CGFloat)height));
+  [srcImage drawInRect:CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height)];
+  UIImage* dstImage = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+  
+	return dstImage;
+};
+
+
 @end

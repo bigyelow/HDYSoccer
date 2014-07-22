@@ -11,7 +11,7 @@
 #pragma mark - resouce name
 
 // TOP BUTTON
-#define TOP_BACK_IMAGE @"left-50.png"
+#define TOP_BACK_IMAGE @"back-25.png"
 #define TOP_CONFIRM_IMAGE @"checkmark-50.png"
 #define TOP_CANCEL_IMAGE @"cancel-50.png"
 #define TOP_MENU_IMAGE @"menu-50.png"
@@ -28,7 +28,8 @@
 // top bar
 #define TOP_CONFIRM_BUTTON_WIDTH 27.0F
 #define TOP_CANCEL_BUTTON_WIDTH 23.0F
-#define TOP_BACK_BUTTON_WIDTH 32.0F
+#define TOP_BACK_BUTTON_WIDTH 35.0F
+#define TOP_BACK_BUTTON_HEIGHT 32.0F
 #define STATUS_BAR_HEIGHT ([[UIApplication sharedApplication] statusBarFrame].size.height)
 #define NAVIGATION_BAR_HEIGHT (self.navigationController.navigationBar.frame.size.height)
 #define TOP_BAR_HEIGHT (STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT)
@@ -75,5 +76,6 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 #pragma mark - keyboard
 + (CGRect)keyBoardRect:(NSNotification *)notification;
 
-#pragma mark - uilabel
+#pragma mark - image
++ (UIImage *)resizeImage:(UIImage *)srcImage width:(NSUInteger)width height:(NSUInteger)height;
 @end
