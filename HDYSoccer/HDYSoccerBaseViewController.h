@@ -15,4 +15,5 @@
 @property (nonatomic, strong) HDYSoccerAPIClient *httpsClient;
 
 - (void)configTopMenuButton;
+- (UIButton *)topButtonWithImageName:(NSString *)name;
 @end

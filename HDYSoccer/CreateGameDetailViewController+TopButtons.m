@@ -18,11 +18,11 @@
 
 - (void)configTopItems
 {
-  UIBarButtonItem *confirmItem = [[UIBarButtonItem alloc] initWithTitle:TEXT_OK
-                                                                  style:UIBarButtonItemStyleBordered
-                                                                 target:self
-                                                                 action:@selector(confirmItemPressed)];
-  
+  // confirm item
+  UIButton *confirmButton = [self topButtonWithImageName:TOP_CONFIRM_IMAGE];
+  [UIConfiguration setView:confirmButton size:CGSizeMake(TOP_CONFIRM_BUTTON_WIDTH, TOP_CONFIRM_BUTTON_WIDTH)];
+  [confirmButton addTarget:self action:@selector(confirmItemPressed) forControlEvents:UIControlEventTouchUpInside];
+  UIBarButtonItem *confirmItem = [[UIBarButtonItem alloc] initWithCustomView:confirmButton];
   [self.navigationItem setRightBarButtonItem:confirmItem];
 }
 

@@ -39,6 +39,8 @@
   [self.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight
    | UIViewAutoresizingFlexibleWidth
    | UIViewAutoresizingFlexibleTopMargin];
+  
+  [self configBackButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -52,12 +54,28 @@
   // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - top buttons
+
+- (void)configBackButton
+{
+  UIButton *button = [self topButtonWithImageName:TOP_BACK_IMAGE];
+  [UIConfiguration setView:button size:CGSizeMake(TOP_BACK_BUTTON_WIDTH, TOP_BACK_BUTTON_WIDTH)];
+  [button addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+  
+  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
+  [self.navigationItem setLeftBarButtonItem:item];
+  self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+}
+
+- (void)backButtonPressed
+{
+  [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)configTopMenuButton
 {
-  UIImage *image = [UIImage imageNamed:@"menu-50.png"];
-  UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-  [button setBackgroundImage:image forState:UIControlStateNormal];
-  [UIConfiguration setView:button size:CGSizeMake(25, 25)];
+  UIButton *button = [self topButtonWithImageName:TOP_MENU_IMAGE];
+  [UIConfiguration setView:button size:CGSizeMake(20, 20)];
   [button addTarget:self action:@selector(menuButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
   UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
@@ -67,6 +85,16 @@
 - (void)menuButtonPressed
 {
   [self.frostedViewController presentMenuViewController];
+}
+
+- (UIButton *)topButtonWithImageName:(NSString *)name
+{
+  UIImage *image = [UIImage imageNamed:name];
+  UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+  [button setBackgroundImage:image forState:UIControlStateNormal];
+  [UIConfiguration setView:button size:CGSizeMake(25, 25)];
+  
+  return button;
 }
 
 #pragma mark - API Client

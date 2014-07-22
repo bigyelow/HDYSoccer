@@ -34,10 +34,11 @@
 
 - (void)configTopItems
 {
-  UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:TEXT_CANCEL
-                                                                 style:UIBarButtonItemStyleBordered
-                                                                target:self
-                                                                action:@selector(cancelItemPressed)];
+  // cancel item
+  UIButton *cancelButton = [self topButtonWithImageName:TOP_CANCEL_IMAGE];
+  [UIConfiguration setView:cancelButton size:CGSizeMake(TOP_CANCEL_BUTTON_WIDTH, TOP_CANCEL_BUTTON_WIDTH)];
+  [cancelButton addTarget:self action:@selector(cancelItemPressed) forControlEvents:UIControlEventTouchUpInside];
+  UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
   [self.navigationItem setLeftBarButtonItem:cancelItem];
 }
 

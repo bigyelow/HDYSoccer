@@ -14,14 +14,10 @@
 
 - (void)configTopCreateButton
 {
-  UIImage *image = [UIImage imageNamed:@"plus-50.png"];
-  UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-  [button setBackgroundImage:image forState:UIControlStateNormal];
-  [UIConfiguration setView:button size:CGSizeMake(25, 25)];
+  UIButton *button = [self topButtonWithImageName:TOP_ADD_IMAGE];
   [button addTarget:self action:@selector(createGameButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
   UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
-  
   NSMutableArray *rightItems = [self.navigationItem.rightBarButtonItems mutableCopy];
   [rightItems insertObject:item atIndex:0];
   [self.navigationItem setRightBarButtonItems:rightItems];
