@@ -83,6 +83,12 @@
   [self setView:view y:origin.y];
 }
 
++ (void)setView:(UIView *)view size:(CGSize)size
+{
+  [self setView:view height:size.height];
+  [self setView:view width:size.width];
+}
+
 + (void)setView:(UIView *)view x:(CGFloat)x
 {
   CGRect rect = view.frame;

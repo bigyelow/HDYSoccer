@@ -16,6 +16,7 @@
 
 #pragma mark - ui params
 
+#define GLOBAL_TINT_COLOR @"#2980b9"
 #define STATUS_BAR_HEIGHT ([[UIApplication sharedApplication] statusBarFrame].size.height)
 #define NAVIGATION_BAR_HEIGHT (self.navigationController.navigationBar.frame.size.height)
 #define TOP_BAR_HEIGHT (STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT)
@@ -52,6 +53,7 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 + (void)moveSubviewYToSuperviewCenter:(UIView *)superView 
                               subview:(UIView *)subview;
 
++ (void)setView:(UIView *)view size:(CGSize)size;
 + (void)setView:(UIView *)view origin:(CGPoint)origin;
 + (void)setView:(UIView *)view height:(CGFloat)height;
 + (void)setView:(UIView *)view width:(CGFloat)width;
