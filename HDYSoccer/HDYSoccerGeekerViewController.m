@@ -40,6 +40,7 @@
   
   [self setTitle:TEXT_TITLE];
   [self.geekerTable setHidden:YES];
+  [self configTopMenuButton];
   [self configSegmentView];
   
   [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self

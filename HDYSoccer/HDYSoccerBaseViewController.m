@@ -52,6 +52,23 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (void)configTopMenuButton
+{
+  UIImage *image = [UIImage imageNamed:@"menu-50.png"];
+  UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+  [button setBackgroundImage:image forState:UIControlStateNormal];
+  [UIConfiguration setView:button size:CGSizeMake(25, 25)];
+  [button addTarget:self action:@selector(menuButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+  
+  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
+  [self.navigationItem setLeftBarButtonItem:item];
+}
+
+- (void)menuButtonPressed
+{
+  [self.frostedViewController presentMenuViewController];
+}
+
 #pragma mark - API Client
 - (HDYSoccerAPIClient *)httpClient
 {

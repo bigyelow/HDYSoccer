@@ -23,7 +23,7 @@
                                                           target:self
                                                           action:@selector(filterButtonPressed)];
   self.filterItem = item;
-  [self.navigationItem setLeftBarButtonItem:item];
+  [self.navigationItem setRightBarButtonItem:item];
 }
 
 - (void)filterButtonPressed

@@ -46,6 +46,7 @@
   // top buttons
   [self configTopFilterButton];
   [self configTopCreateButton];
+  [self configTopMenuButton];
   
   // segment control and collection views
   [self configSegControlWithIndex:0];

@@ -11,7 +11,7 @@
 #import "HDYSoccerMenuViewController.h"
 
 #define NAVIGATION_BACKGROUND_IMAGE @"background2.jpg"
-#define NAVIGATION_BAR_TINT_COLOR @"#00cccc"
+#define NAVIGATION_BAR_TINT_COLOR GLOBAL_TINT_COLOR
 #define NAVIGATION_BACKGROUND_COLOR @"#00994d"
 
 @interface HDYSoccerNavigationController ()
@@ -29,7 +29,7 @@
 //  UIImage *image = [Tools blurImage:[UIImage imageNamed:NAVIGATION_BACKGROUND_IMAGE]];
 //  [self.navigationBar setBackgroundColor:[UIConfiguration colorForHex:NAVIGATION_BACKGROUND_COLOR]];
 //  [self.navigationBar setTranslucent:YES];
-//  [self.navigationBar setTintColor:[UIConfiguration colorForHex:NAVIGATION_BAR_TINT_COLOR]];
+  [self.navigationBar setTintColor:[UIConfiguration colorForHex:NAVIGATION_BAR_TINT_COLOR]];
 //  [self.navigationBar setBackgroundImage:image
 //                           forBarMetrics:UIBarMetricsDefault];
 }

@@ -33,6 +33,7 @@
       [self.segControl setWidth:SEGMENT_ITEM_WIDTH forSegmentAtIndex:index];
     }
     [self.segControl setBackgroundColor:[UIConfiguration colorForHex:SEGMENT_BACKGROUND_COLOR]];
+    [self.segControl setTintColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
     [UIConfiguration setView:self.segControl height:SEGCONTROL_HEIGHT];
     [UIConfiguration moveSubviewYToSuperviewCenter:self subview:self.segControl];
     [UIConfiguration moveSubviewXToSuperviewCenter:self subview:self.segControl];

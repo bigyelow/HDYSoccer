@@ -14,4 +14,5 @@
 @property (nonatomic, strong) HDYSoccerAPIClient *httpClient;
 @property (nonatomic, strong) HDYSoccerAPIClient *httpsClient;
 
+- (void)configTopMenuButton;
 @end
