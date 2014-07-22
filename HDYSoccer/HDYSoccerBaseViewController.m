@@ -58,11 +58,13 @@
 
 - (void)configBackButton
 {
-  UIButton *button = [self topButtonWithImageName:TOP_BACK_IMAGE];
-  [UIConfiguration setView:button size:CGSizeMake(TOP_BACK_BUTTON_WIDTH, TOP_BACK_BUTTON_WIDTH)];
-  [button addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-  
-  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
+  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                           style:UIBarButtonItemStyleBordered
+                                                          target:self
+                                                          action:@selector(backButtonPressed)];
+  UIImage *image = [UIImage imageNamed:TOP_BACK_IMAGE];
+  [item setImage:image];
+  [item setImageInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
   [self.navigationItem setLeftBarButtonItem:item];
   self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
 }
