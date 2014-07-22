@@ -7,12 +7,16 @@
 //
 
 #import "GameListFilterViewController.h"
+#import "GameListFilterTableViewCell.h"
+#import "GameListFilterFieldTableViewCell.h"
 
 @interface GameListFilterViewController ()
 
 @end
 
 #define FILTER_VIEW_TITLE @"选择时间和场地"
+#define FILTER_BACKGROUND_IMAGE @"field4.jpg"
+
 @implementation GameListFilterViewController
 
 - (void)viewDidLoad
@@ -21,6 +25,13 @@
 
   [self setTitle:FILTER_VIEW_TITLE];
   [self configTopItems];
+  
+  [self.tableView setScrollEnabled:NO];
+  
+  // background
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  [self.tableView setBackgroundColor:[UIColor clearColor]];
+  [Tools blurView:self.view image:[UIImage imageNamed:FILTER_BACKGROUND_IMAGE] blurRadius:1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,42 +92,45 @@
   return 1;
 }
 
-#define FILTER_CELL_ID @"filter_cell"
-
-#define SELECT_TIME_TITLE @"选择时间"
 #define SELECT_FIELD_TITLE @"选择场地"
 #define SELECT_TIME_FORMAT_TITLE @"踢球时间：%@"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  static NSString *identifier = FILTER_CELL_ID;
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-  if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                  reuseIdentifier:identifier];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
-    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-  }
-
   switch (indexPath.section) {
-    case 0:
-      if (!self.filterDate) {
-        [cell.textLabel setText:SELECT_TIME_TITLE];
+    case 0: {
+      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
+      GameListFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
       }
-      else {
+      [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+      
+      if (self.filterDate) {
         NSString *time = [Tools dateminuteToStr:self.filterDate preferUTC:NO];
         NSString *cellText = [NSString stringWithFormat:SELECT_TIME_FORMAT_TITLE, time];
-        [cell.textLabel setText:cellText];
+        [cell.timeLabel setText:cellText];
+        [cell.timeLabel setNumberOfLines:1];
+        [cell.timeLabel sizeToFit];
       }
-      break;
       
-    case 1:
-      [cell.textLabel setText:SELECT_FIELD_TITLE];
-      break;
+      return cell;
+    }
+      
+    case 1: {
+      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
+      GameListFilterFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
+      [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+
+      return cell;
+    }
       
     default:
       break;
   }
-  return cell;
+  return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -141,6 +155,8 @@
 #pragma mark - RMDAteSelectionViewController operations and delegate
 
 #define MINUTE_INTERVAL 10.0f
+#define SELECT_TIME_TITLE @"选择时间"
+
 - (void)openDateSelectionController
 {
   [RMDateSelectionViewController setLocalizedTitleForCancelButton:TEXT_CANCEL];
