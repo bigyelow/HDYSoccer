@@ -8,9 +8,6 @@
 
 #import "HDYSoccerBaseTableViewController.h"
 
-#define CREATE_PERSONAL_GAME @"创建小场活动"
-#define CREATE_TEAM_GAME @"创建大场比赛"
-
 #define KEY_GAME_TYPE @"gameType"
 #define KEY_GAME_OBJECT @"gameObject"
 

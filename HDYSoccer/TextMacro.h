@@ -25,6 +25,8 @@
 #define TEXT_GAME_AVERAGE_SCORE_TITLE @" %@"
 #define TEXT_DISTANCE @",%@km"
 
+#define CREATE_PERSONAL_GAME @"创建小场活动"
+#define CREATE_TEAM_GAME @"创建大场比赛"
 // measure
 #define TEXT_CHINESE_MEASURE @"元"
 

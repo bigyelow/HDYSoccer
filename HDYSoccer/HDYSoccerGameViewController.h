@@ -26,4 +26,10 @@
 // filter item
 @property (nonatomic, strong) UIBarButtonItem *filterItem;
 
+// create game view
+@property (nonatomic, strong) UIButton *personalGameButton;
+@property (nonatomic, strong) UIButton *teamGameButton;
+@property (nonatomic, strong) UIView *createView;
+@property (nonatomic, strong) UIView *createBackBlurView;
+
 @end

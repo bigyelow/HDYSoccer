@@ -24,6 +24,18 @@
   [confirmButton addTarget:self action:@selector(confirmItemPressed) forControlEvents:UIControlEventTouchUpInside];
   UIBarButtonItem *confirmItem = [[UIBarButtonItem alloc] initWithCustomView:confirmButton];
   [self.navigationItem setRightBarButtonItem:confirmItem];
+  
+  // cancel item
+  UIButton *cancelButton = [self topButtonWithImageName:TOP_CANCEL_IMAGE];
+  [UIConfiguration setView:cancelButton size:CGSizeMake(TOP_CANCEL_BUTTON_WIDTH, TOP_CANCEL_BUTTON_WIDTH)];
+  [cancelButton addTarget:self action:@selector(cancelItemPressed) forControlEvents:UIControlEventTouchUpInside];
+  UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
+  [self.navigationItem setLeftBarButtonItem:cancelItem];
+}
+
+- (void)cancelItemPressed
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)confirmItemPressed
