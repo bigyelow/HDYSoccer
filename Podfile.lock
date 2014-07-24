@@ -21,6 +21,7 @@ PODS:
   - AMWaveTransition (0.3)
   - CHTCollectionViewWaterfallLayout (0.6)
   - DACircularProgress (2.2.0)
+  - FXBlurView (1.6.1)
   - GPUImage (0.1.4)
   - JSONModel (0.13.0)
   - MBProgressHUD (0.8)
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.2.3)
   - AMWaveTransition (~> 0.3)
   - CHTCollectionViewWaterfallLayout (~> 0.6)
+  - FXBlurView (~> 1.6.1)
   - GPUImage (~> 0.1.4)
   - JSONModel (~> 0.13.0)
   - MBProgressHUD (~> 0.8)
@@ -89,6 +91,7 @@ SPEC CHECKSUMS:
   AMWaveTransition: 270b861311986502563b41edb9923b22a73d8e13
   CHTCollectionViewWaterfallLayout: 849ae31d979db744b5170e48bcf3e7e726f5d682
   DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
+  FXBlurView: 1d01b96076d65027314d1be024c7506c292392aa
   GPUImage: ac2bde5f4dbea02a81ced6313964cec1f2043ca9
   JSONModel: 62ea96b49ea18a8b91ef89c249dba291d8601d82
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
