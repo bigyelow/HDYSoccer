@@ -11,4 +11,7 @@
 @interface HDYSoccerAPIError : NSObject
 
 + (HDYSoccerAPIError *)convertNSError:(NSError *)error;
+
+@property (nonatomic, copy) NSString *errorMsg;
+@property (nonatomic, assign) NSInteger errorCode;
 @end

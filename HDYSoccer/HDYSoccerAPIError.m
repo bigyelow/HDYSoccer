@@ -13,8 +13,29 @@
 #warning todo - convert NSError
 + (HDYSoccerAPIError *)convertNSError:(NSError *)error
 {
-  HDYSoccerAPIError *apiError = [super init];
+  HDYSoccerAPIError *apiError = [[HDYSoccerAPIError alloc] initWithNSErr:error];
   return apiError;
+}
+
+- (HDYSoccerAPIError *)initWithNSErr:(NSError *)error
+{
+  self = [super init];
+  if (self) {
+    self.errorCode = [self errorCodeForError:error];
+    self.errorMsg = [self errorMsgForCode:error];
+  }
+  
+  return self;
+}
+
+- (NSString *)errorMsgForCode:(NSError *)error
+{
+  return @"";
+}
+
+- (NSInteger)errorCodeForError:(NSError *)error
+{
+  return error.code;
 }
 
 @end
