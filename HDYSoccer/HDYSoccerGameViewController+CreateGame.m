@@ -147,6 +147,7 @@
   CreateGameDetailViewController *createCtr = [[CreateGameDetailViewController alloc]
                                                initWithStyle:UITableViewStyleGrouped
                                                gameType:kGameTypePersonal];
+  [createCtr setCreateGameDelegate:self];
   
   HDYSoccerNavigationController *createNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:createCtr];
   [self presentViewController:createNav
@@ -160,6 +161,7 @@
   CreateGameDetailViewController *createCtr = [[CreateGameDetailViewController alloc]
                                                initWithStyle:UITableViewStyleGrouped
                                                gameType:kGameTypeTeam];
+  [createCtr setCreateGameDelegate:self];
   
   HDYSoccerNavigationController *createNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:createCtr];
   [self presentViewController:createNav
