@@ -9,10 +9,10 @@
 #import "GameListFilterFieldTableViewCell.h"
 #import "GameListFilterTableViewCell.h"
 
-CGFloat kFieldLeftMargin = 10.0f;
-CGFloat kFieldTopMargin = 15.0f;
-CGFloat kFieldWidth = 14.0f;
-CGFloat kFieldHeight = 14.0f;
+CGFloat kFieldLeftMargin = 8.0f;
+CGFloat kFieldTopMargin = 13.0f;
+CGFloat kFieldWidth = 16.0f;
+CGFloat kFieldHeight = 16.0f;
 
 #define TEXT_LEFT_MARGIN 10.0F
 NSString *kfieldTitle = @"选择场地";
@@ -27,17 +27,17 @@ NSString *kfieldTitle = @"选择场地";
     [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
     [self.contentView setAlpha:0.5];
     
-    // clock image
-    UIImage *clockImage = [UIImage imageNamed:@"football-75.png"];
-    CGRect clockRect = CGRectMake(kFieldLeftMargin, kFieldTopMargin, kFieldWidth, kFieldHeight);
-    UIImageView *clockView = [[UIImageView alloc] initWithFrame:clockRect];
-    [clockView setImage:clockImage];
+    // field image
+    UIImage *fieldImage = [UIImage imageNamed:@"location-75.png"];
+    CGRect fieldRect = CGRectMake(kFieldLeftMargin, kFieldTopMargin, kFieldWidth, kFieldHeight);
+    UIImageView *fieldView = [[UIImageView alloc] initWithFrame:fieldRect];
+    [fieldView setImage:fieldImage];
     
-    [self addSubview:clockView];
+    [self addSubview:fieldView];
     
     // field
     UILabel *fieldLabel = [UIConfiguration labelWithText:kfieldTitle textColor:[UIColor whiteColor] font:nil];
-    CGFloat fieldX = CGRectGetMaxX(clockView.frame) + TEXT_LEFT_MARGIN;
+    CGFloat fieldX = CGRectGetMaxX(fieldView.frame) + TEXT_LEFT_MARGIN;
     
     [UIConfiguration setView:fieldLabel origin:CGPointMake(fieldX, 0)];
     [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:fieldLabel];
