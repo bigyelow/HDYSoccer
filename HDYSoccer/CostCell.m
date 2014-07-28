@@ -12,11 +12,11 @@
 // image
 #define COST_IMAGE_LEFT_MARGIN 5.0F
 #define COST_IMAGE_TOP_MARGIN 9.0F
-#define COST_IMAGE_WIDTH 23.0F
+#define COST_IMAGE_WIDTH 25.0F
 #define COST_IMAGE_HEIGHT 25.0F
 
 // title
-#define TITLE_LEFT_MARGIN 7.0f
+#define TITLE_LEFT_MARGIN 4.0f
 
 // text field
 #define TEXT_FIELD_LEFT_MARGIN 5.0f
