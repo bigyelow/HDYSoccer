@@ -112,6 +112,8 @@
 		71F8BFFA1986549E0096465E /* group-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8BFF91986549E0096465E /* group-75.png */; };
 		71F8BFFC198656490096465E /* add_user-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8BFFB198656490096465E /* add_user-75.png */; };
 		71F8BFFE198659530096465E /* location-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8BFFD198659530096465E /* location-75.png */; };
+		71F8C00019865B6E0096465E /* phone1-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8BFFF19865B6E0096465E /* phone1-75.png */; };
+		71F8C00219865B7B0096465E /* phone2-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8C00119865B7B0096465E /* phone2-75.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,6 +317,8 @@
 		71F8BFF91986549E0096465E /* group-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "group-75.png"; sourceTree = "<group>"; };
 		71F8BFFB198656490096465E /* add_user-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user-75.png"; sourceTree = "<group>"; };
 		71F8BFFD198659530096465E /* location-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-75.png"; sourceTree = "<group>"; };
+		71F8BFFF19865B6E0096465E /* phone1-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone1-75.png"; sourceTree = "<group>"; };
+		71F8C00119865B7B0096465E /* phone2-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone2-75.png"; sourceTree = "<group>"; };
 		E1F5194131C64023AC9E6544 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -410,6 +414,8 @@
 			isa = PBXGroup;
 			children = (
 				71E7AE88197E5CF700427C31 /* back-25.png */,
+				71F8C00119865B7B0096465E /* phone2-75.png */,
+				71F8BFFF19865B6E0096465E /* phone1-75.png */,
 				71F8BFF91986549E0096465E /* group-75.png */,
 				71F8BFFD198659530096465E /* location-75.png */,
 				71F8BFFB198656490096465E /* add_user-75.png */,
@@ -922,6 +928,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71F8C00019865B6E0096465E /* phone1-75.png in Resources */,
 				71F8BFEA198628880096465E /* background_italy.png in Resources */,
 				71CB8C0A18E019060073E913 /* InfoPlist.strings in Resources */,
 				71F8BFFC198656490096465E /* add_user-75.png in Resources */,
@@ -930,6 +937,7 @@
 				71F8BFF2198628B40096465E /* background_luonaerduo.jpg in Resources */,
 				7187BE68197A676300748563 /* menu-50.png in Resources */,
 				71F8BFEE198628A50096465E /* background_backham2.jpg in Resources */,
+				71F8C00219865B7B0096465E /* phone2-75.png in Resources */,
 				71E7AE79197E463A00427C31 /* checkmark-50.png in Resources */,
 				71DD43DC18E29FBF008094E0 /* bigyelow_avatar.jpg in Resources */,
 				71F8BFF0198628AD0096465E /* background_inzaji.jpg in Resources */,
