@@ -7,20 +7,28 @@
 //
 
 #import "ChoosePlayerCell.h"
+#import "GameListFilterTableViewCell.h"
 
 #define SELECT_PLAYER_TITLE @"人数"
+
+// image
+#define PLAYER_IMAGE_LEFT_MARGIN 10.0F
+#define PLAYER_IMAGE_TOP_MARGIN 12.0F
+#define PLAYER_IMAGE_WIDTH 16.0F
+#define PLAYER_IMAGE_HEIGHT 16.0F
 
 // title
 #define TITLE_LEFT_MARGIN 10.0f
 
 // text field
 #define TEXT_FIELD_LEFT_MARGIN 10.0f
-#define TEXT_FIELD_WIDTH 50.0
+#define TEXT_FIELD_WIDTH 80.0
 #define TEXT_FIELD_HEIGHT 30.0f
 
 // choose friend button
-#define FRIEND_BUTTON_LEFT_MARGIN 10.0f
-#define FRIEND_BUTTON_TITLE @"选择好友"
+#define FRIEND_BUTTON_LEFT_MARGIN 30.0f
+#define FRIEND_BUTTON_WIDTH 26.0F
+#define FRIEND_BUTTON_HEIGHT 24.0F
 
 @implementation ChoosePlayerCell
 
@@ -28,11 +36,28 @@
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
+    //
+    [self setBackgroundColor:[UIColor clearColor]];
+    [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
+    [self.contentView setAlpha:0.5];
+    
+    // player image
+    UIImage *playerImage = [UIImage imageNamed:@"group-75.png"];
+    CGRect playerRect = CGRectMake(PLAYER_IMAGE_LEFT_MARGIN, PLAYER_IMAGE_TOP_MARGIN, PLAYER_IMAGE_WIDTH, PLAYER_IMAGE_HEIGHT);
+    UIImageView *playerView = [[UIImageView alloc] initWithFrame:playerRect];
+    [playerView setImage:playerImage];
+    
+    [self addSubview:playerView];
+    
     // title
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(TITLE_LEFT_MARGIN, 0, 0, 0)];
+    CGFloat titleX = CGRectGetMaxX(playerView.frame) + TITLE_LEFT_MARGIN;
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(titleX, 0, 0, 0)];
     [titleLabel setText:SELECT_PLAYER_TITLE];
     [titleLabel sizeToFit];
-    [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:titleLabel];
+    [titleLabel setTextColor:[UIColor whiteColor]];
+    [UIConfiguration moveSubviewYToSuperviewCenter:self subview:titleLabel];
+    
+    [self addSubview:titleLabel];
     
     // text field
     CGFloat fieldX = CGRectGetMaxX(titleLabel.frame) + TEXT_FIELD_LEFT_MARGIN;
@@ -42,27 +67,30 @@
     [textField.layer setCornerRadius:5.0f];
     [textField.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [textField setKeyboardType:UIKeyboardTypeNumberPad];
-    [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:textField];
+    [textField setBackgroundColor:[UIColor whiteColor]];
+    [textField setTintColor:[UIColor blackColor]];
+    [UIConfiguration moveSubviewYToSuperviewCenter:self subview:textField];
     
     self.textField = textField;
+    [self addSubview:textField];
     
     // choose friend
     CGFloat buttonX = CGRectGetMaxX(textField.frame) + FRIEND_BUTTON_LEFT_MARGIN;
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(buttonX, 0, 0, 50)];
-    [button setTitle:FRIEND_BUTTON_TITLE forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [button sizeToFit];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(buttonX, 0, FRIEND_BUTTON_WIDTH, FRIEND_BUTTON_HEIGHT)];
+    [button setImage:[UIImage imageNamed:@"add_user-75.png"] forState:UIControlStateNormal];
     
-    [button.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [button.layer setCornerRadius:5.0f];
-    [button.layer setBorderWidth:1.0f];
-    [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:button];
+    [UIConfiguration moveSubviewYToSuperviewCenter:self subview:button];
     
-    [self.contentView addSubview:button];
-    [self.contentView addSubview:titleLabel];
-    [self.contentView addSubview:textField];
+    [self addSubview:button];
     
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    // seperator line
+    CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
+    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
+    [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+    
+    [self addSubview:seperator];
   }
   return self;
 }
