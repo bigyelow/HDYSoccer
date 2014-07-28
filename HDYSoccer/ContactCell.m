@@ -16,10 +16,10 @@
 #define CONTACT_IMAGE_HEIGHT 13.0F
 
 // title
-#define TITLE_LEFT_MARGIN 10.0f
+#define TITLE_LEFT_MARGIN 11.0f
 
 // text field
-#define TEXT_FIELD_LEFT_MARGIN 10.0f
+#define TEXT_FIELD_LEFT_MARGIN 5.0f
 #define TEXT_FIELD_WIDTH 200.0
 #define TEXT_FIELD_HEIGHT 30.0f
 
@@ -69,6 +69,13 @@
     [self addSubview:textField];
     
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    // seperator line
+    CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
+    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
+    [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+    
+    [self addSubview:seperator];
   }
   return self;
 }

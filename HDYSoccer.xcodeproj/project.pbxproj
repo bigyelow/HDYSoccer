@@ -114,6 +114,7 @@
 		71F8BFFE198659530096465E /* location-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8BFFD198659530096465E /* location-75.png */; };
 		71F8C00019865B6E0096465E /* phone1-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8BFFF19865B6E0096465E /* phone1-75.png */; };
 		71F8C00219865B7B0096465E /* phone2-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8C00119865B7B0096465E /* phone2-75.png */; };
+		71F8C00419865DAF0096465E /* money-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8C00319865DAF0096465E /* money-75.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -319,6 +320,7 @@
 		71F8BFFD198659530096465E /* location-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-75.png"; sourceTree = "<group>"; };
 		71F8BFFF19865B6E0096465E /* phone1-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone1-75.png"; sourceTree = "<group>"; };
 		71F8C00119865B7B0096465E /* phone2-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone2-75.png"; sourceTree = "<group>"; };
+		71F8C00319865DAF0096465E /* money-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-75.png"; sourceTree = "<group>"; };
 		E1F5194131C64023AC9E6544 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -415,6 +417,7 @@
 			children = (
 				71E7AE88197E5CF700427C31 /* back-25.png */,
 				71F8C00119865B7B0096465E /* phone2-75.png */,
+				71F8C00319865DAF0096465E /* money-75.png */,
 				71F8BFFF19865B6E0096465E /* phone1-75.png */,
 				71F8BFF91986549E0096465E /* group-75.png */,
 				71F8BFFD198659530096465E /* location-75.png */,
@@ -945,6 +948,7 @@
 				7187BE5A197A45B500748563 /* football-75.png in Resources */,
 				71CB8C1218E019060073E913 /* Images.xcassets in Resources */,
 				71F8BFEC1986289F0096465E /* background_chelsy.jpg in Resources */,
+				71F8C00419865DAF0096465E /* money-75.png in Resources */,
 				71F8BFFA1986549E0096465E /* group-75.png in Resources */,
 				71F8BFE6198626050096465E /* background_backhame.jpg in Resources */,
 				7187BE6A197A699000748563 /* plus-50.png in Resources */,

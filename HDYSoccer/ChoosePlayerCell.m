@@ -18,10 +18,10 @@
 #define PLAYER_IMAGE_HEIGHT 16.0F
 
 // title
-#define TITLE_LEFT_MARGIN 10.0f
+#define TITLE_LEFT_MARGIN 8.0f
 
 // text field
-#define TEXT_FIELD_LEFT_MARGIN 10.0f
+#define TEXT_FIELD_LEFT_MARGIN 5.0f
 #define TEXT_FIELD_WIDTH 80.0
 #define TEXT_FIELD_HEIGHT 30.0f
 

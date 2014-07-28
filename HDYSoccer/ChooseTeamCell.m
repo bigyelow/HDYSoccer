@@ -17,7 +17,7 @@
 // number of players label and text field
 #define NUMBER_TOP_MARGIN 10.0f
 #define NUMBER_TITLE @"几人制"
-#define NUMBER_FIELD_LEFT_MARGIN 10.0f
+#define NUMBER_FIELD_LEFT_MARGIN 5.0f
 #define NUMBER_FIELD_WIDTH 50.0f
 #define NUMBER_FIELD_HEIGHT 30.0f
 #define NUMBER_FIELD_MEASURE_LEFTMARGIN 5.0f

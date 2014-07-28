@@ -7,12 +7,19 @@
 //
 
 #import "CostCell.h"
+#import "GameListFilterTableViewCell.h"
+
+// image
+#define COST_IMAGE_LEFT_MARGIN 5.0F
+#define COST_IMAGE_TOP_MARGIN 9.0F
+#define COST_IMAGE_WIDTH 23.0F
+#define COST_IMAGE_HEIGHT 25.0F
 
 // title
-#define TITLE_LEFT_MARGIN 10.0f
+#define TITLE_LEFT_MARGIN 7.0f
 
 // text field
-#define TEXT_FIELD_LEFT_MARGIN 10.0f
+#define TEXT_FIELD_LEFT_MARGIN 5.0f
 #define TEXT_FIELD_WIDTH 80.0f
 #define TEXT_FIELD_HEIGHT 30.0f
 
@@ -27,36 +34,62 @@
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
+    //
+    [self setBackgroundColor:[UIColor clearColor]];
+    [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
+    [self.contentView setAlpha:0.5];
+    
+    // cost image
+    UIImage *costImage = [UIImage imageNamed:@"money-75.png"];
+    CGRect costRect = CGRectMake(COST_IMAGE_LEFT_MARGIN, COST_IMAGE_TOP_MARGIN, COST_IMAGE_WIDTH, COST_IMAGE_HEIGHT);
+    UIImageView *costView = [[UIImageView alloc] initWithFrame:costRect];
+    [costView setImage:costImage];
+    
+    [self addSubview:costView];
+    
     // title
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(TITLE_LEFT_MARGIN, 0, 0, 0)];
+    CGFloat titleX = CGRectGetMaxX(costView.frame) + TITLE_LEFT_MARGIN;
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(titleX, 0, 0, 0)];
     [titleLabel setText:title];
     [titleLabel sizeToFit];
-    [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:titleLabel];
+    [titleLabel setTextColor:[UIColor whiteColor]];
+    [UIConfiguration moveSubviewYToSuperviewCenter:self subview:titleLabel];
     
+    [self addSubview:titleLabel];
+
     // text field
     CGFloat fieldX = CGRectGetMaxX(titleLabel.frame) + TEXT_FIELD_LEFT_MARGIN;
     CGRect fieldRect = CGRectMake(fieldX, 0, TEXT_FIELD_WIDTH, TEXT_FIELD_HEIGHT);
     UITextField *textField = [[UITextField alloc] initWithFrame:fieldRect];
+    [textField setBackgroundColor:[UIColor whiteColor]];
+    [textField setTintColor:[UIColor blackColor]];
     [textField.layer setBorderWidth:1.0f];
     [textField.layer setCornerRadius:5.0f];
     [textField.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [textField setKeyboardType:UIKeyboardTypeNumberPad];
-    [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:textField];
+    [UIConfiguration moveSubviewYToSuperviewCenter:self subview:textField];
     
     self.textField = textField;
-    
+    [self addSubview:textField];
+
     // measure
     CGFloat measureX = CGRectGetMaxX(textField.frame) + MEASURE_LEFT_MARGIN;
     UILabel *measureLabel = [[UILabel alloc] initWithFrame:CGRectMake(measureX, 0, 0, 0)];
     [measureLabel setText:TEXT_CHINESE_MEASURE];
     [measureLabel sizeToFit];
-    [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:measureLabel];
+    [measureLabel setTextColor:[UIColor whiteColor]];
+    [UIConfiguration moveSubviewYToSuperviewCenter:self subview:measureLabel];
     
-    [self.contentView addSubview:titleLabel];
-    [self.contentView addSubview:textField];
-    [self.contentView addSubview:measureLabel];
+    [self addSubview:measureLabel];
     
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    // seperator line
+    CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
+    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
+    [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+    
+    [self addSubview:seperator];
   }
   return self;
 }
