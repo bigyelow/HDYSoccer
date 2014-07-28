@@ -61,6 +61,10 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 + (void)showTipMessageToView:(UIView *)view
                        title:(NSString *)title;
 
++ (void)showProcessIndicatorWithView:(UIView *)view;
++ (void)showProcessIndicatorWithView:(UIView *)view atPoint:(CGPoint)point;
++ (void)hideProcessIndicatorWithView:(UIView *)view;
+
 #pragma mark - frame
 + (void)moveSubviewXToSuperviewCenter:(UIView *)superView
                               subview:(UIView *)subview;

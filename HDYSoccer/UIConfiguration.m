@@ -40,6 +40,8 @@
 }
 
 #pragma mark - loading view
+
+// tip message
 + (void)showTipMessageToView:(UIView *)view
                        title:(NSString *)title
 {
@@ -56,6 +58,55 @@
 + (void)hideTipMessageOnView:(UIView *)view
 {
   [MBProgressHUD hideAllHUDsForView:view animated:YES];
+}
+
+
+// indicator
++ (void)showProcessIndicatorWithView:(UIView *)view
+{
+  [self showProcessIndicatorWithView:view
+                             atPoint:CGPointMake(view.bounds.size.width / 2.f, view.bounds.size.height / 2.f)];
+}
+
++ (void)showProcessIndicatorWithView:(UIView *)view atPoint:(CGPoint)point
+{
+  [self showProcessIndicatorWithView:view atPoint:point indicatorStyle:UIActivityIndicatorViewStyleWhite];
+}
++ (void)showProcessIndicatorWithView:(UIView *)view atPoint:(CGPoint)point indicatorStyle:(UIActivityIndicatorViewStyle)style
+{
+	if ([view viewWithTag:2045])//已经有了，不需要重复添加
+	{
+		return;
+	}
+  
+	UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 35)];
+	backView.backgroundColor = [UIColor clearColor];//colorWithWhite:0.2 alpha:0.7
+	backView.center = point;
+	backView.layer.cornerRadius = 4;
+	backView.tag = 2045;
+	
+	UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:style];
+	indicator.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
+	indicator.frame = CGRectMake(0, 0, 20, 20);
+  indicator.center = CGPointMake(25, 35/2);
+	[backView addSubview:indicator];
+	[view addSubview:backView];
+	[indicator startAnimating];
+}
+
+
++ (void)hideProcessIndicatorWithView:(UIView *)view
+{
+	UIView *maskView = [view viewWithTag:2046];
+	if( maskView != nil && view != nil)
+	{
+		[maskView removeFromSuperview];
+	}
+	UIView *indicator = [view viewWithTag:2045];
+	if( indicator != nil && view != nil)
+	{
+		[indicator removeFromSuperview];
+	}
 }
 
 #pragma mark - position adjust
