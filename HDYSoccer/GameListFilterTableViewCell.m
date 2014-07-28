@@ -23,6 +23,8 @@ NSString *kTimeTitle = @"选择时间";
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
     [self setBackgroundColor:[UIColor clearColor]];
+    [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
+    [self.contentView setAlpha:0.5];
     
     // clock image
     UIImage *clockImage = [UIImage imageNamed:@"clock-75.png"];
@@ -30,7 +32,7 @@ NSString *kTimeTitle = @"选择时间";
     UIImageView *clockView = [[UIImageView alloc] initWithFrame:clockRect];
     [clockView setImage:clockImage];
     
-    [self.contentView addSubview:clockView];
+    [self addSubview:clockView];
     
     // time
     UILabel *timeLabel = [UIConfiguration labelWithText:kTimeTitle textColor:[UIColor whiteColor] font:nil];
@@ -41,6 +43,13 @@ NSString *kTimeTitle = @"选择时间";
     
     self.timeLabel = timeLabel;
     [self addSubview:timeLabel];
+    
+    // seperator line
+    CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
+    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
+    [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+    
+    [self addSubview:seperator];
   }
   return self;
 }

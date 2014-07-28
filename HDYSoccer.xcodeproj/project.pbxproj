@@ -564,8 +564,6 @@
 		71A769EB195AB11D00E6D004 /* CreateGame */ = {
 			isa = PBXGroup;
 			children = (
-				7197DF751944138200B29EC5 /* CreateGameViewController.h */,
-				7197DF761944138200B29EC5 /* CreateGameViewController.m */,
 				7197DF781944177E00B29EC5 /* CreateGameDetailViewController.h */,
 				7197DF791944177E00B29EC5 /* CreateGameDetailViewController.m */,
 				712D16F5194F00B200396B1F /* CreateGameDetailViewController+TopButtons.h */,
@@ -580,6 +578,8 @@
 				712D16F3194EEFE000396B1F /* CostCell.m */,
 				718A49BC194FDB56001DF516 /* RemarkCell.h */,
 				718A49BD194FDB56001DF516 /* RemarkCell.m */,
+				7197DF751944138200B29EC5 /* CreateGameViewController.h */,
+				7197DF761944138200B29EC5 /* CreateGameViewController.m */,
 			);
 			name = CreateGame;
 			sourceTree = "<group>";

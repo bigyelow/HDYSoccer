@@ -107,7 +107,6 @@
       if (cell == nil) {
         cell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
       }
-      [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
       
       if (self.filterDate) {
         NSString *time = [Tools dateminuteToStr:self.filterDate preferUTC:NO];
@@ -126,7 +125,6 @@
       if (cell == nil) {
         cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
       }
-      [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 
       return cell;
     }

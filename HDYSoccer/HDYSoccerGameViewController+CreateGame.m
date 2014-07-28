@@ -145,7 +145,7 @@
 - (void)createPersonalGamePressed
 {
   CreateGameDetailViewController *createCtr = [[CreateGameDetailViewController alloc]
-                                               initWithStyle:UITableViewStyleGrouped
+                                               initWithStyle:UITableViewStylePlain
                                                gameType:kGameTypePersonal];
   [createCtr setCreateGameDelegate:self];
   
@@ -159,7 +159,7 @@
 - (void)createTeamGamePressed
 {
   CreateGameDetailViewController *createCtr = [[CreateGameDetailViewController alloc]
-                                               initWithStyle:UITableViewStyleGrouped
+                                               initWithStyle:UITableViewStylePlain
                                                gameType:kGameTypeTeam];
   [createCtr setCreateGameDelegate:self];
   

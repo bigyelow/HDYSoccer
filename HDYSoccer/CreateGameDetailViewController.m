@@ -15,6 +15,8 @@
 #import "ChooseTeamCell.h"
 #import "CreateGameDetailViewController+TopButtons.h"
 #import "FXBlurView.h"
+#import "GameListFilterFieldTableViewCell.h"
+#import "GameListFilterTableViewCell.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -198,33 +200,39 @@
 }
 
 #define SELECT_TIME_FORMAT_TITLE @"踢球时间：%@"
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   static NSString *identifier = CREATE_GAME_DETAIL_CELL_ID;
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-  if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                  reuseIdentifier:identifier];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
-    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-  }
-  
-  NSString *cellTitle;
   
   switch (indexPath.section) {
-    case 0:
-      if (!self.gameTime) {
-        cellTitle = SELECT_TIME_TITLE;
+    case 0: {
+      NSString *cellID = identifier;
+      GameListFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
       }
-      else {
-        NSString *time = [Tools dateminuteToStr:self.gameTime preferUTC:NO];
-        cellTitle = [NSString stringWithFormat:SELECT_TIME_FORMAT_TITLE, time];
-      }
-      break;
       
-    case 1:
-      cellTitle = SELECT_FIELD_TITLE;
-      break;
+      if (self.gameTime) {
+        NSString *time = [Tools dateminuteToStr:self.gameTime preferUTC:NO];
+        NSString *cellText = [NSString stringWithFormat:SELECT_TIME_FORMAT_TITLE, time];
+        [cell.timeLabel setText:cellText];
+        [cell.timeLabel setNumberOfLines:1];
+        [cell.timeLabel sizeToFit];
+      }
+      
+      return cell;
+    }
+      
+    case 1: {
+      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
+      GameListFilterFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
+      
+      return cell;
+    }
       
     case 2:
       if (self.gameType == kGameTypePersonal) {
@@ -273,10 +281,7 @@
       break;
   }
   
-  [cell.textLabel setText:cellTitle];
-  
-  [cell setBackgroundColor:[UIColor clearColor]];
-  return cell;
+  return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
