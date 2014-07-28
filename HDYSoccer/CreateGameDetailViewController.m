@@ -14,6 +14,9 @@
 #import "RemarkCell.h"
 #import "ChooseTeamCell.h"
 #import "CreateGameDetailViewController+TopButtons.h"
+#import "FXBlurView.h"
+
+#define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
 @interface CreateGameDetailViewController ()
 {
@@ -49,8 +52,15 @@
     [self setTitle:CREATE_TEAM_GAME];
   }
   
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+
   // keyboard observer
   [self configKeyBoardEvents];
+  
+  // background
+  UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+  [imageView setImage:[UIImage imageNamed:BACKGROUND_IMAGE_NAME]];
+  [self.tableView setBackgroundView:imageView];
 }
 
 - (void)dealloc
@@ -221,12 +231,14 @@
         ChoosePlayerCell *cell = [[ChoosePlayerCell alloc]
                                   initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CREATE_GAME_DETAIL_PLAYER_CELL_ID];
         self.playerCell = cell;
+        [cell setBackgroundColor:[UIColor clearColor]];
         return cell;
       }
       else if (self.gameType == kGameTypeTeam) {
         ChooseTeamCell *cell = [[ChooseTeamCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                      reuseIdentifier:CREATE_GAME_DETAIL_TEAM_CELL_ID];
         self.teamCell = cell;
+        [cell setBackgroundColor:[UIColor clearColor]];
         return cell;
       }
       break;
@@ -236,6 +248,7 @@
                                              reuseIdentifier:CREATE_GAME_DETAIL_CONTACT_CELL_ID
                                                        title:CONTACE_TITLE];
       self.contactCell = cell;
+      [cell setBackgroundColor:[UIColor clearColor]];
       return cell;
     }
       
@@ -244,6 +257,7 @@
                                        reuseIdentifier:CREATE_GAEM_DETAIL_COST_CELL_ID
                                                  title:COST_TITLE];
       self.costCell = cell;
+      [cell setBackgroundColor:[UIColor clearColor]];
       return cell;
     }
       
@@ -251,6 +265,7 @@
       RemarkCell *cell = [[RemarkCell alloc] initWithStyle:UITableViewCellStyleDefault
                                            reuseIdentifier:CREATE_GAME_DETAIL_REMAR_CELL_ID];
       self.remarkCell = cell;
+      [cell setBackgroundColor:[UIColor clearColor]];
       return cell;
     }
       
@@ -260,6 +275,7 @@
   
   [cell.textLabel setText:cellTitle];
   
+  [cell setBackgroundColor:[UIColor clearColor]];
   return cell;
 }
 

@@ -11,6 +11,7 @@
 #import "GeekerViewParams.h"
 #import "UIConfiguration.h"
 #import "SegmentView.h"
+#import "FXBlurView.h"
 
 @implementation HDYSoccerGeekerViewController (SegmentControl)
 
@@ -42,6 +43,11 @@
   [self.geekerTable setBackgroundColor:[UIColor clearColor]];
   [self.view addSubview:self.geekerTable];
   
+  // background view
+  UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+  [imageView setImage:[UIImage imageNamed:GEEKER_LIST_BACKGROUND_IMAGE]];
+  [self.geekerTable setBackgroundView:imageView];
+  
   // team
   self.teamTable = [[UITableView alloc] initWithFrame:tableRect style:self.style];
   [self.teamTable setHidden:YES];
@@ -50,6 +56,10 @@
   [self.teamTable setBackgroundColor:[UIColor clearColor]];
   [self.view addSubview:self.teamTable];
   
+  // background view
+  [self.geekerTable setBackgroundView:imageView];
+  
+  // send control
   [self.segControl setSelectedSegmentIndex:0];
   [self.segControl sendActionsForControlEvents:UIControlEventValueChanged];
 }

@@ -9,13 +9,14 @@
 #import "GameListFilterViewController.h"
 #import "GameListFilterTableViewCell.h"
 #import "GameListFilterFieldTableViewCell.h"
+#import "FXBlurView.h"
 
 @interface GameListFilterViewController ()
 
 @end
 
 #define FILTER_VIEW_TITLE @"选择时间和场地"
-#define FILTER_BACKGROUND_IMAGE @"field4.jpg"
+#define FILTER_BACKGROUND_IMAGE @"background_field1.jpg"
 
 @implementation GameListFilterViewController
 
@@ -27,11 +28,12 @@
   [self configTopItems];
   
   [self.tableView setScrollEnabled:NO];
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
   // background
-  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-  [self.tableView setBackgroundColor:[UIColor clearColor]];
-  [Tools blurView:self.view image:[UIImage imageNamed:FILTER_BACKGROUND_IMAGE] blurRadius:1];
+  UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+  [imageView setImage:[UIImage imageNamed:FILTER_BACKGROUND_IMAGE]];
+  [self.tableView setBackgroundView:imageView];
 }
 
 - (void)didReceiveMemoryWarning

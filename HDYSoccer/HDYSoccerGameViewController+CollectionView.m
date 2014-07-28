@@ -14,6 +14,7 @@
 #import "UIConfiguration+Color.h"
 #import "HDYSoccerGameCell.h"
 #import "HDYSoccerGameHeader.h"
+#import "FXBlurView.h"
 
 @implementation HDYSoccerGameViewController (CollectionView)
 
@@ -54,6 +55,11 @@
   collectionView.delegate = self;
   [collectionView registerClass:[HDYSoccerGameCell class]
      forCellWithReuseIdentifier:GAME_CELL_IDENTIFIER];
+  
+  // back ground
+  UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+  [imageView setImage:[UIImage imageNamed:GAME_LIST_PERSONAL_BACKGROUND_IMAGE]];
+  [collectionView setBackgroundView:imageView];
   
   // pull to refresh
   __weak typeof(self) weakSelf = self;
