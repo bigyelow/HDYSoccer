@@ -103,6 +103,7 @@
   }];
   
   [self customPullToRefresh:collectionView];
+  [collectionView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
   
   return collectionView;
 }
@@ -118,11 +119,11 @@
   [scrollView.pullToRefreshView setTitle:TEXT_PULL_TO_REFRESH forState:SVPullToRefreshStateStopped];
   [scrollView.pullToRefreshView setTitle:TEXT_RELEASE_TO_REFRESH forState:SVPullToRefreshStateTriggered];
   [scrollView.pullToRefreshView.titleLabel setFont:[UIFont systemFontOfSize:REFRESH_TITLE_FONT_SIZE]];
-  
+  [scrollView.pullToRefreshView setArrowColor:[UIColor clearColor]];
+
   CGFloat centerX = scrollView.center.x + REFRESH_X_PLUS;
-  CGFloat centerY = scrollView.pullToRefreshView.center.y + TOP_BAR_HEIGHT + self.segmentBackView.frame.size.height;
+  CGFloat centerY = scrollView.pullToRefreshView.center.y;
   [scrollView.pullToRefreshView setCenter:CGPointMake(centerX, centerY)];
-  [scrollView.pullToRefreshView setArrowColor:[UIColor lightGrayColor]];
 }
 
 - (void)updateCollecionViewDisplayWithIndex:(NSInteger)index
