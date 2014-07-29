@@ -53,7 +53,7 @@
     
     [self addSubview:titleLabel];
     
-    // text field
+    // text view
     CGFloat fieldX = CGRectGetMaxX(titleLabel.frame) + TEXT_FIELD_LEFT_MARGIN;
     CGFloat fieldHeight = REMARK_CELL_FIELD_HEIGHT - TEXT_FIELD_BOTTOM_MARGIN - TEXT_FIELD_TOP_MARGIN;
     CGRect fieldRect = CGRectMake(fieldX, TEXT_FIELD_TOP_MARGIN, TEXT_FIELD_WIDTH, fieldHeight);
@@ -62,6 +62,7 @@
     [textView.layer setCornerRadius:5.0f];
     [textView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [textView setKeyboardType:UIKeyboardTypeDefault];
+    [textView setTintColor:[UIColor blackColor]];
     
     self.textView = textView;
     [self addSubview:textView];
