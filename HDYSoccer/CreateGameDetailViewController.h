@@ -23,6 +23,7 @@
 @class CostCell;
 @class RemarkCell;
 @class ChooseTeamCell;
+@class KeyboardTopView;
 
 typedef NS_ENUM(NSUInteger, GameType)
 {
@@ -31,7 +32,7 @@ typedef NS_ENUM(NSUInteger, GameType)
 };
 
 @interface CreateGameDetailViewController : HDYSoccerBaseTableViewController
-<RMDateSelectionViewControllerDelegate>
+<RMDateSelectionViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 @property (nonatomic, assign) GameType gameType;
 @property (nonatomic, strong) id createGameDelegate;
@@ -48,12 +49,24 @@ typedef NS_ENUM(NSUInteger, GameType)
 
 // cell
 @property (nonatomic, strong) ChoosePlayerCell *playerCell;
-@property (nonatomic, strong) ChooseTeamCell *teamCell;
-@property (nonatomic, strong) ContactCell *contactCell;
-@property (nonatomic, strong) CostCell *costCell;
-@property (nonatomic, strong) RemarkCell *remarkCell;
+@property (nonatomic, strong) NSIndexPath *playerCellIndexPath;
 
-// ui
+@property (nonatomic, strong) ChooseTeamCell *teamCell;
+@property (nonatomic, strong) NSIndexPath *teamCellIndexPath;
+
+@property (nonatomic, strong) ContactCell *contactCell;
+@property (nonatomic, strong) NSIndexPath *contactCellIndexPath;
+
+@property (nonatomic, strong) CostCell *costCell;
+@property (nonatomic, strong) NSIndexPath *costCellIndexPath;
+
+@property (nonatomic, strong) RemarkCell *remarkCell;
+@property (nonatomic, strong) NSIndexPath *remarkCellIndexPath;
+
+// keyboard
+@property (nonatomic, assign) CGRect keyboardRect;
+@property (nonatomic, strong) KeyboardTopView *keyboardTopView;
+@property (nonatomic, assign) BOOL keyboardShowed;
 
 - (id)initWithStyle:(UITableViewStyle)style
            gameType:(GameType)gameType;

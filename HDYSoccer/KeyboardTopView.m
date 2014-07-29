@@ -33,31 +33,31 @@
 //    [bottomLine setBackgroundColor:[UIColor lightGrayColor]];
 //    [self addSubview:bottomLine];
 //    
-    // seperator
-    CGFloat seperatorX = self.center.x;
-    CGFloat seperatorHeight = self.bounds.size.height;
-    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(seperatorX, LINE_TOP_MARGIN, SEPERATOR_WIDTH, seperatorHeight)];
-    [seperator setBackgroundColor:[UIColor whiteColor]];
-    [self addSubview:seperator];
-    
-    // cancel button
-    CGFloat buttonWidth = self.bounds.size.width / 2;
-    CGFloat centerY = self.bounds.size.height / 2;
-    
-    CGPoint cancelCenter = CGPointMake(self.bounds.size.width / 4, centerY);
-    UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonWidth, BUTTON_HEIGHT)];
-    [cancelButton setTitle:TEXT_CANCEL forState:UIControlStateNormal];
-    [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [cancelButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [cancelButton setCenter:cancelCenter];
-
-    self.cancelButton = cancelButton;
-    [self addSubview:cancelButton];
+//    // seperator
+//    CGFloat seperatorX = self.center.x;
+//    CGFloat seperatorHeight = self.bounds.size.height;
+//    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(seperatorX, LINE_TOP_MARGIN, SEPERATOR_WIDTH, seperatorHeight)];
+//    [seperator setBackgroundColor:[UIColor whiteColor]];
+//    [self addSubview:seperator];
+//    
+//    // cancel button
+//    CGFloat buttonWidth = self.bounds.size.width / 2;
+//    CGFloat centerY = self.bounds.size.height / 2;
+//    
+//    CGPoint cancelCenter = CGPointMake(self.bounds.size.width / 4, centerY);
+//    UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonWidth, BUTTON_HEIGHT)];
+//    [cancelButton setTitle:TEXT_CANCEL forState:UIControlStateNormal];
+//    [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [cancelButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+//    [cancelButton setCenter:cancelCenter];
+//
+//    self.cancelButton = cancelButton;
+//    [self addSubview:cancelButton];
     
     // confirm button
-    CGPoint confirmCenter = CGPointMake(self.bounds.size.width / 4 * 3, centerY);
-    UIButton *confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonWidth, BUTTON_HEIGHT)];
-    [confirmButton setTitle:TEXT_OK forState:UIControlStateNormal];
+    CGPoint confirmCenter = CGPointMake(self.center.x, self.bounds.size.height / 2);
+    UIButton *confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, BUTTON_HEIGHT)];
+    [confirmButton setTitle:TEXT_ACCOMPLISH forState:UIControlStateNormal];
     [confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [confirmButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [confirmButton setCenter:confirmCenter];

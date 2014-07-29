@@ -17,6 +17,7 @@
 #import "FXBlurView.h"
 #import "GameListFilterFieldTableViewCell.h"
 #import "GameListFilterTableViewCell.h"
+#import "KeyboardTopView.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -55,6 +56,7 @@
   }
   
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  [self.tableView setShowsVerticalScrollIndicator:NO];
 
   // keyboard observer
   [self configKeyBoardEvents];
@@ -82,13 +84,85 @@
 {
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(showKeyBoard:)
-                                               name:UIKeyboardWillShowNotification
+                                               name:UIKeyboardDidShowNotification
                                              object:nil];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(hideKeyboard:)
                                                name:UIKeyboardWillHideNotification
                                              object:nil];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(changeKeyboardFrame:)
+                                               name:UIKeyboardDidChangeFrameNotification
+                                             object:nil];
+}
+
+// keyboard did showed
+- (void)showKeyBoard:(NSNotification *)notification
+{
+  self.keyboardShowed = YES;
+  
+  CGRect keyboardRect = [UIConfiguration keyBoardRect:notification];
+  [UIConfiguration setView:self.tableView height:self.view.frame.size.height - keyboardRect.size.height - KEYBOARD_TOP_VIEW_HEIGHT];
+  
+  // keyboard top view
+  CGFloat topY = self.view.frame.size.height - keyboardRect.size.height - KEYBOARD_TOP_VIEW_HEIGHT;
+
+  if (!self.keyboardTopView) {
+    CGFloat topWidth = self.view.bounds.size.width;
+    KeyboardTopView *topView = [[KeyboardTopView alloc] initWithFrame:CGRectMake(0, topY, topWidth, KEYBOARD_TOP_VIEW_HEIGHT)];
+    
+    self.keyboardTopView = topView;
+    [self.keyboardTopView.confirmButton addTarget:self action:@selector(resignAllTheResponder) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:topView];
+  }
+  else {
+    [self.keyboardTopView setHidden:NO];
+    [UIConfiguration setView:self.keyboardTopView y:topY];
+  }
+
+  // config cell position
+  NSIndexPath *indexPath;
+  if ([self.playerCell.textField isFirstResponder]) {
+    indexPath = self.playerCellIndexPath;
+  }
+  else if ([self.contactCell.textField isFirstResponder]) {
+    indexPath = self.contactCellIndexPath;
+  }
+  else if ([self.costCell.textField isFirstResponder]) {
+    indexPath = self.costCellIndexPath;
+  }
+  else if ([self.remarkCell.textView isFirstResponder]) {
+    indexPath = self.remarkCellIndexPath;
+  }
+  else if ([self.teamCell.textField isFirstResponder]) {
+    indexPath = self.teamCellIndexPath;
+  }
+  if (indexPath) {
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+  }
+}
+
+// keyboard will hide
+- (void)hideKeyboard:(NSNotification *)notification
+{
+  self.keyboardShowed = NO;
+  [self.keyboardTopView setHidden:YES];
+  [UIConfiguration setView:self.tableView height:self.view.frame.size.height];
+}
+
+// only called when keyboard is showed
+- (void)changeKeyboardFrame:(NSNotification *)notification
+{
+  if (self.keyboardShowed) {
+    CGRect keyboardRect = [UIConfiguration keyBoardRect:notification];
+    [UIConfiguration setView:self.tableView height:self.view.frame.size.height - keyboardRect.size.height - KEYBOARD_TOP_VIEW_HEIGHT];
+    
+    CGFloat topY = self.view.frame.size.height - keyboardRect.size.height - KEYBOARD_TOP_VIEW_HEIGHT;
+    [UIConfiguration setView:self.keyboardTopView y:topY];
+  }
 }
 
 - (void)resignAllTheResponder
@@ -107,64 +181,6 @@
   }
   else if ([self.teamCell.textField isFirstResponder]) {
     [self.teamCell.textField resignFirstResponder];
-  }
-}
-
-- (void)showKeyBoard:(NSNotification *)notification
-{
-  CGRect keyboardRect = [UIConfiguration keyBoardRect:notification];
-  NSIndexPath *indexPath;
-  
-  if ([self.playerCell.textField isFirstResponder]) {
-    indexPath = [self.tableView indexPathForCell:self.playerCell];
-  }
-  else if ([self.contactCell.textField isFirstResponder]) {
-    indexPath = [self.tableView indexPathForCell:self.contactCell];
-  }
-  else if ([self.costCell.textField isFirstResponder]) {
-    indexPath = [self.tableView indexPathForCell:self.costCell];
-  }
-  else if ([self.remarkCell.textView isFirstResponder]) {
-    indexPath = [self.tableView indexPathForCell:self.remarkCell];
-  }
-  else if ([self.teamCell.textField isFirstResponder]) {
-    indexPath = [self.tableView indexPathForCell:self.teamCell];
-  }
-  
-  if (indexPath) {
-    [self moveCellAboveKeyboard:indexPath keyboardRect:keyboardRect];
-  }
-}
-
-- (void)hideKeyboard:(NSNotification *)notification
-{
-  UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-  
-  [UIView animateWithDuration:0.4
-                        delay:0.0
-                      options:UIViewAnimationOptionCurveLinear
-                   animations:^{
-                     self.tableView.contentInset = contentInsets;
-                     self.tableView.scrollIndicatorInsets = contentInsets;
-                   }
-                   completion:nil];
-}
-
-#define KEYBOARD_TOP_MARGIN 10.0f
-- (void)moveCellAboveKeyboard:(NSIndexPath *)indexPath
-                 keyboardRect:(CGRect)keyboardRect
-{
-  CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-  
-  UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardRect.size.height, 0.0);
-  self.tableView.contentInset = contentInsets;
-  self.tableView.scrollIndicatorInsets = contentInsets;
-  
-  CGRect aRect = self.view.frame;
-  aRect.size.height -= keyboardRect.size.height;
-  
-  if (!CGRectContainsPoint(aRect, cellRect.origin) ) {
-    [self.tableView scrollRectToVisible:cellRect animated:YES];
   }
 }
 
@@ -188,7 +204,7 @@
 #define SELECT_FRIENDS_TITLE @"邀请我的好友"
 #define CONTACE_TITLE @"联系方式"
 #define REMARKS_TITLE @"备注"
-#define COST_TITLE @"费用"
+#define COST_TITLE @"总费用"
 #define COST_TITLE_PERPERSON @"人均"
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -239,6 +255,8 @@
         ChoosePlayerCell *cell = [[ChoosePlayerCell alloc]
                                   initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CREATE_GAME_DETAIL_PLAYER_CELL_ID];
         self.playerCell = cell;
+        self.playerCell.textField.delegate = self;
+        self.playerCellIndexPath = indexPath;
         [cell setBackgroundColor:[UIColor clearColor]];
         return cell;
       }
@@ -246,6 +264,8 @@
         ChooseTeamCell *cell = [[ChooseTeamCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                      reuseIdentifier:CREATE_GAME_DETAIL_TEAM_CELL_ID];
         self.teamCell = cell;
+        self.teamCell.textField.delegate = self;
+        self.teamCellIndexPath = indexPath;
         [cell setBackgroundColor:[UIColor clearColor]];
         return cell;
       }
@@ -256,6 +276,8 @@
                                              reuseIdentifier:CREATE_GAME_DETAIL_CONTACT_CELL_ID
                                                        title:CONTACE_TITLE];
       self.contactCell = cell;
+      self.contactCell.textField.delegate = self;
+      self.contactCellIndexPath = indexPath;
       [cell setBackgroundColor:[UIColor clearColor]];
       return cell;
     }
@@ -265,6 +287,8 @@
                                        reuseIdentifier:CREATE_GAEM_DETAIL_COST_CELL_ID
                                                  title:COST_TITLE];
       self.costCell = cell;
+      self.costCell.textField.delegate = self;
+      self.costCellIndexPath = indexPath;
       [cell setBackgroundColor:[UIColor clearColor]];
       return cell;
     }
@@ -273,6 +297,8 @@
       RemarkCell *cell = [[RemarkCell alloc] initWithStyle:UITableViewCellStyleDefault
                                            reuseIdentifier:CREATE_GAME_DETAIL_REMAR_CELL_ID];
       self.remarkCell = cell;
+      self.remarkCell.textView.delegate = self;
+      self.remarkCellIndexPath = indexPath;
       [cell setBackgroundColor:[UIColor clearColor]];
       return cell;
     }
@@ -329,19 +355,39 @@
 
 }
 
-#pragma mark - UIScrollView delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+#pragma mark - UITextView delegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
 {
-  CGFloat scrollOffset = scrollView.contentOffset.y;
-  CGFloat scrollViewHeight = scrollView.frame.size.height;
-  CGFloat scrollContentSizeHeight = scrollView.contentSize.height;
-
-  if (_lastContentOffsetY > scrollOffset
-      && scrollOffset + scrollViewHeight < scrollContentSizeHeight) {
-    [self resignAllTheResponder];
+  if (self.keyboardShowed) {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:self.remarkCell];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
   }
+}
 
-  _lastContentOffsetY = scrollView.contentOffset.y;
+#pragma mark - UITextField delegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+  if (self.keyboardShowed) {
+    NSIndexPath *indexPath;
+    if ([self.playerCell.textField isFirstResponder]) {
+      indexPath = self.playerCellIndexPath;
+    }
+    else if ([self.contactCell.textField isFirstResponder]) {
+      indexPath = self.contactCellIndexPath;
+    }
+    else if ([self.costCell.textField isFirstResponder]) {
+      indexPath = self.costCellIndexPath;
+    }
+    else if ([self.teamCell.textField isFirstResponder]) {
+      indexPath = self.teamCellIndexPath;
+    }
+    
+    if (indexPath) {
+      [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+  }
 }
 
 @end
