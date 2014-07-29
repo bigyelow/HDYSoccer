@@ -171,7 +171,7 @@
 #pragma mark - keyboard
 + (CGRect)keyBoardRect:(NSNotification *)notification
 {
-  return [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+  return [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
 }
 
 #pragma mark - image
