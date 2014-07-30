@@ -34,4 +34,8 @@ typedef void (^performBlock)();
 + (NSString*)dateminuteToStr:(NSDate *)date preferUTC:(BOOL)isUTC;
 + (NSString*)dateOnlyToStr:(NSDate *)date preferUTC:(BOOL)isUTC;
 + (NSString*)getCouponDateOf:(NSString*)time;
+
+// validation
++ (BOOL)verifyPhoneNumberFormat:(NSString *)phoneNumberString;
++ (BOOL)verifyPhoneNumberLength:(NSString *)phoneNumberString;
 @end

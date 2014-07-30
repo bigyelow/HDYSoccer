@@ -130,4 +130,16 @@ NSString* const kDefaultDateFormat = @"yyyy-MM-dd";
   return timestamp;
 }
 
+#pragma mark - validation
++ (BOOL)verifyPhoneNumberFormat:(NSString *)phoneNumberString
+{
+  NSRange rng = [phoneNumberString rangeOfString:@"1[358][0-9]{9}+" options:NSRegularExpressionSearch];
+  return NSNotFound != rng.location;
+}
+
++ (BOOL)verifyPhoneNumberLength:(NSString *)phoneNumberString
+{
+  return [phoneNumberString length] == 11;
+}
+
 @end

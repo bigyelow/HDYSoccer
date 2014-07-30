@@ -19,16 +19,22 @@
 #define TEXT_TIME @"时间"
 #define TEXT_FIELD @"球场"
 #define TEXT_COST @"费用"
-#define TEXT_CONTACT @"联系方式"
+#define TEXT_CONTACT @"手机"
 #define TEXT_REMARKS @"备注"
+#define TEXT_I_SEE @"知道了"
 
 #define TEXT_GAME_AVERAGE_SCORE_TITLE @" %@"
 #define TEXT_DISTANCE @",%@km"
 
 #define CREATE_PERSONAL_GAME @"创建小场活动"
 #define CREATE_TEAM_GAME @"创建大场比赛"
+
 // measure
 #define TEXT_CHINESE_MEASURE @"元"
+
+// alert
+#define ALERT_PHONE_INVALID @"手机号码格式不对"
+#define ALERT_NO_TIME @"请选择踢球时间"
 
 
 #endif
