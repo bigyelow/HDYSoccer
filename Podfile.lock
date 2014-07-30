@@ -62,6 +62,7 @@ PODS:
     - MBProgressHUD (~> 0.8)
     - PSTCollectionView (~> 1.2)
     - SDWebImage (~> 3.5.4)
+  - PSAlertView (2.0.2)
   - PSTCollectionView (1.2.1)
   - REFrostedViewController (2.4.5)
   - RMDateSelectionViewController (1.2.1)
@@ -82,6 +83,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.8)
   - MRProgress (~> 0.4.3)
   - MWPhotoBrowser (~> 1.4.0)
+  - PSAlertView (~> 2.0.2)
   - REFrostedViewController (~> 2.4.5)
   - RMDateSelectionViewController (~> 1.2.1)
   - SDWebImage (~> 3.5.4)
@@ -100,6 +102,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   MRProgress: e588fb8d0fba293715eaf0e485dd8402f4ce1de6
   MWPhotoBrowser: 4efcdb9da34751f97992128a5356f3929d1af537
+  PSAlertView: d63447bd08316d39f8b9f341e902d44b2ef2d73b
   PSTCollectionView: a63299550ad566b579479d07cb5e2bf61148686b
   REFrostedViewController: 93c85bf09c95c8166fc5314aa6811fb33611afb7
   RMDateSelectionViewController: f633c22b50c35ab1e7dc3178e790842569fbf92a
