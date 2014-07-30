@@ -10,7 +10,7 @@
 #import "GameListFilterTableViewCell.h"
 
 // image
-#define CONTACT_IMAGE_LEFT_MARGIN 10.0F
+#define CONTACT_IMAGE_LEFT_MARGIN 9.0F
 #define CONTACT_IMAGE_TOP_MARGIN 15.0F
 #define CONTACT_IMAGE_WIDTH 13.0F
 #define CONTACT_IMAGE_HEIGHT 13.0F

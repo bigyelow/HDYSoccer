@@ -13,6 +13,11 @@
 #import "GameDetailViewController.h"
 #import "HDYSoccerNavigationController.h"
 #import "CreateGameViewController.h"
+#import "ChoosePlayerCell.h"
+#import "ContactCell.h"
+#import "CostCell.h"
+#import "RemarkCell.h"
+#import "PSPDFAlertView.h"
 
 @implementation CreateGameDetailViewController (TopButtons)
 
@@ -40,16 +45,94 @@
 
 - (void)confirmItemPressed
 {
-  NSString *time = @"2014-06-07 15:50";
-  NSString *field = @"中央财经大学";
-  NSInteger playerCount = 9;
-  NSArray *players = @[@"1231", @"323213", @"34214"];
-  NSString *contact = @"1520130542";
-  NSString *remarks = @"请做好准备";
-  NSString *cost = @"100";
-  // team
-  NSString *teamID = @"213089";
+  [self updateParamsFromInput];
+  [self checkParams];
+}
+
+- (void)updateParamsFromInput
+{
+  // test
+  if (!self.gameField) {
+    self.gameField = @"";
+  }
   
+  // test
+  if (!self.players) {
+    self.players = @[];
+  }
+  
+  // test
+  if (!self.teamID) {
+    self.teamID = @"";
+  }
+  
+  self.playerCount = self.playerCell.textField.text.integerValue;
+  if (!self.playerCount) {
+    self.playerCount = 0;
+  }
+  
+  self.contact = self.contactCell.textField.text;
+  
+  self.cost = self.costCell.textField.text;
+  if (!self.cost) {
+    self.cost = @"0";
+  }
+  
+  self.remarks = self.remarkCell.textView.text;
+  if (!self.remarks) {
+    self.remarks = @"";
+  }
+}
+
+- (void)checkParams
+{
+  if (!self.gameTime) { // time
+    PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:ALERT_NO_TIME];
+    [alertView setCancelButtonWithTitle:TEXT_I_SEE
+                                  block:nil];
+    
+    [alertView show];
+  }
+  else if (!self.contact
+           || ![Tools verifyPhoneNumberLength:self.contact]
+           || ![Tools verifyPhoneNumberFormat:self.contact]) { // contact
+    PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:ALERT_PHONE_INVALID];
+    [alertView setCancelButtonWithTitle:TEXT_I_SEE
+                                  block:nil];
+    
+    [alertView show];
+  }
+  else {
+    NSString *time = [Tools dateminuteToStr:self.gameTime preferUTC:NO];
+    [self createGameWithTime:time
+                       field:self.gameField
+                 playerCount:self.playerCount
+                     players:self.players
+                      teamID:self.teamID
+                     contact:self.contact
+                     remarks:self.remarks
+                        cost:self.cost];
+  }
+}
+
+//  NSString *time = @"2014-06-07 15:50";
+//  NSString *field = @"中央财经大学";
+//  NSInteger playerCount = 9;
+//  NSArray *players = @[@"1231", @"323213", @"34214"];
+//  NSString *contact = @"1520130542";
+//  NSString *remarks = @"请做好准备";
+//  NSString *cost = @"100";
+//  NSString *teamID = @"213089";
+
+- (void)createGameWithTime:(NSString *)time
+                     field:(NSString *)field
+               playerCount:(NSInteger)playerCount
+                   players:(NSArray *)players
+                    teamID:(NSString *)teamID
+                   contact:(NSString *)contact
+                   remarks:(NSString *)remarks
+                      cost:(NSString *)cost
+{
   switch (self.gameType) {
     case kGameTypePersonal: {
       HDYSoccerAPIClient *client = [HDYSoccerAPIClient newHttpsClient];
