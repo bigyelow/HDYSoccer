@@ -68,6 +68,8 @@ typedef NS_ENUM(NSUInteger, GameType)
 @property (nonatomic, strong) KeyboardTopView *keyboardTopView;
 @property (nonatomic, assign) BOOL keyboardShowed;
 
+@property (nonatomic, assign) BOOL shouldOpenTimeInput;
+
 - (id)initWithStyle:(UITableViewStyle)style
            gameType:(GameType)gameType;
 @end

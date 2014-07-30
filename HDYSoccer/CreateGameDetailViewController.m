@@ -96,6 +96,12 @@
                                            selector:@selector(changeKeyboardFrame:)
                                                name:UIKeyboardDidChangeFrameNotification
                                              object:nil];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardHide:)
+                                               name:UIKeyboardDidHideNotification
+                                             object:nil];
+
 }
 
 // keyboard did showed
@@ -153,6 +159,16 @@
   [UIConfiguration setView:self.tableView height:self.view.frame.size.height];
 }
 
+
+// keyboard did hide
+- (void)keyboardHide:(NSNotification *)notification
+{
+  if (self.shouldOpenTimeInput) {
+    [self openDateSelectionController];
+    self.shouldOpenTimeInput = NO;
+  }
+}
+
 // only called when keyboard is showed
 - (void)changeKeyboardFrame:(NSNotification *)notification
 {
@@ -202,7 +218,7 @@
 
 #define SELECT_TEAM_TITLE @"选择球队"
 #define SELECT_FRIENDS_TITLE @"邀请我的好友"
-#define CONTACE_TITLE @"联系方式"
+#define CONTACE_TITLE @"手机"
 #define REMARKS_TITLE @"备注"
 #define COST_TITLE @"总费用"
 #define COST_TITLE_PERPERSON @"人均"
@@ -316,7 +332,13 @@
   
   switch (indexPath.section) {
     case 0:
-      [self openDateSelectionController];
+      if (self.keyboardShowed) {
+        [self resignAllTheResponder];
+        [self setShouldOpenTimeInput:YES];
+      }
+      else {
+        [self openDateSelectionController];
+      }
       break;
       
     default:
@@ -347,7 +369,9 @@
 - (void)dateSelectionViewController:(RMDateSelectionViewController *)vc didSelectDate:(NSDate *)aDate
 {
   [self setGameTime:aDate];
-  [self.tableView reloadData];
+  [self.tableView beginUpdates];
+  [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+  [self.tableView endUpdates];
 }
 
 - (void)dateSelectionViewControllerDidCancel:(RMDateSelectionViewController *)vc
