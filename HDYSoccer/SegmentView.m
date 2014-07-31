@@ -37,7 +37,6 @@
     [UIConfiguration setView:self.segControl height:SEGCONTROL_HEIGHT];
     [UIConfiguration moveSubviewYToSuperviewCenter:self subview:self.segControl];
     [UIConfiguration moveSubviewXToSuperviewCenter:self subview:self.segControl];
-    [UIConfiguration setView:self.segControl y:CGRectGetMinY(self.segControl.frame) - CGRectGetMinY(self.frame)];
     
     [self addSubview:self.segControl];
   }
