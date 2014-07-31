@@ -25,6 +25,7 @@
                                  succeeded:^(NSDictionary *dictionary) {
                                    [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                    weakSelf.personalGame = [PersonalGame objectWithDictionary:dictionary];
+                                   [weakSelf setTitle:weakSelf.personalGame.gameName];
                                    [weakSelf.tableView reloadData];
                                   
                                  } failed:^(HDYSoccerAPIError *error) {
@@ -38,6 +39,7 @@
                              succeeded:^(NSDictionary *dictionary) {
                                [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                weakSelf.teamGame = [TeamGame objectWithDictionary:dictionary];
+                               [weakSelf setTitle:weakSelf.teamGame.gameName];
                                [weakSelf.tableView reloadData];
                                
                              } failed:^(HDYSoccerAPIError *error) {
