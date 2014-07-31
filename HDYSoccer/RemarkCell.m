@@ -23,6 +23,7 @@
 #define TEXT_FIELD_WIDTH 225.0f
 #define TEXT_FIELD_TOP_MARGIN 9.0F
 #define TEXT_FIELD_BOTTOM_MARGIN 9.0F
+#define REMARK_FONT_SIZE 14.0F
 
 @implementation RemarkCell
 
@@ -60,6 +61,7 @@
     UITextView *textView = [[UITextView alloc] initWithFrame:fieldRect];
     [textView.layer setBorderWidth:1.0f];
     [textView.layer setCornerRadius:5.0f];
+    [textView setFont:[UIFont systemFontOfSize:REMARK_FONT_SIZE]];
     [textView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [textView setKeyboardType:UIKeyboardTypeDefault];
     [textView setTintColor:[UIColor blackColor]];

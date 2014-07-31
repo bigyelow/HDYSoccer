@@ -227,6 +227,18 @@
   return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (self.gameType == kGameTypePersonal && indexPath.section == 5 && self.remarkCell) {
+    return [self.remarkCell heightForCell:self.remarks];
+  }
+  else if (self.gameType == kGameTypeTeam && indexPath.section == 5 && self.remarkCell) {
+    return [self.remarkCell heightForCell:self.remarks];
+  }
+
+  return 44.0f;
+}
+
 #define GAEM_DETAIL_CELL_ID @"gameDetailCell"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -314,14 +326,11 @@
       
     case 5: {
       NSString *cellID = GAME_INFO_REMAR_CELL_ID;
-      NSString *cellText = self.remarks;
       
       RemarkCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
       if (cell == nil) {
         cell = [[RemarkCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-      }
-      else {
-        
+        self.remarkCell = cell;
       }
       return cell;
     }

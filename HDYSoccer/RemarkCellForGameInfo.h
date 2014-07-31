@@ -12,4 +12,11 @@
 
 @interface RemarkCellForGameInfo : UITableViewCell
 
+@property (nonatomic, assign) CGFloat remarksViewWidth;
+
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UITextView *remarksView;
+@property (nonatomic, strong) UIView *seperator;
+
+- (CGFloat)heightForCell:(NSString *)remarks;
 @end

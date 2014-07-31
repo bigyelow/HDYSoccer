@@ -11,6 +11,8 @@
 
 @class PersonalGame;
 @class TeamGame;
+@class RemarkCellForGameInfo;
+
 @interface GameDetailViewController : HDYSoccerBaseTableViewController
 
 @property (nonatomic, assign) GameType gameType;
@@ -26,6 +28,9 @@
 @property (nonatomic, copy) NSString *remarks;
 
 @property (nonatomic, assign) BOOL newCreated;
+
+// cell
+@property (nonatomic, strong) RemarkCellForGameInfo *remarkCell;
 
 - (id)initWithGameInfo:(NSDictionary *)gameInfo tableViewStyle:(UITableViewStyle)style;
 - (id)initWithgameID:(NSString *)gameID
