@@ -55,6 +55,9 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
                  textColor:(UIColor *)textColor
                       font:(UIFont *)font;
 
++ (void)moveSubviewToSuperviewCenter:(UIView *)superview
+                             subview:(UIView *)subview;
+
 #pragma mark - loading view
 + (void)showTipMessageToView:(UIView *)view;
 + (void)hideTipMessageOnView:(UIView *)view;

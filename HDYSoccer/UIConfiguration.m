@@ -113,19 +113,30 @@
 + (void)moveSubviewXToSuperviewCenter:(UIView *)superView
                               subview:(UIView *)subview
 {
-  CGFloat x = superView.center.x;
-  CGFloat y = subview.center.y;
+  CGFloat subY = subview.frame.origin.y;
+  CGFloat superCenterX = superView.bounds.size.width / 2;
   
-  [subview setCenter:CGPointMake(x, y)];
+  [subview setCenter:CGPointMake(superCenterX, 0)];
+  [self setView:subview y:subY];
 }
 
 + (void)moveSubviewYToSuperviewCenter:(UIView *)superView
                               subview:(UIView *)subview
 {
-  CGFloat x = subview.center.x;
-  CGFloat y = superView.center.y;
+  CGFloat subX = subview.frame.origin.x;
+  CGFloat superCenterY = superView.bounds.size.height / 2;
   
-  [subview setCenter:CGPointMake(x, y)];
+  [subview setCenter:CGPointMake(0, superCenterY)];
+  [self setView:subview x:subX];
+}
+
++ (void)moveSubviewToSuperviewCenter:(UIView *)superview
+                             subview:(UIView *)subview
+{
+  CGFloat superCenterX = superview.bounds.size.width / 2;
+  CGFloat superCenterY = superview.bounds.size.height / 2;
+
+  [subview setCenter:CGPointMake(superCenterX, superCenterY)];
 }
 
 + (void)setView:(UIView *)view origin:(CGPoint)origin
