@@ -39,6 +39,9 @@
 		7187BE6A197A699000748563 /* plus-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7187BE69197A699000748563 /* plus-50.png */; };
 		718A49BE194FDB56001DF516 /* RemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718A49BD194FDB56001DF516 /* RemarkCell.m */; };
 		718A49C1194FF0A3001DF516 /* ChooseTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718A49C0194FF0A3001DF516 /* ChooseTeamCell.m */; };
+		719213411988F70C00EF7947 /* CostCellForGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719213401988F70C00EF7947 /* CostCellForGameInfo.m */; };
+		719213441988F8C100EF7947 /* ContactCellForGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719213431988F8C100EF7947 /* ContactCellForGameInfo.m */; };
+		719213471988FEDC00EF7947 /* RemarkCellForGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719213461988FEDC00EF7947 /* RemarkCellForGameInfo.m */; };
 		71931E4E195C008A00E87624 /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71931E4D195C008A00E87624 /* PlayersCell.m */; };
 		71931E51195C0A2500E87624 /* GameDetailViewController+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 71931E50195C0A2500E87624 /* GameDetailViewController+Network.m */; };
 		719432F0191785BD009BA1D6 /* HDYSoccerAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 719432EF191785BD009BA1D6 /* HDYSoccerAPIClient.m */; };
@@ -193,6 +196,12 @@
 		718A49BD194FDB56001DF516 /* RemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarkCell.m; sourceTree = "<group>"; };
 		718A49BF194FF0A3001DF516 /* ChooseTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTeamCell.h; sourceTree = "<group>"; };
 		718A49C0194FF0A3001DF516 /* ChooseTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTeamCell.m; sourceTree = "<group>"; };
+		7192133F1988F70C00EF7947 /* CostCellForGameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostCellForGameInfo.h; sourceTree = "<group>"; };
+		719213401988F70C00EF7947 /* CostCellForGameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostCellForGameInfo.m; sourceTree = "<group>"; };
+		719213421988F8C100EF7947 /* ContactCellForGameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCellForGameInfo.h; sourceTree = "<group>"; };
+		719213431988F8C100EF7947 /* ContactCellForGameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCellForGameInfo.m; sourceTree = "<group>"; };
+		719213451988FEDC00EF7947 /* RemarkCellForGameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemarkCellForGameInfo.h; sourceTree = "<group>"; };
+		719213461988FEDC00EF7947 /* RemarkCellForGameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarkCellForGameInfo.m; sourceTree = "<group>"; };
 		71931E4C195C008A00E87624 /* PlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersCell.h; sourceTree = "<group>"; };
 		71931E4D195C008A00E87624 /* PlayersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersCell.m; sourceTree = "<group>"; };
 		71931E4F195C0A2500E87624 /* GameDetailViewController+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameDetailViewController+Network.h"; sourceTree = "<group>"; };
@@ -619,6 +628,12 @@
 				71931E50195C0A2500E87624 /* GameDetailViewController+Network.m */,
 				71931E4C195C008A00E87624 /* PlayersCell.h */,
 				71931E4D195C008A00E87624 /* PlayersCell.m */,
+				7192133F1988F70C00EF7947 /* CostCellForGameInfo.h */,
+				719213401988F70C00EF7947 /* CostCellForGameInfo.m */,
+				719213421988F8C100EF7947 /* ContactCellForGameInfo.h */,
+				719213431988F8C100EF7947 /* ContactCellForGameInfo.m */,
+				719213451988FEDC00EF7947 /* RemarkCellForGameInfo.h */,
+				719213461988FEDC00EF7947 /* RemarkCellForGameInfo.m */,
 			);
 			name = GameDetail;
 			sourceTree = "<group>";
@@ -1019,6 +1034,7 @@
 				7141A19D1941597400B34295 /* Tools.m in Sources */,
 				719D522219166E04006304D3 /* Geeker.m in Sources */,
 				71CB8C4818E032C70073E913 /* HDYSoccerBaseViewController.m in Sources */,
+				719213441988F8C100EF7947 /* ContactCellForGameInfo.m in Sources */,
 				71DD43D518E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m in Sources */,
 				7197DF731944129500B29EC5 /* HDYSoccerGameViewController+CreateGame.m in Sources */,
 				719D523019167526006304D3 /* SimpleTeamGameInfo.m in Sources */,
@@ -1035,6 +1051,7 @@
 				7141A17B1940090B00B34295 /* HDYSoccerAPIClient+HTTPS.m in Sources */,
 				71CB8C5818E03B040073E913 /* AppContext.m in Sources */,
 				715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */,
+				719213411988F70C00EF7947 /* CostCellForGameInfo.m in Sources */,
 				719432F61917931F009BA1D6 /* HDYSoccerAPIClient+HTTP.m in Sources */,
 				7194330A1918E01A009BA1D6 /* GeekerList.m in Sources */,
 				712D16F1194EEEF900396B1F /* ContactCell.m in Sources */,
@@ -1066,6 +1083,7 @@
 				719433201919EBFB009BA1D6 /* AppContextParams.m in Sources */,
 				712D16F4194EEFE000396B1F /* CostCell.m in Sources */,
 				71E7AE75197E3C1B00427C31 /* HDYSoccerGameViewController.m in Sources */,
+				719213471988FEDC00EF7947 /* RemarkCellForGameInfo.m in Sources */,
 				71931E4E195C008A00E87624 /* PlayersCell.m in Sources */,
 				71C27503191B8D81003D33DE /* HDYSoccerBaseViewParams.m in Sources */,
 				719D523A19167701006304D3 /* GeekerAbility.m in Sources */,

@@ -12,6 +12,13 @@
 #import "TeamGame.h"
 #import "GameDetailViewController+TopButtons.h"
 #import "GameDetailViewController+Network.h"
+#import "GameListFilterFieldTableViewCell.h"
+#import "GameListFilterTableViewCell.h"
+#import "CostCellForGameInfo.h"
+#import "ContactCellForGameInfo.h"
+#import "RemarkCellForGameInfo.h"
+
+#define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
 @interface GameDetailViewController ()
 
@@ -19,6 +26,7 @@
 
 @implementation GameDetailViewController
 
+// gameInfo = {"gameType":object, "gameObject":object}
 - (id)initWithGameInfo:(NSDictionary *)gameInfo tableViewStyle:(UITableViewStyle)style
 {
   self = [super initWithStyle:style];
@@ -73,9 +81,15 @@
   }
   
   if (self.newCreated == NO) {  // load from game list
-    [self.tableView setHidden:YES];
     [self loadGameInfoWithGameID:self.gameID gameType:self.gameType];
   }
+  
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  
+  // background
+  UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+  [imageView setImage:[UIImage imageNamed:BACKGROUND_IMAGE_NAME]];
+  [self.tableView setBackgroundView:imageView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,10 +98,10 @@
   // Dispose of any resources that can be recreated.
 }
 
-#pragma makr - get methods
+#pragma mark - get methods
 - (NSString *)contact
 {
-  NSString *str = @"";
+  NSString *str;
   switch (self.gameType) {
     case kGameTypePersonal:
       str = self.personalGame.contact;
@@ -101,12 +115,15 @@
       break;
   }
   
+  if (!str) {
+    str = @"";
+  }
   return str;
 }
 
 - (NSString *)remarks
 {
-  NSString *str = @"";
+  NSString *str;
   switch (self.gameType) {
     case kGameTypePersonal:
       str = self.personalGame.remark;
@@ -120,12 +137,15 @@
       break;
   }
   
+  if (!str) {
+    str = @"";
+  }
   return str;
 }
 
 - (NSString *)totalCost
 {
-  NSString *str = @"";
+  NSString *str;
   switch (self.gameType) {
     case kGameTypePersonal:
       str = self.personalGame.totalCost;
@@ -139,12 +159,15 @@
       break;
   }
   
+  if (!str) {
+    str = @"0";
+  }
   return str;
 }
 
 - (NSString *)time
 {
-  NSString *str = @"";
+  NSString *str;
   switch (self.gameType) {
     case kGameTypePersonal:
       str = [Tools dateToStr:self.personalGame.time preferUTC:NO];
@@ -158,12 +181,15 @@
       break;
   }
   
+  if (!str) {
+    str = @"";
+  }
   return str;
 }
 
 - (NSString *)field
 {
-  NSString *str = @"";
+  NSString *str;
   switch (self.gameType) {
     case kGameTypePersonal:
       str = self.personalGame.field;
@@ -177,49 +203,28 @@
       break;
   }
   
+  if (!str) {
+    str = @"";
+  }
   return str;
 }
 
 #pragma mark - tableview delegate and datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  return 7;
+  if (self.gameType == kGameTypePersonal) {
+    return 6;
+  }
+  else if (self.gameType == kGameTypeTeam ) {
+    return 7;
+  }
+  
+  return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   return 1;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-  NSString *title = @"";
-  switch (section) {
-    case 0:
-      title = TEXT_TIME;
-      break;
-      
-    case 1:
-      title = TEXT_FIELD;
-      break;
-      
-    case 3:
-      title = TEXT_COST;
-      break;
-      
-    case 4:
-      title = TEXT_CONTACT;
-      break;
-      
-    case 5:
-      title = TEXT_REMARK;
-      break;
-      
-    default:
-      break;
-  }
-  
-  return title;
 }
 
 #define GAEM_DETAIL_CELL_ID @"gameDetailCell"
@@ -236,13 +241,30 @@
   NSString *cellText = @"";
   
   switch (indexPath.section) {
-    case 0:
-      cellText = self.time;
-      break;
+    case 0: {
+      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
+      GameListFilterTableViewCell *timeCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (timeCell == nil) {
+        timeCell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
       
-    case 1:
-      cellText = self.field;
-      break;
+      NSString *timeCellText = [NSString stringWithFormat:TEXT_SELECT_TIME_FORMAT_TITLE, self.time];
+      [timeCell.timeLabel setText:timeCellText];
+      [timeCell.timeLabel setNumberOfLines:1];
+      [timeCell.timeLabel sizeToFit];
+      
+      return timeCell;
+    }
+      
+    case 1: {
+      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
+      GameListFilterFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
+      
+      return cell;
+    }
       
     case 2: {
       if (self.gameType == kGameTypePersonal) {
@@ -255,17 +277,54 @@
       break;
     }
       
-    case 3:
-      cellText = self.totalCost;
-      break;
+    case 3: {
+      NSString *cellID = GAME_INFO_COST_CELL_ID;
+      cellText = [NSString stringWithFormat:@"%@: %@%@", TEXT_COST_TITLE, self.totalCost, TEXT_CHINESE_MEASURE];
       
-    case 4:
-      cellText = self.contact;
-      break;
+      CostCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[CostCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID title:cellText];
+      }
+      else {
+        [cell updateWithTitle:cellText];
+      }
       
-    case 5:
-      cellText = self.remarks;
-      break;
+      return cell;
+    }
+      
+    case 4: {
+      NSString *cellID = GAME_INFO_CONTACT_CELL_ID;
+      NSString *contact = self.contact;
+      if ([contact isEqualToString:@""]) {
+        contact = TEXT_UNFILLED;
+      }
+      cellText = [NSString stringWithFormat:@"%@: %@", TEXT_CONTACT, contact];
+      
+      ContactCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[ContactCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID title:cellText];
+      }
+      else {
+        [cell updateWithTitle:cellText];
+      }
+
+      return cell;
+    }
+
+      
+    case 5: {
+      NSString *cellID = GAME_INFO_REMAR_CELL_ID;
+      NSString *cellText = self.remarks;
+      
+      RemarkCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[RemarkCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
+      else {
+        
+      }
+      return cell;
+    }
 
     default:
       break;

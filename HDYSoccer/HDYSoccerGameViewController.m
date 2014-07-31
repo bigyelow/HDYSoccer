@@ -147,7 +147,7 @@
   
   GameDetailViewController *viewCtr = [[GameDetailViewController alloc] initWithgameID:gameID
                                                                               gameType:gameType
-                                                                        tableviewStyle:UITableViewStyleGrouped];
+                                                                        tableviewStyle:UITableViewStylePlain];
   [self.navigationController pushViewController:viewCtr animated:YES];
 }
 

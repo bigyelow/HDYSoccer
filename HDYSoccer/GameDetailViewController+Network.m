@@ -26,7 +26,6 @@
                                    [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                    weakSelf.personalGame = [PersonalGame objectWithDictionary:dictionary];
                                    [weakSelf.tableView reloadData];
-                                   [weakSelf.tableView setHidden:NO];
                                   
                                  } failed:^(HDYSoccerAPIError *error) {
                                    [UIConfiguration hideTipMessageOnView:weakSelf.view];
@@ -40,7 +39,6 @@
                                [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                weakSelf.teamGame = [TeamGame objectWithDictionary:dictionary];
                                [weakSelf.tableView reloadData];
-                               [weakSelf.tableView setHidden:NO];
                                
                              } failed:^(HDYSoccerAPIError *error) {
                                [UIConfiguration hideTipMessageOnView:weakSelf.view];

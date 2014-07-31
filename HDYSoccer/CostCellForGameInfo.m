@@ -1,32 +1,24 @@
 //
-//  CostCell.m
+//  CostCellForGameInfo.m
 //  HDYSoccer
 //
-//  Created by bigyelow on 6/16/14.
+//  Created by bigyelow on 7/30/14.
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "CostCell.h"
+#import "CostCellForGameInfo.h"
 #import "GameListFilterTableViewCell.h"
 
 // image
-#define COST_IMAGE_LEFT_MARGIN 4.0F
+#define COST_IMAGE_LEFT_MARGIN 5.0F
 #define COST_IMAGE_TOP_MARGIN 9.0F
 #define COST_IMAGE_WIDTH 25.0F
 #define COST_IMAGE_HEIGHT 25.0F
 
 // title
-#define TITLE_LEFT_MARGIN 4.0f
+#define TITLE_LEFT_MARGIN 3.0f
 
-// text field
-#define TEXT_FIELD_LEFT_MARGIN 5.0f
-#define TEXT_FIELD_WIDTH 80.0f
-#define TEXT_FIELD_HEIGHT 30.0f
-
-// measure
-#define MEASURE_LEFT_MARGIN 5.0f
-
-@implementation CostCell
+@implementation CostCellForGameInfo
 
 - (id)initWithStyle:(UITableViewCellStyle)style
     reuseIdentifier:(NSString *)reuseIdentifier
@@ -34,7 +26,6 @@
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
-    //
     [self setBackgroundColor:[UIColor clearColor]];
     [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
     [self.contentView setAlpha:0.5];
@@ -55,34 +46,8 @@
     [titleLabel setTextColor:[UIColor whiteColor]];
     [UIConfiguration moveSubviewYToSuperviewCenter:self subview:titleLabel];
     
+    self.titleLabel = titleLabel;
     [self addSubview:titleLabel];
-
-    // text field
-    CGFloat fieldX = CGRectGetMaxX(titleLabel.frame) + TEXT_FIELD_LEFT_MARGIN;
-    CGRect fieldRect = CGRectMake(fieldX, 0, TEXT_FIELD_WIDTH, TEXT_FIELD_HEIGHT);
-    UITextField *textField = [[UITextField alloc] initWithFrame:fieldRect];
-    [textField setBackgroundColor:[UIColor whiteColor]];
-    [textField setTintColor:[UIColor blackColor]];
-    [textField.layer setBorderWidth:1.0f];
-    [textField.layer setCornerRadius:5.0f];
-    [textField.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [textField setKeyboardType:UIKeyboardTypeNumberPad];
-    [UIConfiguration moveSubviewYToSuperviewCenter:self subview:textField];
-    
-    self.textField = textField;
-    [self addSubview:textField];
-
-    // measure
-    CGFloat measureX = CGRectGetMaxX(textField.frame) + MEASURE_LEFT_MARGIN;
-    UILabel *measureLabel = [[UILabel alloc] initWithFrame:CGRectMake(measureX, 0, 0, 0)];
-    [measureLabel setText:TEXT_CHINESE_MEASURE];
-    [measureLabel sizeToFit];
-    [measureLabel setTextColor:[UIColor whiteColor]];
-    [UIConfiguration moveSubviewYToSuperviewCenter:self subview:measureLabel];
-    
-    [self addSubview:measureLabel];
-    
-    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     // seperator line
     CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
@@ -92,6 +57,12 @@
     [self addSubview:seperator];
   }
   return self;
+}
+
+- (void)updateWithTitle:(NSString *)title
+{
+  [self.titleLabel setText:title];
+  [self.titleLabel sizeToFit];
 }
 
 - (void)awakeFromNib

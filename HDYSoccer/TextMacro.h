@@ -22,9 +22,13 @@
 #define TEXT_CONTACT @"手机"
 #define TEXT_REMARKS @"备注"
 #define TEXT_I_SEE @"知道了"
+#define TEXT_UNFILLED @"未填写"
 
 #define TEXT_GAME_AVERAGE_SCORE_TITLE @" %@"
 #define TEXT_DISTANCE @",%@km"
+
+#define TEXT_SELECT_TIME_FORMAT_TITLE @"踢球时间：%@"
+#define TEXT_COST_TITLE @"总费用"
 
 #define CREATE_PERSONAL_GAME @"创建小场活动"
 #define CREATE_TEAM_GAME @"创建大场比赛"

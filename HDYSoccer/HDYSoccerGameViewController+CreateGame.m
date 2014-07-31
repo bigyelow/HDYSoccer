@@ -174,7 +174,7 @@
 - (void)createGameSucceeded:(NSDictionary *)dic
 { 
   GameDetailViewController *viewCtr = [[GameDetailViewController alloc] initWithGameInfo:dic
-                                                                          tableViewStyle:UITableViewStyleGrouped];
+                                                                          tableViewStyle:UITableViewStylePlain];
   HDYSoccerNavigationController *navCtr = [[HDYSoccerNavigationController alloc] initWithRootViewController:viewCtr];
   
   [self presentViewController:navCtr animated:YES completion:nil];

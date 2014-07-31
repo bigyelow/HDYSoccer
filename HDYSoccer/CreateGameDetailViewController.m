@@ -218,9 +218,7 @@
 
 #define SELECT_TEAM_TITLE @"选择球队"
 #define SELECT_FRIENDS_TITLE @"邀请我的好友"
-#define CONTACE_TITLE @"手机"
 #define REMARKS_TITLE @"备注"
-#define COST_TITLE @"总费用"
 #define COST_TITLE_PERPERSON @"人均"
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -231,15 +229,11 @@
   return 44.0f;
 }
 
-#define SELECT_TIME_FORMAT_TITLE @"踢球时间：%@"
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  static NSString *identifier = CREATE_GAME_DETAIL_CELL_ID;
-  
   switch (indexPath.section) {
     case 0: {
-      NSString *cellID = identifier;
+      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
       GameListFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
       if (cell == nil) {
         cell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
@@ -247,7 +241,7 @@
       
       if (self.gameTime) {
         NSString *time = [Tools dateminuteToStr:self.gameTime preferUTC:NO];
-        NSString *cellText = [NSString stringWithFormat:SELECT_TIME_FORMAT_TITLE, time];
+        NSString *cellText = [NSString stringWithFormat:TEXT_SELECT_TIME_FORMAT_TITLE, time];
         [cell.timeLabel setText:cellText];
         [cell.timeLabel setNumberOfLines:1];
         [cell.timeLabel sizeToFit];
@@ -288,23 +282,23 @@
       break;
       
     case 3: {
-      ContactCell *cell = [[ContactCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                             reuseIdentifier:CREATE_GAME_DETAIL_CONTACT_CELL_ID
-                                                       title:CONTACE_TITLE];
-      self.contactCell = cell;
-      self.contactCell.textField.delegate = self;
-      self.contactCellIndexPath = indexPath;
+      CostCell *cell = [[CostCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                       reuseIdentifier:CREATE_GAEM_DETAIL_COST_CELL_ID
+                                                 title:TEXT_COST_TITLE];
+      self.costCell = cell;
+      self.costCell.textField.delegate = self;
+      self.costCellIndexPath = indexPath;
       [cell setBackgroundColor:[UIColor clearColor]];
       return cell;
     }
       
     case 4: {
-      CostCell *cell = [[CostCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier:CREATE_GAEM_DETAIL_COST_CELL_ID
-                                                 title:COST_TITLE];
-      self.costCell = cell;
-      self.costCell.textField.delegate = self;
-      self.costCellIndexPath = indexPath;
+      ContactCell *cell = [[ContactCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                             reuseIdentifier:CREATE_GAME_DETAIL_CONTACT_CELL_ID
+                                                       title:TEXT_CONTACT];
+      self.contactCell = cell;
+      self.contactCell.textField.delegate = self;
+      self.contactCellIndexPath = indexPath;
       [cell setBackgroundColor:[UIColor clearColor]];
       return cell;
     }
