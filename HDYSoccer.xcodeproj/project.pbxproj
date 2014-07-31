@@ -31,6 +31,10 @@
 		715AD73718E66BAB0068E6E1 /* UIConfiguration+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73618E66BAB0068E6E1 /* UIConfiguration+Color.m */; };
 		715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73A18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m */; };
 		715AD73E18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AD73D18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m */; };
+		717A5BA01989FADB006E8446 /* PlayerCellForGameDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 717A5B9F1989FADB006E8446 /* PlayerCellForGameDetail.m */; };
+		717A5BA2198A1289006E8446 /* sheriff-26.png in Resources */ = {isa = PBXBuildFile; fileRef = 717A5BA1198A1289006E8446 /* sheriff-26.png */; };
+		717A5BA5198A2677006E8446 /* UILabel+Customize.m in Sources */ = {isa = PBXBuildFile; fileRef = 717A5BA4198A2677006E8446 /* UILabel+Customize.m */; };
+		717A5BA7198A294B006E8446 /* star-26.png in Resources */ = {isa = PBXBuildFile; fileRef = 717A5BA6198A294B006E8446 /* star-26.png */; };
 		7187BE45197A230000748563 /* clock-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 7187BE44197A230000748563 /* clock-75.png */; };
 		7187BE4F197A244000748563 /* GameListFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7187BE4E197A244000748563 /* GameListFilterTableViewCell.m */; };
 		7187BE52197A2B2E00748563 /* GameListFilterFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7187BE51197A2B2E00748563 /* GameListFilterFieldTableViewCell.m */; };
@@ -42,7 +46,6 @@
 		719213411988F70C00EF7947 /* CostCellForGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719213401988F70C00EF7947 /* CostCellForGameInfo.m */; };
 		719213441988F8C100EF7947 /* ContactCellForGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719213431988F8C100EF7947 /* ContactCellForGameInfo.m */; };
 		719213471988FEDC00EF7947 /* RemarkCellForGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719213461988FEDC00EF7947 /* RemarkCellForGameInfo.m */; };
-		71931E4E195C008A00E87624 /* PlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71931E4D195C008A00E87624 /* PlayersCell.m */; };
 		71931E51195C0A2500E87624 /* GameDetailViewController+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 71931E50195C0A2500E87624 /* GameDetailViewController+Network.m */; };
 		719432F0191785BD009BA1D6 /* HDYSoccerAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 719432EF191785BD009BA1D6 /* HDYSoccerAPIClient.m */; };
 		719432F319178CBB009BA1D6 /* HDYSoccerAPIClientParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 719432F219178CBB009BA1D6 /* HDYSoccerAPIClientParams.m */; };
@@ -184,6 +187,12 @@
 		715AD73C18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGeekerDetailViewController+UIConfiguration.h"; sourceTree = "<group>"; };
 		715AD73D18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGeekerDetailViewController+UIConfiguration.m"; sourceTree = "<group>"; };
 		715AD73F18E695130068E6E1 /* GeekerDetailParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeekerDetailParams.h; sourceTree = "<group>"; };
+		717A5B9E1989FADB006E8446 /* PlayerCellForGameDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCellForGameDetail.h; sourceTree = "<group>"; };
+		717A5B9F1989FADB006E8446 /* PlayerCellForGameDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCellForGameDetail.m; sourceTree = "<group>"; };
+		717A5BA1198A1289006E8446 /* sheriff-26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheriff-26.png"; sourceTree = "<group>"; };
+		717A5BA3198A2677006E8446 /* UILabel+Customize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Customize.h"; sourceTree = "<group>"; };
+		717A5BA4198A2677006E8446 /* UILabel+Customize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Customize.m"; sourceTree = "<group>"; };
+		717A5BA6198A294B006E8446 /* star-26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-26.png"; sourceTree = "<group>"; };
 		7187BE36197A1CAF00748563 /* GameListFilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListFilterTableViewCell.h; sourceTree = "<group>"; };
 		7187BE44197A230000748563 /* clock-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-75.png"; sourceTree = "<group>"; };
 		7187BE4E197A244000748563 /* GameListFilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListFilterTableViewCell.m; sourceTree = "<group>"; };
@@ -202,8 +211,6 @@
 		719213431988F8C100EF7947 /* ContactCellForGameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCellForGameInfo.m; sourceTree = "<group>"; };
 		719213451988FEDC00EF7947 /* RemarkCellForGameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemarkCellForGameInfo.h; sourceTree = "<group>"; };
 		719213461988FEDC00EF7947 /* RemarkCellForGameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarkCellForGameInfo.m; sourceTree = "<group>"; };
-		71931E4C195C008A00E87624 /* PlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersCell.h; sourceTree = "<group>"; };
-		71931E4D195C008A00E87624 /* PlayersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersCell.m; sourceTree = "<group>"; };
 		71931E4F195C0A2500E87624 /* GameDetailViewController+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameDetailViewController+Network.h"; sourceTree = "<group>"; };
 		71931E50195C0A2500E87624 /* GameDetailViewController+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameDetailViewController+Network.m"; sourceTree = "<group>"; };
 		719432EE191785BD009BA1D6 /* HDYSoccerAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerAPIClient.h; sourceTree = "<group>"; };
@@ -430,6 +437,8 @@
 			isa = PBXGroup;
 			children = (
 				71E7AE88197E5CF700427C31 /* back-25.png */,
+				717A5BA6198A294B006E8446 /* star-26.png */,
+				717A5BA1198A1289006E8446 /* sheriff-26.png */,
 				71F8C00119865B7B0096465E /* phone2-75.png */,
 				71F8C005198663940096465E /* info-75.png */,
 				71F8C00319865DAF0096465E /* money-75.png */,
@@ -626,14 +635,14 @@
 				71A769F1195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m */,
 				71931E4F195C0A2500E87624 /* GameDetailViewController+Network.h */,
 				71931E50195C0A2500E87624 /* GameDetailViewController+Network.m */,
-				71931E4C195C008A00E87624 /* PlayersCell.h */,
-				71931E4D195C008A00E87624 /* PlayersCell.m */,
 				7192133F1988F70C00EF7947 /* CostCellForGameInfo.h */,
 				719213401988F70C00EF7947 /* CostCellForGameInfo.m */,
 				719213421988F8C100EF7947 /* ContactCellForGameInfo.h */,
 				719213431988F8C100EF7947 /* ContactCellForGameInfo.m */,
 				719213451988FEDC00EF7947 /* RemarkCellForGameInfo.h */,
 				719213461988FEDC00EF7947 /* RemarkCellForGameInfo.m */,
+				717A5B9E1989FADB006E8446 /* PlayerCellForGameDetail.h */,
+				717A5B9F1989FADB006E8446 /* PlayerCellForGameDetail.m */,
 			);
 			name = GameDetail;
 			sourceTree = "<group>";
@@ -785,6 +794,8 @@
 				715AD73618E66BAB0068E6E1 /* UIConfiguration+Color.m */,
 				7141A19B1941597400B34295 /* Tools.h */,
 				7141A19C1941597400B34295 /* Tools.m */,
+				717A5BA3198A2677006E8446 /* UILabel+Customize.h */,
+				717A5BA4198A2677006E8446 /* UILabel+Customize.m */,
 				7194331D1919E81E009BA1D6 /* App */,
 				719432EA191783B0009BA1D6 /* APIClients */,
 			);
@@ -967,8 +978,10 @@
 				71E7AE79197E463A00427C31 /* checkmark-50.png in Resources */,
 				71DD43DC18E29FBF008094E0 /* bigyelow_avatar.jpg in Resources */,
 				71F8BFF0198628AD0096465E /* background_inzaji.jpg in Resources */,
+				717A5BA2198A1289006E8446 /* sheriff-26.png in Resources */,
 				71F8BFE8198628810096465E /* background_baqiao.jpg in Resources */,
 				7187BE5A197A45B500748563 /* football-75.png in Resources */,
+				717A5BA7198A294B006E8446 /* star-26.png in Resources */,
 				71CB8C1218E019060073E913 /* Images.xcassets in Resources */,
 				71F8C006198663940096465E /* info-75.png in Resources */,
 				71F8BFEC1986289F0096465E /* background_chelsy.jpg in Resources */,
@@ -1040,6 +1053,7 @@
 				719D523019167526006304D3 /* SimpleTeamGameInfo.m in Sources */,
 				7141A19A1940748000B34295 /* HDYSoccerGameViewController+NetWork.m in Sources */,
 				719432FF19179F3F009BA1D6 /* TeamGameList.m in Sources */,
+				717A5BA5198A2677006E8446 /* UILabel+Customize.m in Sources */,
 				71A769F2195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m in Sources */,
 				7141A1971940738100B34295 /* HDYSoccerGameViewController+CollectionView.m in Sources */,
 				719D52261916732E006304D3 /* SimpleGeekerInfo.m in Sources */,
@@ -1064,6 +1078,7 @@
 				719432F919179A8A009BA1D6 /* HDYSoccerAPIError.m in Sources */,
 				719D886A195963D700F77ACB /* TeamScore.m in Sources */,
 				714B321019878544008F5F77 /* KeyboardTopView.m in Sources */,
+				717A5BA01989FADB006E8446 /* PlayerCellForGameDetail.m in Sources */,
 				7187BE4F197A244000748563 /* GameListFilterTableViewCell.m in Sources */,
 				71568A1318E3EB2600518C7D /* UIConfiguration.m in Sources */,
 				719432F0191785BD009BA1D6 /* HDYSoccerAPIClient.m in Sources */,
@@ -1084,7 +1099,6 @@
 				712D16F4194EEFE000396B1F /* CostCell.m in Sources */,
 				71E7AE75197E3C1B00427C31 /* HDYSoccerGameViewController.m in Sources */,
 				719213471988FEDC00EF7947 /* RemarkCellForGameInfo.m in Sources */,
-				71931E4E195C008A00E87624 /* PlayersCell.m in Sources */,
 				71C27503191B8D81003D33DE /* HDYSoccerBaseViewParams.m in Sources */,
 				719D523A19167701006304D3 /* GeekerAbility.m in Sources */,
 				715AD73118E664A90068E6E1 /* HDYSoccerGameHeader.m in Sources */,

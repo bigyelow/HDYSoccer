@@ -17,6 +17,7 @@
 #import "CostCellForGameInfo.h"
 #import "ContactCellForGameInfo.h"
 #import "RemarkCellForGameInfo.h"
+#import "PlayerCellForGameDetail.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -85,6 +86,7 @@
   }
   
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  [self.tableView setShowsVerticalScrollIndicator:NO];
   
   // background
   UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
@@ -224,6 +226,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+  if (self.gameType == kGameTypePersonal && section == 2) {
+    if (self.personalGame) {
+      return self.personalGame.playerCount;
+    }
+    else {
+      return 0;
+    }
+  }
+  else if (self.gameType == kGameTypeTeam && section == 2) {
+    if (self.teamGame) {
+      return self.teamGame.playerCount;
+    }
+    else {
+      return 0;
+    }
+  }
+  
   return 1;
 }
 
@@ -231,6 +250,9 @@
 {
   if (self.gameType == kGameTypePersonal && indexPath.section == 5 && self.remarkCell) {
     return [self.remarkCell heightForCell:self.remarks];
+  }
+  else if (self.gameType == kGameTypePersonal && indexPath.section == 2) {
+    return GAME_INFO_PLAYER_CELL_HEIGHT;
   }
   else if (self.gameType == kGameTypeTeam && indexPath.section == 5 && self.remarkCell) {
     return [self.remarkCell heightForCell:self.remarks];
@@ -280,7 +302,24 @@
       
     case 2: {
       if (self.gameType == kGameTypePersonal) {
+        NSString *cellID = GAME_INFO_PLAYER_CELL_ID;
+        PlayerCellForGameDetail *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell = [[PlayerCellForGameDetail alloc] initWithStyle:UITableViewCellStyleDefault
+                                                reuseIdentifier:cellID];
+        }
         
+        switch (indexPath.row) {
+          case 0:
+            [cell configWithPlayerInfo:self.personalGame.sponsor isSponsor:YES];
+            break;
+            
+          default:
+            [cell configWithPlayerInfo:self.personalGame.participants[indexPath.row - 1] isSponsor:NO];
+            break;
+        }
+        
+        return cell;
       }
       else if (self.gameType == kGameTypeTeam) {
       
@@ -341,5 +380,10 @@
   
   [cell.textLabel setText:cellText];
   return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 @end
