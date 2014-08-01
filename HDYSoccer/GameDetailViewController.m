@@ -228,7 +228,7 @@
 {
   if (self.gameType == kGameTypePersonal && section == 2) {
     if (self.personalGame) {
-      return self.personalGame.playerCount;
+      return self.personalGame.playerCount + 1;
     }
     else {
       return 0;
@@ -251,7 +251,7 @@
   if (self.gameType == kGameTypePersonal && indexPath.section == 5 && self.remarkCell) {
     return [self.remarkCell heightForCell:self.remarks];
   }
-  else if (self.gameType == kGameTypePersonal && indexPath.section == 2) {
+  else if (self.gameType == kGameTypePersonal && indexPath.section == 2 && indexPath.row != 0) {
     return GAME_INFO_PLAYER_CELL_HEIGHT;
   }
   else if (self.gameType == kGameTypeTeam && indexPath.section == 5 && self.remarkCell) {
@@ -262,18 +262,9 @@
 }
 
 #define GAEM_DETAIL_CELL_ID @"gameDetailCell"
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  static NSString *identifier = GAEM_DETAIL_CELL_ID;
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-  if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                  reuseIdentifier:identifier];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-  }
-  
-  NSString *cellText = @"";
-  
   switch (indexPath.section) {
     case 0: {
       NSString *cellID = GAME_LIST_FILTER_CELL_ID;
@@ -310,12 +301,42 @@
         }
         
         switch (indexPath.row) {
-          case 0:
+          case 0: {
+            NSString *identifier = GAEM_DETAIL_CELL_ID;
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (!cell) {
+              cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                            reuseIdentifier:identifier];
+            }
+            
+            [cell setBackgroundColor:[UIColor clearColor]];
+            [cell.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
+            [cell.contentView setAlpha:0.5];
+            
+            NSMutableString *tempStr = [NSMutableString stringWithFormat:TEXT_PARTICIPANTS_NUMBER, self.personalGame.playerCount];
+            if (self.personalGame.averageScore && ![self.personalGame.averageScore isEqualToString:@"0"]) {
+              [tempStr appendString:@","];
+              [tempStr appendString:[NSString stringWithFormat:TEXT_AVERAGE_SCORE, self.personalGame.averageScore]];
+            }
+            [cell.textLabel setText:tempStr];
+            [cell.textLabel setFont:[UIFont fontWithName:@"Verdana" size:14.0f]];
+            [cell.textLabel setTextColor:[UIColor whiteColor]];
+            return cell;
+          }
+            
+          case 1:
             [cell configWithPlayerInfo:self.personalGame.sponsor isSponsor:YES];
+            [cell.seperator setHidden:YES];
             break;
             
           default:
-            [cell configWithPlayerInfo:self.personalGame.participants[indexPath.row - 1] isSponsor:NO];
+            [cell configWithPlayerInfo:self.personalGame.participants[indexPath.row - 2] isSponsor:NO];
+            if (indexPath.row == self.personalGame.playerCount) {
+              [cell.seperator setHidden:NO];
+            }
+            else {
+              [cell.seperator setHidden:YES];
+            }
             break;
         }
         
@@ -330,7 +351,7 @@
       
     case 3: {
       NSString *cellID = GAME_INFO_COST_CELL_ID;
-      cellText = [NSString stringWithFormat:@"%@: %@%@", TEXT_COST_TITLE, self.totalCost, TEXT_CHINESE_MEASURE];
+      NSString *cellText = [NSString stringWithFormat:@"%@: %@%@", TEXT_COST_TITLE, self.totalCost, TEXT_CHINESE_MEASURE];
       
       CostCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
       if (cell == nil) {
@@ -349,7 +370,7 @@
       if ([contact isEqualToString:@""]) {
         contact = TEXT_UNFILLED;
       }
-      cellText = [NSString stringWithFormat:@"%@: %@", TEXT_CONTACT, contact];
+      NSString *cellText = [NSString stringWithFormat:@"%@: %@", TEXT_CONTACT, contact];
       
       ContactCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
       if (cell == nil) {
@@ -377,9 +398,8 @@
     default:
       break;
   }
-  
-  [cell.textLabel setText:cellText];
-  return cell;
+
+  return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

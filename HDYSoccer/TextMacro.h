@@ -23,6 +23,8 @@
 #define TEXT_REMARKS @"备注"
 #define TEXT_I_SEE @"知道了"
 #define TEXT_UNFILLED @"未填写"
+#define TEXT_PARTICIPANTS_NUMBER @"参与者:%d人"
+#define TEXT_AVERAGE_SCORE @"平均分:%@"
 
 #define TEXT_GAME_AVERAGE_SCORE_TITLE @" %@"
 #define TEXT_DISTANCE @",%@km"

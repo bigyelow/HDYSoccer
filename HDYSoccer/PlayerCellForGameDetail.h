@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *scoreLabel;
 @property (nonatomic, strong) NSArray *tagLabelsArray;
+@property (nonatomic, strong) UIView *seperator;
 
 - (id)initWithStyle:(UITableViewCellStyle)style
     reuseIdentifier:(NSString *)reuseIdentifier;
