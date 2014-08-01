@@ -35,6 +35,7 @@
 		717A5BA2198A1289006E8446 /* sheriff-26.png in Resources */ = {isa = PBXBuildFile; fileRef = 717A5BA1198A1289006E8446 /* sheriff-26.png */; };
 		717A5BA5198A2677006E8446 /* UILabel+Customize.m in Sources */ = {isa = PBXBuildFile; fileRef = 717A5BA4198A2677006E8446 /* UILabel+Customize.m */; };
 		717A5BA7198A294B006E8446 /* star-26.png in Resources */ = {isa = PBXBuildFile; fileRef = 717A5BA6198A294B006E8446 /* star-26.png */; };
+		717A5BAC198B3B6E006E8446 /* JoinGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 717A5BAB198B3B6E006E8446 /* JoinGameCell.m */; };
 		7187BE45197A230000748563 /* clock-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 7187BE44197A230000748563 /* clock-75.png */; };
 		7187BE4F197A244000748563 /* GameListFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7187BE4E197A244000748563 /* GameListFilterTableViewCell.m */; };
 		7187BE52197A2B2E00748563 /* GameListFilterFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7187BE51197A2B2E00748563 /* GameListFilterFieldTableViewCell.m */; };
@@ -193,6 +194,8 @@
 		717A5BA3198A2677006E8446 /* UILabel+Customize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Customize.h"; sourceTree = "<group>"; };
 		717A5BA4198A2677006E8446 /* UILabel+Customize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Customize.m"; sourceTree = "<group>"; };
 		717A5BA6198A294B006E8446 /* star-26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-26.png"; sourceTree = "<group>"; };
+		717A5BAA198B3B6E006E8446 /* JoinGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGameCell.h; sourceTree = "<group>"; };
+		717A5BAB198B3B6E006E8446 /* JoinGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGameCell.m; sourceTree = "<group>"; };
 		7187BE36197A1CAF00748563 /* GameListFilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListFilterTableViewCell.h; sourceTree = "<group>"; };
 		7187BE44197A230000748563 /* clock-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-75.png"; sourceTree = "<group>"; };
 		7187BE4E197A244000748563 /* GameListFilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListFilterTableViewCell.m; sourceTree = "<group>"; };
@@ -643,6 +646,8 @@
 				719213461988FEDC00EF7947 /* RemarkCellForGameInfo.m */,
 				717A5B9E1989FADB006E8446 /* PlayerCellForGameDetail.h */,
 				717A5B9F1989FADB006E8446 /* PlayerCellForGameDetail.m */,
+				717A5BAA198B3B6E006E8446 /* JoinGameCell.h */,
+				717A5BAB198B3B6E006E8446 /* JoinGameCell.m */,
 			);
 			name = GameDetail;
 			sourceTree = "<group>";
@@ -1086,6 +1091,7 @@
 				7197DF771944138200B29EC5 /* CreateGameViewController.m in Sources */,
 				7194332B191A180F009BA1D6 /* AppDelegate+Configuration.m in Sources */,
 				71CB8C4318E028F80073E913 /* HDYSoccerTabBarController+UIConfiguration.m in Sources */,
+				717A5BAC198B3B6E006E8446 /* JoinGameCell.m in Sources */,
 				719D52401916781D006304D3 /* TeamScoreCollection.m in Sources */,
 				71CCC3D818E2874E00D6F974 /* HDYSoccerNavigationController.m in Sources */,
 				712D16EE194ECB9600396B1F /* ChoosePlayerCell.m in Sources */,

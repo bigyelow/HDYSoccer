@@ -55,9 +55,6 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
                  textColor:(UIColor *)textColor
                       font:(UIFont *)font;
 
-+ (void)moveSubviewToSuperviewCenter:(UIView *)superview
-                             subview:(UIView *)subview;
-
 #pragma mark - loading view
 + (void)showTipMessageToView:(UIView *)view;
 + (void)hideTipMessageOnView:(UIView *)view;
@@ -69,6 +66,8 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 + (void)hideProcessIndicatorWithView:(UIView *)view;
 
 #pragma mark - frame
++ (void)moveSubviewToSuperviewCenter:(UIView *)superview
+                             subview:(UIView *)subview;
 + (void)moveSubviewXToSuperviewCenter:(UIView *)superView
                               subview:(UIView *)subview;
 + (void)moveSubviewYToSuperviewCenter:(UIView *)superView 

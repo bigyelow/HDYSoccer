@@ -18,6 +18,7 @@
 #import "ContactCellForGameInfo.h"
 #import "RemarkCellForGameInfo.h"
 #import "PlayerCellForGameDetail.h"
+#import "JoinGameCell.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -215,7 +216,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
   if (self.gameType == kGameTypePersonal) {
-    return 6;
+    return 7;
   }
   else if (self.gameType == kGameTypeTeam ) {
     return 7;
@@ -253,6 +254,9 @@
   }
   else if (self.gameType == kGameTypePersonal && indexPath.section == 2 && indexPath.row != 0) {
     return GAME_INFO_PLAYER_CELL_HEIGHT;
+  }
+  else if (self.gameType == kGameTypePersonal && indexPath.section == 6) {
+    return JOIN_GAME_CELL_HEIGHT;
   }
   else if (self.gameType == kGameTypeTeam && indexPath.section == 5 && self.remarkCell) {
     return [self.remarkCell heightForCell:self.remarks];
@@ -395,6 +399,16 @@
       return cell;
     }
 
+    case 6: {
+      NSString *cellID = GAME_INFO_JOIN_CELL_ID;
+      
+      JoinGameCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell =  [[JoinGameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID gameType:self.gameType];
+      }
+      return cell;
+    }
+      
     default:
       break;
   }
