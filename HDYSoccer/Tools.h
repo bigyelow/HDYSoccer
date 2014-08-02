@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define NO_VALUE_FOR_FLOAT -1
+
 typedef void (^performBlock)();
 
 @interface Tools : NSObject

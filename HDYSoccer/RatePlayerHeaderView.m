@@ -45,7 +45,6 @@
     CGFloat tagX = CGRectGetMaxX(scoreLabel.frame);
     CGRect tagRect = CGRectMake(tagX, 0, [[self class] tagWidth:frame.size.width], labelHeigth);
     UILabel *tagLabel = [self labelWithFrame:tagRect text:TEXT_TAGS_GOT];
-    [tagLabel setBackgroundColor:[UIColor blueColor]];
     
     [self addSubview:tagLabel];
   }
@@ -83,7 +82,7 @@
 {
   CGFloat avatarWidth = RATE_PLAYER_CELL_HEIGHT - 2 * RATE_PLAYER_CELL_AVATAR_TOP_MARGIN;
   CGFloat nameLeftMargin = RATE_PLAYER_CELL_NAME_LEFT_MARGIN;
-  return RATE_PLAYER_CELL_AVATAR_LEFT_MARGIN + avatarWidth + nameLeftMargin + 60;
+  return RATE_PLAYER_CELL_AVATAR_LEFT_MARGIN + avatarWidth + nameLeftMargin + 50;
 }
 
 + (CGFloat)tagWidth:(CGFloat)viewWidth

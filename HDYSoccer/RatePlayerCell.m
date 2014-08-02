@@ -7,9 +7,11 @@
 //
 
 #import "RatePlayerCell.h"
-#import "SimpleGeekerInfo.h"
+#import "ParticipantsScore.h"
 #import "UIImageView+WebCache.h"
 #import "RatePlayerHeaderView.h"
+#import "GeekerTag.h"
+#import "UILabel+Customize.h"
 
 // seperator
 #define SEPERATOR_HEIGHT 0.5
@@ -28,10 +30,21 @@
 
 // score
 #define SCORE_TOP_MARGIN 5.0F
+#define NO_SCORE_COLOR @"D5D5D5"
 
 // tag
 #define TAG_NUMBER_LIMIT 2
 #define TAG_BACKGROUND_COLOR @"#37ae84"
+#define TAG_FONT_SIZE 10.0F
+#define TAGS_LEFT_MARGIN 3.0F
+#define TAGS_INTERAL_MARGIN 1.0F
+#define TAG_PLUS_WIDTH 10
+#define TAG_TOP_MARGIN 5.0F
+
+// rate
+#define RATE_LEFT_MARGIN 5.0F
+#define RATE_TOP_MARGIN 5.0F
+#define RATE_ENABLE_COLOR @"#ff8000"
 
 @implementation RatePlayerCell
 
@@ -93,34 +106,49 @@
       [label setBackgroundColor:[UIConfiguration colorForHex:TAG_BACKGROUND_COLOR]];
       [label setClipsToBounds:YES];
       [label setTextAlignment:NSTextAlignmentCenter];
-      [label.layer setCornerRadius:4];
+      [label.layer setCornerRadius:10];
       [label setHidden:YES];
       
       [self addSubview:label];
       [tempArray addObject:label];
     }
     self.tagsArray = [tempArray copy];
+    
+    // can rate
+    CGFloat rateX = self.frame.size.width - [RatePlayerHeaderView rateWidth] + RATE_LEFT_MARGIN;
+    CGFloat rateWidth = [RatePlayerHeaderView rateWidth] - 2 * RATE_LEFT_MARGIN;
+    CGFloat rateHeight = self.frame.size.height - 2 * RATE_TOP_MARGIN;
+    UILabel *rateLabel = [[UILabel alloc] initWithFrame:CGRectMake(rateX, RATE_TOP_MARGIN, rateWidth, rateHeight)];
+    [rateLabel setText:TEXT_RATE];
+    [rateLabel setFont:[UIFont systemFontOfSize:12.0f]];
+    [rateLabel setTextColor:[UIColor whiteColor]];
+    [rateLabel setTextAlignment:NSTextAlignmentCenter];
+    [rateLabel setClipsToBounds:YES];
+    [rateLabel.layer setCornerRadius:5.0];
+    
+    self.rateLabel = rateLabel;
+    [self addSubview:rateLabel];
   }
   return self;
 }
 
 #define HIGH_SCORE_COLOR @"#ff5500"
 
-- (void)configWithPlayerInfo:(SimpleGeekerInfo *)geekerInfo
+- (void)configWithPlayerInfo:(ParticipantsScore *)scoreInfo
 {
   // avatar
-  if (geekerInfo.avatarURL) {
-    [self.avatarView setImageWithURL:[NSURL URLWithString:geekerInfo.avatarURL]];
+  if (scoreInfo.avatarURL) {
+    [self.avatarView setImageWithURL:[NSURL URLWithString:scoreInfo.avatarURL]];
   }
   else {
     [self.avatarView setImage:nil];
   }
   
   // rank
-  [self configLabel:self.rankLabel text:@"9" sizeToFit:NO];
+  [self configLabel:self.rankLabel text:[NSString stringWithFormat:@"%d", scoreInfo.thisRank] sizeToFit:NO];
 
   // name
-  [self configLabel:self.nameLabel text:geekerInfo.name sizeToFit:YES];
+  [self configLabel:self.nameLabel text:scoreInfo.name sizeToFit:YES];
   CGFloat nameRightLimit = CGRectGetMaxX(self.rankLabel.frame) + [RatePlayerHeaderView IDWidth];
   if (CGRectGetMaxX(self.nameLabel.frame) > nameRightLimit) {
     CGFloat width = nameRightLimit - CGRectGetMaxX(self.avatarView.frame) - RATE_PLAYER_CELL_NAME_LEFT_MARGIN;
@@ -128,31 +156,88 @@
   }
   
   // score
-  NSString *score = @"/";
-  [self configLabel:self.scoreLabel text:score sizeToFit:NO];
-  if ([score isEqualToString:TEXT_NONE]) {
-    [self.scoreLabel setTextColor:[UIConfiguration colorForHex:@"#d5d5d5"]];
+  NSString *scoreStr;
+  CGFloat scoreFloat = scoreInfo.thisScore;
+  UIColor *scoreColor;
+  if (scoreFloat == NO_VALUE_FOR_FLOAT) {
+    scoreStr = TEXT_NONE;
+    scoreColor = [UIConfiguration colorForHex:NO_SCORE_COLOR];
   }
-  else if (score.integerValue >= 7) {
-    [self.scoreLabel setTextColor:[UIConfiguration colorForHex:HIGH_SCORE_COLOR]];
+  else if (scoreFloat < 7.0) {
+    scoreStr = [NSString stringWithFormat:@"%.1f", scoreFloat];
+    scoreColor = [UIColor blackColor];
   }
+  else {
+    scoreStr = [NSString stringWithFormat:@"%.1f", scoreFloat];
+    scoreColor = [UIConfiguration colorForHex:HIGH_SCORE_COLOR];
+  }
+  [self configLabel:self.scoreLabel text:scoreStr textColor:scoreColor sizeToFit:NO];
   
+  // rate label
+  if (scoreInfo.canRate) {
+    [self.rateLabel setBackgroundColor:[UIConfiguration colorForHex:RATE_ENABLE_COLOR]];
+  }
+  else {
+    [self.rateLabel setBackgroundColor:[UIConfiguration colorForHex:NO_SCORE_COLOR]];
+  }
+
   // tags
+  CGFloat rightMost = CGRectGetMaxX(self.scoreLabel.frame);
+  CGFloat xLimit = self.frame.size.width - [RatePlayerHeaderView rateWidth];
+  
   for (UILabel *label in self.tagsArray) {
     [label setHidden:YES];
   }
   
-  NSArray *tags = @[@{@"tag_name":@"高质量短传",@"up":@"8"},@{@"tag_name":@"优质盘带",@"up":@"9"}];
-  
-  
+  if (scoreInfo.thisTags) {
+    int i = 0;
+    for (GeekerTag *tag in scoreInfo.thisTags) {
+      if (i == TAG_NUMBER_LIMIT)
+        break;
+      
+      UILabel *label = self.tagsArray[i];
+      NSMutableString *text = [NSMutableString stringWithString:tag.tagName];
+      if (tag.up != 0) {
+        [text appendString:[NSString stringWithFormat:@"%d", tag.up]];
+      }
+      [label configWithText:text
+                  textColor:[UIColor whiteColor]
+                       font:[UIFont fontWithName:RATE_CELL_FONT_NAME size:TAG_FONT_SIZE]
+              numberOfLines:1];
+      
+      CGFloat leftMargin = i == 0 ? TAGS_LEFT_MARGIN : TAGS_INTERAL_MARGIN;
+      CGFloat labelX = rightMost + leftMargin;
+      CGFloat labelWidth = label.frame.size.width + TAG_PLUS_WIDTH;
+      CGFloat labelHeight = self.frame.size.height - 2 * TAG_TOP_MARGIN;
+      [UIConfiguration setView:label x:labelX];
+      [UIConfiguration setView:label size:CGSizeMake(labelWidth, labelHeight)];
+      [UIConfiguration moveSubviewYToSuperviewCenter:self subview:label];
+      
+      rightMost = CGRectGetMaxX(label.frame);
+      if (rightMost > xLimit) {
+        break;
+      }
+      [label setHidden:NO];
+      
+      ++i;
+    }
+  }
 }
 
 - (void)configLabel:(UILabel *)label
                text:(NSString *)text
           sizeToFit:(BOOL)sizeToFit
 {
+  [self configLabel:label text:text textColor:[UIColor blackColor] sizeToFit:sizeToFit];
+}
+
+- (void)configLabel:(UILabel *)label
+               text:(NSString *)text
+          textColor:(UIColor *)textColor
+          sizeToFit:(BOOL)sizeToFit
+{
   [label setText:text];
-  [label setTextColor:[UIColor blackColor]];
+  [label setTextColor:textColor];
   [label setFont:[UIFont fontWithName:RATE_CELL_FONT_NAME size:NAME_FONT_SIZE]];
   [label setTextAlignment:NSTextAlignmentCenter];
   if (sizeToFit) {

@@ -12,9 +12,9 @@
 #define RATE_PLAYER_CELL_HEIGHT 30.0F
 #define RATE_PLAYER_CELL_NAME_LEFT_MARGIN 3.0F
 #define RATE_PLAYER_CELL_AVATAR_TOP_MARGIN 5.0F
-#define RATE_PLAYER_CELL_AVATAR_LEFT_MARGIN 13.0f
+#define RATE_PLAYER_CELL_AVATAR_LEFT_MARGIN 9.0f
 
-@class SimpleGeekerInfo;
+@class ParticipantsScore;
 
 @interface RatePlayerCell : UITableViewCell
 
@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UILabel *rankLabel;
 @property (nonatomic, strong) UILabel *scoreLabel;
 @property (nonatomic, strong) NSArray *tagsArray;
+@property (nonatomic, strong) UILabel *rateLabel;
 
-- (void)configWithPlayerInfo:(SimpleGeekerInfo *)geekerInfo;
+- (void)configWithPlayerInfo:(ParticipantsScore *)geekerInfo;
 @end

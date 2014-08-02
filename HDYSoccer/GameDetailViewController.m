@@ -447,12 +447,7 @@
         cell = [[RatePlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
       }
       
-      if (indexPath.row == 0) {
-        [cell configWithPlayerInfo:self.personalGame.sponsor];
-      }
-      else {
-        [cell configWithPlayerInfo:self.personalGame.participants[indexPath.row - 1]];
-      }
+      [cell configWithPlayerInfo:self.personalGame.rateList[indexPath.row]];
       
       return cell;
     }
