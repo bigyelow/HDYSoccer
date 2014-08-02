@@ -7,6 +7,7 @@
 //
 
 #import "PersonalGame.h"
+#import "ParticipantsScore.h"
 
 @implementation PersonalGame
 @synthesize time = _time;
@@ -89,5 +90,20 @@
 - (NSString *)gameName
 {
   return [self.dictionary objectForKey:@"personal_game_name"];
+}
+
+- (NSArray *)rateList
+{
+  if (!_rateList) {
+    NSArray *object = [self.dictionary objectForKey:@"rate_list"];
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for (NSDictionary *dic in object) {
+      ParticipantsScore *score = [ParticipantsScore objectWithDictionary:dic];
+      [tempArray addObject:score];
+    }
+    _rateList = [tempArray copy];
+  }
+  
+  return _rateList;
 }
 @end

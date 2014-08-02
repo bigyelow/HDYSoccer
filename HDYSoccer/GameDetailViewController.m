@@ -259,7 +259,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-  if (self.gameType == kGameTypePersonal && section == 7) { // rate section
+  if (self.gameType == kGameTypePersonal && self.personalGame && section == 7) { // rate section
     return RATE_PLAYER_HEADER_HEIGHT;
   }
   return 0;

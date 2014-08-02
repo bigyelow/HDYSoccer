@@ -10,16 +10,14 @@
 
 @class GeekerAbility;
 
-@protocol ParticipantsScore
-
-
-@end
-
 @interface ParticipantsScore : BaseObject
 
 @property (nonatomic, copy, readonly) NSString *geekerID;
 @property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, copy, readonly) NSString *todayStatus;
-@property (nonatomic, strong, readonly) GeekerAbility *geekerAbility;
-
+@property (nonatomic, copy) NSString *avatarURL;
+@property (nonatomic, assign) NSInteger thisRank;
+@property (nonatomic, assign) CGFloat thisScore;
+@property (nonatomic, assign) NSInteger thisTagsCount;
+@property (nonatomic, strong) NSArray *thisTags;
+@property (nonatomic, assign) BOOL canRate;
 @end
