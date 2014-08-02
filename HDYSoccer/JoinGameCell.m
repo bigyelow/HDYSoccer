@@ -30,6 +30,12 @@
     [UIConfiguration moveSubviewToSuperviewCenter:self subview:joinButton];
     
     [self addSubview:joinButton];
+    
+    CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
+    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
+    [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+    
+    [self addSubview:seperator];
   }
   return self;
 }

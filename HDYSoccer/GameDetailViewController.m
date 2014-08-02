@@ -19,6 +19,8 @@
 #import "RemarkCellForGameInfo.h"
 #import "PlayerCellForGameDetail.h"
 #import "JoinGameCell.h"
+#import "RatePlayerCell.h"
+#import "RatePlayerHeaderView.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -216,7 +218,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
   if (self.gameType == kGameTypePersonal) {
-    return 7;
+    return 8;
   }
   else if (self.gameType == kGameTypeTeam ) {
     return 7;
@@ -235,6 +237,14 @@
       return 0;
     }
   }
+  else if (self.gameType == kGameTypePersonal && section == 7) {
+    if (self.personalGame) {
+      return self.personalGame.playerCount;
+    }
+    else {
+      return 0;
+    }
+  }
   else if (self.gameType == kGameTypeTeam && section == 2) {
     if (self.teamGame) {
       return self.teamGame.playerCount;
@@ -247,6 +257,24 @@
   return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+  if (self.gameType == kGameTypePersonal && section == 7) { // rate section
+    return RATE_PLAYER_HEADER_HEIGHT;
+  }
+  return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+  if (self.gameType == kGameTypePersonal && section == 7) {
+    RatePlayerHeaderView *view = [[RatePlayerHeaderView alloc]
+                                  initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, RATE_PLAYER_HEADER_HEIGHT)];
+    return view;
+  }
+  return nil;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if (self.gameType == kGameTypePersonal && indexPath.section == 5 && self.remarkCell) {
@@ -257,6 +285,9 @@
   }
   else if (self.gameType == kGameTypePersonal && indexPath.section == 6) {
     return JOIN_GAME_CELL_HEIGHT;
+  }
+  else if (self.gameType == kGameTypePersonal && indexPath.section == 7) {
+    return RATE_PLAYER_CELL_HEIGHT;
   }
   else if (self.gameType == kGameTypeTeam && indexPath.section == 5 && self.remarkCell) {
     return [self.remarkCell heightForCell:self.remarks];
@@ -406,6 +437,23 @@
       if (cell == nil) {
         cell =  [[JoinGameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID gameType:self.gameType];
       }
+      return cell;
+    }
+      
+    case 7: {
+      NSString *cellID = GAME_INFO_RATE_PLAYER_CELL_ID;
+      RatePlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[RatePlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
+      
+      if (indexPath.row == 0) {
+        [cell configWithPlayerInfo:self.personalGame.sponsor];
+      }
+      else {
+        [cell configWithPlayerInfo:self.personalGame.participants[indexPath.row - 1]];
+      }
+      
       return cell;
     }
       

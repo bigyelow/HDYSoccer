@@ -26,12 +26,18 @@
 #define TEXT_PARTICIPANTS_NUMBER @"参与者:%d人"
 #define TEXT_AVERAGE_SCORE @"平均分:%@"
 #define TEXT_JOIN @"加入"
+#define TEXT_RANK @"排名"
+#define TEXT_ID @"ID"
+#define TEXT_SCORE_OF_THIS_GAME @"本场得分"
+#define TEXT_TAGS_GOT @"获得标签"
 
 #define TEXT_GAME_AVERAGE_SCORE_TITLE @" %@"
 #define TEXT_DISTANCE @",%@km"
 
 #define TEXT_SELECT_TIME_FORMAT_TITLE @"踢球时间：%@"
 #define TEXT_COST_TITLE @"总费用"
+
+#define TEXT_NONE @"/"
 
 #define CREATE_PERSONAL_GAME @"创建小场活动"
 #define CREATE_TEAM_GAME @"创建大场比赛"
