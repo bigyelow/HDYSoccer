@@ -69,8 +69,9 @@
 
 - (void)dealloc
 {
-  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,11 +91,6 @@
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(hideKeyboard:)
                                                name:UIKeyboardWillHideNotification
-                                             object:nil];
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(changeKeyboardFrame:)
-                                               name:UIKeyboardDidChangeFrameNotification
                                              object:nil];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
@@ -166,18 +162,6 @@
   if (self.shouldOpenTimeInput) {
     [self openDateSelectionController];
     self.shouldOpenTimeInput = NO;
-  }
-}
-
-// only called when keyboard is showed
-- (void)changeKeyboardFrame:(NSNotification *)notification
-{
-  if (self.keyboardShowed) {
-    CGRect keyboardRect = [UIConfiguration keyBoardRect:notification];
-    [UIConfiguration setView:self.tableView height:self.view.frame.size.height - keyboardRect.size.height - KEYBOARD_TOP_VIEW_HEIGHT];
-    
-    CGFloat topY = self.view.frame.size.height - keyboardRect.size.height - KEYBOARD_TOP_VIEW_HEIGHT;
-    [UIConfiguration setView:self.keyboardTopView y:topY];
   }
 }
 
