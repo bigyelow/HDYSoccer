@@ -26,9 +26,12 @@
     // join button
     UIButton *joinButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [joinButton setTitle:TEXT_JOIN forState:UIControlStateNormal];
+    [joinButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [joinButton setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
     [joinButton sizeToFit];
+    [UIConfiguration setView:joinButton width:joinButton.frame.size.width + 120];
     [UIConfiguration moveSubviewToSuperviewCenter:self subview:joinButton];
-    
+
     [self addSubview:joinButton];
     
     CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
