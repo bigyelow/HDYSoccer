@@ -17,6 +17,7 @@
 {
   [self configStandardsDefaults];
   [self configLocation];
+  [self configNeedData];
   
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   

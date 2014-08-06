@@ -48,4 +48,19 @@
                              }];
   }
 }
+
+- (void)loadTags
+{
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  self.tagsArray = [userDefaults objectForKey:DEFAULTS_TAGS_KEY];
+  
+  if (!self.tagsArray) {
+    __weak typeof(self) weakSelf = self;
+    [self.httpsClient getTagsSucceeded:^(NSArray *array) {
+      weakSelf.tagsArray = [array copy];
+    } failed:^(HDYSoccerAPIError *error) {
+      weakSelf.tagsArray = [LOCAL_TAGS copy];
+    }];
+  }
+}
 @end

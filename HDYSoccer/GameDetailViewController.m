@@ -89,6 +89,8 @@
     [self loadGameInfoWithGameID:self.gameID gameType:self.gameType];
   }
   
+  [self loadTags];
+  
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   [self.tableView setShowsVerticalScrollIndicator:NO];
   

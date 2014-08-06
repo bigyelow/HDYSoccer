@@ -10,7 +10,7 @@
 
 @interface GameDetailViewController (Network)
 
-
+- (void)loadTags;
 - (void)loadGameInfoWithGameID:(NSString *)gameID
                       gameType:(GameType)gameType;
 @end

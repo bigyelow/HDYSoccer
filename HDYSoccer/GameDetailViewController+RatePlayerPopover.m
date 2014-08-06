@@ -193,7 +193,7 @@
   [self.rateFrontView addSubview:tagTitleLabel];
   
   // tags
-  NSArray *tagArray = @[@"高质量长传",@"高质量短传",@"优质盘带",@"意识NB",@"基本功",@"抢断",@"解围",@"扑救",@"头球",@"速度",@"力量",@"体力",@"侵略性"];
+  NSArray *tagArray = [self.tagsArray copy];
   CGFloat tagX = CGRectGetMaxX(tagTitleLabel.frame) + FIRST_TAG_LEFT_MARGIN;
   CGFloat tagY = CGRectGetMaxY(scoreStepper.frame) + TAG_TOP_MARGIN;
   CGFloat maxY;

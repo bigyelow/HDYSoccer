@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate+Configuration.h"
+#import "HDYSoccerAPIClient+HTTP.h"
 
 @implementation AppDelegate (Configuration)
 
@@ -16,6 +17,18 @@
   [userDefaults setObject: [NSArray arrayWithObjects:@"zh-Hans", nil] forKey:@"AppleLanguages"];
   [userDefaults synchronize];
   [userDefaults setBool:NO forKey:@"isEndGoogleRequest"];//多语言环境支持,读取google数据
+}
+
+#pragma mark - some data need
+- (void)configNeedData
+{
+  HDYSoccerAPIClient *client = [HDYSoccerAPIClient newHttpsClient];
+  [client getTagsSucceeded:^(NSArray *array) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:array forKey:DEFAULTS_TAGS_KEY];
+  } failed:^(HDYSoccerAPIError *error) {
+    
+  }];
 }
 
 #pragma mark - location

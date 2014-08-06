@@ -17,4 +17,5 @@
 
 - (void)configStandardsDefaults;
 - (void)configLocation;
+- (void)configNeedData;
 @end
