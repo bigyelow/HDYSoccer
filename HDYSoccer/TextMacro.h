@@ -32,6 +32,8 @@
 #define TEXT_TAGS_GOT @"本场获得标签"
 #define TEXT_RATE @"评"
 #define TEXT_RATING @"正在评分..."
+#define TEXT_PERSONAL_GAME_STATISTICS @"本场活动数据"
+#define TEXT_TEAM_GAME_STATISTICS @"本场比赛数据"
 
 #define TEXT_GAME_AVERAGE_SCORE_TITLE @" %@"
 #define TEXT_DISTANCE @",%@km"

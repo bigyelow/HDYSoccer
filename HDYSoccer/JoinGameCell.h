@@ -10,7 +10,7 @@
 #import "CreateGameDetailViewController.h"
 
 #define GAME_INFO_JOIN_CELL_ID @"gameInfoJoinCell"
-#define JOIN_GAME_CELL_HEIGHT 100.0F
+#define JOIN_GAME_CELL_HEIGHT 120.0F
 
 
 @interface JoinGameCell : UITableViewCell

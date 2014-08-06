@@ -9,6 +9,10 @@
 #import "JoinGameCell.h"
 #import "GameListFilterTableViewCell.h"
 
+#define JOIN_BUTTON_TOP_MARGIN 30.0F
+#define STAT_LABEL_BOTTOM_MARING 5.0F
+#define MIDDLE_SEPERATOR_HEIGHT 2
+
 @implementation JoinGameCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style
@@ -30,11 +34,30 @@
     [joinButton setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
     [joinButton sizeToFit];
     [UIConfiguration setView:joinButton width:joinButton.frame.size.width + 120];
-    [UIConfiguration moveSubviewToSuperviewCenter:self subview:joinButton];
-
+    [UIConfiguration setView:joinButton y:JOIN_BUTTON_TOP_MARGIN];
+    [UIConfiguration moveSubviewXToSuperviewCenter:self subview:joinButton];
     [self addSubview:joinButton];
     
-    CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
+    // statistics
+    UILabel *statLabel = [UIConfiguration labelWithText:TEXT_PERSONAL_GAME_STATISTICS
+                                              textColor:[UIColor whiteColor]
+                                                   font:[UIFont systemFontOfSize:12]
+                                          numberOfLines:1];
+    CGFloat statY = self.frame.size.height - STAT_LABEL_BOTTOM_MARING - statLabel.frame.size.height;
+    [UIConfiguration setView:statLabel y:statY];
+    [UIConfiguration moveSubviewXToSuperviewCenter:self subview:statLabel];
+    
+    [self addSubview:statLabel];
+    
+    // middle seperator
+    CGFloat seperatorY = statLabel.frame.origin.y - 5;
+    UIView *midSeperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, MIDDLE_SEPERATOR_HEIGHT)];
+    [midSeperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+    
+//    [self addSubview:midSeperator];
+    
+    // bottom seperator
+    seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
     UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
     [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
     
