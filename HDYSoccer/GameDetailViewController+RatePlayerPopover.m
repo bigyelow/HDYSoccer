@@ -8,6 +8,7 @@
 
 #import "GameDetailViewController+RatePlayerPopover.h"
 #import "ParticipantsScore.h"
+#import "GameDetailViewController+Network.h"
 
 #define FRONT_VIEW_LEFT_MARGIN 0.0F
 #define FRONT_VIEW_HEIGHT 300.0F
@@ -90,21 +91,7 @@
 
 - (void)handleRateBackgroundTap:(UITapGestureRecognizer *)tapGR
 {
-  [self.rateBackgroundView setHidden:YES];
-  [self.rateFrontView setHidden:YES];
-  [self.rateFrontViewScoreLabel setHidden:YES];
-  
-  for (UIView *subview in [self.rateFrontView subviews]) {
-    [subview setHidden:YES];
-    [subview removeFromSuperview];
-  }
-  
-  [self.rateBackgroundView removeFromSuperview];
-  [self.rateFrontView removeFromSuperview];
-  [self.rateFrontViewScoreLabel removeFromSuperview];
-  
-  self.rateFrontView = nil;
-  self.rateBackgroundView = nil;
+  [self cancelButtonPressed];
 }
 
 - (void)showRateFrontViewWithAnimation
@@ -183,6 +170,7 @@
   [scoreStepper setMinimumValue:1];
   [scoreStepper addTarget:self action:@selector(stepperValueChanged:) forControlEvents:UIControlEventTouchUpInside];
   
+  self.rateStepper = scoreStepper;
   [self.rateFrontView addSubview:scoreStepper];
   
   // tags title
@@ -237,8 +225,10 @@
                                                       CONFIRM_BUTTON_NO_SCORE_HEIGHT)];
   [noScoreButton setTitle:CONFIRM_NO_SCORE_TITLE forState:UIControlStateNormal];
   [noScoreButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  [noScoreButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
   [noScoreButton setBackgroundColor:[UIColor grayColor]];
   [noScoreButton.titleLabel setFont:[UIFont systemFontOfSize:CONFIRM_BUTTON_FONT_SIZE]];
+  [noScoreButton addTarget:self action:@selector(confirmWithoutScoreButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
   [self.rateFrontView addSubview:noScoreButton];
   
@@ -249,9 +239,54 @@
   [confirmButton setTitle:TEXT_OK forState:UIControlStateNormal];
   [confirmButton setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
   [confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  [confirmButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
   [confirmButton.titleLabel setFont:[UIFont systemFontOfSize:CONFIRM_BUTTON_FONT_SIZE]];
+  [confirmButton addTarget:self action:@selector(confirmButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
   [self.rateFrontView addSubview:confirmButton];
+}
+
+- (void)confirmButtonPressed
+{
+  [self cancelButtonPressed];
+  
+  [self ratePlayerWithPlayerID:self.selectedParticipant.geekerID
+                         score:[NSString stringWithFormat:@"%.0f", self.rateStepper.value]
+                          tags:[self formatTags]
+                      hasScore:YES];
+}
+
+- (void)confirmWithoutScoreButtonPressed
+{
+  [self cancelButtonPressed];
+  
+  [self ratePlayerWithPlayerID:self.selectedParticipant.geekerID
+                         score:[NSString stringWithFormat:@"%.0f", self.rateStepper.value]
+                          tags:[self formatTags]
+                      hasScore:NO];
+}
+
+- (NSString *)formatTags
+{
+  if (!self.selectedTags) {
+    return @"";
+  }
+  else {
+    NSMutableString *tags = [NSMutableString string];
+    if ([self.selectedTags count] >= 1) {
+      [tags appendString:self.selectedTags[0]];
+    }
+    if ([self.selectedTags count] >= 2) {
+      for (NSString *tag in self.selectedTags) {
+        if ([tag isEqualToString:tags])
+          continue;
+        [tags appendString:TEXT_SEPERATORE];
+        [tags appendString:tag];
+      }
+    }
+    
+    return tags;
+  }
 }
 
 - (void)tagButtonPressed:(UIButton *)sender
@@ -290,11 +325,14 @@
 
 - (void)cancelButtonPressed
 {
-  [self.rateBackgroundView setHidden:YES];
-  [self.rateFrontView setHidden:YES];
+//  for (UIView *subview in [self.rateFrontView subviews]) {
+//    [subview removeFromSuperview];
+//  }
   
-  // reset front view
-  [UIConfiguration setView:self.rateFrontView size:CGSizeZero];
-  [UIConfiguration setView:self.rateFrontView origin:self.view.center];
+  [self.rateBackgroundView removeFromSuperview];
+  [self.rateFrontView removeFromSuperview];
+
+  self.rateFrontView = nil;
+  self.rateBackgroundView = nil;
 }
 @end

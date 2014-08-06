@@ -31,6 +31,7 @@
 #define TEXT_SCORE_OF_THIS_GAME @"本场得分"
 #define TEXT_TAGS_GOT @"本场获得标签"
 #define TEXT_RATE @"评"
+#define TEXT_RATING @"正在评分..."
 
 #define TEXT_GAME_AVERAGE_SCORE_TITLE @" %@"
 #define TEXT_DISTANCE @",%@km"
@@ -39,6 +40,7 @@
 #define TEXT_COST_TITLE @"总费用"
 
 #define TEXT_NONE @"/"
+#define TEXT_SEPERATORE @"|"
 
 #define CREATE_PERSONAL_GAME @"创建小场活动"
 #define CREATE_TEAM_GAME @"创建大场比赛"

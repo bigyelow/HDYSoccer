@@ -34,9 +34,12 @@
 @property (nonatomic, strong) UIView *rateBackgroundView;
 @property (nonatomic, strong) UIView *rateFrontView;
 @property (nonatomic, strong) UILabel *rateFrontViewScoreLabel;
+@property (nonatomic, strong) UIStepper *rateStepper;
+
 @property (nonatomic, strong) ParticipantsScore *selectedParticipant;
 @property (nonatomic, strong) NSMutableArray *selectedTags;
 @property (nonatomic, strong) NSArray *tagsArray;
+@property (nonatomic, strong) NSArray *rateList;
 
 // cell
 @property (nonatomic, strong) RemarkCellForGameInfo *remarkCell;

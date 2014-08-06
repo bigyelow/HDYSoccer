@@ -450,7 +450,7 @@
         cell = [[RatePlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
       }
       
-      [cell configWithPlayerInfo:self.personalGame.rateList[indexPath.row]];
+      [cell configWithPlayerInfo:self.rateList[indexPath.row]];
       
       return cell;
     }
@@ -469,7 +469,7 @@
   switch (indexPath.section) {
     case 7: {
       if (self.gameType == kGameTypePersonal) {
-        [self showRatePopoverWithPlayerInfo:self.personalGame.rateList[indexPath.row]];
+        [self showRatePopoverWithPlayerInfo:self.rateList[indexPath.row]];
       }
       
       break;

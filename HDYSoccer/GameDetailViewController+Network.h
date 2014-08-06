@@ -13,4 +13,8 @@
 - (void)loadTags;
 - (void)loadGameInfoWithGameID:(NSString *)gameID
                       gameType:(GameType)gameType;
+- (void)ratePlayerWithPlayerID:(NSString *)playerID
+                         score:(NSString *)score
+                          tags:(NSString *)tags
+                      hasScore:(BOOL)hasScore;
 @end

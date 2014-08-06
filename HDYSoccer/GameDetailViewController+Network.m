@@ -8,6 +8,7 @@
 
 #import "GameDetailViewController+Network.h"
 #import "HDYSoccerAPIClient+HTTP.h"
+#import "HDYSoccerAPIClient+HTTPS.h"
 #import "PersonalGame.h"
 #import "TeamGame.h"
 
@@ -25,6 +26,7 @@
                                  succeeded:^(NSDictionary *dictionary) {
                                    [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                    weakSelf.personalGame = [PersonalGame objectWithDictionary:dictionary];
+                                   weakSelf.rateList = [weakSelf.personalGame.rateList copy];
                                    [weakSelf setTitle:weakSelf.personalGame.gameName];
                                    [weakSelf.tableView reloadData];
                                   
@@ -62,5 +64,30 @@
       weakSelf.tagsArray = [LOCAL_TAGS copy];
     }];
   }
+}
+
+- (void)ratePlayerWithPlayerID:(NSString *)playerID
+                         score:(NSString *)score
+                          tags:(NSString *)tags
+                      hasScore:(BOOL)hasScore
+{
+  __weak typeof(self) weakSelf = self;
+  [UIConfiguration showTipMessageToView:self.view title:TEXT_RATING];
+  
+  [self.httpsClient ratePlayerInPersonalGameWithPlayerID:playerID
+                                               thisScore:score
+                                                thisTags:tags
+                                                hasScore:hasScore
+                                               succeeded:^(NSArray *array) {
+                                                 [UIConfiguration hideTipMessageOnView:weakSelf.view];
+                                                 weakSelf.rateList = [array copy];
+                                                 
+                                                 NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:7];
+                                                 [weakSelf.tableView beginUpdates];
+                                                 [weakSelf.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+                                                 [weakSelf.tableView endUpdates];
+                                               } failed:^(HDYSoccerAPIError *error) {
+                                                 [UIConfiguration hideTipMessageOnView:weakSelf.view];
+                                               }];
 }
 @end
