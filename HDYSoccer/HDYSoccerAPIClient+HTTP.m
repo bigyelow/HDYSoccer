@@ -145,4 +145,25 @@
                        failed(hdyApiError);
                      }];
 }
+
+#pragma mark - Tags
+- (void)getTagsSucceeded:(SucceededGettingArrayBlock)succeeded
+                  failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSString *subpath = [NSString stringWithFormat:@"tags/total_tags"];
+  NSString *path = [self pathWithSubpath:subpath];
+  
+  [self.operationManager GET:path
+                  parameters:nil
+                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSArray *array = responseObject;
+                       succeeded(array);
+                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                       failed(hdyApiError);
+                     }];
+}
 @end

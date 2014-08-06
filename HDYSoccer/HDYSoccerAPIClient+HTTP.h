@@ -29,4 +29,8 @@
 - (void)getGeekerInfoWithGeekerID:(NSString *)geekerID
                         succeeded:(SucceededGettingDictionaryBlock)succeeded
                            failed:(FailedBlock)failed;
+
+#pragma mark - Tags
+- (void)getTagsSucceeded:(SucceededGettingArrayBlock)succeeded
+                  failed:(FailedBlock)failed;
 @end
