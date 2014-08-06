@@ -21,6 +21,7 @@
 #import "JoinGameCell.h"
 #import "RatePlayerCell.h"
 #import "RatePlayerHeaderView.h"
+#import "GameDetailViewController+RatePlayerPopover.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -462,5 +463,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  
+  switch (indexPath.section) {
+    case 7: {
+      if (self.gameType == kGameTypePersonal) {
+        [self showRatePopoverWithPlayerInfo:self.personalGame.rateList[indexPath.row]];
+      }
+      
+      break;
+    }
+      
+    default:
+      break;
+  }
 }
 @end

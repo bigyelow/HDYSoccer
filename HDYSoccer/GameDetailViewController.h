@@ -12,6 +12,7 @@
 @class PersonalGame;
 @class TeamGame;
 @class RemarkCellForGameInfo;
+@class ParticipantsScore;
 
 @interface GameDetailViewController : HDYSoccerBaseTableViewController
 
@@ -28,6 +29,13 @@
 @property (nonatomic, copy) NSString *remarks;
 
 @property (nonatomic, assign) BOOL newCreated;
+
+// rate player popover
+@property (nonatomic, strong) UIView *rateBackgroundView;
+@property (nonatomic, strong) UIView *rateFrontView;
+@property (nonatomic, strong) UILabel *rateFrontViewScoreLabel;
+@property (nonatomic, strong) ParticipantsScore *selectedParticipant;
+@property (nonatomic, strong) NSMutableArray *selectedTags;
 
 // cell
 @property (nonatomic, strong) RemarkCellForGameInfo *remarkCell;
