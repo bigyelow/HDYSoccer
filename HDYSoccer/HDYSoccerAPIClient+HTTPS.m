@@ -12,6 +12,7 @@
 #import "PersonalGame.h"
 #import "TeamGame.h"
 #import "SimpleGeekerInfo.h"
+#import "ParticipantsScore.h"
 
 @implementation HDYSoccerAPIClient (HTTPS)
 
@@ -135,6 +136,42 @@
                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
                         NSDictionary *resultDic = responseObject;
                         succeeded(resultDic);
+                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                        failed(hdyApiError);
+                      }];
+}
+
+- (void)ratePlayerInPersonalGameWithPlayerID:(NSString *)playerID
+                                   thisScore:(NSString *)thisScore
+                                    thisTags:(NSString *)thisTags
+                                    hasScore:(BOOL)hasScore
+                                   succeeded:(SucceededGettingArrayBlock)succeeded
+                                      failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  [parameter setObject:playerID forKey:@"geeker_id"];
+  [parameter setObject:thisScore forKey:@"this_score"];
+  [parameter setObject:thisTags forKey:@"this_tags"];
+  [parameter setObject:[NSNumber numberWithBool:hasScore] forKey:@"has_score"];
+  
+  NSString *path = [self pathWithSubpath:@"game/personal/rate"];
+  [self.operationManager POST:path
+                   parameters:path
+                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        NSArray *array = [responseObject copy];
+                        NSMutableArray *tempArray = [NSMutableArray array];
+                        
+                        for (NSDictionary *dic in array) {
+                          ParticipantsScore *score = [[ParticipantsScore alloc] initWithDictionary:dic];
+                          [tempArray addObject:score];
+                        }
+                        
+                        succeeded(tempArray);
                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                         HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
                         failed(hdyApiError);

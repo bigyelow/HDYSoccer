@@ -40,6 +40,12 @@
                           cost:(NSString *)cost
                      succeeded:(SucceededGettingDictionaryBlock)succeeded
                         failed:(FailedBlock)failed;
+- (void)ratePlayerInPersonalGameWithPlayerID:(NSString *)playerID
+                                   thisScore:(NSString *)thisScore
+                                    thisTags:(NSString *)thisTags
+                                    hasScore:(BOOL)hasScore
+                                   succeeded:(SucceededGettingArrayBlock)succeeded
+                                      failed:(FailedBlock)failed;
 #pragma mark - geeker
 - (void)getMyFriendsSucceeded:(SucceededGettingArrayBlock)succeeded
                        failed:(FailedBlock)failed;
