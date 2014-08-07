@@ -34,7 +34,9 @@
     [self setBackgroundColor:[UIColor clearColor]];
     [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
     [self.contentView setAlpha:0.5];
-    
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     // remark image
     UIImage *remarkImage = [UIImage imageNamed:@"info-75.png"];
     CGRect remarkRect = CGRectMake(REMARK_IMAGE_LEFT_MARGIN, REMARK_IMAGE_TOP_MARGIN, REMARK_IMAGE_WIDTH, REMARK_IMAGE_HEIGHT);

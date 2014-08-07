@@ -29,7 +29,8 @@
     [self setBackgroundColor:[UIColor clearColor]];
     [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
     [self.contentView setAlpha:0.5];
-    
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     // contact image
     UIImage *contactImage = [UIImage imageNamed:@"phone2-75.png"];
     CGRect contactRect = CGRectMake(CONTACT_IMAGE_LEFT_MARGIN, CONTACT_IMAGE_TOP_MARGIN, CONTACT_IMAGE_WIDTH, CONTACT_IMAGE_HEIGHT);

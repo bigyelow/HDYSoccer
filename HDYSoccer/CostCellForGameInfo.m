@@ -29,6 +29,7 @@
     [self setBackgroundColor:[UIColor clearColor]];
     [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
     [self.contentView setAlpha:0.5];
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     // cost image
     UIImage *costImage = [UIImage imageNamed:@"money-75.png"];

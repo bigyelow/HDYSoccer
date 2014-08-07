@@ -309,6 +309,7 @@
       GameListFilterTableViewCell *timeCell = [tableView dequeueReusableCellWithIdentifier:cellID];
       if (timeCell == nil) {
         timeCell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        [timeCell setSelectionStyle:UITableViewCellSelectionStyleNone];
       }
       
       NSString *timeCellText = [NSString stringWithFormat:TEXT_SELECT_TIME_FORMAT_TITLE, self.time];
@@ -325,6 +326,8 @@
       if (cell == nil) {
         cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
       }
+      
+      [cell configCellWithField:self.field];
       
       return cell;
     }
@@ -345,6 +348,7 @@
             if (!cell) {
               cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                             reuseIdentifier:identifier];
+              [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             }
             
             [cell setBackgroundColor:[UIColor clearColor]];

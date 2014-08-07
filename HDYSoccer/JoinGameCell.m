@@ -26,7 +26,8 @@
     [self setBackgroundColor:[UIColor clearColor]];
     [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
     [self.contentView setAlpha:0.5];
-    
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     // join button
     UIButton *joinButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [joinButton setTitle:TEXT_JOIN forState:UIControlStateNormal];
