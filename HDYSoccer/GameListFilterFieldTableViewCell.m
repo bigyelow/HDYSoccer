@@ -42,6 +42,7 @@ NSString *kfieldTitle = @"选择场地";
     [UIConfiguration setView:fieldLabel origin:CGPointMake(fieldX, 0)];
     [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:fieldLabel];
     
+    self.fieldLabel = fieldLabel;
     [self addSubview:fieldLabel];
     
     // seperator line
@@ -52,6 +53,12 @@ NSString *kfieldTitle = @"选择场地";
     [self addSubview:seperator];
   }
   return self;
+}
+
+- (void)configCellWithField:(NSString *)field
+{
+  self.fieldLabel.text = field;
+  [self.fieldLabel sizeToFit];
 }
 
 - (void)awakeFromNib
