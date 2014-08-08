@@ -108,6 +108,7 @@
 		71CCC3D818E2874E00D6F974 /* HDYSoccerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CCC3D718E2874E00D6F974 /* HDYSoccerNavigationController.m */; };
 		71DD43D518E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DD43D418E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m */; };
 		71DD43DC18E29FBF008094E0 /* bigyelow_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71DD43DB18E29FBE008094E0 /* bigyelow_avatar.jpg */; };
+		71DDF6F7199324780068E8FD /* TeamInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DDF6F6199324780068E8FD /* TeamInfoCell.m */; };
 		71E7AE75197E3C1B00427C31 /* HDYSoccerGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E7AE74197E3C1B00427C31 /* HDYSoccerGameViewController.m */; };
 		71E7AE77197E44CD00427C31 /* cancel-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E7AE76197E44CD00427C31 /* cancel-50.png */; };
 		71E7AE79197E463A00427C31 /* checkmark-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E7AE78197E463A00427C31 /* checkmark-50.png */; };
@@ -335,6 +336,8 @@
 		71DD43D318E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerMenuViewController+UIConfiguration.h"; sourceTree = "<group>"; };
 		71DD43D418E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerMenuViewController+UIConfiguration.m"; sourceTree = "<group>"; };
 		71DD43DB18E29FBE008094E0 /* bigyelow_avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bigyelow_avatar.jpg; sourceTree = "<group>"; };
+		71DDF6F5199324780068E8FD /* TeamInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamInfoCell.h; sourceTree = "<group>"; };
+		71DDF6F6199324780068E8FD /* TeamInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamInfoCell.m; sourceTree = "<group>"; };
 		71E7AE74197E3C1B00427C31 /* HDYSoccerGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerGameViewController.m; sourceTree = "<group>"; };
 		71E7AE76197E44CD00427C31 /* cancel-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel-50.png"; sourceTree = "<group>"; };
 		71E7AE78197E463A00427C31 /* checkmark-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark-50.png"; sourceTree = "<group>"; };
@@ -663,6 +666,7 @@
 				717A5BB1198B4E6A006E8446 /* RatePlayerHeaderView.m */,
 				717A5BAD198B4418006E8446 /* RatePlayerCell.h */,
 				717A5BAE198B4418006E8446 /* RatePlayerCell.m */,
+				71DDF6F81993247E0068E8FD /* TeamCell */,
 			);
 			name = GameDetail;
 			sourceTree = "<group>";
@@ -915,6 +919,15 @@
 			name = MenuView;
 			sourceTree = "<group>";
 		};
+		71DDF6F81993247E0068E8FD /* TeamCell */ = {
+			isa = PBXGroup;
+			children = (
+				71DDF6F5199324780068E8FD /* TeamInfoCell.h */,
+				71DDF6F6199324780068E8FD /* TeamInfoCell.m */,
+			);
+			name = TeamCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1119,6 +1132,7 @@
 				717A5BAC198B3B6E006E8446 /* JoinGameCell.m in Sources */,
 				719D52401916781D006304D3 /* TeamScoreCollection.m in Sources */,
 				71CCC3D818E2874E00D6F974 /* HDYSoccerNavigationController.m in Sources */,
+				71DDF6F7199324780068E8FD /* TeamInfoCell.m in Sources */,
 				712D16EE194ECB9600396B1F /* ChoosePlayerCell.m in Sources */,
 				71568A0C18E3E76900518C7D /* HDYSoccerGeekerViewController.m in Sources */,
 				71943328191A1365009BA1D6 /* Location.m in Sources */,
