@@ -23,6 +23,8 @@
 #import "RatePlayerHeaderView.h"
 #import "GameDetailViewController+RatePlayerPopover.h"
 #import "TeamInfoCell.h"
+#import "TeamGameRecordsCell.h"
+#import "TeamGameRecordsHeaderView.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -225,7 +227,7 @@
     return 8;
   }
   else if (self.gameType == kGameTypeTeam ) {
-    return 7;
+    return 8;
   }
   
   return 0;
@@ -254,10 +256,13 @@
   else if (self.gameType == kGameTypeTeam && indexPath.section == 2 && indexPath.row == 1) {
     return [TeamInfoCell heightForCell];
   }
-  else if (self.gameType == kGameTypeTeam && indexPath.section == 6) {
+  else if (self.gameType == kGameTypeTeam && indexPath.section == 3) {
+    return TEAM_GAME_RECORD_CELL_HEIGHT;
+  }
+  else if (self.gameType == kGameTypeTeam && indexPath.section == 7) {
     return JOIN_GAME_CELL_HEIGHT;
   }
-  else if (self.gameType == kGameTypeTeam && indexPath.section == 5 && self.remarkCell) {
+  else if (self.gameType == kGameTypeTeam && indexPath.section == 6 && self.remarkCell) {
     return [self.remarkCell heightForCell:self.remarks];
   }
   
@@ -293,23 +298,45 @@
       return 0;
     }
   }
+  else if (self.gameType == kGameTypeTeam && section == 3) {
+    if (self.teamGame) {
+       return [self.teamGame.gameRecords count];
+    }
+    else {
+      return 0;
+    }
+  }
   
   return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+  // personal
   if (self.gameType == kGameTypePersonal && self.personalGame && section == 7) { // rate section
     return RATE_PLAYER_HEADER_HEIGHT;
   }
+  // team
+  else if (self.gameType == kGameTypeTeam && self.teamGame && section == 3) {
+    return TEAM_GAME_RECORD_HEADER_HEIGHT;
+  }
+  
   return 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+  // personal
   if (self.gameType == kGameTypePersonal && section == 7) {
     RatePlayerHeaderView *view = [[RatePlayerHeaderView alloc]
                                   initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, RATE_PLAYER_HEADER_HEIGHT)];
+    return view;
+  }
+  // team
+  if (self.gameType == kGameTypeTeam && section == 3) {
+    TeamGameRecordsHeaderView *view = [[TeamGameRecordsHeaderView alloc]
+                                       initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, TEAM_GAME_RECORD_HEADER_HEIGHT)];
+    
     return view;
   }
   return nil;
@@ -319,37 +346,38 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  switch (indexPath.section) {
-    case 0: {
-      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
-      GameListFilterTableViewCell *timeCell = [tableView dequeueReusableCellWithIdentifier:cellID];
-      if (timeCell == nil) {
-        timeCell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        [timeCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+  // personal game
+  if (self.gameType == kGameTypePersonal) {
+    switch (indexPath.section) {
+      case 0: {
+        NSString *cellID = GAME_LIST_FILTER_CELL_ID;
+        GameListFilterTableViewCell *timeCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (timeCell == nil) {
+          timeCell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+          [timeCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        }
+        
+        NSString *timeCellText = [NSString stringWithFormat:TEXT_SELECT_TIME_FORMAT_TITLE, self.time];
+        [timeCell.timeLabel setText:timeCellText];
+        [timeCell.timeLabel setNumberOfLines:1];
+        [timeCell.timeLabel sizeToFit];
+        
+        return timeCell;
       }
-      
-      NSString *timeCellText = [NSString stringWithFormat:TEXT_SELECT_TIME_FORMAT_TITLE, self.time];
-      [timeCell.timeLabel setText:timeCellText];
-      [timeCell.timeLabel setNumberOfLines:1];
-      [timeCell.timeLabel sizeToFit];
-      
-      return timeCell;
-    }
-      
-    case 1: {
-      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
-      GameListFilterFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-      if (cell == nil) {
-        cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        
+      case 1: {
+        NSString *cellID = GAME_LIST_FILTER_CELL_ID;
+        GameListFilterFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        
+        [cell configCellWithField:self.field];
+        
+        return cell;
       }
-      
-      [cell configCellWithField:self.field];
-      
-      return cell;
-    }
-      
-    case 2: {
-      if (self.gameType == kGameTypePersonal) {
+        
+      case 2: {
         NSString *cellID = GAME_INFO_PLAYER_CELL_ID;
         PlayerCellForGameDetail *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (cell == nil) {
@@ -400,7 +428,115 @@
         
         return cell;
       }
-      else if (self.gameType == kGameTypeTeam) {
+        
+      case 3: {
+        NSString *cellID = GAME_INFO_COST_CELL_ID;
+        NSString *cellText = [NSString stringWithFormat:@"%@: %@%@", TEXT_COST_TITLE, self.totalCost, TEXT_CHINESE_MEASURE];
+        
+        CostCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell = [[CostCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID title:cellText];
+        }
+        else {
+          [cell updateWithTitle:cellText];
+        }
+        
+        return cell;
+      }
+        
+      case 4: {
+        NSString *cellID = GAME_INFO_CONTACT_CELL_ID;
+        NSString *contact = self.contact;
+        if ([contact isEqualToString:@""]) {
+          contact = TEXT_UNFILLED;
+        }
+        NSString *cellText = [NSString stringWithFormat:@"%@: %@", TEXT_CONTACT, contact];
+        
+        ContactCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell = [[ContactCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID title:cellText];
+        }
+        else {
+          [cell updateWithTitle:cellText];
+        }
+        
+        return cell;
+      }
+        
+        
+      case 5: {
+        NSString *cellID = GAME_INFO_REMAR_CELL_ID;
+        
+        RemarkCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell = [[RemarkCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+          self.remarkCell = cell;
+        }
+        return cell;
+      }
+        
+      case 6: {
+        NSString *cellID = GAME_INFO_JOIN_CELL_ID;
+        
+        JoinGameCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell =  [[JoinGameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID gameType:self.gameType];
+        }
+        return cell;
+      }
+        
+      case 7: {
+        if (self.gameType == kGameTypePersonal) {
+          NSString *cellID = GAME_INFO_RATE_PLAYER_CELL_ID;
+          RatePlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+          if (cell == nil) {
+            cell = [[RatePlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+          }
+          
+          [cell configWithPlayerInfo:self.rateList[indexPath.row]];
+          
+          return cell;
+        }
+      }
+        
+      default:
+        break;
+    }
+
+  }
+  
+  // team game
+  else if (self.gameType == kGameTypeTeam) {
+    switch (indexPath.section) {
+      case 0: {
+        NSString *cellID = GAME_LIST_FILTER_CELL_ID;
+        GameListFilterTableViewCell *timeCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (timeCell == nil) {
+          timeCell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+          [timeCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        }
+        
+        NSString *timeCellText = [NSString stringWithFormat:TEXT_SELECT_TIME_FORMAT_TITLE, self.time];
+        [timeCell.timeLabel setText:timeCellText];
+        [timeCell.timeLabel setNumberOfLines:1];
+        [timeCell.timeLabel sizeToFit];
+        
+        return timeCell;
+      }
+        
+      case 1: {
+        NSString *cellID = GAME_LIST_FILTER_CELL_ID;
+        GameListFilterFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        
+        [cell configCellWithField:self.field];
+        
+        return cell;
+      }
+        
+      case 2: {
         switch (indexPath.row) {
           case 0: {
             NSString *identifier = GAEM_DETAIL_CELL_ID;
@@ -437,83 +573,82 @@
           default:
             break;
         }
-      }
-      
-      break;
-    }
-      
-    case 3: {
-      NSString *cellID = GAME_INFO_COST_CELL_ID;
-      NSString *cellText = [NSString stringWithFormat:@"%@: %@%@", TEXT_COST_TITLE, self.totalCost, TEXT_CHINESE_MEASURE];
-      
-      CostCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-      if (cell == nil) {
-        cell = [[CostCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID title:cellText];
-      }
-      else {
-        [cell updateWithTitle:cellText];
-      }
-      
-      return cell;
-    }
-      
-    case 4: {
-      NSString *cellID = GAME_INFO_CONTACT_CELL_ID;
-      NSString *contact = self.contact;
-      if ([contact isEqualToString:@""]) {
-        contact = TEXT_UNFILLED;
-      }
-      NSString *cellText = [NSString stringWithFormat:@"%@: %@", TEXT_CONTACT, contact];
-      
-      ContactCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-      if (cell == nil) {
-        cell = [[ContactCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID title:cellText];
-      }
-      else {
-        [cell updateWithTitle:cellText];
-      }
-
-      return cell;
-    }
-
-      
-    case 5: {
-      NSString *cellID = GAME_INFO_REMAR_CELL_ID;
-      
-      RemarkCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-      if (cell == nil) {
-        cell = [[RemarkCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        self.remarkCell = cell;
-      }
-      return cell;
-    }
-
-    case 6: {
-      NSString *cellID = GAME_INFO_JOIN_CELL_ID;
-      
-      JoinGameCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-      if (cell == nil) {
-        cell =  [[JoinGameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID gameType:self.gameType];
-      }
-      return cell;
-    }
-      
-    case 7: {
-      if (self.gameType == kGameTypePersonal) {
-        NSString *cellID = GAME_INFO_RATE_PLAYER_CELL_ID;
-        RatePlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if (cell == nil) {
-          cell = [[RatePlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        }
         
-        [cell configWithPlayerInfo:self.rateList[indexPath.row]];
+        break;
+      }
+        
+      case 3: {
+        NSString *cellID = GAME_INFO_TEAM_GAME_RECORD_CELL_ID;
+        
+        TeamGameRecordsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (!cell) {
+          cell = [[TeamGameRecordsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        [cell configCellWithGameRecord:self.teamGame.gameRecords[indexPath.row]];
         
         return cell;
       }
+        
+      case 4: {
+        NSString *cellID = GAME_INFO_COST_CELL_ID;
+        NSString *cellText = [NSString stringWithFormat:@"%@: %@%@", TEXT_COST_TITLE, self.totalCost, TEXT_CHINESE_MEASURE];
+        
+        CostCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell = [[CostCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID title:cellText];
+        }
+        else {
+          [cell updateWithTitle:cellText];
+        }
+        
+        return cell;
+      }
+        
+      case 5: {
+        NSString *cellID = GAME_INFO_CONTACT_CELL_ID;
+        NSString *contact = self.contact;
+        if ([contact isEqualToString:@""]) {
+          contact = TEXT_UNFILLED;
+        }
+        NSString *cellText = [NSString stringWithFormat:@"%@: %@", TEXT_CONTACT, contact];
+        
+        ContactCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell = [[ContactCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID title:cellText];
+        }
+        else {
+          [cell updateWithTitle:cellText];
+        }
+        
+        return cell;
+      }
+        
+        
+      case 6: {
+        NSString *cellID = GAME_INFO_REMAR_CELL_ID;
+        
+        RemarkCellForGameInfo *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell = [[RemarkCellForGameInfo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+          self.remarkCell = cell;
+        }
+        return cell;
+      }
+        
+      case 7: {
+        NSString *cellID = GAME_INFO_JOIN_CELL_ID;
+        
+        JoinGameCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (cell == nil) {
+          cell =  [[JoinGameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID gameType:self.gameType];
+        }
+        return cell;
+      }
+        
+      default:
+        break;
     }
-      
-    default:
-      break;
+  
   }
 
   return nil;

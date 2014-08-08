@@ -25,7 +25,7 @@
 #define SCORE_INTERAL_MARGIN 20
 #define SCORE_HEIGHT 30
 #define SCORE_TOP_MARGIN 10
-#define SCORE_BOTTOM_MARGIN 10
+#define SCORE_BOTTOM_MARGIN 18
 
 @implementation TeamInfoCell
 

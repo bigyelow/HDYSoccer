@@ -55,7 +55,8 @@
     }
     _gameRecords = [NSArray arrayWithArray:tempArray];
   }
-  return _gameRecords;}
+  return _gameRecords;
+}
 
 - (NSDate *)time
 {

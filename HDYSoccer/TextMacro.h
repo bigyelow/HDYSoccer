@@ -35,6 +35,7 @@
 #define TEXT_RATING @"正在评分..."
 #define TEXT_PERSONAL_GAME_STATISTICS @"本场活动数据"
 #define TEXT_TEAM_GAME_STATISTICS @"本场比赛数据"
+#define TEXT_TEAM_GAME_RECORDS_TITLE @"最近战绩"
 
 #define TEXT_ATTACK @"进攻"
 #define TEXT_DEFENTD @"防守"

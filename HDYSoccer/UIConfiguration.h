@@ -27,6 +27,8 @@
 #define GLOBAL_TINT_COLOR @"#2980b9"
 #define GLOBAL_RED_COLOR @"#ff5500"
 #define GLOBAL_GREEN_COLOR @"#37ae84"
+#define GLOBAL_SEPERATOR_COLOR @"#e6e6e6"
+#define GLOBAL_FONT_NAME @"Verdana"
 
 // top bar
 #define TOP_CONFIRM_BUTTON_WIDTH 27.0F
