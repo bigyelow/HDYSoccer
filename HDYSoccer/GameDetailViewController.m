@@ -480,7 +480,10 @@
         
         JoinGameCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (cell == nil) {
-          cell =  [[JoinGameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID gameType:self.gameType];
+          cell =  [[JoinGameCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellID
+                                             gameType:self.gameType
+                                   showStatisticTitle:YES];
         }
         return cell;
       }
@@ -640,7 +643,10 @@
         
         JoinGameCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (cell == nil) {
-          cell =  [[JoinGameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID gameType:self.gameType];
+          cell =  [[JoinGameCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellID
+                                             gameType:self.gameType
+                                   showStatisticTitle:NO];
         }
         return cell;
       }

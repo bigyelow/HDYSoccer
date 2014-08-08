@@ -17,5 +17,6 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style
     reuseIdentifier:(NSString *)reuseIdentifier
-           gameType:(GameType)gameType;
+           gameType:(GameType)gameType
+ showStatisticTitle:(BOOL)showStatisticsTitle;
 @end

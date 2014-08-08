@@ -18,6 +18,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style
     reuseIdentifier:(NSString *)reuseIdentifier
            gameType:(GameType)gameType
+ showStatisticTitle:(BOOL)showStatisticsTitle
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
@@ -40,25 +41,27 @@
     [self addSubview:joinButton];
     
     // statistics
-    UILabel *statLabel = [UIConfiguration labelWithText:TEXT_PERSONAL_GAME_STATISTICS
-                                              textColor:[UIColor whiteColor]
-                                                   font:[UIFont systemFontOfSize:12]
-                                          numberOfLines:1];
-    CGFloat statY = self.frame.size.height - STAT_LABEL_BOTTOM_MARING - statLabel.frame.size.height;
-    [UIConfiguration setView:statLabel y:statY];
-    [UIConfiguration moveSubviewXToSuperviewCenter:self subview:statLabel];
-    
-    [self addSubview:statLabel];
+    if (showStatisticsTitle) {
+      UILabel *statLabel = [UIConfiguration labelWithText:TEXT_PERSONAL_GAME_STATISTICS
+                                                textColor:[UIColor whiteColor]
+                                                     font:[UIFont systemFontOfSize:12]
+                                            numberOfLines:1];
+      CGFloat statY = self.frame.size.height - STAT_LABEL_BOTTOM_MARING - statLabel.frame.size.height;
+      [UIConfiguration setView:statLabel y:statY];
+      [UIConfiguration moveSubviewXToSuperviewCenter:self subview:statLabel];
+      
+      [self addSubview:statLabel];
+    }
     
     // middle seperator
-    CGFloat seperatorY = statLabel.frame.origin.y - 5;
-    UIView *midSeperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, MIDDLE_SEPERATOR_HEIGHT)];
-    [midSeperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
-    
+//    CGFloat seperatorY = statLabel.frame.origin.y - 5;
+//    UIView *midSeperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, MIDDLE_SEPERATOR_HEIGHT)];
+//    [midSeperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+//    
 //    [self addSubview:midSeperator];
     
     // bottom seperator
-    seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
+    CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
     UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
     [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
     
