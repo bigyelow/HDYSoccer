@@ -14,6 +14,7 @@
 
 @property (nonatomic, copy, readonly) NSString *teamGameID;
 @property (nonatomic, copy, readonly) NSString *teamID;
+@property (nonatomic, copy) NSString *teamName;
 @property (nonatomic, copy, readonly) NSString *teamAvatarURL;
 @property (nonatomic, strong, readonly) TeamScore *teamScore;
 @property (nonatomic, strong) NSArray *gameRecords;

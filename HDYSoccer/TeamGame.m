@@ -25,6 +25,11 @@
   return [self.dictionary objectForKey:@"team_id"];
 }
 
+- (NSString *)teamName
+{
+  return [self.dictionary objectForKey:@"team_name"];
+}
+
 - (NSString *)teamAvatarURL
 {
   return [self.dictionary objectForKey:@"team_avatar_url"];
@@ -33,7 +38,7 @@
 - (TeamScore *)teamScore
 {
   if (!_teamScore) {
-    NSDictionary *object = [self.dictionary objectForKey:@"team_score"];
+    NSDictionary *object = [self.dictionary objectForKey:@"team_scores"];
     _teamScore = [TeamScore objectWithDictionary:object];
   }
   return _teamScore;
