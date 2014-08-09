@@ -39,7 +39,6 @@
 	// Do any additional setup after loading the view.
   
   [self setTitle:TEXT_TITLE];
-  [self.geekerTable setHidden:YES];
   [self configTopMenuButton];
   [self configSegmentView];
   

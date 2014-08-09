@@ -8,16 +8,14 @@
 
 #import "HDYSoccerGeekerViewController+Network.h"
 #import "HDYSoccerAPIClient+HTTPS.h"
+#import "SVPullToRefresh.h"
 
 @implementation HDYSoccerGeekerViewController (Network)
 
 - (void)loadMyFriends
 {
   __weak typeof(self) weakSelf = self;
-  [UIConfiguration showTipMessageToView:self.view];
   [self.httpsClient getMyFriendsSucceeded:^(NSArray *array) {
-    [UIConfiguration hideTipMessageOnView:weakSelf.view];
-    
     if (array) {
       weakSelf.geekersArray = [NSMutableArray arrayWithArray:array];
     }
@@ -25,8 +23,9 @@
     [weakSelf.geekerTable reloadData];
     [weakSelf setGeekersLoadedOnce:YES];
     [weakSelf.geekerTable setHidden:NO];
+    [weakSelf.geekerTable.pullToRefreshView stopAnimating];
   } failed:^(HDYSoccerAPIError *error) {
-    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+    [weakSelf.geekerTable.pullToRefreshView stopAnimating];
 
   }];
 }
