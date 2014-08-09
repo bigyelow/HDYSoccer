@@ -87,6 +87,7 @@
 		71A769F2195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A769F1195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m */; };
 		71B2160319947CE200212DF4 /* TeamGameRecordsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B2160219947CE200212DF4 /* TeamGameRecordsCell.m */; };
 		71B2160B1994AB1900212DF4 /* TeamGameRecordsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B2160A1994AB1900212DF4 /* TeamGameRecordsHeaderView.m */; };
+		71B216111995D7B900212DF4 /* GeekerTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B216101995D7B900212DF4 /* GeekerTableCell.m */; };
 		71C27503191B8D81003D33DE /* HDYSoccerBaseViewParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C27502191B8D81003D33DE /* HDYSoccerBaseViewParams.m */; };
 		71CB8C0018E019060073E913 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8BFF18E019060073E913 /* Foundation.framework */; };
 		71CB8C0218E019060073E913 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CB8C0118E019060073E913 /* CoreGraphics.framework */; };
@@ -300,6 +301,8 @@
 		71B2160219947CE200212DF4 /* TeamGameRecordsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamGameRecordsCell.m; sourceTree = "<group>"; };
 		71B216091994AB1900212DF4 /* TeamGameRecordsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamGameRecordsHeaderView.h; sourceTree = "<group>"; };
 		71B2160A1994AB1900212DF4 /* TeamGameRecordsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamGameRecordsHeaderView.m; sourceTree = "<group>"; };
+		71B2160F1995D7B900212DF4 /* GeekerTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeekerTableCell.h; sourceTree = "<group>"; };
+		71B216101995D7B900212DF4 /* GeekerTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeekerTableCell.m; sourceTree = "<group>"; };
 		71C27501191B8D81003D33DE /* HDYSoccerBaseViewParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerBaseViewParams.h; sourceTree = "<group>"; };
 		71C27502191B8D81003D33DE /* HDYSoccerBaseViewParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerBaseViewParams.m; sourceTree = "<group>"; };
 		71CB8BFC18E019060073E913 /* HDYSoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDYSoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -880,6 +883,8 @@
 				71568A0F18E3E9BF00518C7D /* HDYSoccerGeekerViewController+SegmentControl.m */,
 				71331220196284A400044E65 /* HDYSoccerGeekerViewController+Network.h */,
 				71331221196284A400044E65 /* HDYSoccerGeekerViewController+Network.m */,
+				71B2160F1995D7B900212DF4 /* GeekerTableCell.h */,
+				71B216101995D7B900212DF4 /* GeekerTableCell.m */,
 				711DD8281963A0AA00413AD1 /* GeekerListCell.h */,
 				711DD8291963A0AA00413AD1 /* GeekerListCell.m */,
 				715AD73818E679CE0068E6E1 /* GeekerDetail */,
@@ -1173,6 +1178,7 @@
 				719D523319167584006304D3 /* PersonalGame.m in Sources */,
 				719432FC19179D8B009BA1D6 /* PersonalGameList.m in Sources */,
 				719D523D19167758006304D3 /* ParticipantsScore.m in Sources */,
+				71B216111995D7B900212DF4 /* GeekerTableCell.m in Sources */,
 				71943324191A12E6009BA1D6 /* Authorization.m in Sources */,
 				71CCC3D418E283CF00D6F974 /* HDYSoccerMenuViewController.m in Sources */,
 				71331222196284A400044E65 /* HDYSoccerGeekerViewController+Network.m in Sources */,

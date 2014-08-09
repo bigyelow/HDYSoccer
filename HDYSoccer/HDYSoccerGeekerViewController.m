@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 #import "HDYSoccerGeekerViewController+Network.h"
 #import "SimpleGeekerInfo.h"
-#import "GeekerListCell.h"
+#import "GeekerTableCell.h"
 
 @interface HDYSoccerGeekerViewController ()
 
@@ -53,22 +53,15 @@
   // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - customization
-// just for sample
-- (void)initSampleDatas
-{
-  self.sampleDatas = [NSArray
-                      arrayWithObjects:@"黄杜煜", @"王雨寒", @"David Beckham", @"梅西",
-                      @"C罗", @"罗纳尔多", @"小罗纳尔多", @"范佩西", @"卡卡",
-                      @"皮尔洛", @"哈维", @"齐达内", @"巴乔", nil];
-}
-
-
 #pragma mark - tableview datasource and delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return GEEKER_LIST_CELL_HEIGHT;
+  NSInteger index = self.segControl.selectedSegmentIndex;
+  if (index == 0) {
+    return GEEKER_TABLE_CELL_HEIGHT;
+  }
+  return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -86,15 +79,16 @@
 {
   NSInteger index = self.segControl.selectedSegmentIndex;
   if (index == 0) {
-    SimpleGeekerInfo *geekerInfo = self.geekersArray[indexPath.row];
-
-    static NSString *cellID = GEEKER_CELL_IDENTIFIER;
-    GeekerListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    static NSString *cellID = GEEKER_TABLE_CELL_ID;
+    GeekerTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
-      cell = [[GeekerListCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                   reuseIdentifier:cellID
-                                        geekerInfo:geekerInfo];
+      cell = [[GeekerTableCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                    reuseIdentifier:cellID];
     }
+    
+    SimpleGeekerInfo *playerInfo = self.geekersArray[indexPath.row];
+    [cell configWithPlayerInfo:playerInfo];
+    
     return cell;
   }
   else {
