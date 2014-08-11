@@ -39,10 +39,9 @@
   // team
   self.teamTable = [[UITableView alloc] initWithFrame:tableRect style:self.style];
   [self customTableView:self.teamTable];
-  [self.teamTable setHidden:YES];
   
   [self.teamTable addPullToRefreshWithActionHandler:^{
-    
+    [weakSelf loadMyTeams];
   }];
   [self customPullToRefresh:self.teamTable];
   
@@ -109,20 +108,15 @@
     if (self.geekersLoadedOnce == NO) {
       [self.geekerTable triggerPullToRefresh];
     }
-    else {
-      [self.geekerTable setHidden:NO];
-      [self.teamTable setHidden:YES];
-    }
+    [self.geekerTable setHidden:NO];
+    [self.teamTable setHidden:YES];
   }
   else {  // team list
     if (self.teamLoadedOnce == NO) {
-      [self.geekerTable setHidden:YES];
-      [self.teamTable setHidden:NO];
+      [self.teamTable triggerPullToRefresh];
     }
-    else {
-      [self.geekerTable setHidden:YES];
-      [self.teamTable setHidden:NO];
-    }
+    [self.geekerTable setHidden:YES];
+    [self.teamTable setHidden:NO];
   }
 }
 @end

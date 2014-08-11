@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		20C018F7FDA74C08A47B80E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 574BB2BEFD4E48918A979B74 /* libPods.a */; };
-		711DD82A1963A0AA00413AD1 /* GeekerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 711DD8291963A0AA00413AD1 /* GeekerListCell.m */; };
 		712D16EE194ECB9600396B1F /* ChoosePlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16ED194ECB9600396B1F /* ChoosePlayerCell.m */; };
 		712D16F1194EEEF900396B1F /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16F0194EEEF900396B1F /* ContactCell.m */; };
 		712D16F4194EEFE000396B1F /* CostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16F3194EEFE000396B1F /* CostCell.m */; };
@@ -84,6 +83,8 @@
 		719D886D195964DE00F77ACB /* TeamGameRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = 719D886C195964DE00F77ACB /* TeamGameRecords.m */; };
 		71A769EF195AB1D700E6D004 /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A769EE195AB1D700E6D004 /* GameDetailViewController.m */; };
 		71A769F2195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A769F1195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m */; };
+		71B1F2A11998743A0039D5EE /* SimpleTeamInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B1F2A01998743A0039D5EE /* SimpleTeamInfo.m */; };
+		71B1F2A4199879750039D5EE /* TeamTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B1F2A3199879750039D5EE /* TeamTableCell.m */; };
 		71B2160319947CE200212DF4 /* TeamGameRecordsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B2160219947CE200212DF4 /* TeamGameRecordsCell.m */; };
 		71B2160B1994AB1900212DF4 /* TeamGameRecordsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B2160A1994AB1900212DF4 /* TeamGameRecordsHeaderView.m */; };
 		71B216111995D7B900212DF4 /* GeekerTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B216101995D7B900212DF4 /* GeekerTableCell.m */; };
@@ -144,8 +145,6 @@
 
 /* Begin PBXFileReference section */
 		574BB2BEFD4E48918A979B74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		711DD8281963A0AA00413AD1 /* GeekerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeekerListCell.h; sourceTree = "<group>"; };
-		711DD8291963A0AA00413AD1 /* GeekerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeekerListCell.m; sourceTree = "<group>"; };
 		712D16EC194ECB9600396B1F /* ChoosePlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePlayerCell.h; sourceTree = "<group>"; };
 		712D16ED194ECB9600396B1F /* ChoosePlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePlayerCell.m; sourceTree = "<group>"; };
 		712D16EF194EEEF900396B1F /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
@@ -294,6 +293,10 @@
 		71A769EE195AB1D700E6D004 /* GameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailViewController.m; sourceTree = "<group>"; };
 		71A769F0195ABC4F00E6D004 /* GameDetailViewController+TopButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameDetailViewController+TopButtons.h"; sourceTree = "<group>"; };
 		71A769F1195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameDetailViewController+TopButtons.m"; sourceTree = "<group>"; };
+		71B1F29F1998743A0039D5EE /* SimpleTeamInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTeamInfo.h; sourceTree = "<group>"; };
+		71B1F2A01998743A0039D5EE /* SimpleTeamInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTeamInfo.m; sourceTree = "<group>"; };
+		71B1F2A2199879750039D5EE /* TeamTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTableCell.h; sourceTree = "<group>"; };
+		71B1F2A3199879750039D5EE /* TeamTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTableCell.m; sourceTree = "<group>"; };
 		71B2160119947CE200212DF4 /* TeamGameRecordsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamGameRecordsCell.h; sourceTree = "<group>"; };
 		71B2160219947CE200212DF4 /* TeamGameRecordsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamGameRecordsCell.m; sourceTree = "<group>"; };
 		71B216091994AB1900212DF4 /* TeamGameRecordsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamGameRecordsHeaderView.h; sourceTree = "<group>"; };
@@ -580,6 +583,8 @@
 				719D88661959602C00F77ACB /* GeekerTag.m */,
 				719D522019166E04006304D3 /* Geeker.h */,
 				719D522119166E04006304D3 /* Geeker.m */,
+				71B1F29F1998743A0039D5EE /* SimpleTeamInfo.h */,
+				71B1F2A01998743A0039D5EE /* SimpleTeamInfo.m */,
 			);
 			name = "Geeker&Team";
 			sourceTree = "<group>";
@@ -880,8 +885,8 @@
 				71331221196284A400044E65 /* HDYSoccerGeekerViewController+Network.m */,
 				71B2160F1995D7B900212DF4 /* GeekerTableCell.h */,
 				71B216101995D7B900212DF4 /* GeekerTableCell.m */,
-				711DD8281963A0AA00413AD1 /* GeekerListCell.h */,
-				711DD8291963A0AA00413AD1 /* GeekerListCell.m */,
+				71B1F2A2199879750039D5EE /* TeamTableCell.h */,
+				71B1F2A3199879750039D5EE /* TeamTableCell.m */,
 				715AD73818E679CE0068E6E1 /* GeekerDetail */,
 			);
 			name = GeekerList;
@@ -1095,6 +1100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				719432F319178CBB009BA1D6 /* HDYSoccerAPIClientParams.m in Sources */,
+				71B1F2A4199879750039D5EE /* TeamTableCell.m in Sources */,
 				7141A19D1941597400B34295 /* Tools.m in Sources */,
 				719D522219166E04006304D3 /* Geeker.m in Sources */,
 				71CB8C4818E032C70073E913 /* HDYSoccerBaseViewController.m in Sources */,
@@ -1148,7 +1154,6 @@
 				71943328191A1365009BA1D6 /* Location.m in Sources */,
 				7141A19019403F9000B34295 /* AppDelegate+LogicTest.m in Sources */,
 				719433101918E1DA009BA1D6 /* ParticipantsScoreList.m in Sources */,
-				711DD82A1963A0AA00413AD1 /* GeekerListCell.m in Sources */,
 				718A49C1194FF0A3001DF516 /* ChooseTeamCell.m in Sources */,
 				719433201919EBFB009BA1D6 /* AppContextParams.m in Sources */,
 				712D16F4194EEFE000396B1F /* CostCell.m in Sources */,
@@ -1166,6 +1171,7 @@
 				715AD72818E663A90068E6E1 /* HDYSoccerGameCell.m in Sources */,
 				719D523619167649006304D3 /* TeamGame.m in Sources */,
 				71CB8C0C18E019060073E913 /* main.m in Sources */,
+				71B1F2A11998743A0039D5EE /* SimpleTeamInfo.m in Sources */,
 				7141A19419405E2F00B34295 /* RegisterAndLoginViewController.m in Sources */,
 				715AD73E18E6902E0068E6E1 /* HDYSoccerGeekerDetailViewController+UIConfiguration.m in Sources */,
 				719D886D195964DE00F77ACB /* TeamGameRecords.m in Sources */,

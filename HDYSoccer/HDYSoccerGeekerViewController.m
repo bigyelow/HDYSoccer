@@ -14,6 +14,7 @@
 #import "HDYSoccerGeekerViewController+Network.h"
 #import "SimpleGeekerInfo.h"
 #import "GeekerTableCell.h"
+#import "TeamTableCell.h"
 
 @interface HDYSoccerGeekerViewController ()
 
@@ -61,6 +62,10 @@
   if (index == 0) {
     return GEEKER_TABLE_CELL_HEIGHT;
   }
+  else if (index == 1) {
+    return TEAM_TABLE_CELL_HEIGHT;
+  }
+  
   return 0;
 }
 
@@ -70,9 +75,11 @@
   if (index == 0) {
     return [self.geekersArray count];
   }
-  else {
+  else if (index == 1) {
     return [self.teamsArray count];
   }
+  
+  return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -91,9 +98,18 @@
     
     return cell;
   }
-  else {
-    return nil;
+  else if (index == 1) {
+    static NSString *cellID = TEAM_TABLE_CELL_ID;
+    TeamTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell) {
+      cell = [[TeamTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    [cell configWithTeamInfo:self.teamsArray[indexPath.row]];
+    
+    return cell;
   }
+  
+  return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

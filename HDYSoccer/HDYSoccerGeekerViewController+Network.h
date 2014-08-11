@@ -10,4 +10,5 @@
 
 @interface HDYSoccerGeekerViewController (Network)
 - (void)loadMyFriends;
+- (void)loadMyTeams;
 @end

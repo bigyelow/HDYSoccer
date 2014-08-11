@@ -22,10 +22,26 @@
     
     [weakSelf.geekerTable reloadData];
     [weakSelf setGeekersLoadedOnce:YES];
-    [weakSelf.geekerTable setHidden:NO];
     [weakSelf.geekerTable.pullToRefreshView stopAnimating];
   } failed:^(HDYSoccerAPIError *error) {
     [weakSelf.geekerTable.pullToRefreshView stopAnimating];
+
+  }];
+}
+
+- (void)loadMyTeams
+{
+  __weak typeof(self) weakSelf = self;
+  [self.httpsClient getMyTeamsSucceeded:^(NSArray *array) {
+    if (array) {
+      weakSelf.teamsArray = [NSMutableArray arrayWithArray:array];
+    }
+    
+    [weakSelf.teamTable reloadData];
+    [weakSelf setTeamLoadedOnce:YES];
+    [weakSelf.teamTable.pullToRefreshView stopAnimating];
+  } failed:^(HDYSoccerAPIError *error) {
+    [weakSelf.teamTable.pullToRefreshView stopAnimating];
 
   }];
 }
