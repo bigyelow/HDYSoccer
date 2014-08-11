@@ -13,6 +13,7 @@
 #import "TeamGame.h"
 #import "SimpleGeekerInfo.h"
 #import "ParticipantsScore.h"
+#import "SimpleTeamInfo.h"
 
 @implementation HDYSoccerAPIClient (HTTPS)
 
@@ -197,6 +198,33 @@
                        for (NSDictionary *dic in resultArray) {
                          SimpleGeekerInfo *geekerInfo = [SimpleGeekerInfo objectWithDictionary:dic];
                          [tempArray addObject:geekerInfo];
+                       }
+                       succeeded(tempArray);
+                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                       failed(hdyApiError);
+                     }];
+}
+
+#pragma mark - team
+- (void)getMyTeamsSucceeded:(SucceededGettingArrayBlock)succeeded
+                     failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  
+  NSString *path = [self pathWithSubpath:@"team/team_list"];
+  [self.operationManager GET:path
+                  parameters:parameter
+                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSArray *resultArray = responseObject;
+                       NSMutableArray *tempArray = [NSMutableArray array];
+                       for (NSDictionary *dic in resultArray) {
+                         SimpleTeamInfo *teamInfo = [SimpleTeamInfo objectWithDictionary:dic];
+                         [tempArray addObject:teamInfo];
                        }
                        succeeded(tempArray);
                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
