@@ -10,7 +10,7 @@
 
 // SEPERATOR
 #define SEPERATOR_LEFT_MARGIN 13
-#define SEPERATOR_HEIGHT 0.5
+#define SEPERATOR_HEIGHT 1
 
 // TITLE
 #define TITLE_LABEL_LEFTMARGIN (SEPERATOR_LEFT_MARGIN + 5)
@@ -56,6 +56,7 @@
     [bottomSeper setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_SEPERATOR_COLOR]];
     [bottomSeper setHidden:YES];
     
+    self.bottomSeper = bottomSeper;
     [self addSubview:bottomSeper];
   }
   return self;

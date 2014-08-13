@@ -10,6 +10,9 @@
 
 #pragma mark - resouce name
 
+// FRAME
+#define WINDOW_FRAME ([[UIApplication sharedApplication] keyWindow].frame)
+
 // TOP BUTTON
 #define TOP_BACK_IMAGE @"back-25.png"
 #define TOP_CONFIRM_IMAGE @"checkmark-50.png"

@@ -50,7 +50,7 @@
 #define TEXT_COORPERATION @"配合"
 #define TEXT_SPEED @"速度"
 #define TEXT_PHYSICAL_STRENGTH @"耐力"
-
+#define TEXT_GOT_TAGS @"所获标签"
 #define TEXT_GAME_AVERAGE_SCORE_TITLE @" %@"
 #define TEXT_DISTANCE @",%@km"
 

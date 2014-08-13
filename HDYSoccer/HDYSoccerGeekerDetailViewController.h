@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *playerName;
 @property (nonatomic, strong) NSString *playerID;
 @property (nonatomic, strong) Geeker *playerInfo;
+@property (nonatomic, strong) NSArray *tagsPositionArray;
 
 @property (nonatomic, strong) UISegmentedControl *segControl;
 @property (nonatomic, strong) UITableView *playerInfoTable;

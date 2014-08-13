@@ -12,6 +12,7 @@
 #import "PlayerBasicInfoCell.h"
 #import "PlayerListInfoCell.h"
 #import "Geeker.h"
+#import "PlayerTagsCell.h"
 
 @interface HDYSoccerGeekerDetailViewController ()
 @property (nonatomic, strong) NSArray *sampleDatas;
@@ -48,7 +49,12 @@
 #pragma mark - tableview delegate and datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  return 1;
+  NSInteger sectionNumber = 1;
+  if (self.playerInfo.tagsArray && [self.playerInfo.tagsArray count]) {
+    sectionNumber++;
+  }
+  
+  return sectionNumber;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -70,6 +76,9 @@
       }
     }
       
+    case 1:
+      return 1;
+      
     default:
       break;
   }
@@ -89,6 +98,12 @@
           return PLAYER_LIST_CELL_HEIGHT;
       }
       break;
+      
+    case 1: {
+      self.tagsPositionArray = [PlayerTagsCell tagPositionsForCellWithTags:self.playerInfo.tagsArray];
+      NSNumber *number = self.tagsPositionArray[0];
+      return number.floatValue;
+    }
       
     default:
       break;
@@ -137,6 +152,19 @@
           break;
       }
       break;
+      
+    case 1: {
+      static NSString *cellID = PLAYER_TAGS_CELL_ID;
+      PlayerTagsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (!cell) {
+        cell = [[PlayerTagsCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                     reuseIdentifier:cellID
+                                                tags:self.playerInfo.tagsArray
+                                        tagsPosition:self.tagsPositionArray];
+      }
+      
+      return cell;
+    }
       
     default:
       break;
