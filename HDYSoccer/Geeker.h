@@ -17,6 +17,8 @@
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *score;
 @property (nonatomic, strong) NSArray *position;
+@property (nonatomic, copy) NSString *birthDate;
+@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) GeekerStatus status;
 @property (nonatomic, strong) GeekerAbility *ability;
 @property (nonatomic, strong, readonly) NSArray *tagsArray;

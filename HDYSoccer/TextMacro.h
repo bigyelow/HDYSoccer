@@ -42,7 +42,8 @@
 #define TEXT_WIN @"胜"
 #define TEXT_DRAW @"平"
 #define TEXT_LOSE @"负"
-
+#define TEXT_BIRTHDAY @"出生日期"
+#define TEXT_HEIGHT @"身高"
 #define TEXT_ATTACK @"进攻"
 #define TEXT_DEFENTD @"防守"
 #define TEXT_SKILL @"技术"

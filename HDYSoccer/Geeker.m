@@ -35,6 +35,20 @@
   return [self.dictionary objectForKey:@"score"];
 }
 
+- (NSString *)birthDate
+{
+  return [self.dictionary objectForKey:@"birth_date"];
+}
+
+- (CGFloat)height
+{
+  NSNumber *number = [self.dictionary objectForKey:@"height"];
+  if (number) {
+    return number.floatValue;
+  }
+  return 0;
+}
+
 - (NSArray *)tagsArray
 {
   if (!_tagsArray) {

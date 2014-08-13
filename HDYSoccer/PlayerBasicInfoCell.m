@@ -21,7 +21,7 @@
 // POSITION
 #define POSITION_TOP_MARGIN (NAME_TOP_MARGIN - 2)
 #define POSITION_HEIGHT 15
-#define POSITION_BOTTOM_MARGIN 20
+#define POSITION_BOTTOM_MARGIN 30
 
 @implementation PlayerBasicInfoCell
 

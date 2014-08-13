@@ -10,6 +10,8 @@
 #import "HDYSoccerGeekerDetailViewController+SegmentControl.h"
 #import "HDYSoccerGeekerDetailViewController+NetworkOperation.h"
 #import "PlayerBasicInfoCell.h"
+#import "PlayerListInfoCell.h"
+#import "Geeker.h"
 
 @interface HDYSoccerGeekerDetailViewController ()
 @property (nonatomic, strong) NSArray *sampleDatas;
@@ -51,7 +53,27 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 1;
+  switch (section) {
+    case 0: {
+      if (!self.playerInfo) {
+        return 1;
+      }
+      else {
+        NSInteger rowNumber = 1;
+        if (self.playerInfo.birthDate) {
+          rowNumber++;
+        }
+        if (self.playerInfo.height) {
+          rowNumber++;
+        }
+        return rowNumber;
+      }
+    }
+      
+    default:
+      break;
+  }
+  return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,8 +84,9 @@
         case 0:
           return [PlayerBasicInfoCell cellHeight];
           
-        default:
-          break;
+        case 1:
+        case 2:
+          return PLAYER_LIST_CELL_HEIGHT;
       }
       break;
       
@@ -87,6 +110,24 @@
           
           if (self.playerInfo) {
             [cell configCellWithPlayer:self.playerInfo];
+          }
+          
+          return cell;
+        }
+          
+        case 1:
+        case 2: {
+          static NSString *cellID = PLAYER_LIST_CELL_ID;
+          PlayerListInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+          if (!cell) {
+            cell = [[PlayerListInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+          }
+          
+          if (indexPath.row == 1) {
+            [cell configCellWithTitle:TEXT_BIRTHDAY info:self.playerInfo.birthDate hasBottomLine:NO];
+          }
+          else if (indexPath.row == 2) {
+            [cell configCellWithTitle:TEXT_HEIGHT info:[NSString stringWithFormat:@"%.0fcm", self.playerInfo.height] hasBottomLine:YES];
           }
           
           return cell;
