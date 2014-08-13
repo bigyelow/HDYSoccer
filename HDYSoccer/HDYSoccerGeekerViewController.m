@@ -119,8 +119,8 @@
   NSInteger index = self.segControl.selectedSegmentIndex;
   if (index == 0) {
     SimpleGeekerInfo *geekerInfo = self.geekersArray[indexPath.row];
-    HDYSoccerGeekerDetailViewController *geekerDetailVC = [[HDYSoccerGeekerDetailViewController alloc]
-                                                           initWithGeeker:geekerInfo.name];
+    HDYSoccerGeekerDetailViewController *geekerDetailVC = [[HDYSoccerGeekerDetailViewController alloc] initWithPlayerID:geekerInfo.geekerID
+                                                                                                             playerName:geekerInfo.name];
     
     [self.navigationController pushViewController:geekerDetailVC animated:YES];
   }

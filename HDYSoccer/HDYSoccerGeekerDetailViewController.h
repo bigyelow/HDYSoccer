@@ -7,10 +7,17 @@
 //
 
 #import "HDYSoccerBaseTableViewController.h"
-
+@class Geeker;
 @interface HDYSoccerGeekerDetailViewController : HDYSoccerBaseTableViewController
 
-@property (nonatomic, strong) NSString *geekerName;
+@property (nonatomic, strong) NSString *playerName;
+@property (nonatomic, strong) NSString *playerID;
+@property (nonatomic, strong) Geeker *playerInfo;
 
-- (id)initWithGeeker:(NSString *)geekerName;
+@property (nonatomic, strong) UISegmentedControl *segControl;
+@property (nonatomic, strong) UITableView *playerInfoTable;
+@property (nonatomic, strong) UITableView *StatisticsTable;
+
+- (id)initWithPlayerID:(NSString *)playerID
+            playerName:(NSString *)playerName;
 @end

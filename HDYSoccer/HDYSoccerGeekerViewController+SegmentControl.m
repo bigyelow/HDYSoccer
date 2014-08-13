@@ -54,13 +54,13 @@
   SegmentView *segmentView = [[SegmentView alloc] initWithFrame:segmentRect segments:segments];
   
   [self.view addSubview:segmentView];
-  
+
+  // send control
   self.segControl = segmentView.segControl;
   [self.segControl addTarget:self
                       action:@selector(segmentChanged:)
             forControlEvents:UIControlEventValueChanged];
   
-  // send control
   [self.segControl setSelectedSegmentIndex:0];
   [self.segControl sendActionsForControlEvents:UIControlEventValueChanged];
 }
