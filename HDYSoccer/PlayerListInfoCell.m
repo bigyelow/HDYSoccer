@@ -24,7 +24,8 @@
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
     [UIConfiguration setView:self height:PLAYER_LIST_CELL_HEIGHT];
-    
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     // TOP SEPERATOR
     CGFloat seperatorWidth = self.frame.size.width - 2 * SEPERATOR_LEFT_MARGIN;
     UIView *topSeper = [[UIView alloc] initWithFrame:CGRectMake(SEPERATOR_LEFT_MARGIN, 0, seperatorWidth, SEPERATOR_HEIGHT)];

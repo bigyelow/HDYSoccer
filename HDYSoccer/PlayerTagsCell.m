@@ -33,6 +33,8 @@
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+
     // TITLE
     UILabel *titleLabel = [UIConfiguration labelWithText:TEXT_GOT_TAGS
                                                textColor:[UIColor lightGrayColor]

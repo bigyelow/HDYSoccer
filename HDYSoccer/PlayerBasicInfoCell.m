@@ -31,6 +31,7 @@
   if (self) {
     CGFloat cellHeight = [[self class] cellHeight];
     [UIConfiguration setView:self height:cellHeight];
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     // AVATAR
     UIImageView *avatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, AVATAR_TOP_MARGIN, AVATAR_WIDTH, AVATAR_WIDTH)];
