@@ -51,6 +51,8 @@
 		71898EC319A1C6D7005778D2 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 71898EC219A1C6D7005778D2 /* Team.m */; };
 		71898EC819A1E3B6005778D2 /* TeamBasicInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71898EC719A1E3B6005778D2 /* TeamBasicInfoCell.m */; };
 		71898ECB19A1E911005778D2 /* TeamListInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71898ECA19A1E911005778D2 /* TeamListInfoCell.m */; };
+		71898ED119A1EDBA005778D2 /* TeamScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71898ED019A1EDBA005778D2 /* TeamScoreCell.m */; };
+		71898ED419A1FE61005778D2 /* TeamScoreHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71898ED319A1FE61005778D2 /* TeamScoreHeaderView.m */; };
 		718A49BE194FDB56001DF516 /* RemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718A49BD194FDB56001DF516 /* RemarkCell.m */; };
 		718A49C1194FF0A3001DF516 /* ChooseTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718A49C0194FF0A3001DF516 /* ChooseTeamCell.m */; };
 		719213411988F70C00EF7947 /* CostCellForGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719213401988F70C00EF7947 /* CostCellForGameInfo.m */; };
@@ -243,6 +245,10 @@
 		71898EC719A1E3B6005778D2 /* TeamBasicInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamBasicInfoCell.m; sourceTree = "<group>"; };
 		71898EC919A1E911005778D2 /* TeamListInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamListInfoCell.h; sourceTree = "<group>"; };
 		71898ECA19A1E911005778D2 /* TeamListInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamListInfoCell.m; sourceTree = "<group>"; };
+		71898ECF19A1EDBA005778D2 /* TeamScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamScoreCell.h; sourceTree = "<group>"; };
+		71898ED019A1EDBA005778D2 /* TeamScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamScoreCell.m; sourceTree = "<group>"; };
+		71898ED219A1FE61005778D2 /* TeamScoreHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamScoreHeaderView.h; sourceTree = "<group>"; };
+		71898ED319A1FE61005778D2 /* TeamScoreHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamScoreHeaderView.m; sourceTree = "<group>"; };
 		718A49BC194FDB56001DF516 /* RemarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemarkCell.h; sourceTree = "<group>"; };
 		718A49BD194FDB56001DF516 /* RemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarkCell.m; sourceTree = "<group>"; };
 		718A49BF194FF0A3001DF516 /* ChooseTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTeamCell.h; sourceTree = "<group>"; };
@@ -548,6 +554,10 @@
 				71898EC719A1E3B6005778D2 /* TeamBasicInfoCell.m */,
 				71898EC919A1E911005778D2 /* TeamListInfoCell.h */,
 				71898ECA19A1E911005778D2 /* TeamListInfoCell.m */,
+				71898ECF19A1EDBA005778D2 /* TeamScoreCell.h */,
+				71898ED019A1EDBA005778D2 /* TeamScoreCell.m */,
+				71898ED219A1FE61005778D2 /* TeamScoreHeaderView.h */,
+				71898ED319A1FE61005778D2 /* TeamScoreHeaderView.m */,
 			);
 			name = TeamDetail;
 			sourceTree = "<group>";
@@ -1201,6 +1211,7 @@
 				719D523019167526006304D3 /* SimpleTeamGameInfo.m in Sources */,
 				7141A19A1940748000B34295 /* HDYSoccerGameViewController+NetWork.m in Sources */,
 				719432FF19179F3F009BA1D6 /* TeamGameList.m in Sources */,
+				71898ED119A1EDBA005778D2 /* TeamScoreCell.m in Sources */,
 				717A5BA5198A2677006E8446 /* UILabel+Customize.m in Sources */,
 				71A769F2195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m in Sources */,
 				7141A1971940738100B34295 /* HDYSoccerGameViewController+CollectionView.m in Sources */,
@@ -1266,6 +1277,7 @@
 				715AD73118E664A90068E6E1 /* HDYSoccerGameHeader.m in Sources */,
 				719D522D19167482006304D3 /* SimplePersonalGameInfo.m in Sources */,
 				71B2160319947CE200212DF4 /* TeamGameRecordsCell.m in Sources */,
+				71898ED419A1FE61005778D2 /* TeamScoreHeaderView.m in Sources */,
 				715AD73718E66BAB0068E6E1 /* UIConfiguration+Color.m in Sources */,
 				7141A1A019415FA000B34295 /* HDYSoccerGameViewController+SegmentControl.m in Sources */,
 				71898EB619A1A16B005778D2 /* PlayerAbilityHeaderView.m in Sources */,

@@ -12,6 +12,8 @@
 #import "Team.h"
 #import "TeamBasicInfoCell.h"
 #import "TeamListInfoCell.h"
+#import "TeamScoreCell.h"
+#import "TeamScoreHeaderView.h"
 
 @interface TeamDetailViewController ()
 
@@ -57,6 +59,36 @@
   }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+  switch (section) {
+    case 2:
+      if (self.teamInfo) {
+        return [TeamScoreHeaderView viewHeight];
+      }
+      
+    default:
+      break;
+  }
+  return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+  switch (section) {
+    case 2:
+      if (self.teamInfo) {
+        TeamScoreHeaderView *view = [[TeamScoreHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)
+                                                                         title:TEXT_TEAM_AVERAGE_SCORE];
+        return view;
+      }
+      
+    default:
+      break;
+  }
+  return nil;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   switch (section) {
@@ -65,12 +97,12 @@
       
     case 1:
         return 2;
+
+    case 2:
+      if (self.teamInfo) {
+        return SCORE_TYPE_NUMBER;
+      }
 //
-//    case 2:
-//      if (self.teamInfo) {
-//        return 1;
-//      }
-//      
 //    case 3:
 //      if (self.teamInfo.members) {
 //        return [self.teamInfo.members count];
@@ -91,6 +123,9 @@
       
     case 1:
       return TEAM_LIST_INFO_CELL_HEIGHT;
+      
+    case 2:
+      return TEAM_SCORE_CELL_HEIGHT;
       
     default:
       break;
@@ -127,6 +162,23 @@
       else if (indexPath.row == 1) {
         [cell configCellWithTitle:TEXT_CAPTAIN info:self.teamInfo.captain hasBottomLine:YES];
       }
+      
+      return cell;
+    }
+      
+    case 2: {
+      static NSString *cellID = TEAM_SCORE_CELL_ID;
+      TeamScoreCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (!cell) {
+        cell = [[TeamScoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
+      
+      NSDictionary *dic = self.scoreArray[indexPath.row];
+      NSString *key = [dic allKeys][0];
+      NSString *score = [dic objectForKey:key];
+      NSNumber *shouldAnimation = self.scoreAnimationArray[indexPath.row];
+      [cell configCellWithAbilityName:key abilityScore:score.integerValue animation:shouldAnimation.boolValue];
+      [self.scoreAnimationArray replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithBool:NO]];
       
       return cell;
     }
