@@ -13,8 +13,10 @@
 #import "AppDelegate.h"
 #import "HDYSoccerGeekerViewController+Network.h"
 #import "SimpleGeekerInfo.h"
+#import "SimpleTeamInfo.h"
 #import "GeekerTableCell.h"
 #import "TeamTableCell.h"
+#import "TeamDetailViewController.h"
 
 @interface HDYSoccerGeekerViewController ()
 
@@ -124,6 +126,13 @@
     
     [self.navigationController pushViewController:geekerDetailVC animated:YES];
   }
+  else if (index == 1) {
+    SimpleTeamInfo *teamInfo = self.teamsArray[indexPath.row];
+    TeamDetailViewController *teamDetailVC = [[TeamDetailViewController alloc] initWithTeamID:teamInfo.teamID
+                                                                                     teamName:teamInfo.teamName];
+    [self.navigationController pushViewController:teamDetailVC animated:YES];
+  }
+  
 }
 
 #pragma mark Gesture recognizer

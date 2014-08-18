@@ -25,10 +25,13 @@
 - (void)getTeamGameWithID:(NSString *)teamGameID
                 succeeded:(SucceededGettingDictionaryBlock)succeeded
                    failed:(FailedBlock)failed;
-#pragma mark - Geeker
+#pragma mark - PLAYER AND TEMAS
 - (void)getGeekerInfoWithGeekerID:(NSString *)geekerID
                         succeeded:(SucceededGettingDictionaryBlock)succeeded
                            failed:(FailedBlock)failed;
+- (void)getTeamInfoWithTemaID:(NSString *)teamID
+                    succeeded:(SucceededGettingDictionaryBlock)succeeded
+                       failed:(FailedBlock)failed;
 
 #pragma mark - Tags
 - (void)getTagsSucceeded:(SucceededGettingArrayBlock)succeeded

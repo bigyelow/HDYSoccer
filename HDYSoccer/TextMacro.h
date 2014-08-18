@@ -53,6 +53,7 @@
 #define TEXT_GOT_TAGS @"所获标签"
 #define TEXT_GAME_AVERAGE_SCORE_TITLE @" %@"
 #define TEXT_DISTANCE @",%@km"
+#define TEXT_COACH @"教练"
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"

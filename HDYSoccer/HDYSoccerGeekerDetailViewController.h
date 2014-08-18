@@ -24,7 +24,7 @@
 
 @property (nonatomic, strong) UISegmentedControl *segControl;
 @property (nonatomic, strong) UITableView *playerInfoTable;
-@property (nonatomic, strong) UITableView *StatisticsTable;
+@property (nonatomic, strong) UITableView *statisticsTable;
 
 - (id)initWithPlayerID:(NSString *)playerID
             playerName:(NSString *)playerName;

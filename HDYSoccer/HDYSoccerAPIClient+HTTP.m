@@ -11,6 +11,7 @@
 #import "PersonalGameList.h"
 #import "SimpleTeamGameInfo.h"
 #import "HDYSoccerAPIError.h"
+#import "Team.h"
 
 @implementation HDYSoccerAPIClient (HTTP)
 
@@ -121,7 +122,7 @@
                      }];
 }
 
-#pragma mark - Geeker
+#pragma mark - PLAYER AND TEMAS
 - (void)getGeekerInfoWithGeekerID:(NSString *)geekerID
                         succeeded:(SucceededGettingDictionaryBlock)succeeded
                            failed:(FailedBlock)failed
@@ -133,6 +134,30 @@
                                     [HDYSoccerAPIClient defaultParameters]];
   
   NSString *subpath = [NSString stringWithFormat:@"geeker/%@", geekerID];
+  NSString *path = [self pathWithSubpath:subpath];
+  
+  [self.operationManager GET:path
+                  parameters:parameter
+                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSDictionary *resultDic = responseObject;
+                       succeeded(resultDic);
+                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                       failed(hdyApiError);
+                     }];
+}
+
+- (void)getTeamInfoWithTemaID:(NSString *)teamID
+                    succeeded:(SucceededGettingDictionaryBlock)succeeded
+                       failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  
+  NSString *subpath = [NSString stringWithFormat:@"team/%@", teamID];
   NSString *path = [self pathWithSubpath:subpath];
   
   [self.operationManager GET:path
