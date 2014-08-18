@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, GeekerStatus)
 @property (nonatomic, copy, readonly) NSString *avatarURL;
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *score;
+@property (nonatomic, assign) CGFloat averageGameScore;
 @property (nonatomic, strong) NSArray *position;
 @property (nonatomic, assign) GeekerStatus status;
 @property (nonatomic, strong, readonly) NSArray *tagsArray;

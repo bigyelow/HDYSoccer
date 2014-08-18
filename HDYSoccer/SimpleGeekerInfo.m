@@ -47,6 +47,15 @@
   return _tagsArray;
 }
 
+- (CGFloat)averageGameScore
+{
+  NSNumber *number = [self.dictionary objectForKey:@"averageGameScore"];
+  if (number) {
+    return number.floatValue;
+  }
+  return 0;
+}
+
 - (NSArray *)position
 {
   return [self.dictionary objectForKey:@"position"];

@@ -69,6 +69,15 @@
   return [self.dictionary objectForKey:@"position"];
 }
 
+- (CGFloat)averageGameScore
+{
+  NSNumber *number = [self.dictionary objectForKey:@"averageGameScore"];
+  if (number) {
+    return number.floatValue;
+  }
+  return 0;
+}
+
 - (GeekerStatus)status
 {
   NSNumber *number = [self.dictionary objectForKey:@"status"];

@@ -517,6 +517,13 @@
 			name = Icon;
 			sourceTree = "<group>";
 		};
+		71898EB719A1ACFF005778D2 /* TeamDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TeamDetail;
+			sourceTree = "<group>";
+		};
 		719432EA191783B0009BA1D6 /* APIClients */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +841,7 @@
 				715AD72218E662960068E6E1 /* GameList */,
 				71CB8C5D18E1310E0073E913 /* GeekerList */,
 				715AD73818E679CE0068E6E1 /* GeekerDetail */,
+				71898EB719A1ACFF005778D2 /* TeamDetail */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
