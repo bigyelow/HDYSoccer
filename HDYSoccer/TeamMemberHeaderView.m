@@ -1,14 +1,14 @@
 //
-//  PlayerAbilityHeaderView.m
+//  TeamMemberHeaderView.m
 //  HDYSoccer
 //
 //  Created by bigyelow on 8/18/14.
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "PlayerAbilityHeaderView.h"
+#import "TeamMemberHeaderView.h"
 
-#define TOP_SEPER_TOP_MARGIN 15
+#define TOP_SEPER_TOP_MARGIN 0
 #define TOP_SEPER_HEIGHT 1
 
 // TITLE
@@ -16,7 +16,7 @@
 #define TITLE_HEIGHT 15
 #define TITLE_BOTTOM_MARGIN 5
 
-@implementation PlayerAbilityHeaderView
+@implementation TeamMemberHeaderView
 
 - (id)initWithFrame:(CGRect)frame
               title:(NSString *)title
@@ -36,7 +36,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, titleY, frame.size.width, TITLE_HEIGHT)];
     [titleLabel setText:title];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [titleLabel setFont:[UIFont systemFontOfSize:15]];
     [titleLabel setTextColor:[UIColor lightGrayColor]];
     
     [self addSubview:titleLabel];

@@ -1,26 +1,29 @@
 //
-//  GeekerTableCell.m
+//  TeamMemberCell.m
 //  HDYSoccer
 //
-//  Created by bigyelow on 8/9/14.
+//  Created by bigyelow on 8/18/14.
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
-#import "GeekerTableCell.h"
+#import "TeamMemberCell.h"
 #import "SimpleGeekerInfo.h"
 #import "UIImageView+WebCache.h"
-#import "GeekerTag.h"
-#import "GameListFilterTableViewCell.h"
 #import "UILabel+Customize.h"
+#import "GeekerTag.h"
+
 
 // BACKGROUND
-#define BACKGROUND_BOTTOM_MARGIN 10
+#define BACKGROUND_BOTTOM_MARGIN 0
+
+// TOP SEPERATOR
+#define TOP_SEPERATOR_HEIGHT 1
 
 // content
 #define CONTENT_RIGHT_MARING 10
 
 // AVATAR
-#define AVATAR_TOP_MARGIN 15
+#define AVATAR_TOP_MARGIN 10
 #define AVATAR_LEFT_MARGIN 10
 
 // name
@@ -45,13 +48,13 @@
 // seperator
 #define SEPERATOR_HEIGHT 0.3
 
-@implementation GeekerTableCell
+@implementation TeamMemberCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
-    [UIConfiguration setView:self height:GEEKER_TABLE_CELL_HEIGHT];
+    [UIConfiguration setView:self height:TEAM_MEMBER_CELL_HEIGHT];
     [self setBackgroundColor:[UIColor clearColor]];
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
@@ -62,6 +65,12 @@
     
     [self addSubview:backgroundView];
     
+    // TOP SEPERATOR : actually bottom...
+    UIView *topSeper = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - TOP_SEPERATOR_HEIGHT, self.frame.size.width, TOP_SEPERATOR_HEIGHT)];
+    [topSeper setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_SEPERATOR_COLOR]];
+    
+    [backgroundView addSubview:topSeper];
+
     // AVATAR
     CGFloat avatarWidth = backgroundView.frame.size.height - 2 * AVATAR_TOP_MARGIN;
     UIImageView *avatar = [[UIImageView alloc]
@@ -118,7 +127,7 @@
   // name
   [self.nameLabel configWithText:info.name
                        textColor:[UIColor blackColor]
-                            font:[UIFont systemFontOfSize:16]
+                            font:[UIFont systemFontOfSize:14]
                    numberOfLines:1];
   
   CGFloat rightMost = CGRectGetMaxX(self.nameLabel.frame);
@@ -197,14 +206,14 @@
       ++i;
     }
   }
-
+  
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-  [super setSelected:selected animated:animated];
-  
-  // Configure the view for the selected state
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
 
 @end

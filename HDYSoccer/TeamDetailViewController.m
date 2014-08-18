@@ -14,6 +14,9 @@
 #import "TeamListInfoCell.h"
 #import "TeamScoreCell.h"
 #import "TeamScoreHeaderView.h"
+#import "TeamMemberCell.h"
+#import "TeamMemberHeaderView.h"
+#import "TeamScoreFooterView.h"
 
 @interface TeamDetailViewController ()
 
@@ -67,6 +70,27 @@
         return [TeamScoreHeaderView viewHeight];
       }
       
+    case 3:
+      if (self.teamInfo) {
+        return [TeamMemberHeaderView viewHeight];
+      }
+      
+    default:
+      break;
+  }
+  return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+  switch (section) {
+    case 2:
+      if (self.teamInfo) {
+        return TEAM_SCORE_FOOTER_HEIGHT;
+      }
+      
+      break;
+      
     default:
       break;
   }
@@ -82,6 +106,29 @@
                                                                          title:TEXT_TEAM_AVERAGE_SCORE];
         return view;
       }
+      
+    case 3:
+      if (self.teamInfo) {
+        TeamMemberHeaderView *view = [[TeamMemberHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0)
+                                                                         title:TEXT_TEAM_MEMBERS];
+        return view;
+      }
+
+    default:
+      break;
+  }
+  return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+  switch (section) {
+    case 2:
+      if (self.teamInfo) {
+        TeamScoreFooterView *view = [[TeamScoreFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, TEAM_SCORE_FOOTER_HEIGHT)];
+        return view;
+      }
+      break;
       
     default:
       break;
@@ -102,11 +149,11 @@
       if (self.teamInfo) {
         return SCORE_TYPE_NUMBER;
       }
-//
-//    case 3:
-//      if (self.teamInfo.members) {
-//        return [self.teamInfo.members count];
-//      }
+
+    case 3:
+      if (self.teamInfo.members) {
+        return [self.teamInfo.members count];
+      }
       
     default:
       break;
@@ -126,6 +173,9 @@
       
     case 2:
       return TEAM_SCORE_CELL_HEIGHT;
+      
+    case 3:
+      return TEAM_MEMBER_CELL_HEIGHT;
       
     default:
       break;
@@ -179,6 +229,20 @@
       NSNumber *shouldAnimation = self.scoreAnimationArray[indexPath.row];
       [cell configCellWithAbilityName:key abilityScore:score.integerValue animation:shouldAnimation.boolValue];
       [self.scoreAnimationArray replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithBool:NO]];
+      
+      return cell;
+    }
+      
+    case 3: {
+      static NSString *cellID = TEAM_MEMBER_CELL_ID;
+      TeamMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (cell == nil) {
+        cell = [[TeamMemberCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellID];
+      }
+      
+      SimpleGeekerInfo *playerInfo = self.teamInfo.members[indexPath.row];
+      [cell configWithPlayerInfo:playerInfo];
       
       return cell;
     }
