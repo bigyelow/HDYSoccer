@@ -15,6 +15,13 @@
 @property (nonatomic, strong) Geeker *playerInfo;
 @property (nonatomic, strong) NSArray *tagsPositionArray;
 
+@property (nonatomic, strong) NSArray *comprehensiveAbilityArray;
+@property (nonatomic, strong) NSArray *skillAbilityArray;
+@property (nonatomic, strong) NSArray *qualityAbilityArray;
+@property (nonatomic, strong) NSMutableArray *compreAbilityScoreAnimationArray;
+@property (nonatomic, strong) NSMutableArray *skillAbilityScoreAnimationArray;
+@property (nonatomic, strong) NSMutableArray *qualityAbilityScoreAnimationArray;
+
 @property (nonatomic, strong) UISegmentedControl *segControl;
 @property (nonatomic, strong) UITableView *playerInfoTable;
 @property (nonatomic, strong) UITableView *StatisticsTable;

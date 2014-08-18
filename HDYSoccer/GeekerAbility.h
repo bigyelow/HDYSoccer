@@ -7,20 +7,14 @@
 //
 
 #import "BaseObject.h"
+#import "ComprehensiveAbility.h"
+#import "SkillAbility.h"
+#import "QualityAbility.h"
 
 @interface GeekerAbility : BaseObject
 
-@property (nonatomic, assign) NSInteger teamSpirit;
-@property (nonatomic, assign) NSInteger devotion;
-@property (nonatomic, assign) NSInteger balllessRunning;
-@property (nonatomic, assign) NSInteger shoot;
-@property (nonatomic, assign) NSInteger pass;
-@property (nonatomic, assign) NSInteger heading;
-@property (nonatomic, assign) NSInteger placeKick;
-@property (nonatomic, assign) NSInteger creativity;
-@property (nonatomic, assign) NSInteger stamina;
-@property (nonatomic, assign) NSInteger speed;
-@property (nonatomic, assign) NSInteger strong;
-@property (nonatomic, assign) NSInteger aggressivity;
+@property (nonatomic, strong) ComprehensiveAbility *comprehensiveAbility;
+@property (nonatomic, strong) SkillAbility *skillAbility;
+@property (nonatomic, strong) QualityAbility *qualityAbility;
 
 @end

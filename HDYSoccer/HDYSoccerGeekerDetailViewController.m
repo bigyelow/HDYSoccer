@@ -13,6 +13,9 @@
 #import "PlayerListInfoCell.h"
 #import "Geeker.h"
 #import "PlayerTagsCell.h"
+#import "GeekerAbility.h"
+#import "PlayerAbilityCell.h"
+#import "PlayerAbilityHeaderView.h"
 
 @interface HDYSoccerGeekerDetailViewController ()
 @property (nonatomic, strong) NSArray *sampleDatas;
@@ -49,12 +52,64 @@
 #pragma mark - tableview delegate and datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  NSInteger sectionNumber = 1;
-  if (self.playerInfo.tagsArray && [self.playerInfo.tagsArray count]) {
-    sectionNumber++;
+  return 5;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+  switch (section) {
+    case 2:
+      if ([self.comprehensiveAbilityArray count]) {
+        return [PlayerAbilityHeaderView viewHeight];
+      }
+      
+    case 3:
+      if ([self.skillAbilityArray count]) {
+        return [PlayerAbilityHeaderView viewHeight];
+      }
+      
+    case 4:
+      if ([self.qualityAbilityArray count]) {
+        return [PlayerAbilityHeaderView viewHeight];
+      }
+      
+    default:
+      break;
   }
-  
-  return sectionNumber;
+  return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+  switch (section) {
+    case 2:
+      if ([self.comprehensiveAbilityArray count]) {
+        PlayerAbilityHeaderView *view = [[PlayerAbilityHeaderView alloc]
+                                         initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)
+                                         title:TEXT_COMPREHENSIVE_ABILITY];
+        return view;
+      }
+      
+    case 3:
+      if ([self.skillAbilityArray count]) {
+        PlayerAbilityHeaderView *view = [[PlayerAbilityHeaderView alloc]
+                                         initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)
+                                         title:TEXT_SKILL_ABILITY];
+        return view;
+      }
+      
+    case 4:
+      if ([self.qualityAbilityArray count]) {
+        PlayerAbilityHeaderView *view = [[PlayerAbilityHeaderView alloc]
+                                         initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)
+                                         title:TEXT_QUALITY_ABILITY];
+        return view;
+      }
+      
+    default:
+      break;
+  }
+  return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -65,19 +120,23 @@
         return 1;
       }
       else {
-        NSInteger rowNumber = 1;
-        if (self.playerInfo.birthDate) {
-          rowNumber++;
-        }
-        if (self.playerInfo.height) {
-          rowNumber++;
-        }
-        return rowNumber;
+        return 3;
       }
     }
       
     case 1:
-      return 1;
+      if (self.playerInfo) {
+        return 1;
+      }
+      
+    case 2:
+      return [self.comprehensiveAbilityArray count];
+      
+    case 3:
+      return [self.skillAbilityArray count];
+      
+    case 4:
+      return [self.qualityAbilityArray count];
       
     default:
       break;
@@ -104,6 +163,11 @@
       NSNumber *number = self.tagsPositionArray[0];
       return number.floatValue;
     }
+      
+    case 2:
+    case 3:
+    case 4:
+      return PLAYER_ABILITY_CELL_HEIGHT;
       
     default:
       break;
@@ -162,6 +226,60 @@
                                                 tags:self.playerInfo.tagsArray
                                         tagsPosition:self.tagsPositionArray];
       }
+      
+      return cell;
+    }
+      
+    case 2: {
+      static NSString *cellID = PLAYER_ABILITY_CELL_ID;
+      PlayerAbilityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (!cell) {
+        cell = [[PlayerAbilityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
+      
+      NSDictionary *dic = self.comprehensiveAbilityArray[indexPath.row];
+      NSString *key = [dic allKeys][0];
+      NSNumber *value = [dic objectForKey:key];
+      NSNumber *shouldAnimation = self.compreAbilityScoreAnimationArray[indexPath.row];
+      
+      [cell configCellWithAbilityName:key abilityScore:value.integerValue animation:shouldAnimation.boolValue];
+      [self.compreAbilityScoreAnimationArray replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithBool:NO]];
+      
+      return cell;
+    }
+      
+    case 3: {
+      static NSString *cellID = PLAYER_ABILITY_CELL_ID;
+      PlayerAbilityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (!cell) {
+        cell = [[PlayerAbilityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
+      
+      NSDictionary *dic = self.skillAbilityArray[indexPath.row];
+      NSString *key = [dic allKeys][0];
+      NSNumber *value = [dic objectForKey:key];
+      NSNumber *shouldAnimation = self.skillAbilityScoreAnimationArray[indexPath.row];
+      
+      [cell configCellWithAbilityName:key abilityScore:value.integerValue animation:shouldAnimation.boolValue];
+      [self.skillAbilityScoreAnimationArray replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithBool:NO]];
+      
+      return cell;
+    }
+      
+    case 4: {
+      static NSString *cellID = PLAYER_ABILITY_CELL_ID;
+      PlayerAbilityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      if (!cell) {
+        cell = [[PlayerAbilityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+      }
+      
+      NSDictionary *dic = self.qualityAbilityArray[indexPath.row];
+      NSString *key = [dic allKeys][0];
+      NSNumber *value = [dic objectForKey:key];
+      NSNumber *shouldAnimation = self.qualityAbilityScoreAnimationArray[indexPath.row];
+      
+      [cell configCellWithAbilityName:key abilityScore:value.integerValue animation:shouldAnimation.boolValue];
+      [self.qualityAbilityScoreAnimationArray replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithBool:NO]];
       
       return cell;
     }

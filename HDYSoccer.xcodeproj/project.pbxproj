@@ -44,6 +44,7 @@
 		7187BE5A197A45B500748563 /* football-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 7187BE59197A45B500748563 /* football-75.png */; };
 		7187BE68197A676300748563 /* menu-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7187BE67197A676300748563 /* menu-50.png */; };
 		7187BE6A197A699000748563 /* plus-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7187BE69197A699000748563 /* plus-50.png */; };
+		71898EB619A1A16B005778D2 /* PlayerAbilityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71898EB519A1A16B005778D2 /* PlayerAbilityHeaderView.m */; };
 		718A49BE194FDB56001DF516 /* RemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718A49BD194FDB56001DF516 /* RemarkCell.m */; };
 		718A49C1194FF0A3001DF516 /* ChooseTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718A49C0194FF0A3001DF516 /* ChooseTeamCell.m */; };
 		719213411988F70C00EF7947 /* CostCellForGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 719213401988F70C00EF7947 /* CostCellForGameInfo.m */; };
@@ -81,6 +82,10 @@
 		719D88671959602C00F77ACB /* GeekerTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 719D88661959602C00F77ACB /* GeekerTag.m */; };
 		719D886A195963D700F77ACB /* TeamScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 719D8869195963D700F77ACB /* TeamScore.m */; };
 		719D886D195964DE00F77ACB /* TeamGameRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = 719D886C195964DE00F77ACB /* TeamGameRecords.m */; };
+		71A55F6D199C7124005DBC83 /* PlayerAbilityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A55F6C199C7124005DBC83 /* PlayerAbilityCell.m */; };
+		71A55F7D199DBF81005DBC83 /* ComprehensiveAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A55F7C199DBF81005DBC83 /* ComprehensiveAbility.m */; };
+		71A55F80199DBFC0005DBC83 /* SkillAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A55F7F199DBFC0005DBC83 /* SkillAbility.m */; };
+		71A55F83199DBFFF005DBC83 /* QualityAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A55F82199DBFFF005DBC83 /* QualityAbility.m */; };
 		71A769EF195AB1D700E6D004 /* GameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A769EE195AB1D700E6D004 /* GameDetailViewController.m */; };
 		71A769F2195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A769F1195ABC4F00E6D004 /* GameDetailViewController+TopButtons.m */; };
 		71B1F2A11998743A0039D5EE /* SimpleTeamInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B1F2A01998743A0039D5EE /* SimpleTeamInfo.m */; };
@@ -218,6 +223,8 @@
 		7187BE59197A45B500748563 /* football-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "football-75.png"; sourceTree = "<group>"; };
 		7187BE67197A676300748563 /* menu-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-50.png"; sourceTree = "<group>"; };
 		7187BE69197A699000748563 /* plus-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-50.png"; sourceTree = "<group>"; };
+		71898EB419A1A16B005778D2 /* PlayerAbilityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerAbilityHeaderView.h; sourceTree = "<group>"; };
+		71898EB519A1A16B005778D2 /* PlayerAbilityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerAbilityHeaderView.m; sourceTree = "<group>"; };
 		718A49BC194FDB56001DF516 /* RemarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemarkCell.h; sourceTree = "<group>"; };
 		718A49BD194FDB56001DF516 /* RemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarkCell.m; sourceTree = "<group>"; };
 		718A49BF194FF0A3001DF516 /* ChooseTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTeamCell.h; sourceTree = "<group>"; };
@@ -292,6 +299,14 @@
 		719D8869195963D700F77ACB /* TeamScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamScore.m; sourceTree = "<group>"; };
 		719D886B195964DE00F77ACB /* TeamGameRecords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamGameRecords.h; sourceTree = "<group>"; };
 		719D886C195964DE00F77ACB /* TeamGameRecords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamGameRecords.m; sourceTree = "<group>"; };
+		71A55F6B199C7124005DBC83 /* PlayerAbilityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerAbilityCell.h; sourceTree = "<group>"; };
+		71A55F6C199C7124005DBC83 /* PlayerAbilityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerAbilityCell.m; sourceTree = "<group>"; };
+		71A55F7B199DBF81005DBC83 /* ComprehensiveAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComprehensiveAbility.h; sourceTree = "<group>"; };
+		71A55F7C199DBF81005DBC83 /* ComprehensiveAbility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComprehensiveAbility.m; sourceTree = "<group>"; };
+		71A55F7E199DBFC0005DBC83 /* SkillAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillAbility.h; sourceTree = "<group>"; };
+		71A55F7F199DBFC0005DBC83 /* SkillAbility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillAbility.m; sourceTree = "<group>"; };
+		71A55F81199DBFFF005DBC83 /* QualityAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QualityAbility.h; sourceTree = "<group>"; };
+		71A55F82199DBFFF005DBC83 /* QualityAbility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QualityAbility.m; sourceTree = "<group>"; };
 		71A769ED195AB1D700E6D004 /* GameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailViewController.h; sourceTree = "<group>"; };
 		71A769EE195AB1D700E6D004 /* GameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailViewController.m; sourceTree = "<group>"; };
 		71A769F0195ABC4F00E6D004 /* GameDetailViewController+TopButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameDetailViewController+TopButtons.h"; sourceTree = "<group>"; };
@@ -471,6 +486,10 @@
 				71B1F2D4199B3B270039D5EE /* PlayerListInfoCell.m */,
 				710B0E58199B507200845986 /* PlayerTagsCell.h */,
 				710B0E59199B507200845986 /* PlayerTagsCell.m */,
+				71A55F6B199C7124005DBC83 /* PlayerAbilityCell.h */,
+				71A55F6C199C7124005DBC83 /* PlayerAbilityCell.m */,
+				71898EB419A1A16B005778D2 /* PlayerAbilityHeaderView.h */,
+				71898EB519A1A16B005778D2 /* PlayerAbilityHeaderView.m */,
 			);
 			name = GeekerDetail;
 			sourceTree = "<group>";
@@ -593,8 +612,7 @@
 		719D522319166E0D006304D3 /* Geeker&Team */ = {
 			isa = PBXGroup;
 			children = (
-				719D523819167701006304D3 /* GeekerAbility.h */,
-				719D523919167701006304D3 /* GeekerAbility.m */,
+				71A55F7A199DBF66005DBC83 /* GeekerAbility */,
 				719D52241916732E006304D3 /* SimpleGeekerInfo.h */,
 				719D52251916732E006304D3 /* SimpleGeekerInfo.m */,
 				719D88651959602C00F77ACB /* GeekerTag.h */,
@@ -643,6 +661,21 @@
 				719D523F1916781D006304D3 /* TeamScoreCollection.m */,
 			);
 			name = Score;
+			sourceTree = "<group>";
+		};
+		71A55F7A199DBF66005DBC83 /* GeekerAbility */ = {
+			isa = PBXGroup;
+			children = (
+				719D523819167701006304D3 /* GeekerAbility.h */,
+				719D523919167701006304D3 /* GeekerAbility.m */,
+				71A55F7B199DBF81005DBC83 /* ComprehensiveAbility.h */,
+				71A55F7C199DBF81005DBC83 /* ComprehensiveAbility.m */,
+				71A55F7E199DBFC0005DBC83 /* SkillAbility.h */,
+				71A55F7F199DBFC0005DBC83 /* SkillAbility.m */,
+				71A55F81199DBFFF005DBC83 /* QualityAbility.h */,
+				71A55F82199DBFFF005DBC83 /* QualityAbility.m */,
+			);
+			name = GeekerAbility;
 			sourceTree = "<group>";
 		};
 		71A769EB195AB11D00E6D004 /* CreateGame */ = {
@@ -1124,6 +1157,7 @@
 				71CB8C4818E032C70073E913 /* HDYSoccerBaseViewController.m in Sources */,
 				719213441988F8C100EF7947 /* ContactCellForGameInfo.m in Sources */,
 				71B2160B1994AB1900212DF4 /* TeamGameRecordsHeaderView.m in Sources */,
+				71A55F7D199DBF81005DBC83 /* ComprehensiveAbility.m in Sources */,
 				71DD43D518E29DC1008094E0 /* HDYSoccerMenuViewController+UIConfiguration.m in Sources */,
 				7197DF731944129500B29EC5 /* HDYSoccerGameViewController+CreateGame.m in Sources */,
 				719D523019167526006304D3 /* SimpleTeamGameInfo.m in Sources */,
@@ -1146,9 +1180,11 @@
 				719432F61917931F009BA1D6 /* HDYSoccerAPIClient+HTTP.m in Sources */,
 				712D16F1194EEEF900396B1F /* ContactCell.m in Sources */,
 				719D88671959602C00F77ACB /* GeekerTag.m in Sources */,
+				71A55F6D199C7124005DBC83 /* PlayerAbilityCell.m in Sources */,
 				718A49BE194FDB56001DF516 /* RemarkCell.m in Sources */,
 				717A5BAF198B4418006E8446 /* RatePlayerCell.m in Sources */,
 				7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */,
+				71A55F80199DBFC0005DBC83 /* SkillAbility.m in Sources */,
 				71CB8C5018E036290073E913 /* HDYSoccerBaseTableViewController.m in Sources */,
 				71CB8C1018E019060073E913 /* AppDelegate.m in Sources */,
 				7197DF6C1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m in Sources */,
@@ -1180,6 +1216,7 @@
 				71B1F2D5199B3B270039D5EE /* PlayerListInfoCell.m in Sources */,
 				71E7AE75197E3C1B00427C31 /* HDYSoccerGameViewController.m in Sources */,
 				719213471988FEDC00EF7947 /* RemarkCellForGameInfo.m in Sources */,
+				71A55F83199DBFFF005DBC83 /* QualityAbility.m in Sources */,
 				717A5BB2198B4E6A006E8446 /* RatePlayerHeaderView.m in Sources */,
 				71C27503191B8D81003D33DE /* HDYSoccerBaseViewParams.m in Sources */,
 				719D523A19167701006304D3 /* GeekerAbility.m in Sources */,
@@ -1188,6 +1225,7 @@
 				71B2160319947CE200212DF4 /* TeamGameRecordsCell.m in Sources */,
 				715AD73718E66BAB0068E6E1 /* UIConfiguration+Color.m in Sources */,
 				7141A1A019415FA000B34295 /* HDYSoccerGameViewController+SegmentControl.m in Sources */,
+				71898EB619A1A16B005778D2 /* PlayerAbilityHeaderView.m in Sources */,
 				71568A1018E3E9BF00518C7D /* HDYSoccerGeekerViewController+SegmentControl.m in Sources */,
 				71B1F2CF199B0F220039D5EE /* PlayerBasicInfoCell.m in Sources */,
 				715AD72818E663A90068E6E1 /* HDYSoccerGameCell.m in Sources */,

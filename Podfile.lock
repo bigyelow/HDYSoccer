@@ -70,6 +70,7 @@ PODS:
     - SDWebImage/Core
   - SDWebImage/Core (3.5.4)
   - SVPullToRefresh (0.4.1)
+  - UICountingLabel (1.1.0)
   - UIView+AutoLayout (1.3.0)
 
 DEPENDENCIES:
@@ -88,6 +89,7 @@ DEPENDENCIES:
   - RMDateSelectionViewController (~> 1.2.1)
   - SDWebImage (~> 3.5.4)
   - SVPullToRefresh (~> 0.4.1)
+  - UICountingLabel (~> 1.1.0)
   - UIView+AutoLayout (~> 1.3.0)
 
 SPEC CHECKSUMS:
@@ -108,6 +110,7 @@ SPEC CHECKSUMS:
   RMDateSelectionViewController: f633c22b50c35ab1e7dc3178e790842569fbf92a
   SDWebImage: 571295c8acbb699505a0f68e54506147c3de9ea7
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
+  UICountingLabel: c1fc281e45d2be32e268608c7e6e693d1dfe8e36
   UIView+AutoLayout: dc24ec6114498617510af759148a05b957af1b38
 
 COCOAPODS: 0.32.1

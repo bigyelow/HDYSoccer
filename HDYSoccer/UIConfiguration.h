@@ -33,6 +33,11 @@
 #define GLOBAL_SEPERATOR_COLOR @"#e6e6e6"
 #define GLOBAL_FONT_NAME @"Verdana"
 
+// SCORE COLOR
+#define SCORE_TOP_COLOR @"#b30000"
+#define SCORE_MIDDLE_COLOR @"#cc7700"
+#define SCORE_BOTTOM_COLOR @"#b3b3b3"
+
 // top bar
 #define TOP_CONFIRM_BUTTON_WIDTH 27.0F
 #define TOP_CANCEL_BUTTON_WIDTH 23.0F

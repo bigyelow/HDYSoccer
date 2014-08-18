@@ -10,75 +10,28 @@
 
 @implementation GeekerAbility
 
-- (NSInteger)teamSpirit
+- (ComprehensiveAbility *)comprehensiveAbility
 {
-  NSNumber *number = [self.dictionary objectForKey:@"team_spirit"];
-  return number.integerValue;
+  if (!_comprehensiveAbility) {
+    _comprehensiveAbility = [ComprehensiveAbility
+                             objectWithDictionary:[self.dictionary objectForKey:@"comprehensive_ability"]];
+  }
+  return _comprehensiveAbility;
 }
 
-- (NSInteger)devotion
+- (SkillAbility *)skillAbility
 {
-  NSNumber *number = [self.dictionary objectForKey:@"devotion"];
-  return number.integerValue;
+  if (!_skillAbility) {
+    _skillAbility = [SkillAbility objectWithDictionary:[self.dictionary objectForKey:@"skill"]];
+  }
+  return _skillAbility;
 }
 
-- (NSInteger)balllessRunning
+- (QualityAbility *)qualityAbility
 {
-  NSNumber *number = [self.dictionary objectForKey:@"ballless_running"];
-  return number.integerValue;
-}
-
-- (NSInteger)shoot
-{
-  NSNumber *number = [self.dictionary objectForKey:@"shoot"];
-  return number.integerValue;
-}
-
-- (NSInteger)pass
-{
-  NSNumber *number = [self.dictionary objectForKey:@"pass"];
-  return number.integerValue;
-}
-
-- (NSInteger)heading
-{
-  NSNumber *number = [self.dictionary objectForKey:@"heading"];
-  return number.integerValue;
-}
-
-- (NSInteger)placeKick
-{
-  NSNumber *number = [self.dictionary objectForKey:@"place-kick"];
-  return number.integerValue;
-}
-
-- (NSInteger)creativity
-{
-  NSNumber *number = [self.dictionary objectForKey:@"creativity"];
-  return number.integerValue;
-}
-
-- (NSInteger)stamina
-{
-  NSNumber *number = [self.dictionary objectForKey:@"stamina"];
-  return number.integerValue;
-}
-
-- (NSInteger)speed
-{
-  NSNumber *number = [self.dictionary objectForKey:@"speed"];
-  return number.integerValue;
-}
-
-- (NSInteger)strong
-{
-  NSNumber *number = [self.dictionary objectForKey:@"strong"];
-  return number.integerValue;
-}
-
-- (NSInteger)aggressivity
-{
-  NSNumber *number = [self.dictionary objectForKey:@"agreesivity"];
-  return number.integerValue;
+  if (!_qualityAbility) {
+    _qualityAbility = [QualityAbility objectWithDictionary:[self.dictionary objectForKey:@"quality"]];
+  }
+  return _qualityAbility;
 }
 @end

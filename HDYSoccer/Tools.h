@@ -15,6 +15,12 @@
 // NSUserDefaults
 #define DEFAULTS_TAGS_KEY @"defaults_tags_key"
 
+typedef NS_ENUM(NSUInteger, kScoreGrade) {
+  kScoreGradeTop = 90,
+  kScoreGradeMiddle = 80,
+  kScoreGradeBottom,
+};
+
 typedef void (^performBlock)();
 
 @interface Tools : NSObject
