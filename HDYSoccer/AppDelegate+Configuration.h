@@ -18,4 +18,6 @@
 - (void)configStandardsDefaults;
 - (void)configLocation;
 - (void)configNeedData;
+- (void)showNetworkActivityIndicator;
+- (void)hideNetworkActivityIndicator;
 @end

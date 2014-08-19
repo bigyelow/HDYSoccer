@@ -19,6 +19,16 @@
   [userDefaults setBool:NO forKey:@"isEndGoogleRequest"];//多语言环境支持,读取google数据
 }
 
+- (void)showNetworkActivityIndicator
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+- (void)hideNetworkActivityIndicator
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 #pragma mark - some data need
 - (void)configNeedData
 {

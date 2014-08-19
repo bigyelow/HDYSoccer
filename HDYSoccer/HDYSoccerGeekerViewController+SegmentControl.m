@@ -11,7 +11,6 @@
 #import "GeekerViewParams.h"
 #import "UIConfiguration.h"
 #import "SegmentView.h"
-#import "SVPullToRefresh.h"
 
 @implementation HDYSoccerGeekerViewController (SegmentControl)
 
@@ -27,27 +26,33 @@
   // geeker
   self.geekerTable = [[UITableView alloc] initWithFrame:tableRect style:self.style];
   [self customTableView:self.geekerTable];
+  [self.geekerTable setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 0, 0)];
   
-  __weak typeof(self) weakSelf = self;
-  [self.geekerTable addPullToRefreshWithActionHandler:^{
-    [weakSelf loadMyFriends];
-  }];
-  [self customPullToRefresh:self.geekerTable];
+  // refresh control
+  UIRefreshControl *playerRefreshCtr = [[UIRefreshControl alloc] init];
+  [playerRefreshCtr setTintColor:[UIColor whiteColor]];
+  [playerRefreshCtr addTarget:self action:@selector(loadMyFriends) forControlEvents:UIControlEventValueChanged];
+  
+  self.playerRefreshControl = playerRefreshCtr;
+  [self.geekerTable addSubview:playerRefreshCtr];
   
   [self.view addSubview:self.geekerTable];
   
   // team
   self.teamTable = [[UITableView alloc] initWithFrame:tableRect style:self.style];
   [self customTableView:self.teamTable];
+  [self.teamTable setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT + TOP_BAR_HEIGHT, 0, 0, 0)];
   
-  [self.teamTable addPullToRefreshWithActionHandler:^{
-    [weakSelf loadMyTeams];
-  }];
-  [self customPullToRefresh:self.teamTable];
+  // refresh control
+  UIRefreshControl *teamRefreshCtr = [[UIRefreshControl alloc] init];
+  [teamRefreshCtr setTintColor:[UIColor whiteColor]];
+  [teamRefreshCtr addTarget:self action:@selector(loadMyTeams) forControlEvents:UIControlEventValueChanged];
+  
+  self.teamRefreshControl = teamRefreshCtr;
+  [self.teamTable addSubview:teamRefreshCtr];
   
   [self.view addSubview:self.teamTable];
-  
-  
+
   // segment view
   NSArray *segments = @[SEGMENT_ITEM_FRIENDS, SEGMENT_ITEM_TEAM];
   CGRect segmentRect = CGRectMake(0, TOP_BAR_HEIGHT, CGRectGetWidth(self.view.frame), SEGMENT_VIEW_HEIGHT);
@@ -70,7 +75,6 @@
   [tableView setDelegate:self];
   [tableView setDataSource:self];
   [tableView setBackgroundColor:[UIColor clearColor]];
-  [tableView setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT + TOP_BAR_HEIGHT, 0, 0, 0)];
   [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
   // background view
@@ -79,41 +83,26 @@
   [tableView setBackgroundView:imageView];
 }
 
-- (void)customPullToRefresh:(UIScrollView *)scrollView
-{
-  [scrollView.pullToRefreshView setTitle:PTREFRESH_TEXT_PULL_TO_REFRESH forState:SVPullToRefreshStateStopped];
-  [scrollView.pullToRefreshView setTitle:PTREFRESH_TEXT_RELEASE_TO_REFRESH forState:SVPullToRefreshStateTriggered];
-  [scrollView.pullToRefreshView setTitle:TEXT_LOADING forState:SVPullToRefreshStateLoading];
-  [scrollView.pullToRefreshView.titleLabel setTextColor:[UIConfiguration colorForHex:PTREFRESH_TITLE_COLOR]];
-  [scrollView.pullToRefreshView.titleLabel setFont:[UIFont systemFontOfSize:PTREFRESH_REFRESH_TITLE_FONT_SIZE]];
-  [scrollView.pullToRefreshView setArrowColor:[UIConfiguration colorForHex:PTREFRESH_ARROW_COLOR]];
-  
-  [scrollView.pullToRefreshView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
-  [scrollView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
-  
-  CGFloat centerX = scrollView.center.x + PTREFRESH_REFRESH_X_PLUS;
-  CGFloat centerY = scrollView.pullToRefreshView.center.y;
-  [scrollView.pullToRefreshView setCenter:CGPointMake(centerX, centerY)];
-}
-
-
 - (void)segmentChanged:(UISegmentedControl *)paramSender
 {
   NSInteger index = paramSender.selectedSegmentIndex;
   
   if (index == 0) { // geeker list
-    if (self.geekersLoadedOnce == NO) {
-      [self.geekerTable triggerPullToRefresh];
-    }
     [self.geekerTable setHidden:NO];
     [self.teamTable setHidden:YES];
+    
+    if (self.geekersLoadedOnce == NO) {
+      [self loadMyFriends];
+    }
   }
   else {  // team list
-    if (self.teamLoadedOnce == NO) {
-      [self.teamTable triggerPullToRefresh];
-    }
     [self.geekerTable setHidden:YES];
     [self.teamTable setHidden:NO];
+    
+    if (self.teamLoadedOnce == NO) {
+      [self loadMyTeams];
+    }
+
   }
 }
 @end

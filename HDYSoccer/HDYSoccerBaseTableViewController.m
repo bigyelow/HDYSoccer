@@ -38,7 +38,7 @@
   self.tableView.autoresizingMask = ~UIViewAutoresizingNone;
   [self.view addSubview:self.tableView];
 
-  [self configPullToRefreshAndLoadMore];
+//  [self configPullToRefreshAndLoadMore];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

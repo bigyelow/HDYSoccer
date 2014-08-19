@@ -13,11 +13,13 @@
 @property (nonatomic, strong) UISegmentedControl *segControl;
 
 // geekers
+@property (nonatomic, strong) UIRefreshControl *playerRefreshControl;
 @property (nonatomic, assign) BOOL geekersLoadedOnce;
 @property (nonatomic, strong) NSMutableArray *geekersArray;
 @property (nonatomic, strong) UITableView *geekerTable;
 
 // team
+@property (nonatomic, strong) UIRefreshControl *teamRefreshControl;
 @property (nonatomic, assign) BOOL teamLoadedOnce;
 @property (nonatomic, strong) NSMutableArray *teamsArray;
 @property (nonatomic, strong) UITableView *teamTable;

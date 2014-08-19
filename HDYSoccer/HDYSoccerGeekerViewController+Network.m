@@ -8,40 +8,53 @@
 
 #import "HDYSoccerGeekerViewController+Network.h"
 #import "HDYSoccerAPIClient+HTTPS.h"
-#import "SVPullToRefresh.h"
 
 @implementation HDYSoccerGeekerViewController (Network)
 
 - (void)loadMyFriends
 {
   __weak typeof(self) weakSelf = self;
+  
+  if (self.geekersLoadedOnce == NO) {
+    [UIConfiguration showTipMessageToView:self.geekerTable title:TEXT_LOADING];
+  }
   [self.httpsClient getMyFriendsSucceeded:^(NSArray *array) {
+    [UIConfiguration hideTipMessageOnView:weakSelf.geekerTable];
+    [weakSelf.playerRefreshControl endRefreshing];
+
     if (array) {
       weakSelf.geekersArray = [NSMutableArray arrayWithArray:array];
     }
     
     [weakSelf.geekerTable reloadData];
     [weakSelf setGeekersLoadedOnce:YES];
-    [weakSelf.geekerTable.pullToRefreshView stopAnimating];
   } failed:^(HDYSoccerAPIError *error) {
-    [weakSelf.geekerTable.pullToRefreshView stopAnimating];
-
+    [UIConfiguration hideTipMessageOnView:weakSelf.geekerTable];
+    [weakSelf.playerRefreshControl endRefreshing];
   }];
 }
 
 - (void)loadMyTeams
 {
   __weak typeof(self) weakSelf = self;
+  
+  if (self.teamLoadedOnce == NO) {
+    [UIConfiguration showTipMessageToView:self.teamTable title:TEXT_LOADING];
+  }
   [self.httpsClient getMyTeamsSucceeded:^(NSArray *array) {
+    [UIConfiguration hideTipMessageOnView:weakSelf.teamTable];
+    [weakSelf.teamRefreshControl endRefreshing];
+    
     if (array) {
       weakSelf.teamsArray = [NSMutableArray arrayWithArray:array];
     }
     
     [weakSelf.teamTable reloadData];
     [weakSelf setTeamLoadedOnce:YES];
-    [weakSelf.teamTable.pullToRefreshView stopAnimating];
+
   } failed:^(HDYSoccerAPIError *error) {
-    [weakSelf.teamTable.pullToRefreshView stopAnimating];
+    [UIConfiguration hideTipMessageOnView:weakSelf.teamTable];
+    [weakSelf.teamRefreshControl endRefreshing];
 
   }];
 }
