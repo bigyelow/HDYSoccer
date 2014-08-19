@@ -38,7 +38,7 @@
 {
   CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
   
-  layout.sectionInset = SECTION_INSET;
+  layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
   layout.headerHeight = 0;
   layout.footerHeight = FOOTER_HEIGHT;
   layout.minimumColumnSpacing = MINIMUM_COLUMN_SPACE;
@@ -51,6 +51,8 @@
   
   [collectionView setBackgroundColor:[UIColor clearColor]];
   collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+  [collectionView setContentInset:SECTION_INSET];
+  [collectionView setScrollIndicatorInsets:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 0, 0)];
   collectionView.dataSource = self;
   collectionView.delegate = self;
   [collectionView registerClass:[HDYSoccerGameCell class]
@@ -103,7 +105,6 @@
   }];
   
   [self customPullToRefresh:collectionView];
-  [collectionView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
   
   return collectionView;
 }

@@ -34,10 +34,6 @@
 
   __weak typeof(self) weakSelf = self;
   
-  CGPoint indicatorOrigin = CGPointMake(self.view.center.x, TOP_BAR_HEIGHT
-                                        + self.segmentBackView.frame.size.height
-                                        + INDICATOR_TOP_MARGIN);
-  [UIConfiguration showProcessIndicatorWithView:self.view atPoint:indicatorOrigin];
   [client getGameListWithType:type
                      latitude:lat
                    longtitude:log
@@ -46,8 +42,6 @@
                         start:start
                         count:GAME_LIST_COUNT_LIMIT
                     succeeded:^(NSDictionary *dictionary) {
-                      [UIConfiguration hideProcessIndicatorWithView:weakSelf.view];
-                      
                       // init game list for index
                       NSArray *listArray;
                       if (segIndex == 0) {  // person
@@ -83,8 +77,6 @@
                       [weakSelf setRefreshingValueIndex:segIndex refreshing:NO];
                       
                     } failed:^(HDYSoccerAPIError *error) {
-                      [UIConfiguration hideProcessIndicatorWithView:weakSelf.view];
-
                       // update collection view
                       UICollectionView *collectionView = weakSelf.collectionViewArray[segIndex];
                       [collectionView.pullToRefreshView stopAnimating];
