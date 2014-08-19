@@ -79,22 +79,19 @@
   [tableView setBackgroundView:imageView];
 }
 
-#define TEXT_PULL_TO_REFRESH @"下拉刷新"
-#define TEXT_RELEASE_TO_REFRESH @"松开刷新"
-#define TEXT_LOADING @"加载中..."
-#define REFRESH_TITLE_FONT_SIZE 13.0f
-#define REFRESH_ARROW_COLOR @"#dfdfdf"
-#define REFRESH_X_PLUS 35.0f
-
 - (void)customPullToRefresh:(UIScrollView *)scrollView
 {
-  [scrollView.pullToRefreshView setTitle:TEXT_PULL_TO_REFRESH forState:SVPullToRefreshStateStopped];
-  [scrollView.pullToRefreshView setTitle:TEXT_RELEASE_TO_REFRESH forState:SVPullToRefreshStateTriggered];
+  [scrollView.pullToRefreshView setTitle:PTREFRESH_TEXT_PULL_TO_REFRESH forState:SVPullToRefreshStateStopped];
+  [scrollView.pullToRefreshView setTitle:PTREFRESH_TEXT_RELEASE_TO_REFRESH forState:SVPullToRefreshStateTriggered];
   [scrollView.pullToRefreshView setTitle:TEXT_LOADING forState:SVPullToRefreshStateLoading];
-  [scrollView.pullToRefreshView.titleLabel setFont:[UIFont systemFontOfSize:REFRESH_TITLE_FONT_SIZE]];
-  [scrollView.pullToRefreshView setArrowColor:[UIColor grayColor]];
+  [scrollView.pullToRefreshView.titleLabel setTextColor:[UIConfiguration colorForHex:PTREFRESH_TITLE_COLOR]];
+  [scrollView.pullToRefreshView.titleLabel setFont:[UIFont systemFontOfSize:PTREFRESH_REFRESH_TITLE_FONT_SIZE]];
+  [scrollView.pullToRefreshView setArrowColor:[UIConfiguration colorForHex:PTREFRESH_ARROW_COLOR]];
   
-  CGFloat centerX = scrollView.center.x + REFRESH_X_PLUS;
+  [scrollView.pullToRefreshView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+  [scrollView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+  
+  CGFloat centerX = scrollView.center.x + PTREFRESH_REFRESH_X_PLUS;
   CGFloat centerY = scrollView.pullToRefreshView.center.y;
   [scrollView.pullToRefreshView setCenter:CGPointMake(centerX, centerY)];
 }
