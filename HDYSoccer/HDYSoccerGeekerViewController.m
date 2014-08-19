@@ -60,11 +60,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSInteger index = self.segControl.selectedSegmentIndex;
-  if (index == 0) {
+  if ([tableView isEqual:self.geekerTable]) {
     return GEEKER_TABLE_CELL_HEIGHT;
   }
-  else if (index == 1) {
+  else if ([tableView isEqual:self.teamTable]) {
     return TEAM_TABLE_CELL_HEIGHT;
   }
   
@@ -73,11 +72,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  NSInteger index = self.segControl.selectedSegmentIndex;
-  if (index == 0) {
+  if ([tableView isEqual:self.geekerTable]) {
     return [self.geekersArray count];
   }
-  else if (index == 1) {
+  else if ([tableView isEqual:self.teamTable]) {
     return [self.teamsArray count];
   }
   
@@ -86,8 +84,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSInteger index = self.segControl.selectedSegmentIndex;
-  if (index == 0) {
+  if ([tableView isEqual:self.geekerTable]) {
     static NSString *cellID = GEEKER_TABLE_CELL_ID;
     GeekerTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
@@ -100,7 +97,7 @@
     
     return cell;
   }
-  else if (index == 1) {
+  else if ([tableView isEqual:self.teamTable]) {
     static NSString *cellID = TEAM_TABLE_CELL_ID;
     TeamTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
@@ -118,15 +115,14 @@
 {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   
-  NSInteger index = self.segControl.selectedSegmentIndex;
-  if (index == 0) {
+  if ([tableView isEqual:self.geekerTable]) {
     SimpleGeekerInfo *geekerInfo = self.geekersArray[indexPath.row];
     HDYSoccerGeekerDetailViewController *geekerDetailVC = [[HDYSoccerGeekerDetailViewController alloc] initWithPlayerID:geekerInfo.geekerID
                                                                                                              playerName:geekerInfo.name];
     
     [self.navigationController pushViewController:geekerDetailVC animated:YES];
   }
-  else if (index == 1) {
+  else if ([tableView isEqual:self.teamTable]) {
     SimpleTeamInfo *teamInfo = self.teamsArray[indexPath.row];
     TeamDetailViewController *teamDetailVC = [[TeamDetailViewController alloc] initWithTeamID:teamInfo.teamID
                                                                                      teamName:teamInfo.teamName];
