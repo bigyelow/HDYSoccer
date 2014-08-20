@@ -11,11 +11,11 @@
 #import "GameDetailViewController+Network.h"
 
 #define FRONT_VIEW_LEFT_MARGIN 0.0F
-#define FRONT_VIEW_HEIGHT 300.0F
+#define FRONT_VIEW_HEIGHT 260
 
 // title
 #define TITLE_TOP_MARGIN 10.0F
-#define TITLE_FORMAT_STR @"给%@评分"
+#define TITLE_FORMAT_STR @"给%@打标签"
 
 // score
 #define SCORE_TITLE_FORMAT_STR @"本场得分:%d分"
@@ -157,7 +157,7 @@
   [UIConfiguration setView:scoreLabel origin:CGPointMake(SCORE_TITLE_LEFT_MARGIN, scoreY)];
   
   self.rateFrontViewScoreLabel = scoreLabel;
-  [self.rateFrontView addSubview:scoreLabel];
+//  [self.rateFrontView addSubview:scoreLabel];
   
   // stepper
   CGFloat stepperX = CGRectGetMaxX(scoreLabel.frame) + SCORE_STEPPER_LEFT_MARGIN;
@@ -171,11 +171,11 @@
   [scoreStepper addTarget:self action:@selector(stepperValueChanged:) forControlEvents:UIControlEventTouchUpInside];
   
   self.rateStepper = scoreStepper;
-  [self.rateFrontView addSubview:scoreStepper];
+//  [self.rateFrontView addSubview:scoreStepper];
   
   // tags title
   UILabel *tagTitleLabel = [UIConfiguration labelWithText:TAGS_TITLE textColor:[UIColor blackColor] font:[UIFont systemFontOfSize:14]];
-  CGFloat tagTitleY = CGRectGetMaxY(scoreStepper.frame) + TAGS_TITLE_TOP_MARGIN;
+  CGFloat tagTitleY = CGRectGetMaxY(titleLable.frame) + TAGS_TITLE_TOP_MARGIN;
   [UIConfiguration setView:tagTitleLabel origin:CGPointMake(TAGS_TITLE_LEFT_MARGIN, tagTitleY)];
   
   [self.rateFrontView addSubview:tagTitleLabel];
@@ -183,7 +183,7 @@
   // tags
   NSArray *tagArray = [self.tagsArray copy];
   CGFloat tagX = CGRectGetMaxX(tagTitleLabel.frame) + FIRST_TAG_LEFT_MARGIN;
-  CGFloat tagY = CGRectGetMaxY(scoreStepper.frame) + TAG_TOP_MARGIN;
+  CGFloat tagY = CGRectGetMaxY(titleLable.frame) + TAG_TOP_MARGIN;
   CGFloat maxY;
   for (NSString *tagStr in tagArray) {
     UIButton *tagButton = [[UIButton alloc] initWithFrame:CGRectMake(tagX, tagY, 0, 0)];
@@ -191,7 +191,7 @@
     [tagButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [tagButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [tagButton setBackgroundColor:[UIConfiguration colorForHex:TAGS_UNSELECTED_BACK_COLOR]];
-    [tagButton.layer setCornerRadius:12.0f];
+    [tagButton.layer setCornerRadius:14];
     [tagButton setTag:0];
     
     [tagButton addTarget:self action:@selector(tagButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
