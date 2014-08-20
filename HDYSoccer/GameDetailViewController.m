@@ -101,6 +101,8 @@
   UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
   [imageView setImage:[UIImage imageNamed:BACKGROUND_IMAGE_NAME]];
   [self.tableView setBackgroundView:imageView];
+  
+  [self.tableView setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -29,7 +29,7 @@
                                    weakSelf.rateList = [weakSelf.personalGame.rateList copy];
                                    [weakSelf setTitle:weakSelf.personalGame.gameName];
                                    [weakSelf.tableView reloadData];
-                                  
+                                   [weakSelf.tableView setHidden:NO];
                                  } failed:^(HDYSoccerAPIError *error) {
                                    [UIConfiguration hideTipMessageOnView:weakSelf.view];
 
@@ -43,7 +43,7 @@
                                weakSelf.teamGame = [TeamGame objectWithDictionary:dictionary];
                                [weakSelf setTitle:weakSelf.teamGame.gameName];
                                [weakSelf.tableView reloadData];
-                               
+                               [weakSelf.tableView setHidden:NO];
                              } failed:^(HDYSoccerAPIError *error) {
                                [UIConfiguration hideTipMessageOnView:weakSelf.view];
 
