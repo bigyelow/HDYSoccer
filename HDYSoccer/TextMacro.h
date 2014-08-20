@@ -25,7 +25,7 @@
 #define TEXT_UNFILLED @"未填写"
 #define TEXT_MAN @"人"
 #define TEXT_CAPTAIN @"队长"
-#define TEXT_TEAM_AVERAGE_SCORE @"球队综合素质"
+#define TEXT_TEAM_AVERAGE_SCORE @""
 #define TEXT_PARTICIPANTS_NUMBER @"参与者:%d人"
 #define TEXT_TEAM_GAME_PLAYERS_NUMBER @"比赛规格:%d人制"
 #define TEXT_AVERAGE_SCORE @"平均分:%@"

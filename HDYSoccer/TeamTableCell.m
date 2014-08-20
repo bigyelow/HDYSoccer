@@ -22,7 +22,7 @@
 #define AVATAR_LEFT_MARGIN 10
 
 // name
-#define NAME_TOP_MARGIN (AVATAR_TOP_MARGIN)
+#define NAME_TOP_MARGIN (AVATAR_TOP_MARGIN + 7)
 #define NAME_LEFT_MARGIN 10
 
 // member count
@@ -34,7 +34,7 @@
 #define RECENT_RECORD_LEFT_MARGIN 5
 
 // AVERAGE SCORE
-#define SCORE_TOP_MARGIN 10
+#define SCORE_TOP_MARGIN 2
 #define SCORE_LEFT_MARGIN 10
 #define SCORE_HEIGHT 28
 
@@ -90,10 +90,7 @@
     CGFloat scoreX = CGRectGetMaxX(avatar.frame) + SCORE_LEFT_MARGIN;
     CGFloat scoreY = CGRectGetMaxY(nameLabel.frame) + SCORE_TOP_MARGIN;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(scoreX, scoreY, 0, 0)];
-    [label setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_GREEN_COLOR]];
-    [label setClipsToBounds:YES];
-    [label setTextAlignment:NSTextAlignmentCenter];
-    [label.layer setCornerRadius:14];
+    [label setTextAlignment:NSTextAlignmentLeft];
     
     self.averageScoreLabel = label;
     [backgroundView addSubview:self.averageScoreLabel];
@@ -144,13 +141,13 @@
   }
   
   // score
-  [self.averageScoreLabel configWithText:[NSString stringWithFormat:@"%@:%@", TEXT_TEAM_AVERAGE_SCORE, info.averageScore]
-                               textColor:[UIColor whiteColor]
-                                    font:[UIFont systemFontOfSize:12]
+  [self.averageScoreLabel configWithText:[NSString stringWithFormat:@"%@", info.averageScore]
+                               textColor:[UIColor grayColor]
+                                    font:[UIFont systemFontOfSize:14]
                            numberOfLines:1];
   CGFloat scoreY = CGRectGetMaxY(self.nameLabel.frame) + SCORE_TOP_MARGIN;
   CGFloat scoreWidth = self.averageScoreLabel.frame.size.width + 20;
-  [UIConfiguration setView:self.averageScoreLabel size:CGSizeMake(scoreWidth, SCORE_HEIGHT)];
+  [UIConfiguration setView:self.averageScoreLabel width:scoreWidth];
   [UIConfiguration setView:self.averageScoreLabel y:scoreY];
   
 //  CGFloat xLimit = self.frame.size.width - CONTENT_RIGHT_MARING;
