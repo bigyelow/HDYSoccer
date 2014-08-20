@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define GAME_INFO_PLAYER_CELL_ID @"gameInfoPlayerCell"
-#define GAME_INFO_PLAYER_CELL_HEIGHT 50
+#define GAME_INFO_PLAYER_CELL_HEIGHT 35
 
 @class SimpleGeekerInfo;
 

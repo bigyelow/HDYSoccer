@@ -342,6 +342,38 @@
   return nil;
 }
 
+#define PLAYER_SECTION_FOOTER_HEIGHT 13
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+  if (self.gameType == kGameTypePersonal) {
+    if (section == 2) {
+      UIView *view = [[UIView alloc] init];
+      [view setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
+      [view setAlpha:0.5];
+      
+      // seperator line
+      CGFloat seperatorY = PLAYER_SECTION_FOOTER_HEIGHT - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
+      UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.view.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
+      [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+      
+      [view addSubview:seperator];
+      return view;
+    }
+  }
+  return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+  if (self.gameType == kGameTypePersonal) {
+    if (section == 2) {
+      return PLAYER_SECTION_FOOTER_HEIGHT;
+    }
+  }
+  return 0;
+}
+
 #define GAEM_DETAIL_CELL_ID @"gameDetailCell"
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -404,9 +436,15 @@
               [tempStr appendString:@","];
               [tempStr appendString:[NSString stringWithFormat:TEXT_AVERAGE_SCORE, self.personalGame.averageScore]];
             }
-            [cell.textLabel setText:tempStr];
-            [cell.textLabel setFont:[UIFont fontWithName:@"Verdana" size:14.0f]];
-            [cell.textLabel setTextColor:[UIColor whiteColor]];
+            
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+            [label setText:tempStr];
+            [label setFont:[UIFont fontWithName:GLOBAL_FONT_NAME size:14]];
+            [label setTextColor:[UIColor whiteColor]];
+            [label sizeToFit];
+            [UIConfiguration moveSubviewToSuperviewCenter:cell subview:label];
+            
+            [cell addSubview:label];
             return cell;
           }
             

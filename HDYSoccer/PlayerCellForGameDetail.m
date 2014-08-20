@@ -18,25 +18,25 @@
 #define CELL_RIGHT_MARGIN 20.0F
 
 // avatar
-#define AVATAR_TOP_MARGIN 8.0F
+#define AVATAR_TOP_MARGIN 2.0F
 #define AVATAR_LEFT_MARGIN 12.0F
 #define SPONSOR_BORDER_COLOR @"#cc0000"
 
 // name
-#define NAME_LEFT_MARGIN 3.0F
+#define NAME_LEFT_MARGIN 0.0F
 #define NAME_FONT_SIZE 14.0F
 
 // score
-#define SCORE_LEFT_MARGIN 10.0F
-#define SCORE_PLUS_WIDTH 10.0F
+#define SCORE_LEFT_MARGIN 5
+#define SCORE_PLUS_WIDTH 0
 
 // tags
 #define TAGS_COUNT 2
-#define TAGS_LEFT_MARGIN 18.0F
-#define TAGS_INTERAL_MARGIN 10.0F
-#define TAG_FONT_SIZE 16.0F
-#define TAG_PLUS_WIDTH 20
-#define TAG_HEIGHT 30
+#define TAGS_LEFT_MARGIN 15
+#define TAGS_INTERAL_MARGIN 5
+#define TAG_FONT_SIZE 14.0F
+#define TAG_PLUS_WIDTH 15
+#define TAG_HEIGHT 25
 #define TAG_BACKGROUND_COLOR @"#37ae84"
 
 // seperator
@@ -58,9 +58,7 @@
     // avatar
     CGFloat avatarHeight = self.frame.size.height - 2 * AVATAR_TOP_MARGIN;
     UIImageView *avatarView = [[UIImageView alloc] initWithFrame:CGRectMake(AVATAR_LEFT_MARGIN, AVATAR_TOP_MARGIN, avatarHeight, avatarHeight)];
-    avatarView.layer.cornerRadius = avatarHeight / 2;
-    avatarView.layer.borderColor = [UIColor whiteColor].CGColor;
-    avatarView.layer.borderWidth = 1.0f;
+    avatarView.layer.cornerRadius = 5;
     avatarView.clipsToBounds = YES;
     
     self.avatarView = avatarView;
@@ -88,10 +86,7 @@
     // score
     CGFloat scoreX = CGRectGetMaxX(self.nameLabel.frame) + SCORE_LEFT_MARGIN;
     self.scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(scoreX, 0, 0, 0)];
-    [self.scoreLabel setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
-    [self.scoreLabel.layer setCornerRadius:8.0f];
     [self.scoreLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.scoreLabel setClipsToBounds:YES];
     [self.scoreLabel setHidden:YES];
     [self addSubview:self.scoreLabel];
     
@@ -102,7 +97,7 @@
       [label setBackgroundColor:[UIConfiguration colorForHex:TAG_BACKGROUND_COLOR]];
       [label setClipsToBounds:YES];
       [label setTextAlignment:NSTextAlignmentCenter];
-      [label.layer setCornerRadius:4];
+      [label.layer setCornerRadius:12];
       
       [tempArray addObject:label];
       [label setHidden:YES];
@@ -116,7 +111,7 @@
     [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
     
     self.seperator = seperator;
-    [self addSubview:seperator];
+//    [self addSubview:seperator];
   }
   return self;
 }
@@ -187,7 +182,7 @@
       UILabel *label = self.tagLabelsArray[i];
       NSMutableString *text = [NSMutableString stringWithString:tag.tagName];
       if (tag.up != 0) {
-        [text appendString:[NSString stringWithFormat:@" %d", tag.up]];
+        [text appendString:[NSString stringWithFormat:@"%d", tag.up]];
       }
       [label configWithText:text
                   textColor:[UIColor whiteColor]
