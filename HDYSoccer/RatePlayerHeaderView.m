@@ -35,14 +35,14 @@
     [self addSubview:nameLabel];
     
     // score
-    CGFloat scoreX = CGRectGetMaxX(nameLabel.frame);
-    CGRect scoreRect = CGRectMake(scoreX, 0, [[self class] scoreWidth], labelHeigth);
-    UILabel *scoreLabel = [self labelWithFrame:scoreRect text:TEXT_SCORE_OF_THIS_GAME];
-    
-    [self addSubview:scoreLabel];
+//    CGFloat scoreX = CGRectGetMaxX(nameLabel.frame);
+//    CGRect scoreRect = CGRectMake(scoreX, 0, [[self class] scoreWidth], labelHeigth);
+//    UILabel *scoreLabel = [self labelWithFrame:scoreRect text:TEXT_SCORE_OF_THIS_GAME];
+//    
+//    [self addSubview:scoreLabel];
     
     // tags
-    CGFloat tagX = CGRectGetMaxX(scoreLabel.frame);
+    CGFloat tagX = CGRectGetMaxX(nameLabel.frame);
     CGRect tagRect = CGRectMake(tagX, 0, [[self class] tagWidth:frame.size.width], labelHeigth);
     UILabel *tagLabel = [self labelWithFrame:tagRect text:TEXT_TAGS_GOT];
     
@@ -75,7 +75,7 @@
 
 + (CGFloat)scoreWidth
 {
-  return 50.0f;
+  return 0;
 }
 
 + (CGFloat)IDWidth

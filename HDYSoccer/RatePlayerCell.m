@@ -33,13 +33,13 @@
 #define NO_SCORE_COLOR @"D5D5D5"
 
 // tag
-#define TAG_NUMBER_LIMIT 2
+#define TAG_NUMBER_LIMIT 3
 #define TAG_BACKGROUND_COLOR @"#37ae84"
-#define TAG_FONT_SIZE 10.0F
-#define TAGS_LEFT_MARGIN 3.0F
-#define TAGS_INTERAL_MARGIN 1.0F
+#define TAG_FONT_SIZE 12
+#define TAGS_LEFT_MARGIN 15
+#define TAGS_INTERAL_MARGIN 3.0F
 #define TAG_PLUS_WIDTH 10
-#define TAG_TOP_MARGIN 5.0F
+#define TAG_TOP_MARGIN 4
 
 // rate
 #define RATE_LEFT_MARGIN 5.0F
@@ -106,7 +106,7 @@
       [label setBackgroundColor:[UIConfiguration colorForHex:TAG_BACKGROUND_COLOR]];
       [label setClipsToBounds:YES];
       [label setTextAlignment:NSTextAlignmentCenter];
-      [label.layer setCornerRadius:10];
+      [label.layer setCornerRadius:11];
       [label setHidden:YES];
       
       [self addSubview:label];
@@ -175,7 +175,7 @@
   
   // rate label
   if (scoreInfo.canRate) {
-    [self.rateLabel setBackgroundColor:[UIConfiguration colorForHex:RATE_ENABLE_COLOR]];
+    [self.rateLabel setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
   }
   else {
     [self.rateLabel setBackgroundColor:[UIConfiguration colorForHex:NO_SCORE_COLOR]];
