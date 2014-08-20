@@ -8,7 +8,6 @@
 
 #import "HDYSoccerGameViewController.h"
 #import "GameViewParams.h"
-#import "HDYSoccerGameCell.h"
 #import "HDYSoccerGameHeader.h"
 #import "HDYSoccerGameFooter.h"
 #import "AppDelegate.h"
@@ -22,6 +21,8 @@
 #import "SimplePersonalGameInfo.h"
 #import "SimpleTeamGameInfo.h"
 #import "GameDetailViewController.h"
+#import "PersonalGameCell.h"
+#import "TeamGameCell.h"
 
 @interface HDYSoccerGameViewController ()
 
@@ -105,24 +106,28 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  HDYSoccerGameCell *cell = nil;
   if ([self.collectionViewArray containsObject:collectionView]) {
     NSInteger index = [self.collectionViewArray indexOfObject:collectionView];
     NSMutableArray *list = [self getGameListIndex:index];
     
-    cell = (HDYSoccerGameCell *)[collectionView dequeueReusableCellWithReuseIdentifier:GAME_CELL_IDENTIFIER
-                                                                          forIndexPath:indexPath];
-    
     if (index == 0) {
+      static NSString *cellID = PERSONAL_GAME_CELL_ID;
+      PersonalGameCell *cell = nil;
+      cell = (PersonalGameCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+  
       SimplePersonalGameInfo *gameInfo = list[indexPath.row];
-      [cell configWithPersonalGameInfo:gameInfo];
+      [cell configCellWithGameInfo:gameInfo];
+      return cell;
     }
     else if (index == 1) {
-      SimpleTeamGameInfo *gameInfo = list[indexPath.row];
-      [cell configWithTeamGameInfo:gameInfo];
+      static NSString *cellID = TEAM_GAME_CELL_ID;
+      TeamGameCell *cell = nil;
+      cell = (TeamGameCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+      return cell;
     }
   }
-  return cell;
+
+  return nil;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -154,8 +159,17 @@
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  CGSize cellSize = CGSizeMake(CELL_WIDTH, CELL_HEIGHT);
-  return cellSize;
+  NSInteger index = [self.collectionViewArray indexOfObject:collectionView];
+
+  CGFloat cellWidth = self.view.bounds.size.width;
+  if (index == 0) {
+    return CGSizeMake(cellWidth, PERSONAL_GAEM_CELL_HEIGHT);
+  }
+  else if (index == 1) {
+    return CGSizeMake(cellWidth, TEAM_GAME_CELL_HEIGHT);
+  }
+
+  return CGSizeZero;
 }
 
 #pragma mark Gesture recognizer

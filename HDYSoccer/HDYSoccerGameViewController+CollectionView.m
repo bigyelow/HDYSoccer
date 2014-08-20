@@ -12,9 +12,10 @@
 #import "HDYSoccerGameViewController+SegmentControl.h"
 #import "SVPullToRefresh.h"
 #import "UIConfiguration+Color.h"
-#import "HDYSoccerGameCell.h"
 #import "HDYSoccerGameHeader.h"
 #import "FXBlurView.h"
+#import "PersonalGameCell.h"
+#import "TeamGameCell.h"
 
 @implementation HDYSoccerGameViewController (CollectionView)
 
@@ -38,7 +39,7 @@
 {
   CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
   
-  layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
+  layout.sectionInset = UIEdgeInsetsZero;
   layout.headerHeight = 0;
   layout.footerHeight = FOOTER_HEIGHT;
   layout.minimumColumnSpacing = MINIMUM_COLUMN_SPACE;
@@ -55,8 +56,8 @@
   [collectionView setScrollIndicatorInsets:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 0, 0)];
   collectionView.dataSource = self;
   collectionView.delegate = self;
-  [collectionView registerClass:[HDYSoccerGameCell class]
-     forCellWithReuseIdentifier:GAME_CELL_IDENTIFIER];
+  [collectionView registerClass:[PersonalGameCell class] forCellWithReuseIdentifier:PERSONAL_GAME_CELL_ID];
+  [collectionView registerClass:[TeamGameCell class] forCellWithReuseIdentifier:TEAM_GAME_CELL_ID];
   
   // back ground
   UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];

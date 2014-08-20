@@ -20,8 +20,7 @@
 #define TOP_MENU_IMAGE @"menu-50.png"
 #define TOP_ADD_IMAGE @"plus-50.png"
 
-#define GAME_LIST_PERSONAL_BACKGROUND_IMAGE @"background_backhame.jpg"
-#define GAME_LIST_TEAM_BACKGROUND_IMAGE @"background2.jpg"
+#define GAME_LIST_PERSONAL_BACKGROUND_IMAGE @"background_field1.jpg"
 #define GEEKER_LIST_BACKGROUND_IMAGE @"background_chelsy.jpg"
 #define BACKGROUND_BLUR_RADIUS 35
 
