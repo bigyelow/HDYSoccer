@@ -66,6 +66,10 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 
 @interface UIConfiguration : NSObject
 
+#pragma mark - subviews
+
++ (void)setSubiews:(UIView *)view hidden:(BOOL)hidden;
+
 #pragma mark - label
 + (UILabel *)labelWithText:(NSString *)text
                  textColor:(UIColor *)textColor

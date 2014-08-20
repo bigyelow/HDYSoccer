@@ -11,6 +11,15 @@
 
 @implementation UIConfiguration
 
+#pragma mark - subviews
+
++ (void)setSubiews:(UIView *)view hidden:(BOOL)hidden
+{
+  for (UIView *subview in view.subviews) {
+    [subview setHidden:hidden];
+  }
+}
+
 #pragma mark - label
 + (UILabel *)labelWithText:(NSString *)text
                  textColor:(UIColor *)textColor
