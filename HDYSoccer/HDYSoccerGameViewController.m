@@ -123,6 +123,9 @@
       static NSString *cellID = TEAM_GAME_CELL_ID;
       TeamGameCell *cell = nil;
       cell = (TeamGameCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+      
+      SimpleTeamGameInfo *gameInfo = list[indexPath.row];
+      [cell configCellWithGameInfo:gameInfo];
       return cell;
     }
   }
