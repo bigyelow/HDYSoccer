@@ -96,7 +96,7 @@
     UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCORE_TOP_MARGIN, SCORE_LEFT_MARGIN, 0, 0)];
     [scoreLabel setTextAlignment:NSTextAlignmentLeft];
     [scoreLabel setFont:[UIFont systemFontOfSize:13]];
-    [scoreLabel setTextColor:[UIColor lightGrayColor]];
+    [scoreLabel setTextColor:[UIColor grayColor]];
     
     self.averageScoreLabel = scoreLabel;
     [scoreBackView addSubview:scoreLabel];

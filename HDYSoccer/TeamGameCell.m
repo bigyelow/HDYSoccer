@@ -70,7 +70,7 @@
     [self addSubview:topBackView];
     
     // NAME
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(NAME_LEFT_MARGIN, topBackHeight / 3, 0, 0)];
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(NAME_LEFT_MARGIN, topBackHeight / 2 - 4, 0, 0)];
     [nameLabel setTextColor:[UIColor blackColor]];
     [nameLabel setFont:[UIFont systemFontOfSize:15]];
     
@@ -80,7 +80,7 @@
     // SCORE
     CGFloat scoreX = CGRectGetMaxX(nameLabel.frame) + SCORE_LEFT_MARGIN;
     UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(scoreX, 0, 0, 0)];
-    [scoreLabel setTextColor:[UIColor lightGrayColor]];
+    [scoreLabel setTextColor:[UIColor grayColor]];
     [scoreLabel setFont:[UIFont systemFontOfSize:13]];
     
     self.averageScoreLabel = scoreLabel;
@@ -103,7 +103,7 @@
     [self addSubview:bottomBackView];
     
     // FIELD
-    UILabel *fieldLabel = [[UILabel alloc] initWithFrame:CGRectMake(FIELD_TOP_MARGIN, FIELD_LEFT_MARGIN, 0, 0)];
+    UILabel *fieldLabel = [[UILabel alloc] initWithFrame:CGRectMake(FIELD_LEFT_MARGIN, FIELD_TOP_MARGIN, 0, 0)];
     [fieldLabel setTextAlignment:NSTextAlignmentLeft];
     [fieldLabel setFont:[UIFont systemFontOfSize:13]];
     [fieldLabel setTextColor:[UIColor grayColor]];
