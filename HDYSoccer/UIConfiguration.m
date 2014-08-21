@@ -195,6 +195,20 @@
 }
 
 #pragma mark - image
+
++ (UIImage *)imageForColor:(UIColor *)color
+{
+  CGRect rect = CGRectMake(0, 0, 1, 1);
+  UIGraphicsBeginImageContext(rect.size);
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  CGContextSetFillColorWithColor(context, [color CGColor]);
+  CGContextFillRect(context, rect);
+  UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+  
+  return img;
+}
+
 + (UIImage *)resizeImage:(UIImage *)srcImage width:(NSUInteger)width height:(NSUInteger)height
 {
   if (srcImage == nil || width == 0 || height == 0) {
