@@ -12,7 +12,7 @@
 #import "UIImageView+WebCache.h"
 
 // avatar
-#define AVATAR_TOP_MARGIN 0.0F
+#define AVATAR_TOP_MARGIN 8
 #define AVATAR_WIDTH 35
 
 // name
@@ -60,39 +60,39 @@
     
     [self addSubview:nameLabel];
     
-    // score
-    CGFloat scoreWidth = (self.frame.size.width - SCORE_LEFT_MARGIN * 2 - SCORE_INTERAL_MARGIN) / 2;
-    CGFloat scoreHeight = SCORE_HEIGHT;
-    CGFloat scoreY = CGRectGetMaxY(nameLabel.frame) + FIRST_SCORE_TOP_MARING;
-    CGFloat scoreX = SCORE_LEFT_MARGIN;
-    NSArray *scoreArray = [self getScoreArrayWithScore:teamInfo.teamScore];
-    for (NSString *scoreStr in scoreArray) {
-      UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(scoreX, scoreY, scoreWidth, scoreHeight)];
-      [label setText:scoreStr];
-      [label setFont:[UIFont systemFontOfSize:15]];
-      [label setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_GREEN_COLOR]];
-      [label setTextColor:[UIColor whiteColor]];
-      [label setTextAlignment:NSTextAlignmentCenter];
-      [label.layer setCornerRadius:12];
-      [label setClipsToBounds:YES];
-      
-      [self addSubview:label];
-      
-      if ([scoreArray indexOfObject:scoreStr] % 2 == 0) {
-        scoreX += (scoreWidth + SCORE_INTERAL_MARGIN);
-      }
-      else { // new line
-        scoreX = SCORE_LEFT_MARGIN;
-        scoreY += (scoreHeight + SCORE_TOP_MARGIN);
-      }
-    }
-    
-    // seperator line
-    CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
-    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
-    [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
-    
-    [self addSubview:seperator];
+//    // score
+//    CGFloat scoreWidth = (self.frame.size.width - SCORE_LEFT_MARGIN * 2 - SCORE_INTERAL_MARGIN) / 2;
+//    CGFloat scoreHeight = SCORE_HEIGHT;
+//    CGFloat scoreY = CGRectGetMaxY(nameLabel.frame) + FIRST_SCORE_TOP_MARING;
+//    CGFloat scoreX = SCORE_LEFT_MARGIN;
+//    NSArray *scoreArray = [self getScoreArrayWithScore:teamInfo.teamScore];
+//    for (NSString *scoreStr in scoreArray) {
+//      UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(scoreX, scoreY, scoreWidth, scoreHeight)];
+//      [label setText:scoreStr];
+//      [label setFont:[UIFont systemFontOfSize:15]];
+//      [label setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_GREEN_COLOR]];
+//      [label setTextColor:[UIColor whiteColor]];
+//      [label setTextAlignment:NSTextAlignmentCenter];
+//      [label.layer setCornerRadius:12];
+//      [label setClipsToBounds:YES];
+//      
+//      [self addSubview:label];
+//      
+//      if ([scoreArray indexOfObject:scoreStr] % 2 == 0) {
+//        scoreX += (scoreWidth + SCORE_INTERAL_MARGIN);
+//      }
+//      else { // new line
+//        scoreX = SCORE_LEFT_MARGIN;
+//        scoreY += (scoreHeight + SCORE_TOP_MARGIN);
+//      }
+//    }
+//    
+//    // seperator line
+//    CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
+//    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
+//    [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+//    
+//    [self addSubview:seperator];
   }
   return self;
 }
@@ -126,7 +126,8 @@
 {
   CGFloat height = AVATAR_TOP_MARGIN + AVATAR_WIDTH
   + NAME_TOP_MARGIN + NAME_HEIGHT
-  + FIRST_SCORE_TOP_MARING + SCORE_HEIGHT * 3 + SCORE_TOP_MARGIN * 2 + SCORE_BOTTOM_MARGIN;
+  + FIRST_SCORE_TOP_MARING;
+//  + SCORE_HEIGHT * 3 + SCORE_TOP_MARGIN * 2 + SCORE_BOTTOM_MARGIN;
   return height;
 }
 

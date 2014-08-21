@@ -588,16 +588,22 @@
               cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                             reuseIdentifier:identifier];
               [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+              [cell setBackgroundColor:[UIColor clearColor]];
+              [cell.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
+              [cell.contentView setAlpha:0.5];
+              
+              NSMutableString *tempStr = [NSMutableString stringWithFormat:TEXT_TEAM_GAME_PLAYERS_NUMBER, self.teamGame.playerCount];
+              UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+              [label setText:tempStr];
+              [label setFont:[UIFont fontWithName:GLOBAL_FONT_NAME size:14]];
+              [label setTextColor:[UIColor whiteColor]];
+              [label sizeToFit];
+              [UIConfiguration moveSubviewXToSuperviewCenter:cell subview:label];
+              [UIConfiguration setView:label y:10];
+              
+              [cell addSubview:label];
             }
-            
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
-            [cell.contentView setAlpha:0.5];
-            
-            NSMutableString *tempStr = [NSMutableString stringWithFormat:TEXT_TEAM_GAME_PLAYERS_NUMBER, self.teamGame.playerCount];
-            [cell.textLabel setText:tempStr];
-            [cell.textLabel setFont:[UIFont fontWithName:@"Verdana" size:14.0f]];
-            [cell.textLabel setTextColor:[UIColor whiteColor]];
+
             return cell;
           }
             
