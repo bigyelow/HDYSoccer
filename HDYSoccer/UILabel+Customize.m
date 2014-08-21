@@ -28,4 +28,12 @@
 {
   [self configWithText:text textColor:textColor font:font numberOfLines:0];
 }
+
+- (void)addTapGestureWithTarget:(id)target
+                       selector:(SEL)selector
+{
+  UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc] initWithTarget:target action:selector];
+  [self setUserInteractionEnabled:YES];
+  [self addGestureRecognizer:gest];
+}
 @end

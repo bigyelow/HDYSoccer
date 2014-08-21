@@ -18,4 +18,6 @@
 - (void)configWithText:(NSString *)text
              textColor:(UIColor *)textColor
                   font:(UIFont *)font;
+- (void)addTapGestureWithTarget:(id)target
+                       selector:(SEL)selector;
 @end
