@@ -33,9 +33,15 @@
     UIButton *joinButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [joinButton setTitle:TEXT_JOIN forState:UIControlStateNormal];
     [joinButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    [joinButton setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
+    
+    [joinButton setBackgroundImage:[UIConfiguration imageForColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]]
+                          forState:UIControlStateNormal];
+    [joinButton setBackgroundImage:[UIConfiguration imageForColor:[UIColor grayColor]]
+                          forState:UIControlStateHighlighted];
+    
     [joinButton sizeToFit];
     [UIConfiguration setView:joinButton width:joinButton.frame.size.width + 120];
+    [UIConfiguration setView:joinButton height:joinButton.frame.size.height + 10];
     [UIConfiguration setView:joinButton y:JOIN_BUTTON_TOP_MARGIN];
     [UIConfiguration moveSubviewXToSuperviewCenter:self subview:joinButton];
     [self addSubview:joinButton];
@@ -68,11 +74,6 @@
 //    [self addSubview:seperator];
   }
   return self;
-}
-
-- (void)awakeFromNib
-{
-  // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
