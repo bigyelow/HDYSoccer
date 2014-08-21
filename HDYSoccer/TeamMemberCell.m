@@ -42,8 +42,8 @@
 #define TAGS_NUMBER_LIMIT 3
 #define TAGS_TOP_MARGIN 5
 #define FIRST_TAGS_LEFT_MRGIN 10
-#define TAGS_INTERAL_MARGIN 10
-#define TAG_HEIGHT 28
+#define TAGS_INTERAL_MARGIN 4
+#define TAG_HEIGHT 24
 
 // seperator
 #define SEPERATOR_HEIGHT 0.3
@@ -106,7 +106,7 @@
       [label setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_GREEN_COLOR]];
       [label setClipsToBounds:YES];
       [label setTextAlignment:NSTextAlignmentCenter];
-      [label.layer setCornerRadius:14];
+      [label.layer setCornerRadius:12];
       [label setHidden:YES];
       
       [tempArray addObject:label];
