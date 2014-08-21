@@ -25,6 +25,9 @@
 #import "TeamInfoCell.h"
 #import "TeamGameRecordsCell.h"
 #import "TeamGameRecordsHeaderView.h"
+#import "HDYSoccerGeekerDetailViewController.h"
+#import "TeamDetailViewController.h"
+#import "UILabel+Customize.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -632,8 +635,14 @@
         TeamGameRecordsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
           cell = [[TeamGameRecordsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+          [cell.homeTeamLabel addTapGestureWithTarget:self selector:@selector(homeTeamLabelTapped:)];
+          [cell.guestTeamLabel addTapGestureWithTarget:self selector:@selector(guestTeamLabelTapped:)];
         }
         [cell configCellWithGameRecord:self.teamGame.gameRecords[indexPath.row]];
+        cell.homeTeamLabel.tag = indexPath.row;
+        cell.guestTeamLabel.tag = indexPath.row;
+        
+        NSLog(@"%d", cell.homeTeamLabel.tag);
         
         return cell;
       }
@@ -709,18 +718,75 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
-  
-  switch (indexPath.section) {
-    case 7: {
-      if (self.gameType == kGameTypePersonal) {
-        [self showRatePopoverWithPlayerInfo:self.rateList[indexPath.row]];
+
+  // PERSONAL
+  if (self.gameType == kGameTypePersonal) {
+    switch (indexPath.section) {
+      case 2: {
+        NSString *playerID, *playerName;
+        if (indexPath.row == 1) { // sponsor
+          playerID = self.personalGame.sponsor.geekerID;
+          playerName = self.personalGame.sponsor.name;
+        }
+        else if (indexPath.row > 1) { // players
+          SimpleGeekerInfo *playerInfo = self.personalGame.participants[indexPath.row - 2];
+          playerID = playerInfo.geekerID;
+          playerName = playerInfo.name;
+        }
+        
+        HDYSoccerGeekerDetailViewController *vc = [[HDYSoccerGeekerDetailViewController alloc] initWithPlayerID:playerID
+                                                                                                     playerName:playerName];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        break;
       }
-      
-      break;
+        
+      case 7:
+        [self showRatePopoverWithPlayerInfo:self.rateList[indexPath.row]];
+        break;
+        
+      default:
+        break;
     }
-      
-    default:
-      break;
+  }
+  
+  // TEAM
+  else if (self.gameType == kGameTypeTeam) {
+    switch (indexPath.section) {
+      case 2:
+        if (indexPath.row == 1) {
+          TeamDetailViewController *vc = [[TeamDetailViewController alloc] initWithTeamID:self.teamGame.teamID
+                                                                                 teamName:self.teamGame.teamName];
+          
+          [self.navigationController pushViewController:vc animated:YES];
+        }
+        break;
+        
+      default:
+        break;
+    }
+  }
+}
+
+- (void)homeTeamLabelTapped:(UIGestureRecognizer*)recognizer
+{
+  if (recognizer.state == UIGestureRecognizerStateEnded) {
+    UILabel *label = (UILabel *)[recognizer view];
+    TeamGameRecords *record = self.teamGame.gameRecords[label.tag];
+    TeamDetailViewController *vc = [[TeamDetailViewController alloc] initWithTeamID:record.homeTeamID
+                                                                           teamName:record.homeTeamName];
+    [self.navigationController pushViewController:vc animated:YES];
+  }
+}
+
+- (void)guestTeamLabelTapped:(UIGestureRecognizer*)recognizer
+{
+  if (recognizer.state == UIGestureRecognizerStateEnded) {
+    UILabel *label = (UILabel *)[recognizer view];
+    TeamGameRecords *record = self.teamGame.gameRecords[label.tag];
+    TeamDetailViewController *vc = [[TeamDetailViewController alloc] initWithTeamID:record.guestTeamID
+                                                                           teamName:record.guestTeamName];
+    [self.navigationController pushViewController:vc animated:YES];
   }
 }
 @end

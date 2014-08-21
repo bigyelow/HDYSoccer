@@ -40,7 +40,6 @@
     [self setBackgroundColor:[UIColor clearColor]];
     [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
     [self.contentView setAlpha:0.5];
-    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     // avatar
     UIImageView *avatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, AVATAR_TOP_MARGIN, AVATAR_WIDTH, AVATAR_WIDTH)];

@@ -20,6 +20,8 @@
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     [UIConfiguration setView:self height:TEAM_GAME_RECORD_CELL_HEIGHT];
     CGFloat teamBackWidth = (self.frame.size.width - SCORE_WIDTH) / 2;
     CGFloat teamBackHeight = self.frame.size.height;
