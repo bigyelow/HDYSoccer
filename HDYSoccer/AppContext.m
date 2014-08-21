@@ -71,6 +71,8 @@ static AppContext *sharedInstance = nil;
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   
+  [defaults setObject:[NSNumber numberWithBool:self.isLogin] forKey:IS_LOGIN_KEY];
+  
   if (self.location.latitude) {
     [defaults setObject:self.location.latitude forKey:LATITUDE_KEY];
   }
@@ -84,6 +86,7 @@ static AppContext *sharedInstance = nil;
   else {
     [defaults removeObjectForKey:LONGTITUDE_KEY];
   }
+  
   if (self.location.city) {
     [defaults setObject:self.location.city forKey:CITY_KEY];
   }
@@ -104,6 +107,9 @@ static AppContext *sharedInstance = nil;
   else {
     [defaults removeObjectForKey:REFRESH_TOKEN_KEY];
   }
+  
+  
+  [defaults synchronize];
 }
 
 #pragma mark - getter methods

@@ -31,7 +31,7 @@
                    password:psw
                   succeeded:^(NSDictionary *dictionary) {
                     Authorization *auth = [Authorization objectWithDictionary:dictionary];
-                    [[AppContext appContext] setAuth:auth];
+                    [[AppContext appContext] updateInfoWithAuth:auth];
                   } failed:^(HDYSoccerAPIError *error) {
 
                   }];
@@ -48,7 +48,7 @@
                      passwd:passwd
                   succeeded:^(NSDictionary *dictionary) {
                     Authorization *auth = [Authorization objectWithDictionary:dictionary];
-                    [[AppContext appContext] setAuth:auth];
+                    [[AppContext appContext] updateInfoWithAuth:auth];
                     
                   } failed:^(HDYSoccerAPIError *error) {
 
