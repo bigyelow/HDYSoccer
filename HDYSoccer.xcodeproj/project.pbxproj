@@ -108,6 +108,7 @@
 		71B2160319947CE200212DF4 /* TeamGameRecordsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B2160219947CE200212DF4 /* TeamGameRecordsCell.m */; };
 		71B2160B1994AB1900212DF4 /* TeamGameRecordsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B2160A1994AB1900212DF4 /* TeamGameRecordsHeaderView.m */; };
 		71B216111995D7B900212DF4 /* GeekerTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B216101995D7B900212DF4 /* GeekerTableCell.m */; };
+		71BAF12D19A5CD7200BC95A5 /* user_male-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 71BAF12C19A5CD7200BC95A5 /* user_male-512.png */; };
 		71C27503191B8D81003D33DE /* HDYSoccerBaseViewParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C27502191B8D81003D33DE /* HDYSoccerBaseViewParams.m */; };
 		71C3128619A449BA004AB50B /* PersonalGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C3128519A449BA004AB50B /* PersonalGameCell.m */; };
 		71C3128919A44B72004AB50B /* TeamGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C3128819A44B72004AB50B /* TeamGameCell.m */; };
@@ -364,6 +365,7 @@
 		71B2160A1994AB1900212DF4 /* TeamGameRecordsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamGameRecordsHeaderView.m; sourceTree = "<group>"; };
 		71B2160F1995D7B900212DF4 /* GeekerTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeekerTableCell.h; sourceTree = "<group>"; };
 		71B216101995D7B900212DF4 /* GeekerTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeekerTableCell.m; sourceTree = "<group>"; };
+		71BAF12C19A5CD7200BC95A5 /* user_male-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male-512.png"; sourceTree = "<group>"; };
 		71C27501191B8D81003D33DE /* HDYSoccerBaseViewParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDYSoccerBaseViewParams.h; sourceTree = "<group>"; };
 		71C27502191B8D81003D33DE /* HDYSoccerBaseViewParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDYSoccerBaseViewParams.m; sourceTree = "<group>"; };
 		71C3128419A449BA004AB50B /* PersonalGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalGameCell.h; sourceTree = "<group>"; };
@@ -1050,6 +1052,7 @@
 			isa = PBXGroup;
 			children = (
 				71DD43DB18E29FBE008094E0 /* bigyelow_avatar.jpg */,
+				71BAF12C19A5CD7200BC95A5 /* user_male-512.png */,
 			);
 			name = MenuView;
 			sourceTree = "<group>";
@@ -1153,6 +1156,7 @@
 				71F8BFF6198629950096465E /* background_field1.jpg in Resources */,
 				71F8BFF2198628B40096465E /* background_luonaerduo.jpg in Resources */,
 				7187BE68197A676300748563 /* menu-50.png in Resources */,
+				71BAF12D19A5CD7200BC95A5 /* user_male-512.png in Resources */,
 				71F8BFEE198628A50096465E /* background_backham2.jpg in Resources */,
 				71F8C00219865B7B0096465E /* phone2-75.png in Resources */,
 				71E7AE79197E463A00427C31 /* checkmark-50.png in Resources */,
