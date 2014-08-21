@@ -17,6 +17,8 @@
 #import "TeamMemberCell.h"
 #import "TeamMemberHeaderView.h"
 #import "TeamScoreFooterView.h"
+#import "HDYSoccerGeekerDetailViewController.h"
+#import "SimpleGeekerInfo.h"
 
 @interface TeamDetailViewController ()
 
@@ -251,5 +253,23 @@
       break;
   }
   return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  
+  switch (indexPath.section) {
+    case 3: {
+      SimpleGeekerInfo *playerInfo = self.teamInfo.members[indexPath.row];
+      HDYSoccerGeekerDetailViewController *vc = [[HDYSoccerGeekerDetailViewController alloc] initWithPlayerID:playerInfo.geekerID
+                                                                                                   playerName:playerInfo.name];
+      [self.navigationController pushViewController:vc animated:YES];
+    }
+      break;
+      
+    default:
+      break;
+  }
 }
 @end

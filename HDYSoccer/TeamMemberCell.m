@@ -56,7 +56,6 @@
   if (self) {
     [UIConfiguration setView:self height:TEAM_MEMBER_CELL_HEIGHT];
     [self setBackgroundColor:[UIColor clearColor]];
-    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     // BACKGROUND
     CGFloat backgroundHeight = self.frame.size.height - BACKGROUND_BOTTOM_MARGIN;
