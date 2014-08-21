@@ -7,6 +7,7 @@
 //
 
 #import "HDYSoccerMenuViewController+UIConfiguration.h"
+#import "AppDelegate+Configuration.h"
 
 @implementation HDYSoccerMenuViewController (UIConfiguration)
 
@@ -18,7 +19,7 @@
 
 - (void)configTableHeaderView
 {
-  BOOL login = NO;
+  BOOL login = [AppContext appContext].isLogin;
   
   if (login) {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
@@ -30,7 +31,7 @@
     [imageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:40.0f];
     [imageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
     
-    imageView.image = [UIImage imageNamed:@"user_male3-512.png"];
+    imageView.image = [UIImage imageNamed:@"bigyelow_avatar.jpg"];
     imageView.layer.masksToBounds = YES;
     imageView.layer.cornerRadius = 50.0;
     imageView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -70,21 +71,26 @@
     [imageView.layer setCornerRadius:25];
     
     // login
-    CGFloat buttonY = imageY + 45;
+    CGFloat buttonY = imageY + 40;
     UIButton *button = [[UIButton alloc] initForAutoLayout];
     [view addSubview:button];
     
     [button setTitle:TEXT_LOGIN forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    
     [button autoSetDimensionsToSize:CGSizeMake(100, 60)];
     [button autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [button autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:buttonY];
+    [button addTarget:self action:@selector(loginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
     self.tableView.tableHeaderView = view;
   }
+}
+
+- (void)loginButtonPressed
+{
+  [AppDelegate showLoginWithDelegate:self];
 }
 
 @end

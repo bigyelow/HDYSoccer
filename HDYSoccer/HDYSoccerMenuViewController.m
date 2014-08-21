@@ -111,7 +111,13 @@
   }
   
   NSArray *titles = @[CELL_TITLE_PLAY, CELL_TITLE_PLAYER, CELL_TITLE_STADUM, CELL_TITLE_TACTICAL_BOARD];
-  cell.textLabel.text = titles[indexPath.row];
+  UILabel *label = [UIConfiguration labelWithText:titles[indexPath.row]
+                                        textColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR] 
+                                             font:[UIFont systemFontOfSize:16]
+                                    numberOfLines:1];
+  [UIConfiguration setView:label origin:CGPointMake(15, 23)];
+  
+  [cell addSubview:label];
   
   return cell;
 }

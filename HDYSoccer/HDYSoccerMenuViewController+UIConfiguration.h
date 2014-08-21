@@ -7,8 +7,9 @@
 //
 
 #import "HDYSoccerMenuViewController.h"
+#import "RegisterAndLoginViewController.h"
 
-@interface HDYSoccerMenuViewController (UIConfiguration)
+@interface HDYSoccerMenuViewController (UIConfiguration) <RegisterAndLoginDelegate>
 
 - (void)configTableView;
 - (void)configTableHeaderView;
