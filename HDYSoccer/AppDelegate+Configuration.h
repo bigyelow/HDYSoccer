@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RegisterAndLoginViewController.h"
 
 @protocol LocateCallBack <NSObject>
 @optional - (void)refreshData;
@@ -20,4 +21,5 @@
 - (void)configNeedData;
 - (void)showNetworkActivityIndicator;
 - (void)hideNetworkActivityIndicator;
++ (void)showLoginWithDelegate:(id<RegisterAndLoginDelegate>)delegate;
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate+Configuration.h"
 #import "HDYSoccerAPIClient+HTTP.h"
+#import "HDYSoccerMenuViewController.h"
 
 @implementation AppDelegate (Configuration)
 
@@ -18,6 +19,18 @@
   [userDefaults synchronize];
   [userDefaults setBool:NO forKey:@"isEndGoogleRequest"];//多语言环境支持,读取google数据
 }
+
+#pragma mark - login
++ (void)showLoginWithDelegate:(id<RegisterAndLoginDelegate>)delegate
+{
+  RegisterAndLoginViewController *vc = [[RegisterAndLoginViewController alloc] initWithDelegate:delegate];
+  if ([delegate isKindOfClass:[HDYSoccerBaseViewController class]]) {
+    HDYSoccerBaseViewController *baseVC = (HDYSoccerBaseViewController *)delegate;
+    [baseVC presentViewController:vc animated:YES completion:nil];
+  }
+}
+
+#pragma mark - network indicator
 
 - (void)showNetworkActivityIndicator
 {
