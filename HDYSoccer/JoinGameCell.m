@@ -32,11 +32,11 @@
     // join button
     UIButton *joinButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [joinButton setTitle:TEXT_JOIN forState:UIControlStateNormal];
-    [joinButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [joinButton setTitleColor:[UIConfiguration colorForHex:GLOBAL_BUTTON_TITLE_PRESSED] forState:UIControlStateHighlighted];
     
     [joinButton setBackgroundImage:[UIConfiguration imageForColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]]
                           forState:UIControlStateNormal];
-    [joinButton setBackgroundImage:[UIConfiguration imageForColor:[UIColor grayColor]]
+    [joinButton setBackgroundImage:[UIConfiguration imageForColor:[UIColor lightGrayColor]]
                           forState:UIControlStateHighlighted];
     
     [joinButton sizeToFit];

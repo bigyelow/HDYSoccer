@@ -56,6 +56,9 @@
 #define TEXT_COACH @"教练"
 #define TEXT_TEAM_MEMBERS @"球员"
 #define TEXT_LOGIN @"登录"
+#define TEXT_LOGIN_NAME_PLACE_HOLDER @"Email / 手机号"
+#define TEXT_PASSWORD @"密码"
+#define TEXT_REGISTER @"注册"
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"

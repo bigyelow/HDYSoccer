@@ -76,7 +76,7 @@
     [view addSubview:button];
     
     [button setTitle:TEXT_LOGIN forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [button.titleLabel setFont:[UIFont systemFontOfSize:17]];
     [button setTitleColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [button autoSetDimensionsToSize:CGSizeMake(100, 60)];

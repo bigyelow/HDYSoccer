@@ -10,15 +10,23 @@
 @class RegisterAndLoginViewController;
 
 @protocol RegisterAndLoginDelegate <NSObject>
-- (void)registerSucceeded:(RegisterAndLoginViewController *)vc;
-- (void)registerCanceled:(RegisterAndLoginViewController *)vc;
+@optional - (void)registerSucceeded:(RegisterAndLoginViewController *)vc;
+@optional - (void)registerCanceled:(RegisterAndLoginViewController *)vc;
 @optional - (void)registerFailed:(RegisterAndLoginViewController*)vc;
 
 - (void)loginSucceeded:(RegisterAndLoginViewController *)vc;
 - (void)loginCanceled:(RegisterAndLoginViewController *)vc;
 @optional - (void)loginFailed:(RegisterAndLoginViewController*)vc;
+
 @end
 
 @interface RegisterAndLoginViewController : HDYSoccerBaseViewController
+@property (nonatomic, strong) UITextField *userNameField;
+@property (nonatomic, strong) UIView *userSeper;
+@property (nonatomic, strong) UITextField *pswField;
+@property (nonatomic, strong) UIView *pswSeper;
+@property (nonatomic, strong) UIButton *loginButton;
+@property (nonatomic, strong) UIButton *registerButton;
 
+- (id)initWithDelegate:(id<RegisterAndLoginDelegate>)delegate;
 @end
