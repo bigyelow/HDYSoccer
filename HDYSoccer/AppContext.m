@@ -34,11 +34,21 @@ static AppContext *sharedInstance = nil;
 {
   // location
   NSString *latitude = [defaults objectForKey:LATITUDE_KEY];
+  if (!latitude) {
+    latitude = @"";
+  }
   NSString *longtitude = [defaults objectForKey:LONGTITUDE_KEY];
+  if (!longtitude) {
+    longtitude = @"";
+  }
   NSString *city = [defaults objectForKey:CITY_KEY];
+  if (!city) {
+    city = TEXT_BEIJING;
+  }
+  BOOL locateAllowed = [[defaults objectForKey:LOCATE_ALLOWED_KEY] boolValue];
   
-  NSArray *objects = @[latitude, longtitude, city];
-  NSArray *keys = @[@"latitude", @"longtitude", @"city"];
+  NSArray *objects = @[latitude, longtitude, city, [NSNumber numberWithBool:locateAllowed]];
+  NSArray *keys = @[@"latitude", @"longtitude", @"city", @"locate_allowed"];
   NSDictionary *dic = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
   
   self.location = [Location objectWithDictionary:dic];
@@ -109,6 +119,13 @@ static AppContext *sharedInstance = nil;
   }
   else {
     [defaults removeObjectForKey:CITY_KEY];
+  }
+  
+  if (self.location.locateAllowed) {
+    [defaults setObject:[NSNumber numberWithBool:self.location.locateAllowed] forKey:LOCATE_ALLOWED_KEY];
+  }
+  else {
+    [defaults removeObjectForKey:LOCATE_ALLOWED_KEY];
   }
   
   // is login

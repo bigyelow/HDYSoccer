@@ -59,6 +59,9 @@
 #define TEXT_LOGIN_NAME_PLACE_HOLDER @"Email / 手机号"
 #define TEXT_PASSWORD @"密码"
 #define TEXT_REGISTER @"注册"
+#define TEXT_LOGIN_ING @"登录中..."
+#define TEXT_REGISTER_ING @"注册中..."
+#define TEXT_BEIJING @"北京"
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"

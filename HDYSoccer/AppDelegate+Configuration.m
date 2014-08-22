@@ -113,11 +113,12 @@
     return;
   }
   NSString *latitude =[NSString stringWithFormat:@"%f",location.latitude];//纬度
-  NSString *longitude =[NSString stringWithFormat:@"%f",location.longitude];//经度
+  NSString *longtitude =[NSString stringWithFormat:@"%f",location.longitude];//经度
   
-  [AppContext appContext].location.latitude = latitude;
-  [AppContext appContext].location.longtitude = longitude;
-  [AppContext appContext].location.locateAllowed = YES;
+  NSArray *objects = @[latitude, longtitude, [NSNumber numberWithBool:YES]];
+  NSArray *keys = @[@"latitude", @"longtitude", @"locate_allowed"];
+  NSDictionary *dic = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+  [AppContext appContext].location = [Location objectWithDictionary:dic];
   
   if (_locationCounts > MAX_LOCATED_LIMIT) {
     [manager stopUpdatingLocation];
@@ -185,8 +186,11 @@ monitoringDidFailForRegion:(CLRegion *)region
       if ([lastWord isEqualToString:TEXT_CITY]) {
         city = [city substringToIndex:city.length - 1];
       }
+
+      NSMutableDictionary *dic = [[AppContext appContext].location.dictionary mutableCopy];
+      [dic setObject:city forKey:@"city"];
+      [AppContext appContext].location = [Location objectWithDictionary:dic];
       
-      [AppContext appContext].location.city = city;
       [[AppContext appContext] synchronize];
       [_m_locManager stopUpdatingLocation];
     }
