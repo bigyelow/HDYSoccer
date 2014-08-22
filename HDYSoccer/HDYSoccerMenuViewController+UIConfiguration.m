@@ -79,7 +79,7 @@
     
     [button setTitle:TEXT_LOGIN forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont systemFontOfSize:17]];
-    [button setTitleColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [button autoSetDimensionsToSize:CGSizeMake(100, 60)];
     [button autoAlignAxisToSuperviewAxis:ALAxisVertical];
