@@ -257,7 +257,7 @@
     [self.pswField becomeFirstResponder];
   }
   else if ([textField isEqual:self.pswField]) {
-    
+    [self loginPressed];
   }
   
   return YES;
