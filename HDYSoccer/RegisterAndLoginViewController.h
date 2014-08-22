@@ -21,12 +21,15 @@
 @end
 
 @interface RegisterAndLoginViewController : HDYSoccerBaseViewController
+<UITextFieldDelegate>
+
 @property (nonatomic, strong) UITextField *userNameField;
 @property (nonatomic, strong) UIView *userSeper;
 @property (nonatomic, strong) UITextField *pswField;
 @property (nonatomic, strong) UIView *pswSeper;
 @property (nonatomic, strong) UIButton *loginButton;
 @property (nonatomic, strong) UIButton *registerButton;
+@property (nonatomic, strong) UIButton *cancelButton;
 
 - (id)initWithDelegate:(id<RegisterAndLoginDelegate>)delegate;
 @end

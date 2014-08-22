@@ -31,8 +31,11 @@
 #define LOGIN_HEIGHT 33
 #define LOGIN_WIDTH 170
 
-@interface RegisterAndLoginViewController ()
+// KEYBOARD
+#define KEYBOARD_TOP_MRGIN 10
 
+@interface RegisterAndLoginViewController ()
+@property (nonatomic, assign) CGFloat keyboardAdjustHeight;
 @property (nonatomic, strong) id<RegisterAndLoginDelegate> regLogDelegate;
 @end
 
@@ -56,6 +59,30 @@
   [self configPasswordField];
   [self configLoginButton];
   [self configRegisterButton];
+  [self configTapGesture];
+  
+  [self registerKeyboardNotification];
+}
+
+- (void)dealloc
+{
+  [self unregisterKeyboardNotification];
+}
+
+- (void)configTapGesture
+{
+  UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
+  [self.view addGestureRecognizer:gest];
+}
+
+- (void)tapGesture:(UITapGestureRecognizer * )gesture
+{
+  if ([self.userNameField isFirstResponder]) {
+    [self.userNameField resignFirstResponder];
+  }
+  if ([self.pswField isFirstResponder]) {
+    [self.pswField resignFirstResponder];
+  }
 }
 
 - (void)configCancelButton
@@ -65,6 +92,7 @@
   [UIConfiguration setView:cancelButton origin:CGPointMake(CANCEL_LEFT_MARGIN, STATUS_BAR_HEIGHT + CANCEL_LEFT_MARGIN)];
   [cancelButton addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
+  self.cancelButton = cancelButton;
   [self.view addSubview:cancelButton];
 }
 
@@ -80,6 +108,7 @@
   CGFloat x = self.view.bounds.size.width - REGISTER_RIGHT_MARGIN - button.frame.size.width;
   [UIConfiguration setView:button origin:CGPointMake(x, STATUS_BAR_HEIGHT + REGISTER_TOP_MARGIN)];
   
+  self.registerButton = button;
   [self.view addSubview:button];
 }
 
@@ -92,6 +121,7 @@
   [field setKeyboardType:UIKeyboardTypeEmailAddress];
   [field setReturnKeyType:UIReturnKeyNext];
   [field setClearButtonMode:UITextFieldViewModeWhileEditing];
+  [field setDelegate:self];
   
   self.userNameField = field;
   [self.view addSubview:field];
@@ -112,6 +142,7 @@
   [field setPlaceholder:TEXT_PASSWORD];
   [field setKeyboardType:UIKeyboardTypeEmailAddress];
   [field setClearButtonMode:UITextFieldViewModeWhileEditing];
+  [field setDelegate:self];
   
   self.pswField = field;
   [self.view addSubview:field];
@@ -147,9 +178,87 @@
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - Keyboard related
+- (void)registerKeyboardNotification
+{
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardWillHide:)
+                                               name:UIKeyboardWillHideNotification
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardWillShow:)
+                                               name:UIKeyboardWillShowNotification
+                                             object:nil];
+}
+
+- (void)unregisterKeyboardNotification
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:UIKeyboardWillHideNotification
+                                                object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:UIKeyboardDidShowNotification
+                                                object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+  CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+  
+  CGFloat loginBottom = CGRectGetMaxY(self.loginButton.frame);
+  CGFloat keyboardTop = self.view.bounds.size.height - keyboardRect.size.height;
+  
+  self.keyboardAdjustHeight = loginBottom + KEYBOARD_TOP_MRGIN - keyboardTop;
+  
+  __weak typeof(self) weakSelf = self;
+  if (self.keyboardAdjustHeight > 0) {
+    [UIView animateWithDuration:0.4 animations:^{
+      [UIConfiguration setView:weakSelf.userNameField y:weakSelf.userNameField.frame.origin.y - weakSelf.keyboardAdjustHeight];
+      [UIConfiguration setView:weakSelf.userSeper y:weakSelf.userSeper.frame.origin.y - weakSelf.keyboardAdjustHeight];
+      
+      [UIConfiguration setView:weakSelf.pswField y:weakSelf.pswField.frame.origin.y - weakSelf.keyboardAdjustHeight];
+      [UIConfiguration setView:weakSelf.loginButton y:weakSelf.loginButton.frame.origin.y - weakSelf.keyboardAdjustHeight];
+      
+      [UIConfiguration setView:weakSelf.pswSeper y:weakSelf.pswSeper.frame.origin.y - weakSelf.keyboardAdjustHeight];
+    }];
+  }
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+  __weak typeof(self) weakSelf = self;
+  
+  if (self.keyboardAdjustHeight > 0) {
+    [UIView animateWithDuration:0.4 animations:^{
+      [UIConfiguration setView:weakSelf.userNameField y:weakSelf.userNameField.frame.origin.y + weakSelf.keyboardAdjustHeight];
+      [UIConfiguration setView:weakSelf.userSeper y:weakSelf.userSeper.frame.origin.y + weakSelf.keyboardAdjustHeight];
+      
+      [UIConfiguration setView:weakSelf.pswField y:weakSelf.pswField.frame.origin.y + weakSelf.keyboardAdjustHeight];
+      [UIConfiguration setView:weakSelf.loginButton y:weakSelf.loginButton.frame.origin.y + weakSelf.keyboardAdjustHeight];
+      
+      [UIConfiguration setView:weakSelf.pswSeper y:weakSelf.pswSeper.frame.origin.y + weakSelf.keyboardAdjustHeight];
+    }];
+  }
+
+}
+
 - (void)didReceiveMemoryWarning
 {
   [super didReceiveMemoryWarning];
+}
+
+#pragma mark - textfield delegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  if ([textField isEqual:self.userNameField]) {
+    [self.pswField becomeFirstResponder];
+  }
+  else if ([textField isEqual:self.pswField]) {
+    
+  }
+  
+  return YES;
 }
 
 /*
