@@ -32,14 +32,32 @@ static AppContext *sharedInstance = nil;
 
 - (void)initAppContextFromUserDefaults:(NSUserDefaults *)defaults
 {
-//  _userDefaults = defaults;
-
+  // location
+  NSString *latitude = [defaults objectForKey:LATITUDE_KEY];
+  NSString *longtitude = [defaults objectForKey:LONGTITUDE_KEY];
+  NSString *city = [defaults objectForKey:CITY_KEY];
+  
+  NSArray *objects = @[latitude, longtitude, city];
+  NSArray *keys = @[@"latitude", @"longtitude", @"city"];
+  NSDictionary *dic = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+  
+  self.location = [Location objectWithDictionary:dic];
+  
+  // auth
   self.isLogin = [[defaults objectForKey:IS_LOGIN_KEY] boolValue];
-  self.location.latitude = [defaults objectForKey:LATITUDE_KEY];
-  self.location.longtitude = [defaults objectForKey:LONGTITUDE_KEY];
-  self.auth.accessToken = [defaults objectForKey:ACCESS_TOKEN_KEY];
-  self.auth.refreshToken= [defaults objectForKey:REFRESH_TOKEN_KEY];
-  self.auth.userID = [defaults objectForKey:USER_ID_KEY];
+
+  if (self.isLogin) {
+    NSString *accessToken = [defaults objectForKey:ACCESS_TOKEN_KEY];
+    NSString *refreshToken= [defaults objectForKey:REFRESH_TOKEN_KEY];
+    NSString *userID = [defaults objectForKey:USER_ID_KEY];
+    NSString *userName = [defaults objectForKey:USER_NAME_KEY];
+    NSString *avatarURL = [defaults objectForKey:AVATAR_URL_KEY];
+    
+    NSArray *objects = @[accessToken, refreshToken, userID, userName, avatarURL];
+    NSArray *keys = @[@"acccess_token", @"refresh_token", @"user_id", @"user_name", @"avatar_url"];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    self.auth = [Authorization objectWithDictionary:dic];
+  }
   
 //  self.cachedXAuthTokenString = [defaults objectForKey:kCachedXAuthAccessTokenKey];
 //  self.storeUrl = [defaults objectForKey:kStoreUrl];
@@ -71,8 +89,7 @@ static AppContext *sharedInstance = nil;
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   
-  [defaults setObject:[NSNumber numberWithBool:self.isLogin] forKey:IS_LOGIN_KEY];
-  
+  // location
   if (self.location.latitude) {
     [defaults setObject:self.location.latitude forKey:LATITUDE_KEY];
   }
@@ -94,6 +111,10 @@ static AppContext *sharedInstance = nil;
     [defaults removeObjectForKey:CITY_KEY];
   }
   
+  // is login
+  [defaults setObject:[NSNumber numberWithBool:self.isLogin] forKey:IS_LOGIN_KEY];
+  
+  // auth
   if (self.auth.accessToken) {
     [defaults setObject:self.auth.accessToken forKey:ACCESS_TOKEN_KEY];
   }
@@ -106,6 +127,27 @@ static AppContext *sharedInstance = nil;
   }
   else {
     [defaults removeObjectForKey:REFRESH_TOKEN_KEY];
+  }
+  
+  if (self.auth.userID) {
+    [defaults setObject:self.auth.userID forKey:USER_ID_KEY];
+  }
+  else {
+    [defaults removeObjectForKey:USER_ID_KEY];
+  }
+  
+  if (self.auth.userName) {
+    [defaults setObject:self.auth.userName forKey:USER_NAME_KEY];
+  }
+  else {
+    [defaults removeObjectForKey:USER_NAME_KEY];
+  }
+  
+  if (self.auth.avatarURL) {
+    [defaults setObject:self.auth.avatarURL forKey:AVATAR_URL_KEY];
+  }
+  else {
+    [defaults removeObjectForKey:AVATAR_URL_KEY];
   }
   
   

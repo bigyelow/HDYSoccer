@@ -13,6 +13,8 @@
 
 // user defaults keys
 #define USER_ID_KEY @"userID"
+#define USER_NAME_KEY @"userName"
+#define AVATAR_URL_KEY @"avatarURL"
 #define IS_LOGIN_KEY @"isLogin"
 #define LATITUDE_KEY @"latitude"
 #define LONGTITUDE_KEY @"longtitude"
