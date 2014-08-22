@@ -64,7 +64,7 @@ static AppContext *sharedInstance = nil;
     NSString *avatarURL = [defaults objectForKey:AVATAR_URL_KEY];
     
     NSArray *objects = @[accessToken, refreshToken, userID, userName, avatarURL];
-    NSArray *keys = @[@"acccess_token", @"refresh_token", @"user_id", @"user_name", @"avatar_url"];
+    NSArray *keys = @[@"access_token", @"refresh_token", @"user_id", @"user_name", @"avatar_url"];
     NSDictionary *dic = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     self.auth = [Authorization objectWithDictionary:dic];
   }
