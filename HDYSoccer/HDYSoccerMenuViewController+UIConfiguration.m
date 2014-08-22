@@ -8,6 +8,7 @@
 
 #import "HDYSoccerMenuViewController+UIConfiguration.h"
 #import "AppDelegate+Configuration.h"
+#import "HDYSoccerGeekerDetailViewController.h"
 
 @implementation HDYSoccerMenuViewController (UIConfiguration)
 
@@ -42,6 +43,10 @@
     imageView.layer.shouldRasterize = YES;
     imageView.clipsToBounds = YES;
     
+    UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarTaped)];
+    [imageView setUserInteractionEnabled:YES];
+    [imageView addGestureRecognizer:gest];
+    
     // lable
     UILabel *label = [[UILabel alloc] initForAutoLayout];
     [view addSubview:label];
@@ -72,6 +77,10 @@
     [imageView setClipsToBounds:YES];
     [imageView.layer setCornerRadius:25];
     
+    UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loginButtonPressed)];
+    [imageView setUserInteractionEnabled:YES];
+    [imageView addGestureRecognizer:gest];
+    
     // login
     CGFloat buttonY = imageY + 40;
     UIButton *button = [[UIButton alloc] initForAutoLayout];
@@ -93,6 +102,19 @@
 - (void)loginButtonPressed
 {
   [AppDelegate showLoginWithDelegate:self];
+}
+
+- (void)avatarTaped
+{
+  NSString *playerID = [AppContext appContext].auth.userID;
+  NSString *playerName = [AppContext appContext].auth.userName;
+  
+  HDYSoccerGeekerDetailViewController *vc = [[HDYSoccerGeekerDetailViewController alloc] initWithPlayerID:playerID
+                                                                                               playerName:playerName];
+  [vc setShouldShowDismissButton:YES];
+  HDYSoccerNavigationController *nav = [[HDYSoccerNavigationController alloc] initWithRootViewController:vc];
+  
+  [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

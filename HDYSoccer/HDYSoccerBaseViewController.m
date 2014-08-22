@@ -40,7 +40,12 @@
    | UIViewAutoresizingFlexibleWidth
    | UIViewAutoresizingFlexibleTopMargin];
   
-  [self configBackButton];
+  if (self.shouldShowDismissButton) {
+    [self configDismissButton];
+  }
+  else {
+    [self configBackButton];
+  }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -82,6 +87,21 @@
   
   UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
   [self.navigationItem setLeftBarButtonItem:item];
+}
+
+- (void)configDismissButton
+{
+  UIButton *button = [self topButtonWithImageName:TOP_CANCEL_IMAGE];
+  [UIConfiguration setView:button size:CGSizeMake(25, 25)];
+  [button addTarget:self action:@selector(dismissButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+  
+  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
+  [self.navigationItem setLeftBarButtonItem:item];
+}
+
+- (void)dismissButtonPressed
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)menuButtonPressed

@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) HDYSoccerAPIClient *httpClient;
 @property (nonatomic, strong) HDYSoccerAPIClient *httpsClient;
+@property (nonatomic, assign) BOOL shouldShowDismissButton;
 
 - (void)configTopMenuButton;
 - (UIButton *)topButtonWithImageName:(NSString *)name;

@@ -27,7 +27,7 @@
   [self.window makeKeyAndVisible];
   
   // api test
-  [self testLogout];
+//  [self testLogout];
 //  [self testRegister];
 //  [self testLogin];
 //  [self testLoadGameList];
