@@ -8,7 +8,9 @@
 
 #import "HDYSoccerBaseTableViewController.h"
 #import "REFrostedViewController.h"
+#import "RegisterAndLoginViewController.h"
 
 @interface HDYSoccerMenuViewController : HDYSoccerBaseTableViewController
+<RegisterAndLoginDelegate>
 
 @end

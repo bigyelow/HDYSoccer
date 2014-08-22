@@ -30,6 +30,7 @@
 @property (nonatomic, strong) UIButton *loginButton;
 @property (nonatomic, strong) UIButton *registerButton;
 @property (nonatomic, strong) UIButton *cancelButton;
+@property (nonatomic, strong) id<RegisterAndLoginDelegate> regLogDelegate;
 
 - (id)initWithDelegate:(id<RegisterAndLoginDelegate>)delegate;
 @end

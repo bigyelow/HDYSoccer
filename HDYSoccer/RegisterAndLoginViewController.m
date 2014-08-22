@@ -7,6 +7,7 @@
 //
 
 #import "RegisterAndLoginViewController.h"
+#import "RegisterAndLoginViewController+Action.h"
 
 // CANCEL
 #define CANCEL_LEFT_MARGIN 15
@@ -36,7 +37,6 @@
 
 @interface RegisterAndLoginViewController ()
 @property (nonatomic, assign) CGFloat keyboardAdjustHeight;
-@property (nonatomic, strong) id<RegisterAndLoginDelegate> regLogDelegate;
 @end
 
 @implementation RegisterAndLoginViewController
@@ -142,6 +142,7 @@
   [field setPlaceholder:TEXT_PASSWORD];
   [field setKeyboardType:UIKeyboardTypeEmailAddress];
   [field setClearButtonMode:UITextFieldViewModeWhileEditing];
+  [field setSecureTextEntry:YES];
   [field setDelegate:self];
   
   self.pswField = field;
@@ -167,6 +168,7 @@
                     forState:UIControlStateNormal];
   [button setBackgroundImage:[UIConfiguration imageForColor:[UIColor lightGrayColor]]
                     forState:UIControlStateHighlighted];
+  [button addTarget:self action:@selector(loginPressed) forControlEvents:UIControlEventTouchUpInside];
   [UIConfiguration moveSubviewXToSuperviewCenter:self.view subview:button];
   
   self.loginButton = button;

@@ -151,4 +151,14 @@
   [self.frostedViewController hideMenuViewController];
 }
 
+#pragma mark - login delegate
+
+- (void)loginSucceeded:(RegisterAndLoginViewController *)vc
+{
+  [self configTableHeaderView];
+  [Tools performAfterDelay:1 block:^{
+    [vc dismissViewControllerAnimated:YES completion:nil];
+  }];
+}
+
 @end
