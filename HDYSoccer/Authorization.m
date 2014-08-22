@@ -35,4 +35,9 @@
   return [self.dictionary objectForKey:@"user_name"];
 }
 
+- (NSString *)avatarURL
+{
+  return [self.dictionary objectForKey:@"avatar_url"];
+}
+
 @end
