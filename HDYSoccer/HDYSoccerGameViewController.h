@@ -15,7 +15,6 @@
 
 // segment control
 @property (nonatomic, strong) UISegmentedControl *segControl;
-@property (nonatomic, strong) UIView *segmentBackView;
 
 // collection view
 @property (nonatomic, strong) NSArray *collectionViewArray;

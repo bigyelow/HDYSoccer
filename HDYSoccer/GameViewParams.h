@@ -27,7 +27,7 @@
 #define COLUMN_NUMBER 1
 #define SECTION_NUMBER 1
 #define SECTION_BACKGROUND_COLOR @"#e7f9ff"
-#define SECTION_INSET (UIEdgeInsetsMake(TOP_BAR_HEIGHT + SEGMENT_VIEW_HEIGHT, 0, 10, 0))
+#define SECTION_INSET (UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 10, 0))
 
 // cell
 #define GAME_CELL_IDENTIFIER @"GameCell"

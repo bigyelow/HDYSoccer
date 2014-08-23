@@ -30,6 +30,12 @@
   NSString *lat = [AppContext appContext].location.latitude;
   NSString *log = [AppContext appContext].location.longtitude;
   
+  UICollectionView *collectionView = self.collectionViewArray[segIndex];
+  BOOL loadedOnce = [self getLoadedOnceValueIndex:segIndex];
+  if (!loadedOnce) {
+    [UIConfiguration showTipMessageToView:collectionView title:TEXT_LOADING];
+  }
+  
   HDYSoccerAPIClient *client = [HDYSoccerAPIClient newHttpsClient];
 
   __weak typeof(self) weakSelf = self;
@@ -68,6 +74,7 @@
                         }
                       }
                       [collectionView.pullToRefreshView stopAnimating];
+                      [UIConfiguration hideTipMessageOnView:collectionView];
                       
                       // update top buttons
                       [weakSelf.filterItem setEnabled:YES];
@@ -80,6 +87,7 @@
                       // update collection view
                       UICollectionView *collectionView = weakSelf.collectionViewArray[segIndex];
                       [collectionView.pullToRefreshView stopAnimating];
+                      [UIConfiguration hideTipMessageOnView:collectionView];
                       
                       // update top buttons
                       [weakSelf.filterItem setEnabled:YES];

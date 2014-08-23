@@ -24,10 +24,9 @@
                        SEGMENT_TITLE_TEAM,
                        nil];
   SegmentView *segmentView = [[SegmentView alloc] initWithFrame:
-                              CGRectMake(0, TOP_BAR_HEIGHT, CGRectGetWidth(self.view.frame), SEGMENT_VIEW_HEIGHT)
+                              CGRectMake(0, 0, CGRectGetWidth(self.view.frame), SEGMENT_VIEW_HEIGHT)
                                                        segments:segments];
-  self.segmentBackView = segmentView;
-  
+  [segmentView setAlpha:1];
   self.segControl = segmentView.segControl;
   [self.segControl addTarget:self
                       action:@selector(segmentChanged:)

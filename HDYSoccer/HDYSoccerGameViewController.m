@@ -42,6 +42,9 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  [self setEdgesForExtendedLayout:UIRectEdgeNone];
+  
   [self setTitle:GAME_TITLE];
   
   // top buttons
