@@ -110,7 +110,7 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
   }
   
-  NSArray *titles = @[CELL_TITLE_PLAY, CELL_TITLE_PLAYER, CELL_TITLE_STADUM, CELL_TITLE_TACTICAL_BOARD];
+  NSArray *titles = @[CELL_TITLE_PLAY, CELL_TITLE_MINE, CELL_TITLE_STADUM, CELL_TITLE_TACTICAL_BOARD];
   UILabel *label = [UIConfiguration labelWithText:titles[indexPath.row]
                                         textColor:[UIColor blackColor]
                                              font:[UIFont systemFontOfSize:17]
