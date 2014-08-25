@@ -67,11 +67,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
   switch (section) {
-    case 2:
-      if (self.teamInfo) {
-        return [TeamScoreHeaderView viewHeight];
-      }
-      
+//    case 2:
+//      if (self.teamInfo) {
+//        return [TeamScoreHeaderView viewHeight];
+//      }
+//      
     case 3:
       if (self.teamInfo) {
         return [TeamMemberHeaderView viewHeight];
@@ -86,13 +86,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
   switch (section) {
-    case 2:
-      if (self.teamInfo) {
-        return TEAM_SCORE_FOOTER_HEIGHT;
-      }
-      
-      break;
-      
+//    case 2:
+//      if (self.teamInfo) {
+//        return TEAM_SCORE_FOOTER_HEIGHT;
+//      }
+//      
+//      break;
+//      
     default:
       break;
   }
@@ -102,13 +102,13 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
   switch (section) {
-    case 2:
-      if (self.teamInfo) {
-        TeamScoreHeaderView *view = [[TeamScoreHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)
-                                                                         title:TEXT_TEAM_AVERAGE_SCORE];
-        return view;
-      }
-      
+//    case 2:
+//      if (self.teamInfo) {
+//        TeamScoreHeaderView *view = [[TeamScoreHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)
+//                                                                         title:TEXT_TEAM_AVERAGE_SCORE];
+//        return view;
+//      }
+//      
     case 3:
       if (self.teamInfo) {
         TeamMemberHeaderView *view = [[TeamMemberHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0)
@@ -125,13 +125,13 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
   switch (section) {
-    case 2:
-      if (self.teamInfo) {
-        TeamScoreFooterView *view = [[TeamScoreFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, TEAM_SCORE_FOOTER_HEIGHT)];
-        return view;
-      }
-      break;
-      
+//    case 2:
+//      if (self.teamInfo) {
+//        TeamScoreFooterView *view = [[TeamScoreFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, TEAM_SCORE_FOOTER_HEIGHT)];
+//        return view;
+//      }
+//      break;
+//      
     default:
       break;
   }
@@ -147,10 +147,10 @@
     case 1:
         return 2;
 
-    case 2:
-      if (self.teamInfo) {
-        return SCORE_TYPE_NUMBER;
-      }
+//    case 2:
+//      if (self.teamInfo) {
+//        return SCORE_TYPE_NUMBER;
+//      }
 
     case 3:
       if (self.teamInfo.members) {
@@ -212,7 +212,7 @@
         [cell configCellWithTitle:TEXT_COACH info:self.teamInfo.coach hasBottomLine:NO];
       }
       else if (indexPath.row == 1) {
-        [cell configCellWithTitle:TEXT_CAPTAIN info:self.teamInfo.captain hasBottomLine:YES];
+        [cell configCellWithTitle:TEXT_CAPTAIN info:self.teamInfo.captain hasBottomLine:NO];
       }
       
       return cell;
