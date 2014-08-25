@@ -11,7 +11,7 @@
 
 // SEGMENT
 #define SEGMENT_TITLE_TEAM_INFO @"球队信息"
-#define SEGMENT_TITLE_STATISTICS @"数据"
+#define SEGMENT_TITLE_HISTORY @"历史战绩"
 
 @implementation TeamDetailViewController (SegmentControl)
 
@@ -27,11 +27,20 @@
   // team info table
   self.teamInfoTable = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStylePlain];
   [self customTableView:self.teamInfoTable];
+  [self.teamInfoTable setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 0, 0)];
   
   [self.view addSubview:self.teamInfoTable];
   
+  // team administration
+  self.administrateTable = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStylePlain];
+  [self customTableView:self.administrateTable];
+  [self.administrateTable setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT + TOP_BAR_HEIGHT, 0, 0, 0)];
+  
+  [self.view addSubview:self.administrateTable];
+  
+  
   // segment view
-  NSArray *segments = @[SEGMENT_TITLE_TEAM_INFO, SEGMENT_TITLE_STATISTICS];
+  NSArray *segments = @[SEGMENT_TITLE_TEAM_INFO, SEGMENT_TITLE_HISTORY];
   CGRect segmentRect = CGRectMake(0, TOP_BAR_HEIGHT, CGRectGetWidth(self.view.frame), SEGMENT_VIEW_HEIGHT);
   SegmentView *segmentView = [[SegmentView alloc] initWithFrame:segmentRect segments:segments];
   
@@ -52,7 +61,6 @@
   [tableView setDelegate:self];
   [tableView setDataSource:self];
   [tableView setBackgroundColor:[UIColor clearColor]];
-  [tableView setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 0, 0)];
   [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
   // background view
@@ -66,10 +74,16 @@
   NSInteger index = paramSender.selectedSegmentIndex;
   
   if (index == 0) {
-    
+    [self.teamInfoTable setHidden:NO];
+    [self.administrateTable setHidden:YES];
   }
   else if (index == 1) {
-    
+    [self.teamInfoTable setHidden:YES];
+    [self.administrateTable setHidden:NO];
+    if (!self.administrationLoadedOnce) {
+      [self.administrateTable reloadData];
+      self.administrationLoadedOnce = YES;
+    }
   }
 }
 @end

@@ -11,6 +11,7 @@
 #define SEGMENT_BACKGROUND_COLOR @"#e9e9e9"
 #define SEGCONTROL_HEIGHT 28.0F
 #define SEGMENT_ITEM_WIDTH 100.0f
+#define SEGMENT_ITEM_WIDTH_SMALL 70
 
 @implementation SegmentView
 
@@ -29,8 +30,15 @@
     [self addSubview:line];
     
     self.segControl = [[UISegmentedControl alloc] initWithItems:segments];
+    CGFloat segWidth;
+    if ([segments count] <= 3) {
+      segWidth = SEGMENT_ITEM_WIDTH;
+    }
+    else {
+      segWidth = SEGMENT_ITEM_WIDTH_SMALL;
+    }
     for (NSInteger index = 0; index < self.segControl.numberOfSegments; ++index) {
-      [self.segControl setWidth:SEGMENT_ITEM_WIDTH forSegmentAtIndex:index];
+      [self.segControl setWidth:segWidth forSegmentAtIndex:index];
     }
     [self.segControl setBackgroundColor:[UIConfiguration colorForHex:SEGMENT_BACKGROUND_COLOR]];
     [self.segControl setTintColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];

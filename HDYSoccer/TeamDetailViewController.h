@@ -24,7 +24,9 @@
 
 @property (nonatomic, strong) UISegmentedControl *segControl;
 @property (nonatomic, strong) UITableView *teamInfoTable;
-@property (nonatomic, strong) UITableView *statisticsTable;
+@property (nonatomic, strong) UITableView *administrateTable; // HISTORY RECORD TABLE
+@property (nonatomic, assign) BOOL teamInfoLoadedOnce;
+@property (nonatomic, assign) BOOL administrationLoadedOnce;
 
 - (id)initWithTeamID:(NSString *)teamID teamName:(NSString *)teamName;
 @end

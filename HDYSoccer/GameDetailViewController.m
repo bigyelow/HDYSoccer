@@ -642,8 +642,6 @@
         cell.homeTeamLabel.tag = indexPath.row;
         cell.guestTeamLabel.tag = indexPath.row;
         
-        NSLog(@"%d", cell.homeTeamLabel.tag);
-        
         return cell;
       }
         
