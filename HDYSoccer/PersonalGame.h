@@ -24,5 +24,6 @@
 @property (nonatomic, strong, readonly) NSArray *participants;
 @property (nonatomic, copy, readonly) NSString *gameName;
 @property (nonatomic, strong) NSArray *rateList;
+@property (nonatomic, assign) NSInteger commentsCount;
 
 @end

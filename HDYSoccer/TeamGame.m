@@ -15,6 +15,12 @@
 @synthesize teamScore = _teamScore;
 @synthesize gameRecords = _gameRecords;
 
+- (NSInteger)commentsCount
+{
+  NSNumber *number = [self.dictionary objectForKey:@"comments_count"];
+  return number.integerValue;
+}
+
 - (NSString *)teamGameID
 {
   return [self.dictionary objectForKey:@"team_game_id"];

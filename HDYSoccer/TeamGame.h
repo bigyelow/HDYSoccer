@@ -25,5 +25,6 @@
 @property (nonatomic, copy, readonly) NSString *contact;
 @property (nonatomic, copy, readonly) NSString *remark;
 @property (nonatomic, copy, readonly) NSString *gameName;
+@property (nonatomic, assign) NSInteger commentsCount;
 
 @end

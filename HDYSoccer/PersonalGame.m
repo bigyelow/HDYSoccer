@@ -73,6 +73,13 @@
   return [self.dictionary objectForKey:@"average_score"];
 }
 
+- (NSInteger)commentsCount
+{
+  NSNumber *number = [self.dictionary objectForKey:@"comments_count"];
+  return number.integerValue;
+}
+
+
 - (NSArray *)participants
 {
   if (!_participants) {
