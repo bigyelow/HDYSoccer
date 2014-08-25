@@ -27,6 +27,7 @@
   self.geekerTable = [[UITableView alloc] initWithFrame:tableRect style:self.style];
   [self customTableView:self.geekerTable];
   [self.geekerTable setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 0, 0)];
+  [self.geekerTable setScrollIndicatorInsets:self.geekerTable.contentInset];
   
   // refresh control
   UIRefreshControl *playerRefreshCtr = [[UIRefreshControl alloc] init];
@@ -42,6 +43,7 @@
   self.teamTable = [[UITableView alloc] initWithFrame:tableRect style:self.style];
   [self customTableView:self.teamTable];
   [self.teamTable setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT + TOP_BAR_HEIGHT, 0, 0, 0)];
+  [self.teamTable setScrollIndicatorInsets:self.teamTable.contentInset];
   
   // refresh control
   UIRefreshControl *teamRefreshCtr = [[UIRefreshControl alloc] init];

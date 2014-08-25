@@ -28,6 +28,7 @@
   self.teamInfoTable = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStylePlain];
   [self customTableView:self.teamInfoTable];
   [self.teamInfoTable setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 0, 0)];
+  [self.teamInfoTable setScrollIndicatorInsets:self.teamInfoTable.contentInset];
   
   [self.view addSubview:self.teamInfoTable];
   
@@ -35,6 +36,7 @@
   self.administrateTable = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStylePlain];
   [self customTableView:self.administrateTable];
   [self.administrateTable setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT + TOP_BAR_HEIGHT, 0, 0, 0)];
+  [self.administrateTable setScrollIndicatorInsets:self.administrateTable.contentInset];
   
   [self.view addSubview:self.administrateTable];
   
