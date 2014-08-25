@@ -27,6 +27,7 @@
 @property (nonatomic, copy) NSString *totalCost;
 @property (nonatomic, copy) NSString *contact;
 @property (nonatomic, copy) NSString *remarks;
+@property (nonatomic, assign) NSInteger commentsCount;
 
 @property (nonatomic, assign) BOOL newCreated;
 
@@ -48,4 +49,5 @@
 - (id)initWithgameID:(NSString *)gameID
             gameType:(GameType)gameType
       tableviewStyle:(UITableViewStyle)style;
+- (void)configCommentBar;
 @end

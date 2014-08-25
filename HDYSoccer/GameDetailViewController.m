@@ -28,6 +28,7 @@
 #import "HDYSoccerGeekerDetailViewController.h"
 #import "TeamDetailViewController.h"
 #import "UILabel+Customize.h"
+#import "CommentBar.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -96,6 +97,7 @@
   }
   
   [self loadTags];
+  [self configTableContentInset];
   
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   [self.tableView setShowsVerticalScrollIndicator:NO];
@@ -114,7 +116,52 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (void)configTableContentInset
+{
+  CGFloat bottomMargin = COMMENT_BAR_HEIGHT;
+  if (self.gameType == kGameTypePersonal) {
+    bottomMargin += 20;
+  }
+  [self.tableView setContentInset:UIEdgeInsetsMake(0, 0, bottomMargin, 0)];
+}
+
+- (void)configCommentBar
+{
+  CGFloat barY = self.view.frame.size.height;
+  CommentBar *bar = [[CommentBar alloc] initWithFrame:CGRectMake(0, barY, self.view.frame.size.width, COMMENT_BAR_HEIGHT)
+                                        commentsCount:self.commentsCount];
+  
+  [self.view addSubview:bar];
+  
+  [UIView animateWithDuration:0.2
+                        delay:0.8
+                      options:UIViewAnimationOptionCurveEaseIn
+                   animations:^{
+                     [UIConfiguration setView:bar y:self.view.frame.size.height - COMMENT_BAR_HEIGHT];
+                   }
+                   completion:nil];
+}
+
 #pragma mark - get methods
+- (NSInteger)commentsCount
+{
+  NSInteger count;
+  switch (self.gameType) {
+    case kGameTypePersonal:
+      count = self.personalGame.commentsCount;
+      break;
+      
+    case kGameTypeTeam:
+      count = self.teamGame.commentsCount;
+      break;
+      
+    default:
+      break;
+  }
+  
+  return count;
+}
+
 - (NSString *)contact
 {
   NSString *str;

@@ -75,6 +75,9 @@
 		7194332B191A180F009BA1D6 /* AppDelegate+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194332A191A180F009BA1D6 /* AppDelegate+Configuration.m */; };
 		7194EB1E19AAECD300D25C10 /* AdminiTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB1D19AAECD300D25C10 /* AdminiTableHeader.m */; };
 		7194EB2119AAEFDE00D25C10 /* GameRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB2019AAEFDE00D25C10 /* GameRecordCell.m */; };
+		7194EB2619AB399600D25C10 /* CommentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB2519AB399600D25C10 /* CommentBar.m */; };
+		7194EB2E19AB434E00D25C10 /* speech_bubble-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7194EB2D19AB434E00D25C10 /* speech_bubble-50.png */; };
+		7194EB3419AB44C700D25C10 /* up4-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 7194EB3319AB44C700D25C10 /* up4-75.png */; };
 		71967A421976418E002B9621 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71967A411976418E002B9621 /* SegmentView.m */; };
 		7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF5F194197BD00B29EC5 /* BaseObject.m */; };
 		7197DF6C1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */; };
@@ -302,6 +305,10 @@
 		7194EB1D19AAECD300D25C10 /* AdminiTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminiTableHeader.m; sourceTree = "<group>"; };
 		7194EB1F19AAEFDE00D25C10 /* GameRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameRecordCell.h; sourceTree = "<group>"; };
 		7194EB2019AAEFDE00D25C10 /* GameRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameRecordCell.m; sourceTree = "<group>"; };
+		7194EB2419AB399600D25C10 /* CommentBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentBar.h; sourceTree = "<group>"; };
+		7194EB2519AB399600D25C10 /* CommentBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBar.m; sourceTree = "<group>"; };
+		7194EB2D19AB434E00D25C10 /* speech_bubble-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speech_bubble-50.png"; sourceTree = "<group>"; };
+		7194EB3319AB44C700D25C10 /* up4-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up4-75.png"; sourceTree = "<group>"; };
 		71967A401976418E002B9621 /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
 		71967A411976418E002B9621 /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
 		7197DF5E194197BD00B29EC5 /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
@@ -552,6 +559,8 @@
 		7187BE39197A1EAA00748563 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				7194EB3319AB44C700D25C10 /* up4-75.png */,
+				7194EB2D19AB434E00D25C10 /* speech_bubble-50.png */,
 				71E7AE88197E5CF700427C31 /* back-25.png */,
 				717A5BA6198A294B006E8446 /* star-26.png */,
 				717A5BA1198A1289006E8446 /* sheriff-26.png */,
@@ -830,6 +839,8 @@
 		71C1CB0F198CAE4200DA7F8F /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				7194EB2419AB399600D25C10 /* CommentBar.h */,
+				7194EB2519AB399600D25C10 /* CommentBar.m */,
 			);
 			name = CommonUI;
 			sourceTree = "<group>";
@@ -1192,10 +1203,12 @@
 				71CB8C1218E019060073E913 /* Images.xcassets in Resources */,
 				71F8C006198663940096465E /* info-75.png in Resources */,
 				71F8BFEC1986289F0096465E /* background_chelsy.jpg in Resources */,
+				7194EB3419AB44C700D25C10 /* up4-75.png in Resources */,
 				71F8C00419865DAF0096465E /* money-75.png in Resources */,
 				71F8BFFA1986549E0096465E /* group-75.png in Resources */,
 				71F8BFE6198626050096465E /* background_backhame.jpg in Resources */,
 				7187BE6A197A699000748563 /* plus-50.png in Resources */,
+				7194EB2E19AB434E00D25C10 /* speech_bubble-50.png in Resources */,
 				7187BE45197A230000748563 /* clock-75.png in Resources */,
 				71F8BFFE198659530096465E /* location-75.png in Resources */,
 				71E7AE89197E5CF700427C31 /* back-25.png in Resources */,
@@ -1327,6 +1340,7 @@
 				712D16F4194EEFE000396B1F /* CostCell.m in Sources */,
 				71B1F2D5199B3B270039D5EE /* PlayerListInfoCell.m in Sources */,
 				71E7AE75197E3C1B00427C31 /* HDYSoccerGameViewController.m in Sources */,
+				7194EB2619AB399600D25C10 /* CommentBar.m in Sources */,
 				719213471988FEDC00EF7947 /* RemarkCellForGameInfo.m in Sources */,
 				71A55F83199DBFFF005DBC83 /* QualityAbility.m in Sources */,
 				717A5BB2198B4E6A006E8446 /* RatePlayerHeaderView.m in Sources */,

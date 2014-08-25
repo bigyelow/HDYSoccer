@@ -30,6 +30,7 @@
                                    [weakSelf setTitle:weakSelf.personalGame.gameName];
                                    [weakSelf.tableView reloadData];
                                    [weakSelf.tableView setHidden:NO];
+                                   [weakSelf configCommentBar];
                                  } failed:^(HDYSoccerAPIError *error) {
                                    [UIConfiguration hideTipMessageOnView:weakSelf.view];
 
@@ -44,6 +45,7 @@
                                [weakSelf setTitle:weakSelf.teamGame.gameName];
                                [weakSelf.tableView reloadData];
                                [weakSelf.tableView setHidden:NO];
+                               [weakSelf configCommentBar];
                              } failed:^(HDYSoccerAPIError *error) {
                                [UIConfiguration hideTipMessageOnView:weakSelf.view];
 
