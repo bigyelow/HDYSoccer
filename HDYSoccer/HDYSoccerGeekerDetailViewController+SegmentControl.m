@@ -35,7 +35,7 @@
   CGRect segmentRect = CGRectMake(0, TOP_BAR_HEIGHT, CGRectGetWidth(self.view.frame), SEGMENT_VIEW_HEIGHT);
   SegmentView *segmentView = [[SegmentView alloc] initWithFrame:segmentRect segments:segments];
   
-  [self.view addSubview:segmentView];
+//  [self.view addSubview:segmentView];
 
   // send control
   self.segControl = segmentView.segControl;
@@ -52,7 +52,7 @@
   [tableView setDelegate:self];
   [tableView setDataSource:self];
   [tableView setBackgroundColor:[UIColor clearColor]];
-  [tableView setContentInset:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 0, 0)];
+  [tableView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
   [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
   // background view
