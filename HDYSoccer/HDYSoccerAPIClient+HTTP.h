@@ -25,6 +25,17 @@
 - (void)getTeamGameWithID:(NSString *)teamGameID
                 succeeded:(SucceededGettingDictionaryBlock)succeeded
                    failed:(FailedBlock)failed;
+#pragma mark - COMMENT
+- (void)getPersonalGameCommentsWithGameID:(NSString *)gameID
+                                    start:(NSInteger)start
+                                    count:(NSInteger)count
+                                succeeded:(SucceededGettingArrayBlock)succeeded
+                                   failed:(FailedBlock)failed;
+- (void)getTeamGameCommentsWithGameID:(NSString *)gameID
+                                start:(NSInteger)start
+                                count:(NSInteger)count
+                            succeeded:(SucceededGettingArrayBlock)succeeded
+                               failed:(FailedBlock)failed;
 #pragma mark - PLAYER AND TEMAS
 - (void)getGeekerInfoWithGeekerID:(NSString *)geekerID
                         succeeded:(SucceededGettingDictionaryBlock)succeeded

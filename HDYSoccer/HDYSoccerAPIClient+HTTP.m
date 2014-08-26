@@ -12,6 +12,7 @@
 #import "SimpleTeamGameInfo.h"
 #import "HDYSoccerAPIError.h"
 #import "Team.h"
+#import "Comment.h"
 
 @implementation HDYSoccerAPIClient (HTTP)
 
@@ -115,6 +116,68 @@
                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
                        NSDictionary *resultDic = (NSDictionary *)responseObject;
                        succeeded(resultDic);
+                     }
+                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                       failed(hdyApiError);
+                     }];
+}
+
+#pragma mark - COMMENT
+- (void)getPersonalGameCommentsWithGameID:(NSString *)gameID
+                                    start:(NSInteger)start
+                                    count:(NSInteger)count
+                                succeeded:(SucceededGettingArrayBlock)succeeded
+                                   failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  
+  NSString *subpath = [NSString stringWithFormat:@"game/personal/%@/comments", gameID];
+  NSString *path = [self pathWithSubpath:subpath];
+  
+  [self.operationManager GET:path
+                  parameters:parameter
+                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSArray *resultArray = (NSArray *)responseObject;
+                       NSMutableArray *temp = [NSMutableArray array];
+                       
+                       for (NSDictionary *dic in resultArray) {
+                         Comment *comment = [Comment objectWithDictionary:dic];
+                         [temp addObject:comment];
+                       }
+                       
+                       succeeded(temp);
+                     }
+                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                       failed(hdyApiError);
+                     }];
+}
+
+- (void)getTeamGameCommentsWithGameID:(NSString *)gameID
+                                start:(NSInteger)start
+                                count:(NSInteger)count
+                            succeeded:(SucceededGettingArrayBlock)succeeded
+                               failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  
+  NSString *subpath = [NSString stringWithFormat:@"game/team/%@/comments", gameID];
+  NSString *path = [self pathWithSubpath:subpath];
+  
+  [self.operationManager GET:path
+                  parameters:parameter
+                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSArray *resultArray = (NSArray *)responseObject;
+                       succeeded(resultArray);
                      }
                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                        HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
