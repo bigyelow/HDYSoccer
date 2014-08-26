@@ -64,6 +64,7 @@
 #define TEXT_BEIJING @"北京"
 #define TEXT_HISTORY_RECORD @"历史战绩"
 #define TEXT_COMMENT_COUNT @"%d 条评论"
+#define TEXT_REPLY @"回复"
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"

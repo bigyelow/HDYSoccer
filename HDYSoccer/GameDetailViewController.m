@@ -29,6 +29,8 @@
 #import "TeamDetailViewController.h"
 #import "UILabel+Customize.h"
 #import "CommentBar.h"
+#import "CommentViewController.h"
+#import "HDYSoccerNavigationController.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -140,6 +142,16 @@
                      [UIConfiguration setView:bar y:self.view.frame.size.height - COMMENT_BAR_HEIGHT];
                    }
                    completion:nil];
+  
+  UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(commentBarTapped:)];
+  [bar addGestureRecognizer:gest];
+}
+
+- (void)commentBarTapped:(UITapGestureRecognizer *)gest
+{
+  CommentViewController *vc = [[CommentViewController alloc] initWithGameType:self.gameType gameID:self.gameID];
+  HDYSoccerNavigationController *nav = [[HDYSoccerNavigationController alloc] initWithRootViewController:vc];
+  [self presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - get methods
