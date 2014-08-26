@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UIImageView *replyView;
 @property (nonatomic, strong) UILabel *replyLabel;
 @property (nonatomic, strong) UIView *seper;
+@property (nonatomic, strong) UIImageView *avatar;
 
 - (void)configCellWithComment:(Comment *)comment
                    cellHeight:(CGFloat)cellHeight;

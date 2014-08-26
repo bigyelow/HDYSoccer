@@ -15,5 +15,6 @@
 @property (nonatomic, copy) NSString *userID;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, strong) NSDate *time;
+@property (nonatomic, strong) NSString *avatarURL;
 
 @end

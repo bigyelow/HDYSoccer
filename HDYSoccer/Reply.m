@@ -10,6 +10,11 @@
 
 @implementation Reply
 
+- (NSString *)avatarURL
+{
+  return [self.dictionary objectForKey:@"avatar_url"];
+}
+
 - (NSString *)commentID
 {
   return [self.dictionary objectForKey:@"comment_id"];

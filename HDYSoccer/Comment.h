@@ -16,4 +16,6 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, strong) NSDate *time;
 @property (nonatomic, strong) NSArray *replys;
+@property (nonatomic, strong) NSString *avatarURL;
+
 @end
