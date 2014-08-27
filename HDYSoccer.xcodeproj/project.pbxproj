@@ -91,6 +91,8 @@
 		7194EB5719AD7C0500D25C10 /* right2-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7194EB5519AD7C0500D25C10 /* right2-50.png */; };
 		7194EB5D19AD87CB00D25C10 /* CommentField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB5C19AD87CB00D25C10 /* CommentField.m */; };
 		7194EB6019AD893300D25C10 /* CommentViewController+CommentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB5F19AD893300D25C10 /* CommentViewController+CommentOperation.m */; };
+		7194EB6519ADC1A500D25C10 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB6219ADC1A500D25C10 /* HPGrowingTextView.m */; };
+		7194EB6619ADC1A500D25C10 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB6419ADC1A500D25C10 /* HPTextViewInternal.m */; };
 		71967A421976418E002B9621 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71967A411976418E002B9621 /* SegmentView.m */; };
 		7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF5F194197BD00B29EC5 /* BaseObject.m */; };
 		7197DF6C1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */; };
@@ -344,6 +346,10 @@
 		7194EB5C19AD87CB00D25C10 /* CommentField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentField.m; sourceTree = "<group>"; };
 		7194EB5E19AD893300D25C10 /* CommentViewController+CommentOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CommentViewController+CommentOperation.h"; sourceTree = "<group>"; };
 		7194EB5F19AD893300D25C10 /* CommentViewController+CommentOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CommentViewController+CommentOperation.m"; sourceTree = "<group>"; };
+		7194EB6119ADC1A500D25C10 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		7194EB6219ADC1A500D25C10 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		7194EB6319ADC1A500D25C10 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		7194EB6419ADC1A500D25C10 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
 		71967A401976418E002B9621 /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
 		71967A411976418E002B9621 /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
 		7197DF5E194197BD00B29EC5 /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
@@ -911,6 +917,10 @@
 				7194EB2519AB399600D25C10 /* CommentBar.m */,
 				7194EB5B19AD87CB00D25C10 /* CommentField.h */,
 				7194EB5C19AD87CB00D25C10 /* CommentField.m */,
+				7194EB6119ADC1A500D25C10 /* HPGrowingTextView.h */,
+				7194EB6219ADC1A500D25C10 /* HPGrowingTextView.m */,
+				7194EB6319ADC1A500D25C10 /* HPTextViewInternal.h */,
+				7194EB6419ADC1A500D25C10 /* HPTextViewInternal.m */,
 			);
 			name = CommonUI;
 			sourceTree = "<group>";
@@ -1371,6 +1381,7 @@
 				71CB8C5818E03B040073E913 /* AppContext.m in Sources */,
 				71898EBD19A1B4BE005778D2 /* TeamDetailViewController+SegmentControl.m in Sources */,
 				71C3128619A449BA004AB50B /* PersonalGameCell.m in Sources */,
+				7194EB6519ADC1A500D25C10 /* HPGrowingTextView.m in Sources */,
 				715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */,
 				7194EB3F19AC338F00D25C10 /* Reply.m in Sources */,
 				719213411988F70C00EF7947 /* CostCellForGameInfo.m in Sources */,
@@ -1403,6 +1414,7 @@
 				7197DF771944138200B29EC5 /* CreateGameViewController.m in Sources */,
 				7166EEA91990945D00E1F300 /* GameDetailViewController+RatePlayerPopover.m in Sources */,
 				7194332B191A180F009BA1D6 /* AppDelegate+Configuration.m in Sources */,
+				7194EB6619ADC1A500D25C10 /* HPTextViewInternal.m in Sources */,
 				71CB8C4318E028F80073E913 /* HDYSoccerTabBarController+UIConfiguration.m in Sources */,
 				717A5BAC198B3B6E006E8446 /* JoinGameCell.m in Sources */,
 				71BAF13519A6EBFE00BC95A5 /* RegisterAndLoginViewController+Action.m in Sources */,
