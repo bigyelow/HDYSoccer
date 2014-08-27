@@ -64,18 +64,20 @@
   CGFloat commentY = self.view.bounds.size.height - keyboardRect.size.height - COMMENT_BACK_HEIGHT;
   
   NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-  UIViewAnimationOptions option = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+  UIViewAnimationCurve option = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
   
-  __weak typeof(self) weakSelf = self;
-  [UIView animateWithDuration:duration
-                        delay:0
-                      options:option
-                   animations:^{
-                     [UIConfiguration setView:weakSelf.commentView y:commentY];
-                   } completion:^(BOOL finished) {
-                     weakSelf.isKeyboardShowed = YES;
-                   }];
-
+  // animations settings
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+  [UIView setAnimationDuration:duration];
+  [UIView setAnimationCurve:option];
+  
+  [UIConfiguration setView:self.commentView y:commentY];
+  
+  // commit
+  [UIView commitAnimations];
+  
+  [self setIsKeyboardShowed:YES];
   
   // COMMENT
   if (!self.isReply) {
@@ -92,16 +94,19 @@
   CGFloat commentY = self.view.bounds.size.height - COMMENT_BACK_HEIGHT;
   
   NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-  UIViewAnimationOptions option = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+  UIViewAnimationCurve option = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
   
-  __weak typeof(self) weadSelf = self;
-  [UIView animateWithDuration:duration
-                        delay:0
-                      options:option
-                   animations:^{
-                     [UIConfiguration setView:weadSelf.commentView y:commentY];
-                   } completion:^(BOOL finished) {
-                     weadSelf.isKeyboardShowed = NO;
-                   }];
+  // animations settings
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+  [UIView setAnimationDuration:duration];
+  [UIView setAnimationCurve:option];
+  
+  [UIConfiguration setView:self.commentView y:commentY];
+  
+  // commit
+  [UIView commitAnimations];
+  
+  [self setIsKeyboardShowed:NO];
 }
 @end
