@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UIImageView *replyView;
 @property (nonatomic, strong) UILabel *replyLabel;
+@property (nonatomic, strong) UIImageView *replyImage;
 @property (nonatomic, strong) UIView *seper;
 @property (nonatomic, strong) UIImageView *avatar;
 

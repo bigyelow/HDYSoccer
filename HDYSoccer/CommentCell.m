@@ -41,6 +41,11 @@
 
 #define CELL_BOTTOM_MARGIN 22
 
+// REPLY IMAGE
+#define REPLY_IMAGE_RIGHT_MARGIN 5
+#define REPLY_IMAGE_TOP_MARGIN 4
+#define REPLY_IMAGE_HEIGHT 20
+
 // SEPERATOR
 #define SEPERATOR_HEIGHT 0.5
 #define SEPERATOR_LEFT_MARGIN (TIME_LEFT_MARGIN - 10)
@@ -67,7 +72,8 @@
     
     // NAME
     CGFloat nameX = CGRectGetMaxX(avatar.frame) + NAME_LEFT_MARGIN;
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameX, NAME_TOP_MARGIN, contentWidth, NAME_HEIGHT)];
+    CGFloat nameWidth = contentWidth - nameX;
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameX, NAME_TOP_MARGIN, nameWidth, NAME_HEIGHT)];
     [nameLabel setFont:[UIFont systemFontOfSize:CONTENT_FONT_SIZE]];
  
     self.nameLabel = nameLabel;
@@ -96,6 +102,7 @@
     
     CGFloat replyX = WINDOW_FRAME.size.width - REPLY_RIGHT_MARGIN - replyLabel.frame.size.width;
     CGFloat replyY = bottomY + REPLY_TOP_MARGIN;
+    CGFloat replyImageY = bottomY + REPLY_IMAGE_TOP_MARGIN;
     [UIConfiguration setView:replyLabel origin:CGPointMake(replyX, replyY)];
     [UIConfiguration setView:replyLabel height:REPLY_HEIGHT];
     
@@ -103,6 +110,14 @@
     [self addSubview:replyLabel];
     
     bottomY = CGRectGetMaxY(replyLabel.frame);
+    
+    // Reply image
+    CGFloat replyImageX = CGRectGetMinX(replyLabel.frame) - REPLY_IMAGE_RIGHT_MARGIN - REPLY_IMAGE_HEIGHT;
+    UIImageView *replyImage = [[UIImageView alloc] initWithFrame:CGRectMake(replyImageX, replyImageY, REPLY_IMAGE_HEIGHT, REPLY_IMAGE_HEIGHT)];
+    [replyImage setImage:[UIImage imageNamed:@"left2-50.png"]];
+    
+    self.replyImage = replyImage;
+    [self addSubview:replyImage];
     
     // TIME
     CGFloat timeY = bottomY + TIME_TOP_MARGIN;
@@ -155,7 +170,9 @@
   [UIConfiguration setView:self.timeLabel y:timeY];
 
   CGFloat replyY = CGRectGetMaxY(self.content.frame) + REPLY_TOP_MARGIN;
+  CGFloat replyImageY = CGRectGetMaxY(self.content.frame) + REPLY_IMAGE_TOP_MARGIN;
   [UIConfiguration setView:self.replyLabel y:replyY];
+  [UIConfiguration setView:self.replyImage y:replyImageY];
   
   CGFloat seperY = CGRectGetMaxY(self.replyLabel.frame) + CELL_BOTTOM_MARGIN - SEPERATOR_HEIGHT;
   [UIConfiguration setView:self.seper y:seperY];
