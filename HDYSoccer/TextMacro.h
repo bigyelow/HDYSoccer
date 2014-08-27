@@ -65,6 +65,8 @@
 #define TEXT_HISTORY_RECORD @"历史战绩"
 #define TEXT_COMMENT_COUNT @"%d 条评论"
 #define TEXT_REPLY @"回复"
+#define TEXT_ADD_COMMENT @"  添加评论"
+#define TEXT_SEND_MESSAGE @"发送"
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"

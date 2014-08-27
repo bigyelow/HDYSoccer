@@ -12,6 +12,7 @@
 #import "Reply.h"
 #import "CommentCell.h"
 #import "ReplyCell.h"
+#import "CommentViewController+CommentOperation.h"
 
 @interface CommentViewController ()
 

@@ -10,6 +10,7 @@
 #import "HDYSoccerAPIClient+HTTP.h"
 #import "Comment.h"
 #import "Reply.h"
+#import "CommentViewController+CommentOperation.h"
 
 #define LOAD_MAX_LIMIT 40
 
@@ -56,6 +57,9 @@
   [self configSomeParams];
   [self.tableView reloadData];
   [self.tableView setHidden:NO];
+  
+  // load comment view
+  [self configCommentView];
 }
 
 // self.cellHeightArray[i][0]:为第i条评论的高度

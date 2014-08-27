@@ -89,6 +89,8 @@
 		7194EB5319AD7A6B00D25C10 /* speech_bubble-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7194EB5219AD7A6B00D25C10 /* speech_bubble-50.png */; };
 		7194EB5619AD7C0500D25C10 /* left2-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7194EB5419AD7C0500D25C10 /* left2-50.png */; };
 		7194EB5719AD7C0500D25C10 /* right2-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7194EB5519AD7C0500D25C10 /* right2-50.png */; };
+		7194EB5D19AD87CB00D25C10 /* CommentField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB5C19AD87CB00D25C10 /* CommentField.m */; };
+		7194EB6019AD893300D25C10 /* CommentViewController+CommentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB5F19AD893300D25C10 /* CommentViewController+CommentOperation.m */; };
 		71967A421976418E002B9621 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71967A411976418E002B9621 /* SegmentView.m */; };
 		7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF5F194197BD00B29EC5 /* BaseObject.m */; };
 		7197DF6C1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */; };
@@ -338,6 +340,10 @@
 		7194EB5219AD7A6B00D25C10 /* speech_bubble-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speech_bubble-50.png"; sourceTree = "<group>"; };
 		7194EB5419AD7C0500D25C10 /* left2-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left2-50.png"; sourceTree = "<group>"; };
 		7194EB5519AD7C0500D25C10 /* right2-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right2-50.png"; sourceTree = "<group>"; };
+		7194EB5B19AD87CB00D25C10 /* CommentField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentField.h; sourceTree = "<group>"; };
+		7194EB5C19AD87CB00D25C10 /* CommentField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentField.m; sourceTree = "<group>"; };
+		7194EB5E19AD893300D25C10 /* CommentViewController+CommentOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CommentViewController+CommentOperation.h"; sourceTree = "<group>"; };
+		7194EB5F19AD893300D25C10 /* CommentViewController+CommentOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CommentViewController+CommentOperation.m"; sourceTree = "<group>"; };
 		71967A401976418E002B9621 /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
 		71967A411976418E002B9621 /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
 		7197DF5E194197BD00B29EC5 /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
@@ -705,6 +711,8 @@
 			children = (
 				7194EB3619AC2F7B00D25C10 /* CommentViewController.h */,
 				7194EB3719AC2F7B00D25C10 /* CommentViewController.m */,
+				7194EB5E19AD893300D25C10 /* CommentViewController+CommentOperation.h */,
+				7194EB5F19AD893300D25C10 /* CommentViewController+CommentOperation.m */,
 				7194EB4019AC365D00D25C10 /* CommentViewController+Network.h */,
 				7194EB4119AC365D00D25C10 /* CommentViewController+Network.m */,
 				7194EB4319AC43A800D25C10 /* CommentCell.h */,
@@ -869,7 +877,6 @@
 		71A769EC195AB13200E6D004 /* GameDetail */ = {
 			isa = PBXGroup;
 			children = (
-				7194EB3519AC2F5F00D25C10 /* Comment */,
 				71A769ED195AB1D700E6D004 /* GameDetailViewController.h */,
 				71A769EE195AB1D700E6D004 /* GameDetailViewController.m */,
 				71A769F0195ABC4F00E6D004 /* GameDetailViewController+TopButtons.h */,
@@ -902,6 +909,8 @@
 			children = (
 				7194EB2419AB399600D25C10 /* CommentBar.h */,
 				7194EB2519AB399600D25C10 /* CommentBar.m */,
+				7194EB5B19AD87CB00D25C10 /* CommentField.h */,
+				7194EB5C19AD87CB00D25C10 /* CommentField.m */,
 			);
 			name = CommonUI;
 			sourceTree = "<group>";
@@ -1000,6 +1009,7 @@
 				71C1CB0F198CAE4200DA7F8F /* CommonUI */,
 				71CCC3D118E283B400D6F974 /* Menu */,
 				715AD72218E662960068E6E1 /* GameList */,
+				7194EB3519AC2F5F00D25C10 /* Comment */,
 				7197DF741944132600B29EC5 /* AGame */,
 				71CB8C5D18E1310E0073E913 /* Player&TeamList */,
 				715AD73818E679CE0068E6E1 /* PlayerDetail */,
@@ -1407,6 +1417,7 @@
 				7141A19019403F9000B34295 /* AppDelegate+LogicTest.m in Sources */,
 				71898ED719A20219005778D2 /* TeamMemberCell.m in Sources */,
 				719433101918E1DA009BA1D6 /* ParticipantsScoreList.m in Sources */,
+				7194EB6019AD893300D25C10 /* CommentViewController+CommentOperation.m in Sources */,
 				718A49C1194FF0A3001DF516 /* ChooseTeamCell.m in Sources */,
 				719433201919EBFB009BA1D6 /* AppContextParams.m in Sources */,
 				712D16F4194EEFE000396B1F /* CostCell.m in Sources */,
@@ -1448,6 +1459,7 @@
 				71331222196284A400044E65 /* HDYSoccerGeekerViewController+Network.m in Sources */,
 				71A769EF195AB1D700E6D004 /* GameDetailViewController.m in Sources */,
 				71931E51195C0A2500E87624 /* GameDetailViewController+Network.m in Sources */,
+				7194EB5D19AD87CB00D25C10 /* CommentField.m in Sources */,
 				7197DF7A1944177E00B29EC5 /* CreateGameDetailViewController.m in Sources */,
 				71CB8C3918E01D570073E913 /* HDYSoccerTabBarController.m in Sources */,
 				719D5243191678A0006304D3 /* TeamScoreTable.m in Sources */,
