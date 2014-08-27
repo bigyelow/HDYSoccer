@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HPGrowingTextView.h"
 
 #define COMMENT_BACK_HEIGHT 52
 
 @interface CommentField : UIView
+<HPGrowingTextViewDelegate>
 
-@property (nonatomic, strong) UITextView *textView;
+@property (nonatomic, strong) HPGrowingTextView *textView;
 @property (nonatomic, strong) UIButton *sendButton;
 @end

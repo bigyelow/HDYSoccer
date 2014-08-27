@@ -47,7 +47,7 @@
                                                   name:UIKeyboardWillHideNotification
                                                 object:nil];
   [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                  name:UIKeyboardDidShowNotification
+                                                  name:UIKeyboardWillShowNotification
                                                 object:nil];
 }
 
@@ -61,7 +61,7 @@
 - (void)keyboardWillShow:(NSNotification *)notification
 {
   CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-  CGFloat commentY = self.view.bounds.size.height - keyboardRect.size.height - COMMENT_BACK_HEIGHT;
+  CGFloat commentY = self.view.bounds.size.height - keyboardRect.size.height - self.commentView.frame.size.height;
   
   NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
   UIViewAnimationCurve option = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
@@ -91,7 +91,7 @@
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
-  CGFloat commentY = self.view.bounds.size.height - COMMENT_BACK_HEIGHT;
+  CGFloat commentY = self.view.bounds.size.height - self.commentView.frame.size.height;
   
   NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
   UIViewAnimationCurve option = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];

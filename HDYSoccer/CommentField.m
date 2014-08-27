@@ -28,11 +28,16 @@
     // FIELD
     CGFloat fieldWidth = frame.size.width - TEXT_FIELD_LEFT_MARGIN - TEXT_FIELD_RIGHTN_MARGIN;
     CGFloat fieldHeight = frame.size.height - TEXT_FIELD_TOP_MARIGN - TEXT_FIELD_BOTTOM_MARGIN;
-    UITextView *field = [[UITextView alloc] initWithFrame:CGRectMake(TEXT_FIELD_LEFT_MARGIN, TEXT_FIELD_TOP_MARIGN, fieldWidth, fieldHeight)];
+    HPGrowingTextView *field = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(TEXT_FIELD_LEFT_MARGIN, TEXT_FIELD_TOP_MARIGN, fieldWidth, fieldHeight)];
     [field setBackgroundColor:[UIColor whiteColor]];
     [field.layer setCornerRadius:4];
     [field setClipsToBounds:YES];
     [field setFont:[UIFont systemFontOfSize:16]];
+    [field setPlaceholder:TEXT_ADD_COMMENT];
+    [field setDelegate:self];
+    
+    CGFloat maxLines = DEVICE_GREATER_THAN_IPHONE_5 ? 10 : 6;
+    [field setMaxNumberOfLines:maxLines];
     
     
     self.textView = field;
@@ -46,10 +51,22 @@
     [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [sendBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     
+    [sendBtn setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    
     self.sendButton = sendBtn;
     [self addSubview:sendBtn];
   }
   return self;
+}
+
+- (void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
+{
+  float diff = (growingTextView.frame.size.height - height);
+  
+	CGRect r = self.frame;
+  r.size.height -= diff;
+  r.origin.y += diff;
+	self.frame = r;
 }
 
 /*
