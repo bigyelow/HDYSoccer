@@ -9,6 +9,7 @@
 #import "CommentViewController.h"
 #import "CommentViewController+Network.h"
 #import "Comment.h"
+#import "Reply.h"
 #import "CommentCell.h"
 #import "ReplyCell.h"
 
@@ -77,17 +78,20 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   Comment *comment = self.commentsArray[indexPath.section];
+  CGFloat height;
   if (indexPath.row == 0) {
-    CGFloat height = [CommentCell cellHeightForContent:comment.content];
-    NSMutableArray *array = self.cellHeightArray[indexPath.section];
-    NSNumber *number = [NSNumber numberWithFloat:height];
-    [array replaceObjectAtIndex:indexPath.row withObject:number];
-    
-    return height;
+    height = [CommentCell cellHeightForContent:comment.content];
   }
   else {
-    return 0;
+    Reply *reply = comment.replys[indexPath.row - 1];
+    height = [ReplyCell cellHeightForContent:reply.content];
   }
+  
+  NSMutableArray *array = self.cellHeightArray[indexPath.section];
+  NSNumber *number = [NSNumber numberWithFloat:height];
+  [array replaceObjectAtIndex:indexPath.row withObject:number];
+  
+  return height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,6 +116,11 @@
     if (!cell) {
       cell = [[ReplyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
+    
+    cellHeight = self.cellHeightArray[indexPath.section][indexPath.row];
+    Reply *reply = comment.replys[indexPath.row - 1];
+    [cell configCellWithReply:reply cellHeight:cellHeight.floatValue];
+    
     return cell;
   }
 }

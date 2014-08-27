@@ -10,6 +10,18 @@
 
 #define REPLY_CELL_ID @"replyCell"
 
+@class Reply;
+
 @interface ReplyCell : UITableViewCell
 
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UITextView *content;
+@property (nonatomic, strong) UILabel *timeLabel;
+@property (nonatomic, strong) UIImageView *replyImage;
+@property (nonatomic, strong) UIView *seper;
+@property (nonatomic, strong) UIImageView *avatar;
+
++ (CGFloat)cellHeightForContent:(NSString *)content;
+- (void)configCellWithReply:(Reply *)reply
+                 cellHeight:(CGFloat)cellHeight;
 @end
