@@ -50,6 +50,7 @@
     [sendBtn setTitle:TEXT_SEND_MESSAGE forState:UIControlStateNormal];
     [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [sendBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [sendBtn setTitleEdgeInsets:UIEdgeInsetsMake(16, 0, 5, 0)];
     
     [sendBtn setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
     
