@@ -12,6 +12,6 @@
 
 @interface CommentField : UIView
 
-@property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UIButton *sendButton;
 @end

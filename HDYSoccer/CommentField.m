@@ -28,13 +28,14 @@
     // FIELD
     CGFloat fieldWidth = frame.size.width - TEXT_FIELD_LEFT_MARGIN - TEXT_FIELD_RIGHTN_MARGIN;
     CGFloat fieldHeight = frame.size.height - TEXT_FIELD_TOP_MARIGN - TEXT_FIELD_BOTTOM_MARGIN;
-    UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(TEXT_FIELD_LEFT_MARGIN, TEXT_FIELD_TOP_MARIGN, fieldWidth, fieldHeight)];
-    [field setPlaceholder:TEXT_ADD_COMMENT];
+    UITextView *field = [[UITextView alloc] initWithFrame:CGRectMake(TEXT_FIELD_LEFT_MARGIN, TEXT_FIELD_TOP_MARIGN, fieldWidth, fieldHeight)];
     [field setBackgroundColor:[UIColor whiteColor]];
     [field.layer setCornerRadius:4];
     [field setClipsToBounds:YES];
+    [field setFont:[UIFont systemFontOfSize:16]];
     
-    self.textField = field;
+    
+    self.textView = field;
     [self addSubview:field];
     
     // SEND
