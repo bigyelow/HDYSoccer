@@ -41,6 +41,13 @@
   
   [self configTopButtons];
   [self loadGameCommentsWithGameType:self.gameType gameID:self.gameID];
+  
+  [self registerKeyboardNotification];
+}
+
+- (void)dealloc
+{
+  [self unregisterKeyboardNotification];
 }
 
 - (void)didReceiveMemoryWarning

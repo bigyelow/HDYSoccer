@@ -8,6 +8,7 @@
 
 #import "HDYSoccerBaseTableViewController.h"
 #import "CreateGameDetailViewController.h"
+@class CommentField;
 
 typedef NS_ENUM(NSUInteger, CommentType) {
   kCommentTypeGame,
@@ -19,6 +20,11 @@ typedef NS_ENUM(NSUInteger, CommentType) {
 @property (nonatomic, assign) CommentType commentType;
 @property (nonatomic, strong) NSArray *commentsArray;
 @property (nonatomic, strong) NSMutableArray *cellHeightArray;
+@property (nonatomic, assign) BOOL isKeyboardShowed;
+
+// COMMENT FIELD
+@property (nonatomic, assign) BOOL isReply;
+@property (nonatomic, strong) CommentField *commentView;
 
 //GAME TYPE
 @property (nonatomic, assign) GameType gameType;

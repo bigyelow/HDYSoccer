@@ -11,4 +11,6 @@
 @interface CommentViewController (CommentOperation)
 
 - (void)configCommentView;
+- (void)registerKeyboardNotification;
+- (void)unregisterKeyboardNotification;
 @end
