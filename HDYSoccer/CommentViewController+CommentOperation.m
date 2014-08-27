@@ -14,7 +14,7 @@
 - (void)configCommentView
 {
   // update tableview UI
-  [self.tableView setContentInset:UIEdgeInsetsMake(COMMENT_BACK_HEIGHT, 0, COMMENT_BACK_HEIGHT, 0)];
+  [self.tableView setContentInset:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, COMMENT_BACK_HEIGHT, 0)];
   [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, COMMENT_BACK_HEIGHT, 0)];
   
   UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewTapped:)];
@@ -81,7 +81,10 @@
   
   // COMMENT
   if (!self.isReply) {
-
+    CGFloat commentViewHeight = keyboardRect.size.height + self.commentView.frame.size.height;
+    // update tableview UI
+    [self.tableView setContentInset:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
+    [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
   }
   // REPLY
   else {
@@ -103,6 +106,11 @@
   [UIView setAnimationCurve:option];
   
   [UIConfiguration setView:self.commentView y:commentY];
+  
+  // update tableview UI
+  CGFloat commentViewHeight = self.commentView.frame.size.height;
+  [self.tableView setContentInset:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
+  [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
   
   // commit
   [UIView commitAnimations];
