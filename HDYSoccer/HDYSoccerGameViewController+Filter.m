@@ -51,6 +51,7 @@
     [self setfilterParam:index field:field];
   }
   
+  [self setLoadedOnceValueIndex:index loadedOnce:NO];
   UICollectionView *collectionView = self.collectionViewArray[index];
   [collectionView triggerPullToRefresh];
 }
