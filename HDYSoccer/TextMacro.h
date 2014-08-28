@@ -103,6 +103,6 @@
 // alert
 #define ALERT_PHONE_INVALID @"手机号码格式不对"
 #define ALERT_NO_TIME @"请选择踢球时间"
-
+#define ALERT_TEXT_EMPTY @"内容不能为空"
 
 #endif

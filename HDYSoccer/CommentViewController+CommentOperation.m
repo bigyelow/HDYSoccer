@@ -8,6 +8,8 @@
 
 #import "CommentViewController+CommentOperation.h"
 #import "CommentField.h"
+#import "PSPDFAlertView.h"
+#import "AppDelegate+Configuration.h"
 
 @implementation CommentViewController (CommentOperation)
 
@@ -20,9 +22,34 @@
   // Comment view
   CGFloat commentY = self.view.bounds.size.height - COMMENT_BACK_HEIGHT;
   CommentField *commentView = [[CommentField alloc] initWithFrame:CGRectMake(0, commentY, self.view.bounds.size.width, COMMENT_BACK_HEIGHT)];
+  [commentView.sendButton addTarget:self action:@selector(sendButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
   self.commentView = commentView;
   [self.view addSubview:commentView];
+}
+
+- (void)sendButtonPressed
+{
+  if ([Tools isNilOrEmpty:self.commentView.textView.text]) {
+    PSPDFAlertView *alert = [[PSPDFAlertView alloc] initWithTitle:nil message:ALERT_TEXT_EMPTY];
+    [alert setCancelButtonWithTitle:TEXT_I_SEE block:nil];
+    
+    [alert show];
+    
+    return;
+  }
+  
+  if ([AppContext appContext].isLogin) {
+    if (self.isReply) { // reply
+      
+    }
+    else {  // comment
+      
+    }
+  }
+  else {
+    [AppDelegate showLoginWithDelegate:self];
+  }
 }
 
 #pragma mark - Keyboard related

@@ -149,4 +149,9 @@
   }
 }
 
+#pragma mark - register and login
+- (void)loginSucceeded:(RegisterAndLoginViewController *)vc
+{
+  
+}
 @end
