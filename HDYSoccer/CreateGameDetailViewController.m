@@ -57,7 +57,6 @@
   }
   
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-  [self.tableView setShowsVerticalScrollIndicator:NO];
 
   // keyboard observer
   [self configKeyBoardEvents];
@@ -70,9 +69,8 @@
 
 - (void)dealloc
 {
-  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,51 +83,55 @@
 - (void)configKeyBoardEvents
 {
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(showKeyBoard:)
-                                               name:UIKeyboardDidShowNotification
+                                           selector:@selector(keyboardWillShow:)
+                                               name:UIKeyboardWillShowNotification
                                              object:nil];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(hideKeyboard:)
+                                           selector:@selector(keyboardWillHide:)
                                                name:UIKeyboardWillHideNotification
                                              object:nil];
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(keyboardHide:)
-                                               name:UIKeyboardDidHideNotification
-                                             object:nil];
-
 }
 
-// keyboard did showed
-- (void)showKeyBoard:(NSNotification *)notification
+- (void)keyboardWillShow:(NSNotification *)notification
 {
-  self.keyboardShowed = YES;
-  
-  CGRect keyboardRect = [UIConfiguration keyBoardRect:notification];
-  [UIConfiguration setView:self.tableView height:self.view.frame.size.height - keyboardRect.size.height - KEYBOARD_TOP_VIEW_HEIGHT];
-  
-  // keyboard top view
-  CGFloat topY = self.view.frame.size.height - keyboardRect.size.height - KEYBOARD_TOP_VIEW_HEIGHT;
 
+  // keyboard top view
   if (!self.keyboardTopView) {
     CGFloat topWidth = self.view.bounds.size.width;
-    KeyboardTopView *topView = [[KeyboardTopView alloc] initWithFrame:CGRectMake(0, topY, topWidth, KEYBOARD_TOP_VIEW_HEIGHT)];
+    KeyboardTopView *topView = [[KeyboardTopView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, topWidth, KEYBOARD_TOP_VIEW_HEIGHT)];
     
     self.keyboardTopView = topView;
     [self.keyboardTopView.confirmButton addTarget:self action:@selector(resignAllTheResponder) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:topView];
   }
-  else {
-    [self.keyboardTopView setHidden:NO];
-    [UIConfiguration setView:self.keyboardTopView y:topY];
-  }
 
+  CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+  CGFloat keyBoardViewHeight = keyboardRect.size.height + KEYBOARD_TOP_VIEW_HEIGHT;
+  CGFloat topY = self.view.frame.size.height - keyBoardViewHeight;
+  
+  // animations settings
+  NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+  UIViewAnimationOptions option = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+  
+  [UIView animateWithDuration:duration
+                        delay:0
+                      options:option
+                   animations:^{
+                     [UIConfiguration setView:self.keyboardTopView y:topY];
+                   } completion:nil];
+  
+  [self.tableView setContentInset:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, keyBoardViewHeight, 0)];
+  [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, keyBoardViewHeight, 0)];
+  
   // config cell position
   NSIndexPath *indexPath;
   if ([self.playerCell.textField isFirstResponder]) {
     indexPath = self.playerCellIndexPath;
+  }
+  else if ([self.fieldCell.textView isFirstResponder]) {
+    indexPath = self.fieldCellIndexPath;
   }
   else if ([self.contactCell.textField isFirstResponder]) {
     indexPath = self.contactCellIndexPath;
@@ -149,27 +151,33 @@
 }
 
 // keyboard will hide
-- (void)hideKeyboard:(NSNotification *)notification
+- (void)keyboardWillHide:(NSNotification *)notification
 {
   self.keyboardShowed = NO;
-  [self.keyboardTopView setHidden:YES];
-  [UIConfiguration setView:self.tableView height:self.view.frame.size.height];
-}
-
-
-// keyboard did hide
-- (void)keyboardHide:(NSNotification *)notification
-{
-  if (self.shouldOpenTimeInput) {
-    [self openDateSelectionController];
-    self.shouldOpenTimeInput = NO;
-  }
+  
+  NSTimeInterval duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+  UIViewAnimationCurve option = [notification.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+  
+  // animations settings
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+  [UIView setAnimationDuration:duration];
+  [UIView setAnimationCurve:option];
+  
+  [UIConfiguration setView:self.keyboardTopView y:self.view.frame.size.height];
+  [self.tableView setContentInset:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, 0, 0)];
+  [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, 0, 0)];
+  
+  [UIView commitAnimations];
 }
 
 - (void)resignAllTheResponder
 {
   if ([self.playerCell.textField isFirstResponder]) {
     [self.playerCell.textField resignFirstResponder];
+  }
+  else if ([self.fieldCell.textView isFirstResponder]) {
+    [self.fieldCell.textView resignFirstResponder];
   }
   else if ([self.contactCell.textField isFirstResponder]) {
     [self.contactCell.textField resignFirstResponder];
@@ -242,6 +250,10 @@
       if (cell == nil) {
         cell = [[ChooseFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
       }
+      
+      self.fieldCell = cell;
+      self.fieldCellIndexPath = indexPath;
+      self.fieldCell.textView.delegate = self;
       return cell;
     }
       
@@ -311,13 +323,8 @@
   
   switch (indexPath.section) {
     case 0:
-      if (self.keyboardShowed) {
-        [self resignAllTheResponder];
-        [self setShouldOpenTimeInput:YES];
-      }
-      else {
-        [self openDateSelectionController];
-      }
+      [self resignAllTheResponder];
+      [self openDateSelectionController];
       break;
       
     default:
@@ -363,7 +370,13 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
   if (self.keyboardShowed) {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:self.remarkCell];
+    NSIndexPath *indexPath;
+    if ([self.fieldCell.textView isFirstResponder]) {
+      indexPath = self.fieldCellIndexPath;
+    }
+    else if ([self.remarkCell.textView isFirstResponder]) {
+      indexPath = self.remarkCellIndexPath;
+    }
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
   }
 }

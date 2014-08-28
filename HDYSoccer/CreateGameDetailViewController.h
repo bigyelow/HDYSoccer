@@ -18,6 +18,7 @@
 #define GAME_COST_PER_PERSON_KEY @"gameCostPerPerson"
 #define GAME_REMARKS_KEY @"gameRemarks"
 
+@class ChooseFieldCell;
 @class ChoosePlayerCell;
 @class ContactCell;
 @class CostCell;
@@ -48,6 +49,9 @@ typedef NS_ENUM(NSUInteger, GameType)
 @property (nonatomic, copy) NSString *teamID;
 
 // cell
+@property (nonatomic, strong) ChooseFieldCell *fieldCell;
+@property (nonatomic, strong) NSIndexPath *fieldCellIndexPath;
+
 @property (nonatomic, strong) ChoosePlayerCell *playerCell;
 @property (nonatomic, strong) NSIndexPath *playerCellIndexPath;
 
@@ -67,8 +71,6 @@ typedef NS_ENUM(NSUInteger, GameType)
 @property (nonatomic, assign) CGRect keyboardRect;
 @property (nonatomic, strong) KeyboardTopView *keyboardTopView;
 @property (nonatomic, assign) BOOL keyboardShowed;
-
-@property (nonatomic, assign) BOOL shouldOpenTimeInput;
 
 - (id)initWithStyle:(UITableViewStyle)style
            gameType:(GameType)gameType;

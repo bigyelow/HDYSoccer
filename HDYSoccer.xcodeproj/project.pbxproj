@@ -918,6 +918,8 @@
 		71C1CB0F198CAE4200DA7F8F /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				714B320E19878544008F5F77 /* KeyboardTopView.h */,
+				714B320F19878544008F5F77 /* KeyboardTopView.m */,
 				7194EB2419AB399600D25C10 /* CommentBar.h */,
 				7194EB2519AB399600D25C10 /* CommentBar.m */,
 				7194EB5B19AD87CB00D25C10 /* CommentField.h */,
@@ -1040,8 +1042,6 @@
 				71CB8C4418E02C550073E913 /* TabBar */,
 				71CB8C5118E0372E0073E913 /* NavigationController */,
 				71CB8C4518E02C730073E913 /* BaseViewController */,
-				714B320E19878544008F5F77 /* KeyboardTopView.h */,
-				714B320F19878544008F5F77 /* KeyboardTopView.m */,
 			);
 			name = BaseComponents;
 			sourceTree = "<group>";
