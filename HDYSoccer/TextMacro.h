@@ -65,6 +65,7 @@
 #define TEXT_HISTORY_RECORD @"历史战绩"
 #define TEXT_COMMENT_COUNT @"%d 条评论"
 #define TEXT_REPLY @"回复"
+#define TEXT_REPLY_SOMEBODY @"回复%@:"
 #define TEXT_ADD_COMMENT @"  添加评论"
 #define TEXT_SEND_MESSAGE @"发送"
 

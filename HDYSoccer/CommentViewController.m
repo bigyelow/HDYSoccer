@@ -13,6 +13,7 @@
 #import "CommentCell.h"
 #import "ReplyCell.h"
 #import "CommentViewController+CommentOperation.h"
+#import "CommentField.h"
 
 @interface CommentViewController ()
 
@@ -130,6 +131,21 @@
     [cell configCellWithReply:reply cellHeight:cellHeight.floatValue];
     
     return cell;
+  }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (indexPath.row == 0) {
+    Comment *comment = self.commentsArray[indexPath.section];
+    NSString *name = comment.userName;
+    
+    [self.commentView.textView becomeFirstResponder];
+    self.isReply = YES;
+    
+    [self.commentView.textView setPlaceholder:[NSString stringWithFormat:TEXT_REPLY_SOMEBODY, name]];
+    
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
   }
 }
 

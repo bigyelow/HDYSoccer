@@ -17,9 +17,6 @@
   [self.tableView setContentInset:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, COMMENT_BACK_HEIGHT, 0)];
   [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, COMMENT_BACK_HEIGHT, 0)];
   
-  UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewTapped:)];
-  [self.tableView addGestureRecognizer:gest];
-  
   // Comment view
   CGFloat commentY = self.view.bounds.size.height - COMMENT_BACK_HEIGHT;
   CommentField *commentView = [[CommentField alloc] initWithFrame:CGRectMake(0, commentY, self.view.bounds.size.width, COMMENT_BACK_HEIGHT)];
@@ -79,16 +76,22 @@
   
   [self setIsKeyboardShowed:YES];
   
-  // COMMENT
-  if (!self.isReply) {
-    CGFloat commentViewHeight = keyboardRect.size.height + self.commentView.frame.size.height;
-    // update tableview UI
-    [self.tableView setContentInset:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
-    [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
-  }
-  // REPLY
-  else {
+  // update tableview UI
+  CGFloat commentViewHeight = keyboardRect.size.height + self.commentView.frame.size.height;
+  [self.tableView setContentInset:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
+  [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
   
+  // Gesture
+  BOOL shouldAddTapGest = YES;
+  for (UIGestureRecognizer *gest in self.tableView.gestureRecognizers) {
+    if ([gest isKindOfClass:[UITapGestureRecognizer class]])  {
+      shouldAddTapGest = NO;
+      break;
+    }
+  }
+  if (shouldAddTapGest) {
+    UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewTapped:)];
+    [self.tableView addGestureRecognizer:gest];
   }
 }
 
@@ -112,9 +115,17 @@
   [self.tableView setContentInset:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
   [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(TOP_BAR_HEIGHT, 0, commentViewHeight, 0)];
   
+  [self.commentView.textView setPlaceholder:TEXT_ADD_COMMENT];
+  
   // commit
   [UIView commitAnimations];
   
   [self setIsKeyboardShowed:NO];
+  [self setIsReply:NO];
+  
+  NSInteger gestCount = [self.tableView.gestureRecognizers count];
+  if (gestCount) {
+    [self.tableView removeGestureRecognizer:[self.tableView.gestureRecognizers lastObject]];
+  }
 }
 @end
