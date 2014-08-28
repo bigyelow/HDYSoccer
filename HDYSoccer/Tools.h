@@ -26,6 +26,9 @@ typedef void (^performBlock)();
 @interface Tools : NSObject
 // string
 + (BOOL)isNilOrEmpty:(NSString *)string;
+// array
++ (BOOL)isNilOrEmptyArray:(NSArray *)array;
+
 
 // view effect
 + (void)blurView:(UIView *)view

@@ -20,6 +20,14 @@
   return false;
 }
 
++ (BOOL)isNilOrEmptyArray:(NSArray *)array
+{
+  if (array == nil || [array count] == 0) {
+    return true;
+  }
+  return false;
+}
+
 #pragma mark - view effect
 + (void)blurView:(UIView *)view
            image:(UIImage *)image

@@ -8,8 +8,14 @@
 
 #import "CommentViewController.h"
 
+#define LOAD_MAX_LIMIT 40
+
 @interface CommentViewController (Network)
 
 - (void)loadGameCommentsWithGameType:(GameType)gameType
                               gameID:(NSString *)gameID;
+- (void)loadMoreCommentsWithGameType:(GameType)gameType
+                              gameID:(NSString *)gameID
+                               start:(NSInteger)start
+                               count:(NSInteger)count;
 @end

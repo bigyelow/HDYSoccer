@@ -21,7 +21,7 @@ typedef NS_ENUM(NSUInteger, CommentType) {
 <RegisterAndLoginDelegate>
 
 @property (nonatomic, assign) CommentType commentType;
-@property (nonatomic, strong) NSArray *commentsArray;
+@property (nonatomic, strong) NSMutableArray *commentsArray;
 @property (nonatomic, strong) NSMutableArray *cellHeightArray;
 @property (nonatomic, assign) BOOL isKeyboardShowed;
 @property (nonatomic, assign) NSInteger commentStart;

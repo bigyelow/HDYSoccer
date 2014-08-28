@@ -14,6 +14,7 @@
 #import "ReplyCell.h"
 #import "CommentViewController+CommentOperation.h"
 #import "CommentField.h"
+#import "SVPullToRefresh.h"
 
 @interface CommentViewController ()
 
@@ -36,14 +37,26 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-
-  [self.tableView setHidden:YES];
-  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
+  [self configTableView];
   [self configTopButtons];
   [self loadGameCommentsWithGameType:self.gameType gameID:self.gameID];
   
   [self registerKeyboardNotification];
+}
+
+- (void)configTableView
+{
+  [self.tableView setHidden:YES];
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  
+  __weak typeof(self) weakSelf = self;
+  [self.tableView addInfiniteScrollingWithActionHandler:^{
+    [weakSelf loadMoreCommentsWithGameType:weakSelf.gameType
+                                    gameID:weakSelf.gameID
+                                     start:weakSelf.commentStart
+                                     count:LOAD_MAX_LIMIT];
+  }];
 }
 
 - (void)dealloc
