@@ -20,5 +20,9 @@
                                count:(NSInteger)count;
 - (void)sendCommentWithGameType:(GameType)gameType
                          gameID:(NSString *)gameID
-                        Content:(NSString *)content;
+                        content:(NSString *)content;
+- (void)sendRelplyWithGameType:(GameType)gameType
+                        gameID:(NSString *)gameID
+                     commentID:(NSString *)commentID
+                       content:(NSString *)content;
 @end

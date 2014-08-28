@@ -11,6 +11,7 @@
 #import "CommentField.h"
 #import "PSPDFAlertView.h"
 #import "AppDelegate+Configuration.h"
+#import "Comment.h"
 
 @implementation CommentViewController (CommentOperation)
 
@@ -50,16 +51,17 @@
 
 - (void)sendMessage
 {
+  if (self.isReply) { // reply
+//    Comment *comment = self.commentsArray[self.selectedCommentIndex];
+    [self sendRelplyWithGameType:self.gameType gameID:self.gameID commentID:@"1" content:self.commentView.textView.text];
+  }
+  else {  // comment
+    [self sendCommentWithGameType:self.gameType gameID:self.gameID content:self.commentView.textView.text];
+  }
+  
   if ([self.commentView.textView isFirstResponder]) {
     [self.commentView.textView setText:@""];
     [self.commentView.textView resignFirstResponder];
-  }
-  
-  if (self.isReply) { // reply
-    
-  }
-  else {  // comment
-    [self sendCommentWithGameType:self.gameType gameID:self.gameID Content:self.commentView.textView.text];
   }
 }
 

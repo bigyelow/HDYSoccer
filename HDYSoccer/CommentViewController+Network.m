@@ -156,7 +156,7 @@
 #pragma mark - send comment
 - (void)sendCommentWithGameType:(GameType)gameType
                          gameID:(NSString *)gameID
-                        Content:(NSString *)content
+                        content:(NSString *)content
 {
   __weak typeof(self) weakSelf = self;
   if (gameType == kGameTypePersonal) {
@@ -179,8 +179,11 @@
     [self.httpsClient sendCommentToTeamGame:gameID
                                     Content:content
                                   succeeded:^(NSDictionary *dictionary) {
+                                    
+                                    Comment *comment = [Comment objectWithDictionary:dictionary];
+                                    [weakSelf updateTableViewWithNewComment:comment];
+                                    
                                     [UIConfiguration hideTipMessageOnView:weakSelf.view];
-
                                   } failed:^(HDYSoccerAPIError *error) {
                                     [UIConfiguration hideTipMessageOnView:weakSelf.view];
 
@@ -213,4 +216,68 @@
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
   [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
+
+#pragma mark - send reply
+
+- (void)sendRelplyWithGameType:(GameType)gameType
+                        gameID:(NSString *)gameID
+                     commentID:(NSString *)commentID
+                       content:(NSString *)content
+{
+  __weak typeof(self) weakSelf = self;
+  if (gameType == kGameTypePersonal) {
+    [UIConfiguration showTipMessageToView:self.view title:TEXT_SENDING];
+    [self.httpsClient sendReplyToPersonalGame:gameID
+                                    commentID:commentID
+                                      content:content
+                                    succeeded:^(NSDictionary *dictionary) {
+                                      
+                                      Comment *comment = [Comment objectWithDictionary:dictionary];
+                                      [weakSelf updateTableViewAfterReply:comment];
+                                      
+                                      [UIConfiguration hideTipMessageOnView:weakSelf.view];
+                                      
+                                    } failed:^(HDYSoccerAPIError *error) {
+                                      [UIConfiguration hideTipMessageOnView:weakSelf.view];
+                                    }];
+  }
+  else if (gameType == kGameTypeTeam) {
+    [UIConfiguration showTipMessageToView:self.view title:TEXT_SENDING];
+    [self.httpsClient sendReplyToTeamGame:gameID
+                                commentID:commentID
+                                  content:content
+                                succeeded:^(NSDictionary *dictionary) {
+                                  
+                                  Comment *comment = [Comment objectWithDictionary:dictionary];
+                                  [weakSelf updateTableViewAfterReply:comment];
+                                  
+                                  [UIConfiguration hideTipMessageOnView:weakSelf.view];
+                                  
+                                } failed:^(HDYSoccerAPIError *error) {
+                                  [UIConfiguration hideTipMessageOnView:weakSelf.view];
+                                }];
+  }
+}
+
+- (void)updateTableViewAfterReply:(Comment *)comment
+{
+  if (!comment)
+    return;
+  
+  
+  [self.commentsArray replaceObjectAtIndex:self.selectedCommentIndex withObject:comment];
+
+  // config cell height array
+  NSMutableArray *tempArray = [NSMutableArray array];
+  [tempArray addObject:[NSNumber numberWithFloat:0]];
+  
+  for (int i = 0; i < [comment.replys count]; ++i) {
+    [tempArray addObject:[NSNumber numberWithFloat:0]];
+  }
+  [self.cellHeightArray replaceObjectAtIndex:self.selectedCommentIndex withObject:tempArray];
+  
+  NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.selectedCommentIndex, 1)];
+  [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
+}
+
 @end

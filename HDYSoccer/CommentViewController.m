@@ -154,6 +154,7 @@
     NSString *name = comment.userName;
     
     [self.commentView.textView becomeFirstResponder];
+    self.selectedCommentIndex = indexPath.section;
     self.isReply = YES;
     
     [self.commentView.textView setPlaceholder:[NSString stringWithFormat:TEXT_REPLY_SOMEBODY, name]];

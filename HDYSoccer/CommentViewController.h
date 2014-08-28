@@ -25,6 +25,7 @@ typedef NS_ENUM(NSUInteger, CommentType) {
 @property (nonatomic, strong) NSMutableArray *cellHeightArray;
 @property (nonatomic, assign) BOOL isKeyboardShowed;
 @property (nonatomic, assign) NSInteger commentStart;
+@property (nonatomic, assign) NSInteger selectedCommentIndex;
 
 // COMMENT FIELD
 @property (nonatomic, assign) BOOL isReply;

@@ -177,7 +177,14 @@
                   parameters:parameter
                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
                        NSArray *resultArray = (NSArray *)responseObject;
-                       succeeded(resultArray);
+                       NSMutableArray *temp = [NSMutableArray array];
+                       
+                       for (NSDictionary *dic in resultArray) {
+                         Comment *comment = [Comment objectWithDictionary:dic];
+                         [temp addObject:comment];
+                       }
+                       
+                       succeeded(temp);
                      }
                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                        HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
