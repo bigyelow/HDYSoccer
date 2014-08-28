@@ -53,7 +53,7 @@
   if (self) {
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    CGFloat contentWidth = WINDOW_FRAME.size.width - 2 * NAME_LEFT_MARGIN;
+    CGFloat contentWidth = WINDOW_FRAME.size.width - - REPLY_IMAGE_LEFT_MARGIN - REPLY_IMAGE_HEIGHT - 2 * NAME_LEFT_MARGIN;
     CGFloat bottomY;
     
     // Reply image
@@ -135,7 +135,7 @@
   UIFont *font = [UIFont systemFontOfSize:CONTENT_FONT_SIZE];
   [self.content setAttributedText:reply.content font:font lineSpace:CONTENT_LINE_SPACE];
   
-  CGFloat contentWidth = WINDOW_FRAME.size.width - 2 * CONTENT_LEFT_MARGIN;
+  CGFloat contentWidth = WINDOW_FRAME.size.width - REPLY_IMAGE_LEFT_MARGIN - REPLY_IMAGE_HEIGHT - 2 * CONTENT_LEFT_MARGIN;
   CGFloat contentHeight = cellHeight - NAME_TOP_MARGIN - NAME_HEIGHT
   - CONTENT_TOP_MARGIN
   - TIME_TOP_MARGIN - TIME_HEIGHT
@@ -165,7 +165,9 @@
   UIFont *font = [UIFont systemFontOfSize:CONTENT_FONT_SIZE];
   [textView setAttributedText:content font:font lineSpace:CONTENT_LINE_SPACE];
   
-  CGFloat textViewWidth = WINDOW_FRAME.size.width - 2 * CONTENT_LEFT_MARGIN;
+  CGFloat textViewWidth = WINDOW_FRAME.size.width
+  - REPLY_IMAGE_LEFT_MARGIN - REPLY_IMAGE_HEIGHT
+  -  2 * CONTENT_LEFT_MARGIN;
   CGSize textSize = [textView sizeThatFits:CGSizeMake(textViewWidth, MAXFLOAT)];
   
   return height + textSize.height;
