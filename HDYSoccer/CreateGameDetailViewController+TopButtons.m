@@ -86,6 +86,18 @@
 
 - (void)checkParams
 {
+  NSString *time = [Tools dateminuteToStr:self.gameTime preferUTC:NO];
+  [self createGameWithTime:time
+                     field:self.gameField
+               playerCount:self.playerCount
+                   players:self.players
+                    teamID:self.teamID
+                   contact:self.contact
+                   remarks:self.remarks
+                      cost:self.cost];
+  
+  return;
+  
   if (!self.gameTime) { // time
     PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:ALERT_NO_TIME];
     [alertView setCancelButtonWithTitle:TEXT_I_SEE

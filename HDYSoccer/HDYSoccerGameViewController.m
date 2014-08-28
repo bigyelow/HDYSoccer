@@ -147,13 +147,11 @@
     SimplePersonalGameInfo *gameInfo = list[indexPath.row];
     gameType = kGameTypePersonal;
     gameID = gameInfo.personalGameID;
-    gameID = @"1000";
   }
   else {
     SimpleTeamGameInfo *gameInfo = list[indexPath.row];
     gameType = kGameTypeTeam;
     gameID = gameInfo.teamGameID;
-    gameID = @"2000";
   }
   
   GameDetailViewController *viewCtr = [[GameDetailViewController alloc] initWithgameID:gameID

@@ -22,7 +22,7 @@
   if (gameType == kGameTypePersonal) {
     
     [UIConfiguration showTipMessageToView:self.view title:TEXT_LOADING];
-    [self.httpsClient getPersonalGameWithID:gameID
+    [self.httpsClient getPersonalGameWithID:@"1000"
                                  succeeded:^(NSDictionary *dictionary) {
                                    [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                    weakSelf.personalGame = [PersonalGame objectWithDictionary:dictionary];
@@ -38,7 +38,7 @@
   }
   else if (gameType == kGameTypeTeam) {
     [UIConfiguration showTipMessageToView:self.view title:TEXT_LOADING];
-    [self.httpsClient getTeamGameWithID:gameID
+    [self.httpsClient getTeamGameWithID:@"2000"
                              succeeded:^(NSDictionary *dictionary) {
                                [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                weakSelf.teamGame = [TeamGame objectWithDictionary:dictionary];

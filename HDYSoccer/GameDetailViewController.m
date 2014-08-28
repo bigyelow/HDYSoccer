@@ -57,15 +57,19 @@
   self.newCreated = YES;
   
   switch (self.gameType) {
-    case kGameTypePersonal:
-      self.personalGame = [gameInfo objectForKey:KEY_GAME_OBJECT];
-      self.title = self.personalGame.gameName;
+    case kGameTypePersonal: {
+      PersonalGame *personalGame;
+      personalGame = [gameInfo objectForKey:KEY_GAME_OBJECT];
+      self.gameID = personalGame.personalGameID;
       break;
+    }
       
-    case kGameTypeTeam:
-      self.teamGame = [gameInfo objectForKey:KEY_GAME_OBJECT];
-      self.title = self.teamGame.gameName;
+    case kGameTypeTeam: {
+      TeamGame *teamGame;
+      teamGame = [gameInfo objectForKey:KEY_GAME_OBJECT];
+      self.gameID = teamGame.teamGameID;
       break;
+    }
       
     default:
       
@@ -94,9 +98,7 @@
     [self configTopItems];  // add confirm button to new created game
   }
   
-  if (self.newCreated == NO) {  // load from game list
-    [self loadGameInfoWithGameID:self.gameID gameType:self.gameType];
-  }
+  [self loadGameInfoWithGameID:self.gameID gameType:self.gameType];
   
   [self loadTags];
   [self configTableContentInset];
