@@ -283,4 +283,56 @@
                         failed(hdyApiError);
                       }];
 }
+
+- (void)sendReplyToPersonalGame:(NSString *)gameID
+                      commentID:(NSString *)commentID
+                        content:(NSString *)content
+                      succeeded:(SucceededGettingDictionaryBlock)succeeded
+                         failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  [parameter setObject:content forKey:@"content"];
+  
+  NSString *pathStr = [NSString stringWithFormat:@"game/personal/%@/comment/%@/reply", gameID, commentID];
+  NSString *path = [self pathWithSubpath:pathStr];
+  [self.operationManager POST:path
+                   parameters:parameter
+                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        NSDictionary *resultDic = responseObject;
+                        succeeded(resultDic);
+                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                        failed(hdyApiError);
+                      }];
+}
+
+- (void)sendReplyToTeamGame:(NSString *)gameID
+                  commentID:(NSString *)commentID
+                    content:(NSString *)content
+                  succeeded:(SucceededGettingDictionaryBlock)succeeded
+                     failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  [parameter setObject:content forKey:@"content"];
+  
+  NSString *pathStr = [NSString stringWithFormat:@"game/team/%@/comment/%@/reply", gameID, commentID];
+  NSString *path = [self pathWithSubpath:pathStr];
+  [self.operationManager POST:path
+                   parameters:parameter
+                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        NSDictionary *resultDic = responseObject;
+                        succeeded(resultDic);
+                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                        failed(hdyApiError);
+                      }];
+}
 @end

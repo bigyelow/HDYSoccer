@@ -62,4 +62,15 @@
                       Content:(NSString *)content
                     succeeded:(SucceededGettingDictionaryBlock)succeeded
                        failed:(FailedBlock)failed;
+- (void)sendReplyToPersonalGame:(NSString *)gameID
+                      commentID:(NSString *)commentID
+                        content:(NSString *)content
+                      succeeded:(SucceededGettingDictionaryBlock)succeeded
+                         failed:(FailedBlock)failed;
+
+- (void)sendReplyToTeamGame:(NSString *)gameID
+                  commentID:(NSString *)commentID
+                    content:(NSString *)content
+                  succeeded:(SucceededGettingDictionaryBlock)succeeded
+                     failed:(FailedBlock)failed;
 @end
