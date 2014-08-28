@@ -230,7 +230,7 @@
   [noScoreButton.titleLabel setFont:[UIFont systemFontOfSize:CONFIRM_BUTTON_FONT_SIZE]];
   [noScoreButton addTarget:self action:@selector(confirmWithoutScoreButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
-  [self.rateFrontView addSubview:noScoreButton];
+//  [self.rateFrontView addSubview:noScoreButton];
   
   // confirm
   CGFloat confirmX = CGRectGetMaxX(noScoreButton.frame) + CONFIRM_BUTTON_LEFT_MARGIN;
@@ -242,6 +242,8 @@
   [confirmButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
   [confirmButton.titleLabel setFont:[UIFont systemFontOfSize:CONFIRM_BUTTON_FONT_SIZE]];
   [confirmButton addTarget:self action:@selector(confirmButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+  
+  [UIConfiguration moveSubviewXToSuperviewCenter:self.rateFrontView subview:confirmButton];
   
   [self.rateFrontView addSubview:confirmButton];
 }
