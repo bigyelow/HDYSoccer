@@ -18,4 +18,7 @@
                               gameID:(NSString *)gameID
                                start:(NSInteger)start
                                count:(NSInteger)count;
+- (void)sendCommentWithGameType:(GameType)gameType
+                         gameID:(NSString *)gameID
+                        Content:(NSString *)content;
 @end

@@ -8,6 +8,7 @@
 
 #import "CommentViewController+Network.h"
 #import "HDYSoccerAPIClient+HTTP.h"
+#import "HDYSoccerAPIClient+HTTPS.h"
 #import "Comment.h"
 #import "Reply.h"
 #import "CommentViewController+CommentOperation.h"
@@ -153,8 +154,63 @@
 }
 
 #pragma mark - send comment
-- (void)sendCommentWithContent:(NSString *)content
+- (void)sendCommentWithGameType:(GameType)gameType
+                         gameID:(NSString *)gameID
+                        Content:(NSString *)content
 {
+  __weak typeof(self) weakSelf = self;
+  if (gameType == kGameTypePersonal) {
+    [UIConfiguration showTipMessageToView:self.view title:TEXT_SENDING];
+    [self.httpsClient sendCommentToPersonalGame:gameID
+                                        Content:content
+                                      succeeded:^(NSDictionary *dictionary) {
+                                        
+                                        Comment *comment = [Comment objectWithDictionary:dictionary];
+                                        [weakSelf updateTableViewWithNewComment:comment];
+                                        
+                                        [UIConfiguration hideTipMessageOnView:weakSelf.view];
+                                      } failed:^(HDYSoccerAPIError *error) {
+                                        [UIConfiguration hideTipMessageOnView:weakSelf.view];
+
+                                      }];
+  }
+  else if (gameType == kGameTypeTeam) {
+    [UIConfiguration showTipMessageToView:self.view title:TEXT_SENDING];
+    [self.httpsClient sendCommentToTeamGame:gameID
+                                    Content:content
+                                  succeeded:^(NSDictionary *dictionary) {
+                                    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+
+                                  } failed:^(HDYSoccerAPIError *error) {
+                                    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+
+                                  }];
+  }
   
+}
+
+- (void)updateTableViewWithNewComment:(Comment *)comment
+{
+  if (!comment) {
+    return;
+  }
+  
+  [self.commentsArray insertObject:comment atIndex:0];
+  
+  // config cell height array
+  NSMutableArray *tempArray = [NSMutableArray array];
+  [tempArray addObject:[NSNumber numberWithFloat:0]];
+  
+  for (int i = 0; i < [comment.replys count]; ++i) {
+    [tempArray addObject:[NSNumber numberWithFloat:0]];
+  }
+  [self.cellHeightArray insertObject:tempArray atIndex:0];
+  
+  self.commentStart = [self.commentsArray count];
+  
+  [self.tableView reloadData];
+  
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 @end

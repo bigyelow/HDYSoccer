@@ -165,6 +165,9 @@
 #pragma mark - register and login
 - (void)loginSucceeded:(RegisterAndLoginViewController *)vc
 {
-  
+  __weak typeof(self) weakSelf = self;
+  [vc dismissViewControllerAnimated:YES completion:^{
+    [weakSelf sendMessage];
+  }];
 }
 @end

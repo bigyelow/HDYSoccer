@@ -7,6 +7,7 @@
 //
 
 #import "CommentViewController+CommentOperation.h"
+#import "CommentViewController+Network.h"
 #import "CommentField.h"
 #import "PSPDFAlertView.h"
 #import "AppDelegate+Configuration.h"
@@ -40,15 +41,25 @@
   }
   
   if ([AppContext appContext].isLogin) {
-    if (self.isReply) { // reply
-      
-    }
-    else {  // comment
-      
-    }
+    [self sendMessage];
   }
   else {
     [AppDelegate showLoginWithDelegate:self];
+  }
+}
+
+- (void)sendMessage
+{
+  if ([self.commentView.textView isFirstResponder]) {
+    [self.commentView.textView setText:@""];
+    [self.commentView.textView resignFirstResponder];
+  }
+  
+  if (self.isReply) { // reply
+    
+  }
+  else {  // comment
+    [self sendCommentWithGameType:self.gameType gameID:self.gameID Content:self.commentView.textView.text];
   }
 }
 

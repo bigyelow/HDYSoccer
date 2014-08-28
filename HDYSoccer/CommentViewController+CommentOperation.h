@@ -9,7 +9,7 @@
 #import "CommentViewController.h"
 
 @interface CommentViewController (CommentOperation)
-
+- (void)sendMessage;
 - (void)configCommentView;
 - (void)registerKeyboardNotification;
 - (void)unregisterKeyboardNotification;

@@ -49,6 +49,7 @@
                               [[AppContext appContext] updateInfoWithAuth:auth];
                               
                               [weakSelf loginSucceeded];
+                              
                             } failed:^(HDYSoccerAPIError *error) {
                               [UIConfiguration hideTipMessageOnView:weakSelf.view];
 
