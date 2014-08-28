@@ -18,6 +18,7 @@
 #import "GameListFilterFieldTableViewCell.h"
 #import "GameListFilterTableViewCell.h"
 #import "KeyboardTopView.h"
+#import "ChooseFieldCell.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -198,8 +199,6 @@
 #define CREATE_GAME_DETAIL_CELL_ID @"creatGameDetailCell"
 
 #define SELECT_TIME_TITLE @"选择时间"
-#define SELECT_FIELD_TITLE @"选择场地"
-
 #define SELECT_TEAM_TITLE @"选择球队"
 #define SELECT_FRIENDS_TITLE @"邀请我的好友"
 #define REMARKS_TITLE @"备注"
@@ -207,6 +206,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  if (indexPath.section == 1) {
+    return CHOOSE_FIELD_CELL_HEIGHT;
+  }
   if (indexPath.section == 5) {
     return REMARK_CELL_FIELD_HEIGHT;
   }
@@ -235,12 +237,11 @@
     }
       
     case 1: {
-      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
-      GameListFilterFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+      NSString *cellID = CHOOSE_FIELD_CELL_ID;
+      ChooseFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
       if (cell == nil) {
-        cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[ChooseFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
       }
-      
       return cell;
     }
       
