@@ -53,4 +53,13 @@
 #pragma mark - team
 - (void)getMyTeamsSucceeded:(SucceededGettingArrayBlock)succeeded
                      failed:(FailedBlock)failed;
+#pragma mark - comment
+- (void)sendCommentToPersonalGame:(NSString *)gameID
+                          Content:(NSString *)content
+                        succeeded:(SucceededGettingDictionaryBlock)succeeded
+                           failed:(FailedBlock)failed;
+- (void)sendCommentToTeamGame:(NSString *)gameID
+                      Content:(NSString *)content
+                    succeeded:(SucceededGettingDictionaryBlock)succeeded
+                       failed:(FailedBlock)failed;
 @end
