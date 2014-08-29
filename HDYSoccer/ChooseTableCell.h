@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define CHOOSE_TABLE_CELL_ID @"chooseTableCell"
-#define CHOOSE_TABLE_CELL_HEIGHT 30
+#define CHOOSE_TABLE_CELL_HEIGHT 40
 
 @interface ChooseTableCell : UITableViewCell
 

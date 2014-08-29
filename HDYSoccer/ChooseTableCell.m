@@ -43,7 +43,7 @@
     [self addSubview:nameLabel];
     
     // SEPERATOR
-    CGFloat seperY = 0;
+    CGFloat seperY = CHOOSE_TABLE_CELL_HEIGHT - SEPERATOR_HEIGHT;
     CGFloat seperWidth = self.frame.size.width - SEPERATOR_LEFT_MARGIN;
     UIView *seper = [[UIView alloc] initWithFrame:CGRectMake(SEPERATOR_LEFT_MARGIN, seperY, seperWidth, SEPERATOR_HEIGHT)];
     [seper setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_SEPERATOR_COLOR]];
