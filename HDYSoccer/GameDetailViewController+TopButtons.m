@@ -18,6 +18,8 @@
                                                                  action:@selector(confirmItemPressed)];
   
   [self.navigationItem setRightBarButtonItem:confirmItem];
+  
+  [self.navigationItem setLeftBarButtonItem:nil];
 }
 
 - (void)confirmItemPressed
