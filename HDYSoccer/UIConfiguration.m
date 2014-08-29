@@ -61,7 +61,7 @@
 
 + (void)showTipMessageToView:(UIView *)view
 {
-  [UIConfiguration showTipMessageToView:view title:TEXT_LOADING];
+  [UIConfiguration showTipMessageToView:view title:nil];
 }
 
 + (void)hideTipMessageOnView:(UIView *)view
