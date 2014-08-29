@@ -94,6 +94,11 @@
 		7194EB6519ADC1A500D25C10 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB6219ADC1A500D25C10 /* HPGrowingTextView.m */; };
 		7194EB6619ADC1A500D25C10 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB6419ADC1A500D25C10 /* HPTextViewInternal.m */; };
 		7194EB6919AF257100D25C10 /* ChooseFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB6819AF257100D25C10 /* ChooseFieldCell.m */; };
+		7194EB6D19B0335B00D25C10 /* ChooseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB6C19B0335B00D25C10 /* ChooseTableViewController.m */; };
+		7194EB7219B04A3700D25C10 /* CPTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB7119B04A3700D25C10 /* CPTransitionAnimator.m */; };
+		7194EB7519B051FF00D25C10 /* ChooseTableViewController+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB7419B051FF00D25C10 /* ChooseTableViewController+Network.m */; };
+		7194EB7819B052EA00D25C10 /* ChooseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB7719B052EA00D25C10 /* ChooseTableCell.m */; };
+		7194EB7B19B05AF300D25C10 /* CommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB7A19B05AF300D25C10 /* CommonButton.m */; };
 		71967A421976418E002B9621 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71967A411976418E002B9621 /* SegmentView.m */; };
 		7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF5F194197BD00B29EC5 /* BaseObject.m */; };
 		7197DF6C1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */; };
@@ -353,6 +358,16 @@
 		7194EB6419ADC1A500D25C10 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
 		7194EB6719AF257100D25C10 /* ChooseFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseFieldCell.h; sourceTree = "<group>"; };
 		7194EB6819AF257100D25C10 /* ChooseFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseFieldCell.m; sourceTree = "<group>"; };
+		7194EB6B19B0335B00D25C10 /* ChooseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTableViewController.h; sourceTree = "<group>"; };
+		7194EB6C19B0335B00D25C10 /* ChooseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTableViewController.m; sourceTree = "<group>"; };
+		7194EB7019B04A3700D25C10 /* CPTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTransitionAnimator.h; sourceTree = "<group>"; };
+		7194EB7119B04A3700D25C10 /* CPTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPTransitionAnimator.m; sourceTree = "<group>"; };
+		7194EB7319B051FF00D25C10 /* ChooseTableViewController+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChooseTableViewController+Network.h"; sourceTree = "<group>"; };
+		7194EB7419B051FF00D25C10 /* ChooseTableViewController+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ChooseTableViewController+Network.m"; sourceTree = "<group>"; };
+		7194EB7619B052EA00D25C10 /* ChooseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTableCell.h; sourceTree = "<group>"; };
+		7194EB7719B052EA00D25C10 /* ChooseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTableCell.m; sourceTree = "<group>"; };
+		7194EB7919B05AF300D25C10 /* CommonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonButton.h; sourceTree = "<group>"; };
+		7194EB7A19B05AF300D25C10 /* CommonButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonButton.m; sourceTree = "<group>"; };
 		71967A401976418E002B9621 /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
 		71967A411976418E002B9621 /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
 		7197DF5E194197BD00B29EC5 /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
@@ -743,6 +758,28 @@
 			name = Comment;
 			sourceTree = "<group>";
 		};
+		7194EB6A19B0332E00D25C10 /* ChooseTable */ = {
+			isa = PBXGroup;
+			children = (
+				7194EB6B19B0335B00D25C10 /* ChooseTableViewController.h */,
+				7194EB6C19B0335B00D25C10 /* ChooseTableViewController.m */,
+				7194EB7319B051FF00D25C10 /* ChooseTableViewController+Network.h */,
+				7194EB7419B051FF00D25C10 /* ChooseTableViewController+Network.m */,
+				7194EB7619B052EA00D25C10 /* ChooseTableCell.h */,
+				7194EB7719B052EA00D25C10 /* ChooseTableCell.m */,
+			);
+			name = ChooseTable;
+			sourceTree = "<group>";
+		};
+		7194EB6E19B0337000D25C10 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				7194EB7019B04A3700D25C10 /* CPTransitionAnimator.h */,
+				7194EB7119B04A3700D25C10 /* CPTransitionAnimator.m */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
 		71967A3F19764177002B9621 /* SegementView */ = {
 			isa = PBXGroup;
 			children = (
@@ -863,6 +900,7 @@
 		71A769EB195AB11D00E6D004 /* CreateGame */ = {
 			isa = PBXGroup;
 			children = (
+				7194EB6A19B0332E00D25C10 /* ChooseTable */,
 				7197DF781944177E00B29EC5 /* CreateGameDetailViewController.h */,
 				7197DF791944177E00B29EC5 /* CreateGameDetailViewController.m */,
 				712D16F5194F00B200396B1F /* CreateGameDetailViewController+TopButtons.h */,
@@ -928,6 +966,8 @@
 				7194EB6219ADC1A500D25C10 /* HPGrowingTextView.m */,
 				7194EB6319ADC1A500D25C10 /* HPTextViewInternal.h */,
 				7194EB6419ADC1A500D25C10 /* HPTextViewInternal.m */,
+				7194EB7919B05AF300D25C10 /* CommonButton.h */,
+				7194EB7A19B05AF300D25C10 /* CommonButton.m */,
 			);
 			name = CommonUI;
 			sourceTree = "<group>";
@@ -1024,6 +1064,7 @@
 				7141A19119405DFE00B34295 /* UserManagement */,
 				71CB8C3318E01CFF0073E913 /* BaseComponents */,
 				71C1CB0F198CAE4200DA7F8F /* CommonUI */,
+				7194EB6E19B0337000D25C10 /* Animation */,
 				71CCC3D118E283B400D6F974 /* Menu */,
 				715AD72218E662960068E6E1 /* GameList */,
 				7197DF741944132600B29EC5 /* AGame */,
@@ -1356,6 +1397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				719432F319178CBB009BA1D6 /* HDYSoccerAPIClientParams.m in Sources */,
+				7194EB7B19B05AF300D25C10 /* CommonButton.m in Sources */,
 				71B1F2A4199879750039D5EE /* TeamTableCell.m in Sources */,
 				7141A19D1941597400B34295 /* Tools.m in Sources */,
 				719D522219166E04006304D3 /* Geeker.m in Sources */,
@@ -1382,6 +1424,7 @@
 				712D16F7194F00B200396B1F /* CreateGameDetailViewController+TopButtons.m in Sources */,
 				7197DF701942E82A00B29EC5 /* GameListFilterViewController.m in Sources */,
 				71967A421976418E002B9621 /* SegmentView.m in Sources */,
+				7194EB7519B051FF00D25C10 /* ChooseTableViewController+Network.m in Sources */,
 				7141A17B1940090B00B34295 /* HDYSoccerAPIClient+HTTPS.m in Sources */,
 				71898EDD19A20A36005778D2 /* TeamScoreFooterView.m in Sources */,
 				71CB8C5818E03B040073E913 /* AppContext.m in Sources */,
@@ -1391,11 +1434,13 @@
 				715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */,
 				7194EB3F19AC338F00D25C10 /* Reply.m in Sources */,
 				719213411988F70C00EF7947 /* CostCellForGameInfo.m in Sources */,
+				7194EB6D19B0335B00D25C10 /* ChooseTableViewController.m in Sources */,
 				719432F61917931F009BA1D6 /* HDYSoccerAPIClient+HTTP.m in Sources */,
 				71C3128919A44B72004AB50B /* TeamGameCell.m in Sources */,
 				712D16F1194EEEF900396B1F /* ContactCell.m in Sources */,
 				71898ECB19A1E911005778D2 /* TeamListInfoCell.m in Sources */,
 				719D88671959602C00F77ACB /* GeekerTag.m in Sources */,
+				7194EB7219B04A3700D25C10 /* CPTransitionAnimator.m in Sources */,
 				71A55F6D199C7124005DBC83 /* PlayerAbilityCell.m in Sources */,
 				718A49BE194FDB56001DF516 /* RemarkCell.m in Sources */,
 				717A5BAF198B4418006E8446 /* RatePlayerCell.m in Sources */,
@@ -1455,6 +1500,7 @@
 				715AD73718E66BAB0068E6E1 /* UIConfiguration+Color.m in Sources */,
 				7141A1A019415FA000B34295 /* HDYSoccerGameViewController+SegmentControl.m in Sources */,
 				71898EB619A1A16B005778D2 /* PlayerAbilityHeaderView.m in Sources */,
+				7194EB7819B052EA00D25C10 /* ChooseTableCell.m in Sources */,
 				71568A1018E3E9BF00518C7D /* HDYSoccerGeekerViewController+SegmentControl.m in Sources */,
 				7194EB4219AC365D00D25C10 /* CommentViewController+Network.m in Sources */,
 				71B1F2CF199B0F220039D5EE /* PlayerBasicInfoCell.m in Sources */,
