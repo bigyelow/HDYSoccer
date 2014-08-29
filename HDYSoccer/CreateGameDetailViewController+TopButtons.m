@@ -18,6 +18,7 @@
 #import "CostCell.h"
 #import "RemarkCell.h"
 #import "PSPDFAlertView.h"
+#import "ChooseFieldCell.h"
 
 @implementation CreateGameDetailViewController (TopButtons)
 
@@ -51,17 +52,15 @@
 
 - (void)updateParamsFromInput
 {
-  // test
+  self.gameField = self.fieldCell.textView.text;
   if (!self.gameField) {
     self.gameField = @"";
   }
   
-  // test
   if (!self.players) {
     self.players = @[];
   }
   
-  // test
   if (!self.teamID) {
     self.teamID = @"";
   }
@@ -100,6 +99,13 @@
   
   if (!self.gameTime) { // time
     PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:ALERT_NO_TIME];
+    [alertView setCancelButtonWithTitle:TEXT_I_SEE
+                                  block:nil];
+    
+    [alertView show];
+  }
+  else if ([Tools isNilOrEmpty:self.gameField]) {
+    PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:ALERT_NO_FIELD];
     [alertView setCancelButtonWithTitle:TEXT_I_SEE
                                   block:nil];
     
