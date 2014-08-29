@@ -27,10 +27,12 @@
 @implementation ChooseTableViewController
 
 - (id)initWithType:(ChooseTableType)type
+           delegae:(id<ChooseTableViewDelegate>)delegate
 {
   self = [super init];
   if (self) {
     self.type = type;
+    self.chooseTableDelegate = delegate;
   }
   return self;
 }
@@ -99,7 +101,13 @@
 
 - (void)confirmButtonPressed
 {
-  [self dismissViewControllerAnimated:YES completion:nil];
+  __weak typeof(self) weakSelf = self;
+  [self dismissViewControllerAnimated:YES completion:^{
+    if (weakSelf.chooseTableDelegate
+        && [weakSelf.chooseTableDelegate respondsToSelector:@selector(confirmWithChooseTableSelectedArray:)]) {
+      [weakSelf.chooseTableDelegate confirmWithChooseTableSelectedArray:weakSelf.selectedArray];
+    }
+  }];
 }
 
 - (void)cancelButtonPressed

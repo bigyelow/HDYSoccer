@@ -8,6 +8,7 @@
 
 #import "HDYSoccerBaseTableViewController.h"
 #import "RMDateSelectionViewController.h"
+#import "ChooseTableViewController.h"
 
 #define GAME_TIME_KEY @"gameTime"
 #define GAME_FILED_KEY @"gameField"
@@ -36,7 +37,8 @@ typedef NS_ENUM(NSUInteger, GameType)
 <RMDateSelectionViewControllerDelegate,
 UITextFieldDelegate,
 UITextViewDelegate,
-UIViewControllerTransitioningDelegate >
+UIViewControllerTransitioningDelegate,
+ChooseTableViewDelegate>
 
 @property (nonatomic, assign) GameType gameType;
 @property (nonatomic, strong) id createGameDelegate;

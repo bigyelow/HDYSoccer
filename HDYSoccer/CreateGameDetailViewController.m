@@ -84,15 +84,18 @@
 #pragma mark - action
 - (void)addFriendButtonPressed
 {
-  ChooseTableViewController *vc = [[ChooseTableViewController alloc] initWithType:kChooseTableTypeFriend];
+  ChooseTableViewController *vc = [[ChooseTableViewController alloc] initWithType:kChooseTableTypeFriend
+                                                                          delegae:self];
   [vc setTransitioningDelegate:self];
   [vc setModalPresentationStyle:UIModalPresentationCustom];
+  
   [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)chooseTeamButtonPressed
 {
-  ChooseTableViewController *vc = [[ChooseTableViewController alloc] initWithType:kChooseTableTypeTeam];
+  ChooseTableViewController *vc = [[ChooseTableViewController alloc] initWithType:kChooseTableTypeTeam
+                                                                          delegae:self];
   [vc setTransitioningDelegate:self];
   [vc setModalPresentationStyle:UIModalPresentationCustom];
   [self presentViewController:vc animated:YES completion:nil];
@@ -447,6 +450,12 @@
 {
   CPTransitionAnimator *animator = [CPTransitionAnimator new];
   return animator;
+}
+
+#pragma mark - ChooseTableView delegate
+- (void)confirmWithChooseTableSelectedArray:(NSArray *)selectedArray
+{
+  NSLog(@"update selected element");
 }
 
 @end
