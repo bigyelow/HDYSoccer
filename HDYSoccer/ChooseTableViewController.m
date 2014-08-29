@@ -93,9 +93,11 @@
   CGFloat confirmX = CGRectGetMaxX(cancelButton.frame) + BOTTOM_BUTTON_INTERAL_MARGIN;
   UIButton *confirmButton = [CommonButton confirmButtonWithFrame:CGRectMake(confirmX, 0,  buttonWidth, BOTTOM_BUTTON_HEIGHT)
                                                             font:[UIFont systemFontOfSize:BOTTOM_BUTTON_FONT_SIZE]];
+  [confirmButton setEnabled:NO];
   [confirmButton addTarget:self action:@selector(confirmButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   [UIConfiguration moveSubviewYToSuperviewCenter:bottomBackView subview:confirmButton];
   
+  self.confirmButton = confirmButton;
   [bottomBackView addSubview:confirmButton];
 }
 
@@ -167,21 +169,46 @@
 {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   
-  NSMutableArray *array = self.selectedArray[indexPath.row];
+  NSMutableArray *object = self.selectedArray[indexPath.row];
   
   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
   if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
     cell.accessoryType = UITableViewCellAccessoryNone;
     
     NSNumber *number = [NSNumber numberWithBool:NO];
-    [array replaceObjectAtIndex:2 withObject:number];
+    [object replaceObjectAtIndex:2 withObject:number];
   }
   else {
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     NSNumber *number = [NSNumber numberWithBool:YES];
-    [array replaceObjectAtIndex:2 withObject:number];
+    [object replaceObjectAtIndex:2 withObject:number];
   }
+  
+  if (self.type == kChooseTableTypeTeam) {
+    if (self.previousIndexPath && self.previousIndexPath.row != indexPath.row) {
+      UITableViewCell *cell = [tableView cellForRowAtIndexPath:self.previousIndexPath];
+      [cell setAccessoryType:UITableViewCellAccessoryNone];
+      
+      NSMutableArray *previousObject = self.selectedArray[self.previousIndexPath.row];
+      [previousObject replaceObjectAtIndex:2 withObject:[NSNumber numberWithBool:NO]];
+    }
+    self.previousIndexPath = indexPath;
+  }
+  
+  [self updateConfirmButton];
+}
+
+- (void)updateConfirmButton
+{
+  for (NSMutableArray *object in self.selectedArray) {
+    NSNumber *number = object[2];
+    if (number.boolValue) {
+      [self.confirmButton setEnabled:YES];
+      return;
+    }
+  }
+  [self.confirmButton setEnabled:NO];
 }
 
 /*

@@ -25,7 +25,9 @@ typedef NS_ENUM(NSUInteger, ChooseTableType) {
 @property (nonatomic, strong) NSArray *friendsArray;
 @property (nonatomic, strong) NSArray *teamsArray;
 @property (nonatomic, strong) NSMutableArray *selectedArray;
+@property (nonatomic, strong) NSIndexPath *previousIndexPath;
 @property (nonatomic, strong) id<ChooseTableViewDelegate> chooseTableDelegate;
+@property (nonatomic, strong) UIButton *confirmButton;
 
 - (id)initWithType:(ChooseTableType)type
            delegae:(id<ChooseTableViewDelegate>)delegate;

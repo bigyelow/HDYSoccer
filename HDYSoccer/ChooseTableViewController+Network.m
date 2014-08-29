@@ -17,9 +17,9 @@
 {
   __weak typeof(self) weakSelf = self;
 
-  [UIConfiguration showTipMessageToView:self.view];
+  [UIConfiguration showTipMessageToView:self.tableView];
   [self.httpsClient getMyFriendsSucceeded:^(NSArray *array) {
-    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+    [UIConfiguration hideTipMessageOnView:weakSelf.tableView];
     
     weakSelf.friendsArray = [array copy];
     [weakSelf configSelectedArray];
@@ -27,7 +27,7 @@
     [weakSelf.tableView reloadData];
     
   } failed:^(HDYSoccerAPIError *error) {
-    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+    [UIConfiguration hideTipMessageOnView:weakSelf.tableView];
 
   }];
 }
@@ -36,9 +36,9 @@
 {
   __weak typeof(self) weakSelf = self;
   
-  [UIConfiguration showTipMessageToView:self.view];
+  [UIConfiguration showTipMessageToView:self.tableView];
   [self.httpsClient getMyTeamsSucceeded:^(NSArray *array) {
-    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+    [UIConfiguration hideTipMessageOnView:weakSelf.tableView];
     
     weakSelf.teamsArray = [array copy];
     [weakSelf configSelectedArray];
@@ -46,7 +46,7 @@
     [weakSelf.tableView reloadData];
     
   } failed:^(HDYSoccerAPIError *error) {
-    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+    [UIConfiguration hideTipMessageOnView:weakSelf.tableView];
     
   }];
 }
