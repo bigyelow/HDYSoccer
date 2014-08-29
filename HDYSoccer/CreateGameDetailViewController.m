@@ -81,10 +81,18 @@
   // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - interation
+#pragma mark - action
 - (void)addFriendButtonPressed
 {
   ChooseTableViewController *vc = [[ChooseTableViewController alloc] initWithType:kChooseTableTypeFriend];
+  [vc setTransitioningDelegate:self];
+  [vc setModalPresentationStyle:UIModalPresentationCustom];
+  [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)chooseTeamButtonPressed
+{
+  ChooseTableViewController *vc = [[ChooseTableViewController alloc] initWithType:kChooseTableTypeTeam];
   [vc setTransitioningDelegate:self];
   [vc setModalPresentationStyle:UIModalPresentationCustom];
   [self presentViewController:vc animated:YES completion:nil];
@@ -288,6 +296,8 @@
         self.teamCell.textField.delegate = self;
         self.teamCellIndexPath = indexPath;
         [cell setBackgroundColor:[UIColor clearColor]];
+        
+        [cell.chooseTeamButton addTarget:self action:@selector(chooseTeamButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         return cell;
       }
       break;

@@ -13,4 +13,5 @@
 @interface ChooseTeamCell : UITableViewCell
 
 @property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, strong) UIButton *chooseTeamButton;
 @end

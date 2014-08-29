@@ -83,6 +83,8 @@
     [UIConfiguration setView:button width:buttonWidth];
     [UIConfiguration moveSubviewYToSuperviewCenter:self subview:button];
     
+    self.chooseTeamButton = button;
+    
     [self addSubview:button];
     [self addSubview:titleLabel];
     [self addSubview:textField];
