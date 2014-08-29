@@ -8,6 +8,8 @@
 
 #import "ChooseTableViewController+Network.h"
 #import "HDYSoccerAPIClient+HTTPS.h"
+#import "SimpleGeekerInfo.h"
+#import "SimpleTeamInfo.h"
 
 @implementation ChooseTableViewController (Network)
 
@@ -15,15 +17,64 @@
 {
   __weak typeof(self) weakSelf = self;
 
+  [UIConfiguration showTipMessageToView:self.view];
   [self.httpsClient getMyFriendsSucceeded:^(NSArray *array) {
-    if (array) {
-      weakSelf.friendsArray = [NSMutableArray arrayWithArray:array];
-    }
+    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+    
+    weakSelf.friendsArray = [array copy];
+    [weakSelf configSelectedArray];
     
     [weakSelf.tableView reloadData];
+    
   } failed:^(HDYSoccerAPIError *error) {
+    [UIConfiguration hideTipMessageOnView:weakSelf.view];
 
   }];
 }
 
+- (void)loadMyTeams
+{
+  __weak typeof(self) weakSelf = self;
+  
+  [UIConfiguration showTipMessageToView:self.view];
+  [self.httpsClient getMyTeamsSucceeded:^(NSArray *array) {
+    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+    
+    weakSelf.teamsArray = [array copy];
+    [weakSelf configSelectedArray];
+    
+    [weakSelf.tableView reloadData];
+    
+  } failed:^(HDYSoccerAPIError *error) {
+    [UIConfiguration hideTipMessageOnView:weakSelf.view];
+    
+  }];
+}
+
+// selectedArray = [[avatarURL, name, selected],...]
+- (void)configSelectedArray
+{
+  self.selectedArray = [NSMutableArray array];
+  
+  if (self.type == kChooseTableTypeFriend) {
+    for (SimpleGeekerInfo *info in self.friendsArray) {
+      NSString *avatarURL = info.avatarURL;
+      NSString *name = info.name;
+      NSNumber *selected = [NSNumber numberWithBool:NO];
+      NSMutableArray *array = [NSMutableArray arrayWithArray:@[avatarURL, name, selected]];
+      
+      [self.selectedArray addObject:array];
+    }
+  }
+  else if (self.type == kChooseTableTypeTeam) {
+    for (SimpleTeamInfo *info in self.teamsArray) {
+      NSString *avatarURL = info.teamAvatarURL;
+      NSString *name = info.teamName;
+      NSNumber *selected = [NSNumber numberWithBool:NO];
+      NSMutableArray *array = [NSMutableArray arrayWithArray:@[avatarURL, name, selected]];
+      
+      [self.selectedArray addObject:array];
+    }
+  }
+}
 @end

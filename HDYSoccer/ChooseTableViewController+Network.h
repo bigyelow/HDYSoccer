@@ -11,4 +11,5 @@
 @interface ChooseTableViewController (Network)
 
 - (void)loadMyFriends;
+- (void)loadMyTeams;
 @end

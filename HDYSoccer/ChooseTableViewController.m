@@ -15,7 +15,7 @@
 #import "CPTransitionAnimator.h"
 
 #define BOTTOM_BACK_HEIGHT 50
-#define BOTTOM_BUTTON_HEIGHT 25
+#define BOTTOM_BUTTON_HEIGHT 28
 #define BOTTOM_BUTTON_LEFT_MARGIN 10
 #define BOTTOM_BUTTON_INTERAL_MARGIN 7
 #define BOTTOM_BUTTON_FONT_SIZE 15
@@ -42,7 +42,12 @@
   [self configTableView];
   [self configBottomButtons];
 
-  [self loadMyFriends];
+  if (self.type == kChooseTableTypeFriend) {
+    [self loadMyFriends];
+  }
+  else if (self.type == kChooseTableTypeTeam) {
+    [self loadMyTeams];
+  }
 }
 
 - (void)configTableView
@@ -110,7 +115,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return [self.friendsArray count];
+  if (self.type == kChooseTableTypeFriend) {
+    return [self.friendsArray count];
+  }
+  else if (self.type == kChooseTableTypeTeam) {
+    return [self.teamsArray count];
+  }
+  return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,12 +145,35 @@
     name = info.name;
   }
   else if (self.type == kChooseTableTypeTeam) {
-    
+    SimpleTeamInfo *info = self.teamsArray[indexPath.row];
+    imageURL = info.teamAvatarURL;
+    name = info.teamName;
   }
   
   [cell configCellWithImageURL:imageURL name:name];
   
   return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  
+  NSMutableArray *array = self.selectedArray[indexPath.row];
+  
+  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+  if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    NSNumber *number = [NSNumber numberWithBool:NO];
+    [array replaceObjectAtIndex:2 withObject:number];
+  }
+  else {
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    NSNumber *number = [NSNumber numberWithBool:YES];
+    [array replaceObjectAtIndex:2 withObject:number];
+  }
 }
 
 /*

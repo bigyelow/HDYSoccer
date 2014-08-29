@@ -17,6 +17,8 @@ typedef NS_ENUM(NSUInteger, ChooseTableType) {
 
 @property (nonatomic, assign) ChooseTableType type;
 @property (nonatomic, strong) NSArray *friendsArray;
+@property (nonatomic, strong) NSArray *teamsArray;
+@property (nonatomic, strong) NSMutableArray *selectedArray;
 
 - (id)initWithType:(ChooseTableType)type;
 @end
