@@ -26,6 +26,7 @@ NSString *kfieldTitle = @"选择场地";
     [self setBackgroundColor:[UIColor clearColor]];
     [self.contentView setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_BACKGROUND_COLOR]];
     [self.contentView setAlpha:0.5];
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     // field image
     UIImage *fieldImage = [UIImage imageNamed:@"location-75.png"];
