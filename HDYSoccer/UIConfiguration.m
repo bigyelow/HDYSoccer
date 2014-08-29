@@ -209,6 +209,14 @@
   return img;
 }
 
++ (UIImage *)imageForColorHex:(NSString *)colorHex
+{
+  UIColor *color = [UIConfiguration colorForHex:colorHex];
+  UIImage *img = [self imageForColor:color];
+  
+  return img;
+}
+
 + (UIImage *)resizeImage:(UIImage *)srcImage width:(NSUInteger)width height:(NSUInteger)height
 {
   if (srcImage == nil || width == 0 || height == 0) {

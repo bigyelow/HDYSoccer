@@ -111,6 +111,7 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 + (CGRect)keyBoardRect:(NSNotification *)notification;
 
 #pragma mark - image
++ (UIImage *)imageForColorHex:(NSString *)colorHex;
 + (UIImage *)imageForColor:(UIColor *)color;
 + (UIImage *)resizeImage:(UIImage *)srcImage width:(NSUInteger)width height:(NSUInteger)height;
 @end
