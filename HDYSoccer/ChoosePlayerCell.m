@@ -81,6 +81,7 @@
     
     [UIConfiguration moveSubviewYToSuperviewCenter:self subview:button];
     
+    self.addFriendButton = button;
     [self addSubview:button];
     
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];

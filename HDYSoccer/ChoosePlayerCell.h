@@ -13,4 +13,5 @@
 @interface ChoosePlayerCell : UITableViewCell
 
 @property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, strong) UIButton *addFriendButton;
 @end

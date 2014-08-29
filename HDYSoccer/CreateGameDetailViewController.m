@@ -19,6 +19,8 @@
 #import "GameListFilterTableViewCell.h"
 #import "KeyboardTopView.h"
 #import "ChooseFieldCell.h"
+#import "ChooseTableViewController.h"
+#import "CPTransitionAnimator.h"
 
 #define BACKGROUND_IMAGE_NAME @"background_field1.jpg"
 
@@ -77,6 +79,15 @@
 {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - interation
+- (void)addFriendButtonPressed
+{
+  ChooseTableViewController *vc = [[ChooseTableViewController alloc] initWithType:kChooseTableTypeFriend];
+  [vc setTransitioningDelegate:self];
+  [vc setModalPresentationStyle:UIModalPresentationCustom];
+  [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - keyboard operations
@@ -265,6 +276,9 @@
         self.playerCell.textField.delegate = self;
         self.playerCellIndexPath = indexPath;
         [cell setBackgroundColor:[UIColor clearColor]];
+        
+        [cell.addFriendButton addTarget:self action:@selector(addFriendButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        
         return cell;
       }
       else if (self.gameType == kGameTypeTeam) {
@@ -404,6 +418,25 @@
       [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
   }
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate Methods
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source
+{
+  
+  CPTransitionAnimator *animator = [CPTransitionAnimator new];
+  //Configure the animator
+  animator.presenting = YES;
+  return animator;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+  CPTransitionAnimator *animator = [CPTransitionAnimator new];
+  return animator;
 }
 
 @end

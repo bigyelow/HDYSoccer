@@ -33,7 +33,10 @@ typedef NS_ENUM(NSUInteger, GameType)
 };
 
 @interface CreateGameDetailViewController : HDYSoccerBaseTableViewController
-<RMDateSelectionViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
+<RMDateSelectionViewControllerDelegate,
+UITextFieldDelegate,
+UITextViewDelegate,
+UIViewControllerTransitioningDelegate >
 
 @property (nonatomic, assign) GameType gameType;
 @property (nonatomic, strong) id createGameDelegate;
