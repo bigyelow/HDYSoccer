@@ -12,6 +12,12 @@
 
 + (UIButton *)confirmButtonWithFrame:(CGRect)frame
                                 font:(UIFont *)font;
++ (UIButton *)confirmButtonWithFrame:(CGRect)frame
+                               title:(NSString *)title
+                                font:(UIFont *)font;
 + (UIButton *)cancelButtonWithFrame:(CGRect)frame
+                               font:(UIFont *)font;
++ (UIButton *)cancelButtonWithFrame:(CGRect)frame
+                              title:(NSString *)title
                                font:(UIFont *)font;
 @end
