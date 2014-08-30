@@ -239,6 +239,10 @@
   if (indexPath.section == 1) {
     return CHOOSE_FIELD_CELL_HEIGHT;
   }
+  if (indexPath.section == 2 && self.shouldReloadWithpFriends) {
+    self.playerCellHeight = [self.playerCell cellHeight:self.selectedFriends];
+    return self.playerCellHeight;
+  }
   if (indexPath.section == 5) {
     return REMARK_CELL_FIELD_HEIGHT;
   }
@@ -289,6 +293,10 @@
         [cell setBackgroundColor:[UIColor clearColor]];
         
         [cell.addFriendButton addTarget:self action:@selector(addFriendButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (self.shouldReloadWithpFriends) {
+          [cell configCellWithPlayers:self.selectedFriends cellHeight:self.playerCellHeight];
+        }
         
         return cell;
       }
@@ -453,9 +461,26 @@
 }
 
 #pragma mark - ChooseTableView delegate
+// playersArray = [[avatarURL, name, selected],...]
 - (void)confirmWithChooseTableSelectedArray:(NSArray *)selectedArray
 {
-  NSLog(@"update selected element");
+  self.shouldReloadWithpFriends = YES;
+  self.selectedFriends = [self filterNoneSelectedFriends:selectedArray];
+  NSIndexSet *set = [NSIndexSet indexSetWithIndex:2];
+  [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (NSArray *)filterNoneSelectedFriends:(NSArray *)selectedArray
+{
+  NSMutableArray *temp = [NSMutableArray array];
+  for (NSArray *object in selectedArray) {
+    NSNumber *number = object[2];
+    if (number.boolValue) {
+      [temp addObject:object];
+    }
+  }
+  
+  return [temp copy];
 }
 
 @end

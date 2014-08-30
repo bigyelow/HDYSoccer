@@ -59,6 +59,9 @@ ChooseTableViewDelegate>
 
 @property (nonatomic, strong) ChoosePlayerCell *playerCell;
 @property (nonatomic, strong) NSIndexPath *playerCellIndexPath;
+@property (nonatomic, assign) BOOL shouldReloadWithpFriends;
+@property (nonatomic, strong) NSArray *selectedFriends;
+@property (nonatomic, assign) NSInteger playerCellHeight;
 
 @property (nonatomic, strong) ChooseTeamCell *teamCell;
 @property (nonatomic, strong) NSIndexPath *teamCellIndexPath;

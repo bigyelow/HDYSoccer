@@ -14,4 +14,9 @@
 
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UIButton *addFriendButton;
+@property (nonatomic, strong) UIView *seperator;
+
+- (void)configCellWithPlayers:(NSArray *)playersArray
+                   cellHeight:(CGFloat)cellHeight;
+- (CGFloat)cellHeight:(NSArray *)playersArray;
 @end
