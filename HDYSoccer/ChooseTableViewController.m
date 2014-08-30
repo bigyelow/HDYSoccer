@@ -160,6 +160,15 @@
     name = info.teamName;
   }
   
+  NSMutableArray *object = self.selectedArray[indexPath.row];
+  NSNumber *selected = object[2];
+  if (selected.boolValue) {
+    [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+  }
+  else {
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
+  }
+  
   [cell configCellWithImageURL:imageURL name:name];
   
   return cell;
@@ -170,26 +179,19 @@
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   
   NSMutableArray *object = self.selectedArray[indexPath.row];
+  NSNumber *selected = object[2];
   
-  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-  if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    
+  if (selected.boolValue) {
     NSNumber *number = [NSNumber numberWithBool:NO];
     [object replaceObjectAtIndex:2 withObject:number];
   }
   else {
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
     NSNumber *number = [NSNumber numberWithBool:YES];
     [object replaceObjectAtIndex:2 withObject:number];
   }
   
   if (self.type == kChooseTableTypeTeam) {
     if (self.previousIndexPath && self.previousIndexPath.row != indexPath.row) {
-      UITableViewCell *cell = [tableView cellForRowAtIndexPath:self.previousIndexPath];
-      [cell setAccessoryType:UITableViewCellAccessoryNone];
-      
       NSMutableArray *previousObject = self.selectedArray[self.previousIndexPath.row];
       [previousObject replaceObjectAtIndex:2 withObject:[NSNumber numberWithBool:NO]];
     }
@@ -197,6 +199,7 @@
   }
   
   [self updateConfirmButton];
+  [self.tableView reloadData];
 }
 
 - (void)updateConfirmButton
