@@ -69,6 +69,8 @@
 #define TEXT_ADD_COMMENT @"  添加评论"
 #define TEXT_SEND_MESSAGE @"发送"
 #define TEXT_SENDING @"正在提交..."
+#define TEXT_SELECT_AGAIN @"重新选择"
+
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"

@@ -22,7 +22,7 @@
 #define TITLE_LEFT_MARGIN 8.0f
 
 // text field
-#define TEXT_FIELD_LEFT_MARGIN 4.0f
+#define TEXT_FIELD_LEFT_MARGIN 7.0f
 #define TEXT_FIELD_WIDTH 80.0
 #define TEXT_FIELD_HEIGHT 30.0f
 
@@ -41,7 +41,7 @@
 #define FRIEND_NAME_HEIGHT 15
 
 #define FRIENDS_ROW_MARGIN 8
-#define FRIEND_NAME_BOTTOM_MARGIN 5
+#define FRIEND_NAME_BOTTOM_MARGIN 7
 #define FRIEND_LIMIT_PER_LINE 3
 
 #define FRIEND_SEPER_TOP_MARGIN 13
@@ -119,7 +119,7 @@
 {
   if (![Tools isNilOrEmptyArray:playersArray]) {
     CGFloat x = 0;
-    CGFloat y = CGRectGetMaxY(self.addFriendButton.frame) + FRIENDS_TOP_MARGIN;
+    CGFloat y = CHOOSE_PLAYER_CELL_NORMAL_HEIGHT;
     CGFloat width = self.frame.size.width / FRIEND_LIMIT_PER_LINE;
     CGFloat height0 = (FRIENDS_TOP_MARGIN + FRIEND_IMAGE_HEIGHT
                        + FRIEND_NAME_TOP_MARGIN + FRIEND_NAME_HEIGHT);  // first row height
@@ -178,7 +178,7 @@
 
 - (CGFloat)cellHeight:(NSArray *)playersArray
 {
-  CGFloat height = 44;
+  CGFloat height = CHOOSE_PLAYER_CELL_NORMAL_HEIGHT;
   
   if (![Tools isNilOrEmptyArray:playersArray]) {
     NSInteger lineNumber = [playersArray count] / FRIEND_LIMIT_PER_LINE;

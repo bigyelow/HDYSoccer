@@ -239,9 +239,22 @@
   if (indexPath.section == 1) {
     return CHOOSE_FIELD_CELL_HEIGHT;
   }
-  if (indexPath.section == 2 && self.shouldReloadWithpFriends) {
-    self.playerCellHeight = [self.playerCell cellHeight:self.selectedFriends];
-    return self.playerCellHeight;
+  if (indexPath.section == 2 && self.gameType == kGameTypePersonal) {
+    if (self.shouldReloadWithFriends) {
+      self.playerCellHeight = [self.playerCell cellHeight:self.selectedFriends];
+      return self.playerCellHeight;
+    }
+    else {
+      return CHOOSE_PLAYER_CELL_NORMAL_HEIGHT;
+    }
+  }
+  if (indexPath.section == 2 && self.gameType == kGameTypeTeam) {
+    if (self.shouldReloadWithTeam) {
+      return [self.teamCell cellHeight];
+    }
+    else {
+      return CHOOSE_TEAM_NORMAL_HEIGHT;
+    }
   }
   if (indexPath.section == 5) {
     return REMARK_CELL_FIELD_HEIGHT;
@@ -294,7 +307,7 @@
         
         [cell.addFriendButton addTarget:self action:@selector(addFriendButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         
-        if (self.shouldReloadWithpFriends) {
+        if (self.shouldReloadWithFriends) {
           [cell configCellWithPlayers:self.selectedFriends cellHeight:self.playerCellHeight];
         }
         
@@ -309,6 +322,11 @@
         [cell setBackgroundColor:[UIColor clearColor]];
         
         [cell.chooseTeamButton addTarget:self action:@selector(chooseTeamButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (self.shouldReloadWithTeam) {
+          [cell configCellWithTeam:self.selectedTeam];
+        }
+        
         return cell;
       }
       break;
@@ -464,8 +482,15 @@
 // playersArray = [[avatarURL, name, selected],...]
 - (void)confirmWithChooseTableSelectedArray:(NSArray *)selectedArray
 {
-  self.shouldReloadWithpFriends = YES;
-  self.selectedFriends = [self filterNoneSelectedFriends:selectedArray];
+  if (self.gameType == kGameTypePersonal) {
+    self.shouldReloadWithFriends = YES;
+    self.selectedFriends = [self filterNoneSelectedFriends:selectedArray];
+  }
+  else if (self.gameType == kGameTypeTeam) {
+    self.shouldReloadWithTeam = YES;
+    self.selectedTeam = [selectedArray[0] copy];
+  }
+
   NSIndexSet *set = [NSIndexSet indexSetWithIndex:2];
   [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
 }

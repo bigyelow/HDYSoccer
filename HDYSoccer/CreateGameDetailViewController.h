@@ -59,12 +59,15 @@ ChooseTableViewDelegate>
 
 @property (nonatomic, strong) ChoosePlayerCell *playerCell;
 @property (nonatomic, strong) NSIndexPath *playerCellIndexPath;
-@property (nonatomic, assign) BOOL shouldReloadWithpFriends;
+@property (nonatomic, assign) BOOL shouldReloadWithFriends;
 @property (nonatomic, strong) NSArray *selectedFriends;
-@property (nonatomic, assign) NSInteger playerCellHeight;
+@property (nonatomic, assign) CGFloat playerCellHeight;
 
 @property (nonatomic, strong) ChooseTeamCell *teamCell;
 @property (nonatomic, strong) NSIndexPath *teamCellIndexPath;
+@property (nonatomic, assign) BOOL shouldReloadWithTeam;
+@property (nonatomic, strong) NSArray *selectedTeam; // =[avatarURL, name, selected]
+@property (nonatomic, assign) CGFloat teamCellHeight;
 
 @property (nonatomic, strong) ContactCell *contactCell;
 @property (nonatomic, strong) NSIndexPath *contactCellIndexPath;

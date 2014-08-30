@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define CREATE_GAME_DETAIL_PLAYER_CELL_ID @"choosePlayerCell"
+#define CHOOSE_PLAYER_CELL_NORMAL_HEIGHT 44
 
 @interface ChoosePlayerCell : UITableViewCell
 

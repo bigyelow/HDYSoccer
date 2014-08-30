@@ -8,6 +8,7 @@
 
 #import "ChooseTeamCell.h"
 #import "GameListFilterTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 #define TITLE_LEFT_MARGIN 8.0f
 
@@ -19,7 +20,7 @@
 
 // choose team button
 #define TEAM_BUTTON_LEFT_MARGIN 10.0f
-#define TEAM_BUTTON_TITLE @"<选择我的球队>"
+#define TEAM_BUTTON_TITLE @"选择我的球队"
 #define TEAM_BUTTON_LEFT_PLUS 10.0F
 
 // number of NUMBERs label and text field
@@ -29,6 +30,13 @@
 #define NUMBER_FIELD_WIDTH 50.0f
 #define NUMBER_FIELD_HEIGHT 30.0f
 #define NUMBER_FIELD_MEASURE_LEFTMARGIN 5.0f
+
+// TEAM
+#define TEAM_AVATAR_TOP_MARGIN 13
+#define TEAM_AVATAR_HEIGHT 40
+#define TEAM_NAME_TOP_MARGIN 10
+#define TEAM_NAME_HEIGHT 18
+#define TEAM_NAME_BOTTOM_MARGIN 13
 
 @implementation ChooseTeamCell
 
@@ -96,15 +104,49 @@
     UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
     [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
     
+    self.seperator = seperator;
     [self addSubview:seperator];
   }
   
   return self;
 }
 
-- (void)awakeFromNib
+// team = [avatar, name, selected]
+- (void)configCellWithTeam:(NSArray *)team
 {
-  // Initialization code
+  NSString *avatarURL = team[0];
+  NSString *name = team[1];
+  
+  CGFloat avatarY = CHOOSE_TEAM_NORMAL_HEIGHT + TEAM_AVATAR_TOP_MARGIN;
+  UIImageView *avatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, avatarY, TEAM_AVATAR_HEIGHT, TEAM_AVATAR_HEIGHT)];
+  [avatar setImageWithURL:[NSURL URLWithString:avatarURL]];
+  [UIConfiguration moveSubviewXToSuperviewCenter:self subview:avatar];
+  
+  [self addSubview:avatar];
+  
+  CGFloat nameY = CGRectGetMaxY(avatar.frame) + TEAM_NAME_TOP_MARGIN;
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, nameY, self.frame.size.width, TEAM_NAME_HEIGHT)];
+  
+  [label setText:name];
+  [label setTextColor:[UIColor whiteColor]];
+  [label setTextAlignment:NSTextAlignmentCenter];
+  [label setFont:[UIFont systemFontOfSize:13]];
+  
+  [self addSubview:label];
+  
+  [self.chooseTeamButton setTitle:TEXT_SELECT_AGAIN forState:UIControlStateNormal];
+  
+  [UIConfiguration setView:self.seperator y:CGRectGetMaxY(label.frame)
+   + TEAM_NAME_BOTTOM_MARGIN - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT];
+}
+
+- (CGFloat)cellHeight
+{
+  CGFloat height = CHOOSE_TEAM_NORMAL_HEIGHT;
+  height += (TEAM_AVATAR_TOP_MARGIN + TEAM_AVATAR_HEIGHT
+             + TEAM_NAME_TOP_MARGIN + TEAM_NAME_HEIGHT + TEAM_NAME_BOTTOM_MARGIN);
+  
+  return height;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
