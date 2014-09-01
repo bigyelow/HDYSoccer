@@ -7,6 +7,7 @@
 //
 
 #import "SimpleTeamGameInfo.h"
+#import "SimpleTeamInfo.h"
 
 @implementation SimpleTeamGameInfo
 
@@ -50,4 +51,58 @@
 {
   return [self.dictionary objectForKey:@"field"];
 }
+
+- (NSArray *)recentRecords
+{
+  return [self.dictionary objectForKey:@"recent_record"];
+}
+
++ (NSInteger)winCountOfRecord:(NSArray *)record
+{
+  NSInteger count = 0;
+  for (NSNumber *result in record) {
+    switch (result.integerValue) {
+      case GameResultWin:
+        count++;
+        break;
+        
+      default:
+        break;
+    }
+  }
+  return count;
+}
+
++ (NSInteger)drawCountOfRecord:(NSArray *)record
+{
+  NSInteger count = 0;
+  for (NSNumber *result in record) {
+    switch (result.integerValue) {
+      case GameResultDraw:
+        count++;
+        break;
+        
+      default:
+        break;
+    }
+  }
+  return count;
+}
+
++ (NSInteger)loseCountOfRecord:(NSArray *)record
+{
+  NSInteger count = 0;
+  for (NSNumber *result in record) {
+    switch (result.integerValue) {
+      case GameResultLose:
+        count++;
+        break;
+        
+      default:
+        break;
+    }
+  }
+  return count;
+}
+
 @end

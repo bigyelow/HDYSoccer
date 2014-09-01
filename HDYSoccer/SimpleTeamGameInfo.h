@@ -16,6 +16,10 @@
 @property (nonatomic, copy, readonly) NSString *teamAvatarURL;
 @property (nonatomic, copy, readonly) NSString *distance;
 @property (nonatomic, copy, readonly) NSString *field;
-@property (nonatomic, strong, readonly) NSDate *time;
+@property (nonatomic, strong) NSArray *recentRecords;
+@property (nonatomic, strong) NSDate *time;
 
++ (NSInteger)winCountOfRecord:(NSArray *)record;
++ (NSInteger)drawCountOfRecord:(NSArray *)record;
++ (NSInteger)loseCountOfRecord:(NSArray *)record;
 @end

@@ -10,6 +10,7 @@
 #import "SimpleTeamInfo.h"
 #import "UIImageView+WebCache.h"
 #import "UILabel+Customize.h"
+#import "SimpleTeamGameInfo.h"
 
 // BACKGROUND
 #define BACKGROUND_BOTTOM_MARGIN 10
@@ -170,25 +171,10 @@
 
 - (NSString *)formatRecordWithRecords:(NSArray *)array
 {
-  NSInteger winCount = 0;
-  NSInteger drawCount = 0;
-  NSInteger loseCount = 0;
+  NSInteger winCount = [SimpleTeamGameInfo winCountOfRecord:array];
+  NSInteger drawCount = [SimpleTeamGameInfo drawCountOfRecord:array];
+  NSInteger loseCount = [SimpleTeamGameInfo loseCountOfRecord:array];
   
-  for (NSNumber *result in array) {
-    switch (result.integerValue) {
-      case GameResultWin:
-        winCount++;
-        break;
-        
-      case GameResultDraw:
-        drawCount++;
-        break;
-        
-      default:
-        loseCount++;
-        break;
-    }
-  }
   
   NSMutableString *formatRecord = [NSMutableString string];
   if (winCount) {
