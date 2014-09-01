@@ -126,7 +126,7 @@
   // score
   if (info.score) {
     [self.scoreLabel configWithText:info.score
-                          textColor:[UIColor lightGrayColor]
+                          textColor:[UIColor grayColor]
                                font:[UIFont fontWithName:GLOBAL_FONT_NAME size:14]
                       numberOfLines:1];
     CGFloat scoreX = rightMost + SCORE_LEFT_MARGIN;
@@ -147,7 +147,7 @@
   }
   if (![positionStr isEqualToString:@""]) {
     [self.positionLabel configWithText:positionStr
-                             textColor:[UIColor lightGrayColor]
+                             textColor:[UIColor grayColor]
                                   font:[UIFont systemFontOfSize:14]
                          numberOfLines:1];
     CGFloat positionX = rightMost + POSITION_TEFT_MARGIN;

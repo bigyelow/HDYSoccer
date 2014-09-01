@@ -32,7 +32,7 @@
 
 // recent record
 #define RECENT_RECORD_TOP_MARGIN MEMBER_COUNT_TOP_MARGIN
-#define RECENT_RECORD_LEFT_MARGIN 5
+#define RECENT_RECORD_LEFT_MARGIN 8
 
 // AVERAGE SCORE
 #define SCORE_TOP_MARGIN 2
@@ -82,11 +82,6 @@
     
     [backgroundView addSubview:self.memberCountLabel];
     
-    // recent record
-    self.recentRecordLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameX, RECENT_RECORD_TOP_MARGIN, 0, 0)];
-    
-    [backgroundView addSubview:self.recentRecordLabel];
-    
     // SCORE
     CGFloat scoreX = CGRectGetMaxX(avatar.frame) + SCORE_LEFT_MARGIN;
     CGFloat scoreY = CGRectGetMaxY(nameLabel.frame) + SCORE_TOP_MARGIN;
@@ -95,6 +90,11 @@
     
     self.averageScoreLabel = label;
     [backgroundView addSubview:self.averageScoreLabel];
+    
+    // recent record
+    self.recentRecordLabel = [[UILabel alloc] initWithFrame:CGRectMake(scoreX, scoreY, 0, 0)];
+    
+    [backgroundView addSubview:self.recentRecordLabel];
 
 //    // captain
 //    self.captainLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameX, CAPTAIN_TOP_MARGIN, 0, 0)];
@@ -119,7 +119,7 @@
   
   // member count
   [self.memberCountLabel configWithText:[NSString stringWithFormat:@"%d%@", info.memberCount, TEXT_MAN]
-                              textColor:[UIColor lightGrayColor]
+                              textColor:[UIColor grayColor]
                                    font:[UIFont fontWithName:GLOBAL_FONT_NAME size:13]
                           numberOfLines:1];
   CGFloat countX = rightMost + MEMBER_COUNT_LEFT_MARGIN;
@@ -127,35 +127,36 @@
   
   rightMost = CGRectGetMaxX(self.memberCountLabel.frame);
   
-  // recent record
-  CGFloat xLimit = self.frame.size.width - CONTENT_RIGHT_MARING;
-  [self.recentRecordLabel configWithText:[self formatRecordWithRecords:info.recentRecords]
-                               textColor:[UIColor lightGrayColor]
-                                    font:[UIFont fontWithName:GLOBAL_FONT_NAME size:13]
-                           numberOfLines:1];
-  CGFloat recordX = rightMost + RECENT_RECORD_LEFT_MARGIN;
-  [UIConfiguration setView:self.recentRecordLabel x:recordX];
-  rightMost = CGRectGetMaxX(self.recentRecordLabel.frame);
-  
-  if (rightMost > xLimit) {
-    [UIConfiguration setView:self.recentRecordLabel width:xLimit - self.recentRecordLabel.frame.origin.x];
-  }
-  
   // score
   [self.averageScoreLabel configWithText:[NSString stringWithFormat:@"%@", info.averageScore]
                                textColor:[UIColor grayColor]
                                     font:[UIFont systemFontOfSize:14]
                            numberOfLines:1];
   CGFloat scoreY = CGRectGetMaxY(self.nameLabel.frame) + SCORE_TOP_MARGIN;
-  CGFloat scoreWidth = self.averageScoreLabel.frame.size.width + 20;
+  CGFloat scoreWidth = self.averageScoreLabel.frame.size.width;
   [UIConfiguration setView:self.averageScoreLabel width:scoreWidth];
   [UIConfiguration setView:self.averageScoreLabel y:scoreY];
+  
+  // recent record
+  CGFloat xLimit = self.frame.size.width - CONTENT_RIGHT_MARING;
+  [self.recentRecordLabel configWithText:[self formatRecordWithRecords:info.recentRecords]
+                               textColor:[UIColor grayColor]
+                                    font:[UIFont fontWithName:GLOBAL_FONT_NAME size:13]
+                           numberOfLines:1];
+  CGFloat recordX = CGRectGetMaxX(self.averageScoreLabel.frame) + RECENT_RECORD_LEFT_MARGIN;
+  [UIConfiguration setView:self.recentRecordLabel x:recordX];
+  [UIConfiguration setView:self.recentRecordLabel y:scoreY];
+  
+  rightMost = CGRectGetMaxX(self.recentRecordLabel.frame);
+  if (rightMost > xLimit) {
+    [UIConfiguration setView:self.recentRecordLabel width:xLimit - self.recentRecordLabel.frame.origin.x];
+  }
   
 //  CGFloat xLimit = self.frame.size.width - CONTENT_RIGHT_MARING;
 //  // captain
 //  if (![Tools isNilOrEmpty:info.captain]) {
 //    [self.captainLabel configWithText:[NSString stringWithFormat:@"/%@:%@", TEXT_CAPTAIN, info.captain]
-//                            textColor:[UIColor lightGrayColor] 
+//                            textColor:[UIColor grayColor] 
 //                                 font:[UIFont fontWithName:GLOBAL_FONT_NAME size:13]
 //                        numberOfLines:1];
 //    CGFloat captainX = rightMost + CAPTAIN_LEFT_MARGIN;
