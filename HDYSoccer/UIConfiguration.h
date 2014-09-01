@@ -82,6 +82,11 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
                  textColor:(UIColor *)textColor
                       font:(UIFont *)font;
 
++ (UILabel *)labelWithFrame:(CGRect)frame
+                  textColor:(UIColor *)textColor
+                       font:(UIFont *)font
+                  alignment:(NSTextAlignment)alignment;
+
 #pragma mark - loading view
 + (void)showTipMessageToView:(UIView *)view;
 + (void)hideTipMessageOnView:(UIView *)view;

@@ -21,6 +21,19 @@
 }
 
 #pragma mark - label
++ (UILabel *)labelWithFrame:(CGRect)frame
+                  textColor:(UIColor *)textColor
+                       font:(UIFont *)font
+                  alignment:(NSTextAlignment)alignment
+{
+  UILabel *label = [[UILabel alloc] initWithFrame:frame];
+  [label setTextColor:textColor];
+  [label setFont:font];
+  [label setTextAlignment:alignment];
+  
+  return label;
+}
+
 + (UILabel *)labelWithText:(NSString *)text
                  textColor:(UIColor *)textColor
                       font:(UIFont *)font
