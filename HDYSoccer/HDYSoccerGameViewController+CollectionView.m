@@ -14,7 +14,7 @@
 #import "UIConfiguration+Color.h"
 #import "HDYSoccerGameHeader.h"
 #import "FXBlurView.h"
-#import "PersonalGameCell.h"
+#import "PersonalGameCell2.h"
 #import "TeamGameCell.h"
 
 @implementation HDYSoccerGameViewController (CollectionView)
@@ -56,7 +56,7 @@
   [collectionView setScrollIndicatorInsets:UIEdgeInsetsMake(SEGMENT_VIEW_HEIGHT, 0, 0, 0)];
   collectionView.dataSource = self;
   collectionView.delegate = self;
-  [collectionView registerClass:[PersonalGameCell class] forCellWithReuseIdentifier:PERSONAL_GAME_CELL_ID];
+  [collectionView registerClass:[PersonalGameCell2 class] forCellWithReuseIdentifier:PERSONAL_GAME_CELL2_ID];
   [collectionView registerClass:[TeamGameCell class] forCellWithReuseIdentifier:TEAM_GAME_CELL_ID];
   
   // back ground

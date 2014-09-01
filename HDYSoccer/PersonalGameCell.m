@@ -16,22 +16,31 @@
 #define DISTANCE_WIDTH (DISTANCE_BACK_WIDTH - 2 * DISTANCE_LEFT_MARGIN)
 
 // AVATAR
-#define AVATAR_LEFT_MARGIN 0
+#define AVATAR_LEFT_MARGIN 10
 #define AVATAR_TOP_MARGIN 7
-
-// PARTICIPANT
-#define PARTICIPANT_LEFT_MARGIN 10
-#define PARTICIPANT_RIGHT_MARGIN 10
-#define PARTICIPANT_WIDTH 35
-#define PARTICIPANT_BOTTOM_MARGIN 3
 
 // FIELD
 #define FIELD_LEFT_MARGIN 10
 #define FIELD_BOTTOM_MARGIN PARTICIPANT_BOTTOM_MARGIN
+#define FIELD_HEIGHT 15
 
 // SCORE
 #define SCORE_TOP_MARGIN FIELD_BOTTOM_MARGIN
 #define SCORE_LEFT_MARGIN FIELD_LEFT_MARGIN
+#define SCORE_WIDTH 20
+#define SCORE_HEIGHT 20
+
+// PARTICIPANT
+#define PARTICIPANT_LEFT_MARGIN 5
+#define PARTICIPANT_RIGHT_MARGIN 10
+#define PARTICIPANT_WIDTH 35
+#define PARTICIPANT_BOTTOM_MARGIN 2
+#define PARTICIPANT_HEIGHT SCORE_HEIGHT
+
+// TIME
+#define TIME_LEF_MARGIN PARTICIPANT_LEFT_MARGIN
+#define TIME_WIDTH 100
+#define TIME_HEIGHT SCORE_HEIGHT
 
 @implementation PersonalGameCell
 
@@ -48,10 +57,10 @@
     [distanceLabel setTextAlignment:NSTextAlignmentCenter];
     
     self.distanceLabel = distanceLabel;
-    [self addSubview:distanceLabel];
+//    [self addSubview:distanceLabel];
     
     // AVATAR
-    CGFloat avatarX = DISTANCE_BACK_WIDTH + AVATAR_LEFT_MARGIN;
+    CGFloat avatarX = AVATAR_LEFT_MARGIN;
     CGFloat avatarWidht = frame.size.height - 2 * AVATAR_TOP_MARGIN;
     UIImageView *avatar = [[UIImageView alloc] initWithFrame:CGRectMake(avatarX, AVATAR_TOP_MARGIN, avatarWidht, avatarWidht)];
     [avatar.layer setCornerRadius:5];
@@ -69,21 +78,13 @@
     self.fieldBackView = fieldBackView;
     [self addSubview:fieldBackView];
     
-    UILabel *fieldLabel = [[UILabel alloc] initWithFrame:CGRectMake(FIELD_LEFT_MARGIN, fieldBackHeight / 3, 0, 0)];
+    CGFloat fieldY = self.fieldBackView.frame.size.height - FIELD_BOTTOM_MARGIN - FIELD_HEIGHT;
+    UILabel *fieldLabel = [[UILabel alloc] initWithFrame:CGRectMake(FIELD_LEFT_MARGIN, fieldY, fieldBackWidth, FIELD_HEIGHT)];
     [fieldLabel setTextColor:[UIColor blackColor]];
     [fieldLabel setFont:[UIFont systemFontOfSize:15]];
     
     self.fieldLabel = fieldLabel;
     [fieldBackView addSubview:fieldLabel];
-    
-    // PARTICIPANT
-    CGFloat participantX = CGRectGetMaxX(fieldLabel.frame) + PARTICIPANT_LEFT_MARGIN;
-    UILabel *participantLabel = [[UILabel alloc] initWithFrame:CGRectMake(participantX, 0, 0, 0)];
-    [participantLabel setTextColor:[UIColor lightGrayColor]];
-    [participantLabel setFont:[UIFont systemFontOfSize:12]];
-    
-    self.participantNumberLabel = participantLabel;
-    [fieldBackView addSubview:participantLabel];
    
     // SCORE
     CGFloat scoreBackX = fieldBackX;
@@ -93,13 +94,33 @@
     self.scoreBackView = scoreBackView;
     [self addSubview:scoreBackView];
     
-    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCORE_TOP_MARGIN, SCORE_LEFT_MARGIN, 0, 0)];
+    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCORE_LEFT_MARGIN, SCORE_TOP_MARGIN, SCORE_WIDTH, SCORE_HEIGHT)];
     [scoreLabel setTextAlignment:NSTextAlignmentLeft];
     [scoreLabel setFont:[UIFont systemFontOfSize:13]];
     [scoreLabel setTextColor:[UIColor grayColor]];
     
     self.averageScoreLabel = scoreLabel;
     [scoreBackView addSubview:scoreLabel];
+    
+    // PARTICIPANT
+    CGFloat participantX = CGRectGetMaxX(scoreLabel.frame) + PARTICIPANT_LEFT_MARGIN;
+    UILabel *participantLabel = [[UILabel alloc] initWithFrame:CGRectMake(participantX, SCORE_TOP_MARGIN, PARTICIPANT_WIDTH, PARTICIPANT_HEIGHT)];
+    [participantLabel setTextColor:[UIColor grayColor]];
+    [participantLabel setTextAlignment:NSTextAlignmentLeft];
+    [participantLabel setFont:[UIFont systemFontOfSize:13]];
+    
+    self.participantNumberLabel = participantLabel;
+    [scoreBackView addSubview:participantLabel];
+    
+    // TIME
+    CGFloat timeX = CGRectGetMaxX(participantLabel.frame) + TIME_LEF_MARGIN;
+    UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(timeX, SCORE_TOP_MARGIN, TIME_WIDTH, TIME_HEIGHT)];
+    [timeLabel setTextColor:[UIColor grayColor]];
+    [timeLabel setTextAlignment:NSTextAlignmentLeft];
+    [timeLabel setFont:[UIFont systemFontOfSize:13]];
+    
+    self.timeLabel = timeLabel;
+//    [scoreBackView addSubview:timeLabel];
   }
   return self;
 }
@@ -122,16 +143,12 @@
   
   // FIELD
   [self.fieldLabel setText:gameInfo.field];
-  [self.fieldLabel sizeToFit];
   
-  CGFloat fieldWidth = self.fieldBackView.bounds.size.width
-  - FIELD_LEFT_MARGIN - PARTICIPANT_LEFT_MARGIN
-  - PARTICIPANT_WIDTH - PARTICIPANT_RIGHT_MARGIN;
-  CGFloat fieldY = self.fieldBackView.frame.size.height - FIELD_BOTTOM_MARGIN - self.fieldLabel.frame.size.height;
-  if (self.fieldLabel.frame.size.width > fieldWidth) {
-    [UIConfiguration setView:self.fieldLabel width:fieldWidth];
+  // SCORE
+  if ([Tools isNilOrEmpty:gameInfo.averageScore] == NO) {
+    NSString *scoreText = [NSString stringWithFormat:TEXT_GAME_AVERAGE_SCORE_TITLE, gameInfo.averageScore];
+    [self.averageScoreLabel setText:scoreText];
   }
-  [UIConfiguration setView:self.fieldLabel y:fieldY];
   
   // PARTICIPANT
   NSMutableString *participantsStr = [NSMutableString string];
@@ -141,21 +158,11 @@
   }
   
   [self.participantNumberLabel setText:participantsStr];
-  [self.participantNumberLabel sizeToFit];
   
-  CGFloat participantY = self.fieldBackView.frame.size.height - PARTICIPANT_BOTTOM_MARGIN - self.participantNumberLabel.frame.size.height;
-  CGFloat participantX = CGRectGetMaxX(self.fieldLabel.frame) + PARTICIPANT_LEFT_MARGIN;
-  [UIConfiguration setView:self.participantNumberLabel origin:CGPointMake(participantX, participantY)];
-  [UIConfiguration setView:self.participantNumberLabel width:PARTICIPANT_WIDTH];
-  
-  // SCORE
-  if ([Tools isNilOrEmpty:gameInfo.averageScore] == NO) {
-    NSString *scoreText = [NSString stringWithFormat:TEXT_GAME_AVERAGE_SCORE_TITLE, gameInfo.averageScore];
-    [self.averageScoreLabel setText:scoreText];
-    [self.averageScoreLabel sizeToFit];
-    
-    [UIConfiguration setView:self.averageScoreLabel origin:CGPointMake(SCORE_LEFT_MARGIN, SCORE_TOP_MARGIN)];
-  }
+  // TIME
+  NSString *time = [Tools dateminuteToStr:gameInfo.time preferUTC:NO];
+  time = [time substringFromIndex:5];
+  [self.timeLabel setText:time];
 }
 
 /*

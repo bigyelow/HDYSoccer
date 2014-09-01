@@ -99,6 +99,7 @@
 		7194EB7519B051FF00D25C10 /* ChooseTableViewController+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB7419B051FF00D25C10 /* ChooseTableViewController+Network.m */; };
 		7194EB7819B052EA00D25C10 /* ChooseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB7719B052EA00D25C10 /* ChooseTableCell.m */; };
 		7194EB7B19B05AF300D25C10 /* CommonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB7A19B05AF300D25C10 /* CommonButton.m */; };
+		7194EB7E19B424D100D25C10 /* PersonalGameCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7194EB7D19B424D100D25C10 /* PersonalGameCell2.m */; };
 		71967A421976418E002B9621 /* SegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71967A411976418E002B9621 /* SegmentView.m */; };
 		7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF5F194197BD00B29EC5 /* BaseObject.m */; };
 		7197DF6C1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197DF6B1942E27B00B29EC5 /* HDYSoccerGameViewController+Filter.m */; };
@@ -368,6 +369,8 @@
 		7194EB7719B052EA00D25C10 /* ChooseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTableCell.m; sourceTree = "<group>"; };
 		7194EB7919B05AF300D25C10 /* CommonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonButton.h; sourceTree = "<group>"; };
 		7194EB7A19B05AF300D25C10 /* CommonButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonButton.m; sourceTree = "<group>"; };
+		7194EB7C19B424D100D25C10 /* PersonalGameCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalGameCell2.h; sourceTree = "<group>"; };
+		7194EB7D19B424D100D25C10 /* PersonalGameCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalGameCell2.m; sourceTree = "<group>"; };
 		71967A401976418E002B9621 /* SegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentView.h; sourceTree = "<group>"; };
 		71967A411976418E002B9621 /* SegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentView.m; sourceTree = "<group>"; };
 		7197DF5E194197BD00B29EC5 /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
@@ -583,6 +586,8 @@
 				715AD72718E663A90068E6E1 /* HDYSoccerGameCell.m */,
 				71C3128419A449BA004AB50B /* PersonalGameCell.h */,
 				71C3128519A449BA004AB50B /* PersonalGameCell.m */,
+				7194EB7C19B424D100D25C10 /* PersonalGameCell2.h */,
+				7194EB7D19B424D100D25C10 /* PersonalGameCell2.m */,
 				71C3128719A44B72004AB50B /* TeamGameCell.h */,
 				71C3128819A44B72004AB50B /* TeamGameCell.m */,
 				715AD72C18E664980068E6E1 /* HDYSoccerGameFooter.h */,
@@ -1418,6 +1423,7 @@
 				71B1F2B51999E0490039D5EE /* HDYSoccerGeekerDetailViewController+SegmentControl.m in Sources */,
 				7194EB4819AC440300D25C10 /* ReplyCell.m in Sources */,
 				719D52261916732E006304D3 /* SimpleGeekerInfo.m in Sources */,
+				7194EB7E19B424D100D25C10 /* PersonalGameCell2.m in Sources */,
 				7194EB6919AF257100D25C10 /* ChooseFieldCell.m in Sources */,
 				71CB8C4018E022230073E913 /* AppDelegate+Setup.m in Sources */,
 				715AD72E18E664980068E6E1 /* HDYSoccerGameFooter.m in Sources */,

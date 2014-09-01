@@ -21,7 +21,7 @@
 #import "SimplePersonalGameInfo.h"
 #import "SimpleTeamGameInfo.h"
 #import "GameDetailViewController.h"
-#import "PersonalGameCell.h"
+#import "PersonalGameCell2.h"
 #import "TeamGameCell.h"
 
 @interface HDYSoccerGameViewController ()
@@ -114,9 +114,9 @@
     NSMutableArray *list = [self getGameListIndex:index];
     
     if (index == 0) {
-      static NSString *cellID = PERSONAL_GAME_CELL_ID;
-      PersonalGameCell *cell = nil;
-      cell = (PersonalGameCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+      static NSString *cellID = PERSONAL_GAME_CELL2_ID;
+      PersonalGameCell2 *cell = nil;
+      cell = (PersonalGameCell2 *)[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
   
       SimplePersonalGameInfo *gameInfo = list[indexPath.row];
       [cell configCellWithGameInfo:gameInfo];
@@ -167,7 +167,7 @@
 
   CGFloat cellWidth = self.view.bounds.size.width;
   if (index == 0) {
-    return CGSizeMake(cellWidth, PERSONAL_GAEM_CELL_HEIGHT);
+    return CGSizeMake(cellWidth, PERSONAL_GAEM_CELL2_HEIGHT);
   }
   else if (index == 1) {
     return CGSizeMake(cellWidth, TEAM_GAME_CELL_HEIGHT);
