@@ -63,10 +63,8 @@
 - (void)confirmItemPressed
 {
   [self dismissViewControllerAnimated:YES completion:^{
-    if ((self.filterDate || self.filterField)
-        && self.reloadGameListDelegate
-        && [self.reloadGameListDelegate
-        respondsToSelector:@selector(reloadGameListWithParams:)]) {
+    if ((self.filterDate || self.filterField) && self.reloadGameListDelegate
+        && [self.reloadGameListDelegate respondsToSelector:@selector(reloadGameListWithParams:)]) {
           NSMutableDictionary *dic = [NSMutableDictionary dictionary];
           if (self.filterDate) {
             [dic setObject:self.filterDate forKey:PARAM_DATE];
@@ -109,7 +107,7 @@
       }
       
       if (self.filterDate) {
-        NSString *time = [Tools dateminuteToStr:self.filterDate preferUTC:NO];
+        NSString *time = [Tools dateOnlyToStr:self.filterDate preferUTC:NO];
         NSString *cellText = [NSString stringWithFormat:SELECT_TIME_FORMAT_TITLE, time];
         [cell.timeLabel setText:cellText];
         [cell.timeLabel setNumberOfLines:1];
@@ -169,7 +167,7 @@
   [dateSelectionVC.titleLabel setText:SELECT_TIME_TITLE];
   
   [dateSelectionVC setHideNowButton:YES];
-  dateSelectionVC.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+  dateSelectionVC.datePicker.datePickerMode = UIDatePickerModeDate;
   dateSelectionVC.datePicker.minuteInterval = MINUTE_INTERVAL;
   dateSelectionVC.datePicker.date = [NSDate date];
   
