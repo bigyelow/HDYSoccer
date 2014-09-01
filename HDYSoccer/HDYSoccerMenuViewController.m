@@ -12,6 +12,7 @@
 #import "HDYSoccerNavigationController.h"
 #import "HDYSoccerGeekerViewController.h"
 #import "AppDelegate.h"
+#import "AppDelegate+Configuration.h"
 
 @interface HDYSoccerMenuViewController ()
 
@@ -135,6 +136,10 @@
           break;
           
         case 1:{
+          if (![AppContext appContext].isLogin) {
+            [AppDelegate showLoginWithDelegate:self];
+            return;
+          }
           self.frostedViewController.contentViewController = APP_DELEGATE.geekerNav;
         }
           break;

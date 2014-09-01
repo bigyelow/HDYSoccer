@@ -10,6 +10,7 @@
 #import "HDYSoccerNavigationController.h"
 #import "GameDetailViewController.h"
 #import "FXBlurView.h"
+#import "AppDelegate+Configuration.h"
 
 @implementation HDYSoccerGameViewController (CreateGame)
 
@@ -28,6 +29,11 @@
 
 - (void)createGameButtonPressed
 {
+  if (![AppContext appContext].isLogin) {
+    [AppDelegate showLoginWithDelegate:self];
+    return;
+  }
+  
   // blur view
   UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
   FXBlurView *view = [[FXBlurView alloc] initWithFrame:mainWindow.bounds];
@@ -178,5 +184,13 @@
   HDYSoccerNavigationController *navCtr = [[HDYSoccerNavigationController alloc] initWithRootViewController:viewCtr];
   
   [self presentViewController:navCtr animated:YES completion:nil];
+}
+
+#pragma mark - register and login delegate
+- (void)loginSucceeded:(RegisterAndLoginViewController *)vc
+{
+  [vc dismissViewControllerAnimated:YES completion:^{
+    [self createGameButtonPressed];
+  }];
 }
 @end

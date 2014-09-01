@@ -8,9 +8,10 @@
 
 #import "HDYSoccerGameViewController.h"
 #import "CreateGameViewController.h"
+#import "RegisterAndLoginViewController+Action.h"
 
 @interface HDYSoccerGameViewController (CreateGame)
-<createGameDelegate>
+<createGameDelegate, RegisterAndLoginDelegate>
 
 - (void)configTopCreateButton;
 @end
