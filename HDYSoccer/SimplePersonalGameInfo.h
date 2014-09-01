@@ -17,5 +17,6 @@
 @property (nonatomic, copy, readonly) NSString *field;
 @property (nonatomic, copy, readonly) NSString *participantsNumber;
 @property (nonatomic, copy, readonly) NSString *totalNumberLimit;
+@property (nonatomic, strong, readonly) NSDate *time;
 
 @end

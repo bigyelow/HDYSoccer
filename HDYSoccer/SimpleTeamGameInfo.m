@@ -10,6 +10,17 @@
 
 @implementation SimpleTeamGameInfo
 
+@synthesize time = _time;
+
+- (NSDate *)time
+{
+  if (!_time) {
+    NSString *timeStr = [self.dictionary objectForKey:@"time"];
+    _time = [Tools strToDate:timeStr preferUTC:NO];
+  }
+  return _time;
+}
+
 - (NSString *)teamGameID
 {
   return [self.dictionary objectForKey:@"team_game_id"];

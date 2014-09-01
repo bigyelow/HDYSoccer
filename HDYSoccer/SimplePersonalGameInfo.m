@@ -10,9 +10,20 @@
 
 @implementation SimplePersonalGameInfo
 
+@synthesize time = _time;
+
 - (NSString *)personalGameID
 {
   return [self.dictionary objectForKey:@"person_game_id"];
+}
+
+- (NSDate *)time
+{
+  if (!_time) {
+    NSString *timeStr = [self.dictionary objectForKey:@"time"];
+    _time = [Tools strToDate:timeStr preferUTC:NO];
+  }
+  return _time;
 }
 
 - (NSString *)avatarURL

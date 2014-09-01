@@ -16,5 +16,6 @@
 @property (nonatomic, copy, readonly) NSString *teamAvatarURL;
 @property (nonatomic, copy, readonly) NSString *distance;
 @property (nonatomic, copy, readonly) NSString *field;
+@property (nonatomic, strong, readonly) NSDate *time;
 
 @end
