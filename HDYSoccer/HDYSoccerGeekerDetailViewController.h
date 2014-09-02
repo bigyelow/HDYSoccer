@@ -26,6 +26,10 @@
 @property (nonatomic, strong) UITableView *playerInfoTable;
 @property (nonatomic, strong) UITableView *statisticsTable;
 
+// rate view
+@property (nonatomic, strong) UIView *rateBackgroundView;
+@property (nonatomic, strong) UIView *rateFrontView;
+
 - (id)initWithPlayerID:(NSString *)playerID
             playerName:(NSString *)playerName;
 @end

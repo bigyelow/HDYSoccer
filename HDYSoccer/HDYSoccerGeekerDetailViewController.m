@@ -16,6 +16,7 @@
 #import "GeekerAbility.h"
 #import "PlayerAbilityCell.h"
 #import "PlayerAbilityHeaderView.h"
+#import "HDYSoccerGeekerDetailViewController+RateView.h"
 
 @interface HDYSoccerGeekerDetailViewController ()
 @property (nonatomic, strong) NSArray *sampleDatas;
@@ -288,5 +289,34 @@
       break;
   }
   return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  
+  NSDictionary *dic;
+  switch (indexPath.section) {
+    case 2:
+      dic = self.comprehensiveAbilityArray[indexPath.row];
+      
+      break;
+    case 3:
+      dic = self.skillAbilityArray[indexPath.row];
+      
+      break;
+    case 4:
+      dic = self.qualityAbilityArray[indexPath.row];
+      
+      break;
+      
+    default:
+      break;
+  }
+  
+  NSString *key = [dic allKeys][0];
+  NSNumber *value = [dic objectForKey:key];
+  
+  [self showRateViewWithAbilityName:key score:value.integerValue];
 }
 @end

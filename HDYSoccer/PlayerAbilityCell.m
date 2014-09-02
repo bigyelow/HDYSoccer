@@ -33,7 +33,6 @@
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
     [UIConfiguration setView:self height:PLAYER_ABILITY_CELL_HEIGHT];
-    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     // NAME
     UILabel *abilityNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(TITLE_LEFT_MARGIN, 0, 0, 0)];
@@ -113,7 +112,7 @@
     
     // SCORE LABEL
     [self.scoreLabel setTextColor:[self colorForScore:abilityScore]];
-    [self.scoreLabel setText:[NSString stringWithFormat:@"%d", abilityScore]];
+    [self.scoreLabel setText:[NSString stringWithFormat:@"%ld", (long)abilityScore]];
   }
 }
 
