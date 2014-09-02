@@ -89,7 +89,7 @@
     [label setTextAlignment:NSTextAlignmentLeft];
     
     self.averageScoreLabel = label;
-    [backgroundView addSubview:self.averageScoreLabel];
+//    [backgroundView addSubview:self.averageScoreLabel];
     
     // recent record
     self.recentRecordLabel = [[UILabel alloc] initWithFrame:CGRectMake(scoreX, scoreY, 0, 0)];
@@ -137,13 +137,16 @@
   [UIConfiguration setView:self.averageScoreLabel width:scoreWidth];
   [UIConfiguration setView:self.averageScoreLabel y:scoreY];
   
+  // replace with memberCountLabel
+  [UIConfiguration setView:self.memberCountLabel origin:self.averageScoreLabel.frame.origin];
+  
   // recent record
   CGFloat xLimit = self.frame.size.width - CONTENT_RIGHT_MARING;
   [self.recentRecordLabel configWithText:[self formatRecordWithRecords:info.recentRecords]
                                textColor:[UIColor grayColor]
                                     font:[UIFont fontWithName:GLOBAL_FONT_NAME size:13]
                            numberOfLines:1];
-  CGFloat recordX = CGRectGetMaxX(self.averageScoreLabel.frame) + RECENT_RECORD_LEFT_MARGIN;
+  CGFloat recordX = CGRectGetMaxX(self.memberCountLabel.frame) + RECENT_RECORD_LEFT_MARGIN;
   [UIConfiguration setView:self.recentRecordLabel x:recordX];
   [UIConfiguration setView:self.recentRecordLabel y:scoreY];
   
