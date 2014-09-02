@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 bigyelow. All rights reserved.
 //
 
+// CP means ChooseParticipants...
+
 #import <Foundation/Foundation.h>
 
 #define CPTRANSITION_ENDFRAME_WIDTH (WINDOW_FRAME.size.width / 7 * 5)
