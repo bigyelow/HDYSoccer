@@ -150,4 +150,11 @@ NSString* const kDefaultDateFormat = @"yyyy-MM-dd";
   return [phoneNumberString length] == 11;
 }
 
+#pragma mark - operations
+
++ (BOOL)isSelfUser:(NSString *)userID
+{
+  return [[AppContext appContext].auth.userID isEqualToString:userID];
+}
+
 @end

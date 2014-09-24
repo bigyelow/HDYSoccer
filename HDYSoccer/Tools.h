@@ -54,4 +54,8 @@ typedef void (^performBlock)();
 // validation
 + (BOOL)verifyPhoneNumberFormat:(NSString *)phoneNumberString;
 + (BOOL)verifyPhoneNumberLength:(NSString *)phoneNumberString;
+
+#pragma mark - operations
+
++ (BOOL)isSelfUser:(NSString *)userID;
 @end
