@@ -47,6 +47,12 @@
   return _tagsArray;
 }
 
+- (BOOL)isFriend
+{
+  NSNumber *number = [self.dictionary objectForKey:@"is_friend"];
+  return number.boolValue;
+}
+
 - (CGFloat)averageGameScore
 {
   NSNumber *number = [self.dictionary objectForKey:@"averageGameScore"];

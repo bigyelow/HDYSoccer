@@ -23,5 +23,5 @@
 @property (nonatomic, strong) GeekerAbility *ability;
 @property (nonatomic, strong, readonly) NSArray *tagsArray;
 @property (nonatomic, assign) CGFloat averageGameScore;
-
+@property (nonatomic, assign) BOOL isFriend;
 @end

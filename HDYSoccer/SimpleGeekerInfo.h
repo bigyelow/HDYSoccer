@@ -31,5 +31,6 @@ typedef NS_ENUM(NSInteger, GeekerStatus)
 @property (nonatomic, strong) NSArray *position;
 @property (nonatomic, assign) GeekerStatus status;
 @property (nonatomic, strong, readonly) NSArray *tagsArray;
+@property (nonatomic, assign) BOOL isFriend;
 
 @end
