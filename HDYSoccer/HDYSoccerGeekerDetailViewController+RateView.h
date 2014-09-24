@@ -10,9 +10,6 @@
 
 @interface HDYSoccerGeekerDetailViewController (RateView)
 
-@property (nonatomic, copy) NSString *selectedAbilityName;
-@property (nonatomic, assign) NSInteger selectedAbilityScore;
-
 - (void)showRateViewWithAbilityName:(NSString *)name
                               score:(NSInteger)score;
 @end

@@ -8,19 +8,49 @@
 
 #import "HDYSoccerGeekerDetailViewController+RateView.h"
 
-#define FRONT_VIEW_LEFT_MARGIN 0.0F
-#define FRONT_VIEW_HEIGHT 260
+#import "UICountingLabel.h"
+#import "UILabel+Customize.h"
+
+#define FRONT_VIEW_LEFT_MARGIN 20.0F
+#define FRONT_VIEW_HEIGHT 200
+
+// Title
+#define TITLE_TOP_MARGIN 30
+#define TITLE_LEFT_MARGIN 10
+
+// Score bar
+#define SCORE_BAR_TOP_MARGIN 10
+#define SCORE_BAR_LEFT_MARGIN 10
+#define SCORE_BAR_BACKGOURND_COLOR @"#DADADA"
+
+// Score
+#define SCORE_LEFT_MARGIN 10
+#define SCORE_TOP_MARGIN 10
+#define SCORE_RIGHT_MARGIN 10
+
+// Stepper
+#define STEPPER_TOP_MARGIN 20
+#define STEPPER_LIMIT_VALUE 10
+
+// Confirm button
+#define CONFIRM_BUTTON_TOP_MARGIN 20
+#define CONFIRM_BUTTON_HEIGHT 35
+#define CONFIRM_BUTTON_WIDTH 80
+#define CONFIRM_BUTTON_FONT_SIZE 18
 
 NSString *_selectedAbilityName;
 NSInteger _selectedAbilityScore;
+CGFloat _scoreBarWidth;
+UILabel *_scoreLabel;
+UIView *_scoreBar;
 
 @implementation HDYSoccerGeekerDetailViewController (RateView)
 
 - (void)showRateViewWithAbilityName:(NSString *)name
                               score:(NSInteger)score
 {
-  self.selectedAbilityName = name;
-  self.selectedAbilityScore = score;
+  _selectedAbilityName = name;
+  _selectedAbilityScore = score;
   
   [self createRateView];
   [self showRateFrontViewWithAnimation];
@@ -114,6 +144,108 @@ NSInteger _selectedAbilityScore;
   [cancelButton addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
   [self.rateFrontView addSubview:cancelButton];
+  
+  // Title
+  CGFloat titleY = CGRectGetMaxY(cancelButton.frame) + TITLE_TOP_MARGIN;
+  UILabel *titleLable = [UIConfiguration labelWithText:name
+                                             textColor:[UIColor blackColor]
+                                                  font:[UIFont systemFontOfSize:17]
+                                         numberOfLines:1];
+  [UIConfiguration setView:titleLable origin:CGPointMake(TITLE_LEFT_MARGIN, titleY)];
+  
+  [self.rateFrontView addSubview:titleLable];
+  
+  // Score
+  UILabel *scoreLabel = [[UILabel alloc] init];
+  [scoreLabel configWithText:@"100" 
+                   textColor:[self colorForScore:score]
+                        font:[UIFont systemFontOfSize:15] 
+               numberOfLines:1];
+  [scoreLabel setText:[NSString stringWithFormat:@"%d", score]];
+  
+  CGFloat scoreX = self.rateFrontView.bounds.size.width - SCORE_RIGHT_MARGIN - scoreLabel.bounds.size.width;
+  [UIConfiguration setView:scoreLabel origin:CGPointMake(scoreX, titleY)];
+  
+  _scoreLabel = scoreLabel;
+  [self.rateFrontView addSubview:scoreLabel];
+
+  
+  // Score bar
+  CGFloat scorebarX = CGRectGetMaxX(titleLable.frame) + SCORE_BAR_LEFT_MARGIN;
+  CGFloat scorebarWidth = self.rateFrontView.bounds.size.width - scorebarX - SCORE_LEFT_MARGIN - scoreLabel.bounds.size.width - SCORE_RIGHT_MARGIN;
+  CGFloat scorebarHeight = titleLable.bounds.size.height;
+  
+  UIView *scoreBackView = [[UIView alloc] initWithFrame:CGRectMake(scorebarX, titleY, scorebarWidth, scorebarHeight)];
+  [scoreBackView setBackgroundColor:[UIConfiguration colorForHex:SCORE_BAR_BACKGOURND_COLOR]];
+  
+  _scoreBarWidth = scorebarWidth;
+  [self.rateFrontView addSubview:scoreBackView];
+  
+  CGFloat scoreFrontWidth =  (CGFloat)score / 100 * scorebarWidth;
+  CGRect scoreFrontRect = CGRectMake(scorebarX, titleY, scoreFrontWidth, scorebarHeight);
+  UIView *scoreFrontView = [[UIView alloc] initWithFrame:scoreFrontRect];
+  [scoreFrontView setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
+  
+  _scoreBar = scoreFrontView;
+  [self.rateFrontView addSubview:scoreFrontView];
+  
+  // Stepper
+  CGFloat stepperY = CGRectGetMaxY(titleLable.frame) + STEPPER_TOP_MARGIN;
+  UIStepper *scoreStepper = [[UIStepper alloc] initWithFrame:CGRectMake(0, stepperY, 0, 0)];
+  [scoreStepper setTransform:CGAffineTransformMakeScale(1.0, 0.8)];
+  [scoreStepper setTintColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
+  [scoreStepper setValue:score];
+  CGFloat maxValue = score + STEPPER_LIMIT_VALUE;
+  if (maxValue > 100) {
+    maxValue = 100;
+  }
+  CGFloat minValue = score - STEPPER_LIMIT_VALUE;
+  if (minValue < 0) {
+    minValue = 0;
+  }
+  [scoreStepper setMaximumValue:maxValue];
+  [scoreStepper setMinimumValue:minValue];
+  [scoreStepper addTarget:self action:@selector(stepperValueChanged:) forControlEvents:UIControlEventTouchUpInside];
+  [UIConfiguration moveSubviewXToSuperviewCenter:self.rateFrontView subview:scoreStepper];
+  
+  [self.rateFrontView addSubview:scoreStepper];
+  
+  // Confirm button
+  CGFloat confirmY = CGRectGetMaxY(scoreStepper.frame) + CONFIRM_BUTTON_TOP_MARGIN;
+  UIButton *confirmButton = [[UIButton alloc]
+                             initWithFrame:CGRectMake(0, confirmY, CONFIRM_BUTTON_WIDTH, CONFIRM_BUTTON_HEIGHT)];
+  [confirmButton setTitle:TEXT_OK forState:UIControlStateNormal];
+  [confirmButton setTitleColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR] forState:UIControlStateNormal];
+  [confirmButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+  [confirmButton.titleLabel setFont:[UIFont systemFontOfSize:CONFIRM_BUTTON_FONT_SIZE]];
+  
+  [UIConfiguration moveSubviewXToSuperviewCenter:self.rateFrontView subview:confirmButton];
+  
+  [self.rateFrontView addSubview:confirmButton];
+}
+
+- (UIColor *)colorForScore:(NSInteger)score
+{
+  if (score >= kScoreGradeTop) {
+    return [UIConfiguration colorForHex:SCORE_TOP_COLOR];
+  }
+  else if (score >= kScoreGradeMiddle) {
+    return [UIConfiguration colorForHex:SCORE_MIDDLE_COLOR];
+  }
+  else {
+    return [UIConfiguration colorForHex:SCORE_BOTTOM_COLOR];
+  }
+}
+
+- (void)stepperValueChanged:(UIStepper *)sender
+{
+  NSInteger value = [sender value];
+  
+  CGFloat width = (CGFloat)value / 100 * _scoreBarWidth;
+  [UIConfiguration setView:_scoreBar width:width];
+  
+  [_scoreLabel setText:[NSString stringWithFormat:@"%d", value]];
+  [_scoreLabel setTextColor:[self colorForScore:value]];
 }
 
 #pragma mark - get and set
