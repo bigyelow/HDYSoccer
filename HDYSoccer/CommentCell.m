@@ -144,7 +144,7 @@
                    cellHeight:(CGFloat)cellHeight
 {
   if (![Tools isNilOrEmpty:comment.avatarURL]) {
-    [self.avatar setImageWithURL:[NSURL URLWithString:comment.avatarURL]];
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:comment.avatarURL]];
   }
   else {
     [self.avatar setImage:[UIImage imageNamed:@"user_male-25.png"]];

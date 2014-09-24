@@ -113,7 +113,7 @@
 - (void)configWithPlayerInfo:(SimpleGeekerInfo *)info
 {
   // avatar
-  [self.avatar setImageWithURL:[NSURL URLWithString:info.avatarURL]];
+  [self.avatar sd_setImageWithURL:[NSURL URLWithString:info.avatarURL]];
   
   // name
   [self.nameLabel configWithText:info.name

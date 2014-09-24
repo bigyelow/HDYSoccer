@@ -23,7 +23,7 @@ PODS:
   - CHTCollectionViewWaterfallLayout (0.6)
   - DACircularProgress (2.2.0)
   - FXBlurView (1.6.1)
-  - GPUImage (0.1.4)
+  - GPUImage (0.1.5)
   - JSONModel (0.13.0)
   - MBProgressHUD (0.8)
   - MRProgress (0.4.3):
@@ -79,7 +79,7 @@ DEPENDENCIES:
   - APNumberPad (~> 1.0)
   - CHTCollectionViewWaterfallLayout (~> 0.6)
   - FXBlurView (~> 1.6.1)
-  - GPUImage (~> 0.1.4)
+  - GPUImage (~> 0.1.5)
   - JSONModel (~> 0.13.0)
   - MBProgressHUD (~> 0.8)
   - MRProgress (~> 0.4.3)
@@ -99,7 +99,7 @@ SPEC CHECKSUMS:
   CHTCollectionViewWaterfallLayout: 849ae31d979db744b5170e48bcf3e7e726f5d682
   DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
   FXBlurView: 1d01b96076d65027314d1be024c7506c292392aa
-  GPUImage: ac2bde5f4dbea02a81ced6313964cec1f2043ca9
+  GPUImage: 5114a47f5fc33eb312f3731550a3cea379416d04
   JSONModel: 62ea96b49ea18a8b91ef89c249dba291d8601d82
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   MRProgress: e588fb8d0fba293715eaf0e485dd8402f4ce1de6

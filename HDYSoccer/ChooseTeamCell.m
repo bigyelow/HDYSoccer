@@ -119,7 +119,7 @@
   
   CGFloat avatarY = CHOOSE_TEAM_NORMAL_HEIGHT + TEAM_AVATAR_TOP_MARGIN;
   UIImageView *avatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, avatarY, TEAM_AVATAR_HEIGHT, TEAM_AVATAR_HEIGHT)];
-  [avatar setImageWithURL:[NSURL URLWithString:avatarURL]];
+  [avatar sd_setImageWithURL:[NSURL URLWithString:avatarURL]];
   [UIConfiguration moveSubviewXToSuperviewCenter:self subview:avatar];
   
   [self addSubview:avatar];

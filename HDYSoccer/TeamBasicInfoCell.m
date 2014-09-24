@@ -53,7 +53,7 @@
 - (void)configCellWithTeam:(Team *)team
 {
   // AVATAR
-  [self.avatar setImageWithURL:[NSURL URLWithString:team.teamAvatarURL]];
+  [self.avatar sd_setImageWithURL:[NSURL URLWithString:team.teamAvatarURL]];
   
   // NAME
   [self.nameLabel setText:team.teamName];

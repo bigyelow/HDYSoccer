@@ -43,7 +43,7 @@
     
     // avatar
     UIImageView *avatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, AVATAR_TOP_MARGIN, AVATAR_WIDTH, AVATAR_WIDTH)];
-    [avatar setImageWithURL:[NSURL URLWithString:teamInfo.teamAvatarURL] placeholderImage:nil];
+    [avatar sd_setImageWithURL:[NSURL URLWithString:teamInfo.teamAvatarURL] placeholderImage:nil];
     [UIConfiguration moveSubviewXToSuperviewCenter:self subview:avatar];
     
     [self addSubview:avatar];

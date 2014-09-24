@@ -159,7 +159,7 @@
 - (void)configCellWithGameInfo:(SimpleTeamGameInfo *)gameInfo
 {
   [self.nameLabel setText:gameInfo.teamName];
-  [self.avatar setImageWithURL:[NSURL URLWithString:gameInfo.teamAvatarURL]];
+  [self.avatar sd_setImageWithURL:[NSURL URLWithString:gameInfo.teamAvatarURL]];
   [self.fieldLabel setText:gameInfo.field];
   [self.recordLabel setText:[self formatRecordWithRecords:gameInfo.recentRecords]];
   

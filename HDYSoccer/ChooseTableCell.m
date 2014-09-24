@@ -56,7 +56,7 @@
 - (void)configCellWithImageURL:(NSString *)url
                           name:(NSString *)name
 {
-  [self.avatarView setImageWithURL:[NSURL URLWithString:url]];
+  [self.avatarView sd_setImageWithURL:[NSURL URLWithString:url]];
   [self.nameLabel setText:name];
 }
 

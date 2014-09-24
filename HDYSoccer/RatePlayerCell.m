@@ -138,7 +138,7 @@
 {
   // avatar
   if (scoreInfo.avatarURL) {
-    [self.avatarView setImageWithURL:[NSURL URLWithString:scoreInfo.avatarURL]];
+    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:scoreInfo.avatarURL]];
   }
   else {
     [self.avatarView setImage:nil];

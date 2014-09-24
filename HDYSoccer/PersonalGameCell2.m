@@ -143,7 +143,7 @@
 
 - (void)configCellWithGameInfo:(SimplePersonalGameInfo *)gameInfo
 {
-  [self.avatar setImageWithURL:[NSURL URLWithString:gameInfo.avatarURL]];
+  [self.avatar sd_setImageWithURL:[NSURL URLWithString:gameInfo.avatarURL]];
   [self.fieldLabel setText:gameInfo.field];
   
   NSString *scoreText = [NSString stringWithFormat:TEXT_GAME_AVERAGE_SCORE_TITLE, gameInfo.averageScore];

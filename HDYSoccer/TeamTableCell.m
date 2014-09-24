@@ -107,7 +107,7 @@
 - (void)configWithTeamInfo:(SimpleTeamInfo *)info
 {
   // avatar
-  [self.avatar setImageWithURL:[NSURL URLWithString:info.teamAvatarURL]];
+  [self.avatar sd_setImageWithURL:[NSURL URLWithString:info.teamAvatarURL]];
   
   // name
   [self.nameLabel configWithText:info.teamName

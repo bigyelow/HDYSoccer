@@ -67,7 +67,7 @@
 - (void)configCellWithPlayer:(Geeker *)player
 {
   // AVATAR
-  [self.avatar setImageWithURL:[NSURL URLWithString:player.avatarURL]];
+  [self.avatar sd_setImageWithURL:[NSURL URLWithString:player.avatarURL]];
   
   // NAME
   [self.nameLabel setText:player.name];

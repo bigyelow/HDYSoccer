@@ -66,7 +66,7 @@
 
 - (void)configWithPersonalGameInfo:(SimplePersonalGameInfo *)gameInfo
 {
-  [self.imageView setImageWithURL:[NSURL URLWithString:gameInfo.avatarURL] placeholderImage:nil];
+  [self.imageView sd_setImageWithURL:[NSURL URLWithString:gameInfo.avatarURL] placeholderImage:nil];
   
   // participants
   NSMutableString *participantsStr = [NSMutableString string];
@@ -148,7 +148,7 @@
 
 - (void)configWithTeamGameInfo:(SimpleTeamGameInfo *)gameInfo
 {
-  [self.imageView setImageWithURL:[NSURL URLWithString:gameInfo.teamAvatarURL] placeholderImage:nil];
+  [self.imageView sd_setImageWithURL:[NSURL URLWithString:gameInfo.teamAvatarURL] placeholderImage:nil];
   
   UIFont *teamInfoFont = [UIFont fontWithName:GAMELIST_CELL_FONT_NAME size:TEAM_NAME_FONT_SIZE];
   

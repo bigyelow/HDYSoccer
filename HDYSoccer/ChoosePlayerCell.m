@@ -136,7 +136,7 @@
       NSString *avatarURL = object[0];
       CGFloat avatarY = index < FRIEND_LIMIT_PER_LINE ? FRIENDS_TOP_MARGIN : FRIENDS_ROW_MARGIN;
       UIImageView *avatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, avatarY, FRIEND_IMAGE_HEIGHT, FRIEND_IMAGE_HEIGHT)];
-      [avatar setImageWithURL:[NSURL URLWithString:avatarURL]];
+      [avatar sd_setImageWithURL:[NSURL URLWithString:avatarURL]];
       [UIConfiguration moveSubviewXToSuperviewCenter:backView subview:avatar];
       
       [backView addSubview:avatar];

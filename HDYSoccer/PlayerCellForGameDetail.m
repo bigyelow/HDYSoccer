@@ -121,7 +121,7 @@
 {
   // avatar
   if (geekerInfo.avatarURL) {
-    [self.avatarView setImageWithURL:[NSURL URLWithString:geekerInfo.avatarURL]];
+    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:geekerInfo.avatarURL]];
   }
   else {
     [self.avatarView setImage:nil];
