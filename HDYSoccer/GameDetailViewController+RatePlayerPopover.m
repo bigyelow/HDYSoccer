@@ -237,9 +237,9 @@
   UIButton *confirmButton = [[UIButton alloc]
                              initWithFrame:CGRectMake(confirmX, confirmY, CONFIRM_BUTTON_WIDTH, CONFIRM_BUTTON_NO_SCORE_HEIGHT)];
   [confirmButton setTitle:TEXT_OK forState:UIControlStateNormal];
-  [confirmButton setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR]];
+  [confirmButton setBackgroundImage:[UIConfiguration imageForColorHex:GLOBAL_TINT_COLOR] forState:UIControlStateNormal];
+  [confirmButton setBackgroundImage:[UIConfiguration imageForColor:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
   [confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  [confirmButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
   [confirmButton.titleLabel setFont:[UIFont systemFontOfSize:CONFIRM_BUTTON_FONT_SIZE]];
   [confirmButton addTarget:self action:@selector(confirmButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
