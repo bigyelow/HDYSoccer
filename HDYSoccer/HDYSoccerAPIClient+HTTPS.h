@@ -7,6 +7,7 @@
 //
 
 #import "HDYSoccerAPIClient.h"
+#import "GeekerAbility.h"
 
 @interface HDYSoccerAPIClient (HTTPS)
 
@@ -73,4 +74,10 @@
                     content:(NSString *)content
                   succeeded:(SucceededGettingDictionaryBlock)succeeded
                      failed:(FailedBlock)failed;
+#pragma mark - rate
+- (void)ratePlayerAbilityWithPlayerID:(NSString *)playerID
+                          abilityType:(PlayerAbility)abilityType
+                                score:(NSInteger)score
+                            succeeded:(SucceededGettingDictionaryBlock)succeeded
+                               failed:(FailedBlock)failed;
 @end

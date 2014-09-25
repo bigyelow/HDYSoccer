@@ -14,6 +14,7 @@
 #import "SimpleGeekerInfo.h"
 #import "ParticipantsScore.h"
 #import "SimpleTeamInfo.h"
+#import "GeekerAbility.h"
 
 @implementation HDYSoccerAPIClient (HTTPS)
 
@@ -335,4 +336,36 @@
                         failed(hdyApiError);
                       }];
 }
+
+#pragma mark - rate
+
+- (void)ratePlayerAbilityWithPlayerID:(NSString *)playerID
+                          abilityType:(PlayerAbility)abilityType
+                                score:(NSInteger)score
+                            succeeded:(SucceededGettingDictionaryBlock)succeeded
+                               failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:
+                                    [HDYSoccerAPIClient defaultParameters]];
+  [parameter setObject:[GeekerAbility abilityStringFromAbility:abilityType] forKey:@"ability_name"];
+  [parameter setObject:[NSNumber numberWithInteger:score] forKey:@"score"];
+  
+  NSString *pathStr = [NSString stringWithFormat:@"rate/geeker/%@", playerID];
+  NSString *path = [self pathWithSubpath:pathStr];
+  
+  [self.operationManager POST:path
+                   parameters:parameter
+                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        NSDictionary *resultDic = responseObject;
+                        succeeded(resultDic);
+                      }
+                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                        failed(hdyApiError);
+                      }];
+}
+
 @end
