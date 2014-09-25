@@ -124,4 +124,9 @@
   }
   return _ability;
 }
+
+- (void)setAbility:(GeekerAbility *)ability
+{
+  _ability = ability;
+}
 @end
