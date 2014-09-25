@@ -317,6 +317,11 @@
   NSString *key = [dic allKeys][0];
   NSNumber *value = [dic objectForKey:key];
   
-  [self showRateViewWithAbilityName:key score:value.integerValue];
+  // Detect if is self
+#warning use self.playerID instead of 1001
+  if (![Tools isSelfUser:@"1001"]) {
+    [self showRateViewWithAbilityName:key score:value.integerValue indexPath:indexPath];
+  }
+  
 }
 @end

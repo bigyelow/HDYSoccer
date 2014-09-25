@@ -7,9 +7,15 @@
 //
 
 #import "HDYSoccerGeekerDetailViewController+RateView.h"
+#import "HDYSoccerGeekerDetailViewController+NetworkOperation.h"
+#import "Geeker.h"
+#import "GeekerAbility.h"
 
+#import "AppDelegate+Configuration.h"
 #import "UICountingLabel.h"
 #import "UILabel+Customize.h"
+#import "PSPDFAlertView.h"
+#import "HDYSoccerAPIClient+HTTPS.h"
 
 #define FRONT_VIEW_LEFT_MARGIN 20.0F
 #define FRONT_VIEW_HEIGHT 200
@@ -43,14 +49,19 @@ NSInteger _selectedAbilityScore;
 CGFloat _scoreBarWidth;
 UILabel *_scoreLabel;
 UIView *_scoreBar;
+NSInteger _rateScore;
+NSIndexPath *_indexPath;
 
 @implementation HDYSoccerGeekerDetailViewController (RateView)
 
 - (void)showRateViewWithAbilityName:(NSString *)name
                               score:(NSInteger)score
+                          indexPath:(NSIndexPath *)indexPath
 {
   _selectedAbilityName = name;
   _selectedAbilityScore = score;
+  _rateScore = _selectedAbilityScore;
+  _indexPath = indexPath;
   
   [self createRateView];
   [self showRateFrontViewWithAnimation];
@@ -218,10 +229,40 @@ UIView *_scoreBar;
   [confirmButton setTitleColor:[UIConfiguration colorForHex:GLOBAL_TINT_COLOR] forState:UIControlStateNormal];
   [confirmButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
   [confirmButton.titleLabel setFont:[UIFont systemFontOfSize:CONFIRM_BUTTON_FONT_SIZE]];
+  [confirmButton addTarget:self action:@selector(confirmButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
   [UIConfiguration moveSubviewXToSuperviewCenter:self.rateFrontView subview:confirmButton];
   
   [self.rateFrontView addSubview:confirmButton];
+}
+
+- (void)confirmButtonPressed
+{
+  // Detect if login
+  if (![AppContext appContext].isLogin) {
+    [AppDelegate showLoginWithDelegate:self];
+    
+    return;
+  }
+  
+  // Detect if isFriend
+  if (!self.playerInfo.isFriend) {
+    PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:nil message:TEXT_CANNOT_RATE_PLAYER];
+    [alertView setCancelButtonWithTitle:TEXT_OK_OH block:nil];
+    
+    [alertView show];
+    
+    return;
+  }
+  
+  // Detect if score changed
+  if (_rateScore == _selectedAbilityScore) {
+    [self cancelButtonPressed];
+    
+    return;
+  }
+  
+  [self ratePlayer];
 }
 
 - (UIColor *)colorForScore:(NSInteger)score
@@ -240,12 +281,51 @@ UIView *_scoreBar;
 - (void)stepperValueChanged:(UIStepper *)sender
 {
   NSInteger value = [sender value];
+  _rateScore = value;
   
   CGFloat width = (CGFloat)value / 100 * _scoreBarWidth;
   [UIConfiguration setView:_scoreBar width:width];
   
   [_scoreLabel setText:[NSString stringWithFormat:@"%d", value]];
   [_scoreLabel setTextColor:[self colorForScore:value]];
+}
+
+#pragma mark - login delegate
+- (void)loginSucceeded:(RegisterAndLoginViewController *)vc
+{
+  __weak typeof(self) weakSelf = self;
+  [vc dismissViewControllerAnimated:YES completion:^{
+    [weakSelf confirmButtonPressed];
+  }];
+}
+
+#pragma mark - network
+- (void)ratePlayer
+{
+  PlayerAbility ability = [GeekerAbility abilityTypeFromAbilityName:_selectedAbilityName];
+  
+  [UIConfiguration showTipMessageToView:self.rateFrontView];
+  
+  __weak typeof(self) weakSelf = self;
+  [self.httpsClient ratePlayerAbilityWithPlayerID:self.playerID
+                                      abilityType:ability
+                                            score:_rateScore
+                                        succeeded:^(NSDictionary *dictionary) {
+                                          [UIConfiguration hideTipMessageOnView:weakSelf.rateFrontView];
+                                          
+                                          GeekerAbility *ability = [GeekerAbility objectWithDictionary:dictionary];
+                                          [weakSelf.playerInfo setAbility:ability];
+                                          [weakSelf configAbilityArrayWithPlayerInfo:weakSelf.playerInfo];
+                                          [weakSelf cancelButtonPressed];
+
+                                          [weakSelf.playerInfoTable beginUpdates];
+                                          [weakSelf.playerInfoTable reloadRowsAtIndexPaths:@[[weakSelf selectedIndexPath]]
+                                                                    withRowAnimation:UITableViewRowAnimationBottom];
+                                          [weakSelf.playerInfoTable endUpdates];
+                                        } failed:^(HDYSoccerAPIError *error) {
+                                          [UIConfiguration hideTipMessageOnView:weakSelf.rateFrontView];
+
+                                        }];
 }
 
 #pragma mark - get and set
@@ -267,6 +347,11 @@ UIView *_scoreBar;
 - (void)setSelectedAbilityName:(NSString *)name
 {
   _selectedAbilityName = name;
+}
+
+- (NSIndexPath *)selectedIndexPath
+{
+  return _indexPath;
 }
 
 @end

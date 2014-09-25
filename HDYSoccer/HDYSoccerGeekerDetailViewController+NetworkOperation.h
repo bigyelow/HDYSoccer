@@ -10,4 +10,5 @@
 
 @interface HDYSoccerGeekerDetailViewController (NetworkOperation)
 - (void)loadPlayerInfoWithPlayerID:(NSString *)playerID;
+- (void)configAbilityArrayWithPlayerInfo:(Geeker *)playerInfo;
 @end

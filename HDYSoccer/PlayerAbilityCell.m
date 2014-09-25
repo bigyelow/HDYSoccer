@@ -61,7 +61,11 @@
     UICountingLabel *scoreLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(scoreX, 0, 0, 0)];
     scoreLabel.format = @"%d";
     [scoreLabel setTextAlignment:NSTextAlignmentRight];
-    
+    [scoreLabel configWithText:@"100"
+                     textColor:[UIConfiguration colorForHex:SCORE_BAR_BACKGOURND_COLOR]
+                          font:[UIFont systemFontOfSize:15]
+                 numberOfLines:1];
+
     self.scoreLabel = scoreLabel;
     [self addSubview:scoreLabel];
     
@@ -80,15 +84,14 @@
                           numberOfLines:1];
   [UIConfiguration moveSubviewYToSuperviewCenter:self subview:self.abilityNameLabel];
   
+  // SCORE LABEL
+  CGFloat scoreX = self.frame.size.width - SCORE_RIGHT_MARGIN - self.scoreLabel.frame.size.width;
+  [UIConfiguration setView:self.scoreLabel x:scoreX];
+  [UIConfiguration moveSubviewYToSuperviewCenter:self subview:self.scoreLabel];
+  
   // SCORE
   if (animation) {
     __weak typeof(self) weakSelf = self;
-
-    // SCORE LABEL
-    [self.scoreLabel configWithText:@"100" textColor:[UIConfiguration colorForHex:SCORE_BAR_BACKGOURND_COLOR] font:[UIFont systemFontOfSize:15] numberOfLines:1];
-    CGFloat scoreX = self.frame.size.width - SCORE_RIGHT_MARGIN - self.scoreLabel.frame.size.width;
-    [UIConfiguration setView:self.scoreLabel x:scoreX];
-    [UIConfiguration moveSubviewYToSuperviewCenter:self subview:self.scoreLabel];
     
     [self.scoreLabel setCompletionBlock:^{
       [weakSelf.scoreLabel setTextColor:[weakSelf colorForScore:abilityScore]];

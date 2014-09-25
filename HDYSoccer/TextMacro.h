@@ -70,6 +70,8 @@
 #define TEXT_SEND_MESSAGE @"发送"
 #define TEXT_SENDING @"正在提交..."
 #define TEXT_SELECT_AGAIN @"重新选择"
+#define TEXT_CANNOT_RATE_PLAYER @"加为好友再给他评分吧"
+#define TEXT_OK_OH @"好的"
 
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"

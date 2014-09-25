@@ -7,9 +7,12 @@
 //
 
 #import "HDYSoccerGeekerDetailViewController.h"
+#import "AppDelegate+Configuration.h"
 
 @interface HDYSoccerGeekerDetailViewController (RateView)
+<RegisterAndLoginDelegate>
 
 - (void)showRateViewWithAbilityName:(NSString *)name
-                              score:(NSInteger)score;
+                              score:(NSInteger)score
+                          indexPath:(NSIndexPath *)indexPath;
 @end
