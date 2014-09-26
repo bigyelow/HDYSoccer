@@ -33,7 +33,7 @@
 - (void)sendButtonPressed
 {
   if ([Tools isNilOrEmpty:self.commentView.textView.text]) {
-    PSPDFAlertView *alert = [[PSPDFAlertView alloc] initWithTitle:nil message:ALERT_TEXT_EMPTY];
+    PSPDFAlertView *alert = [[PSPDFAlertView alloc] initWithTitle:ALERT_TEXT_EMPTY];
     [alert setCancelButtonWithTitle:TEXT_I_SEE block:nil];
     
     [alert show];

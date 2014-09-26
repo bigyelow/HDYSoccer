@@ -18,14 +18,14 @@
 - (void)loginPressed
 {
   if ([Tools isNilOrEmpty:self.userNameField.text]) {
-    PSPDFAlertView *alert = [[PSPDFAlertView alloc] initWithTitle:nil message:LOGIN_EMPTY_ALERT];
+    PSPDFAlertView *alert = [[PSPDFAlertView alloc] initWithTitle:LOGIN_EMPTY_ALERT];
     [alert setCancelButtonWithTitle:TEXT_I_SEE block:nil];
     
     [alert show];
     return;
   }
   else if ([Tools isNilOrEmpty:self.pswField.text]) {
-    PSPDFAlertView *alert = [[PSPDFAlertView alloc] initWithTitle:nil message:PSW_EMPTY_ALERT];
+    PSPDFAlertView *alert = [[PSPDFAlertView alloc] initWithTitle:PSW_EMPTY_ALERT];
     [alert setCancelButtonWithTitle:TEXT_I_SEE block:nil];
     
     [alert show];
