@@ -58,6 +58,9 @@
 #define NAVIGATION_BAR_HEIGHT (self.navigationController.navigationBar.frame.size.height)
 #define TOP_BAR_HEIGHT (STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT)
 
+// Tip
+#define TIP_MESSAGE_HIDE_DELAY 1
+
 typedef NS_ENUM(NSUInteger, ScrollDirection) {
   ScrollDirectionNone,
   ScrollDirectionRight,
@@ -92,6 +95,7 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 + (void)hideTipMessageOnView:(UIView *)view;
 + (void)showTipMessageToView:(UIView *)view
                        title:(NSString *)title;
++ (void)showTipMessageToView:(UIView *)view title:(NSString *)title hideAfterDelay:(CGFloat)delay;
 
 + (void)showProcessIndicatorWithView:(UIView *)view;
 + (void)showProcessIndicatorWithView:(UIView *)view atPoint:(CGPoint)point;

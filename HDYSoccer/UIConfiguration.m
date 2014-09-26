@@ -67,7 +67,7 @@
 + (void)showTipMessageToView:(UIView *)view
                        title:(NSString *)title
 {
-  MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:NO];
+  MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
   [hud setMode:MBProgressHUDModeIndeterminate];
   [hud setLabelText:title];
 }
@@ -82,6 +82,14 @@
   [MBProgressHUD hideAllHUDsForView:view animated:YES];
 }
 
++ (void)showTipMessageToView:(UIView *)view title:(NSString *)title hideAfterDelay:(CGFloat)delay
+{
+  MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+  [hud setMode:MBProgressHUDModeText];
+  [hud setLabelText:title];
+  
+  [hud hide:YES afterDelay:delay];
+}
 
 // indicator
 + (void)showProcessIndicatorWithView:(UIView *)view
