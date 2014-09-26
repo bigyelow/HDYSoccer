@@ -11,4 +11,5 @@
 @interface HDYSoccerGeekerDetailViewController (TopButtons)
 
 - (void)configTopAddButton;
+- (void)configTopEditButton;
 @end

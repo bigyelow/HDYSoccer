@@ -29,9 +29,12 @@
                                      [weakSelf.playerInfoTable reloadData];
                                      
 #warning delete if (1)
-                                     if (1) {
-//                                     if (!weakSelf.playerInfo.isFriend) {
+//                                     if (1) {
+                                     if (!weakSelf.playerInfo.isFriend) {
                                        [weakSelf configTopAddButton];
+                                     }
+                                     else {
+                                       [weakSelf configTopEditButton];
                                      }
                                      
                                      [weakSelf.playerInfoTable setHidden:NO];

@@ -73,6 +73,10 @@
 #define TEXT_CANNOT_RATE_PLAYER @"加为好友再给他评分吧"
 #define TEXT_OK_OH @"好的"
 #define TEXT_ADD_SOMEBODY_AS_FRIEND @"添加%@为好友?"
+#define TEXT_DELETE_FRIEND @"确定要删除%@?"
+#define TEXT_FRIEND_DELETED @"已删除"
+#define TEXT_ADD_FRIEND_REQUESTED @"请求已发出，等待对方同意"
+#define TEXT_EDIT @"编辑"
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"
