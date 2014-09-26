@@ -247,7 +247,7 @@ NSIndexPath *_indexPath;
   
   // Detect if isFriend
   if (!self.playerInfo.isFriend) {
-    PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:nil message:TEXT_CANNOT_RATE_PLAYER];
+    PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:TEXT_CANNOT_RATE_PLAYER];
     [alertView setCancelButtonWithTitle:TEXT_OK_OH block:nil];
     
     [alertView show];

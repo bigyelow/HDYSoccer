@@ -14,6 +14,7 @@
 		712D16F4194EEFE000396B1F /* CostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16F3194EEFE000396B1F /* CostCell.m */; };
 		712D16F7194F00B200396B1F /* CreateGameDetailViewController+TopButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16F6194F00B200396B1F /* CreateGameDetailViewController+TopButtons.m */; };
 		71331222196284A400044E65 /* HDYSoccerGeekerViewController+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 71331221196284A400044E65 /* HDYSoccerGeekerViewController+Network.m */; };
+		713EDFD619D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 713EDFD519D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.m */; };
 		7141A17B1940090B00B34295 /* HDYSoccerAPIClient+HTTPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141A17A1940090B00B34295 /* HDYSoccerAPIClient+HTTPS.m */; };
 		7141A19019403F9000B34295 /* AppDelegate+LogicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141A18F19403F9000B34295 /* AppDelegate+LogicTest.m */; };
 		7141A19419405E2F00B34295 /* RegisterAndLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141A19319405E2F00B34295 /* RegisterAndLoginViewController.m */; };
@@ -208,6 +209,8 @@
 		712D16F6194F00B200396B1F /* CreateGameDetailViewController+TopButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CreateGameDetailViewController+TopButtons.m"; sourceTree = "<group>"; };
 		71331220196284A400044E65 /* HDYSoccerGeekerViewController+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGeekerViewController+Network.h"; sourceTree = "<group>"; };
 		71331221196284A400044E65 /* HDYSoccerGeekerViewController+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGeekerViewController+Network.m"; sourceTree = "<group>"; };
+		713EDFD419D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGeekerDetailViewController+TopButtons.h"; sourceTree = "<group>"; };
+		713EDFD519D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGeekerDetailViewController+TopButtons.m"; sourceTree = "<group>"; };
 		7141A1791940090B00B34295 /* HDYSoccerAPIClient+HTTPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerAPIClient+HTTPS.h"; sourceTree = "<group>"; };
 		7141A17A1940090B00B34295 /* HDYSoccerAPIClient+HTTPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerAPIClient+HTTPS.m"; sourceTree = "<group>"; };
 		7141A18E19403F9000B34295 /* AppDelegate+LogicTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+LogicTest.h"; sourceTree = "<group>"; };
@@ -607,6 +610,8 @@
 				7194EB8519B56EB100D25C10 /* HDYSoccerGeekerDetailViewController+RateView.m */,
 				71B1F2D0199B144B0039D5EE /* HDYSoccerGeekerDetailViewController+NetworkOperation.h */,
 				71B1F2D1199B144B0039D5EE /* HDYSoccerGeekerDetailViewController+NetworkOperation.m */,
+				713EDFD419D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.h */,
+				713EDFD519D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.m */,
 				71B1F2CD199B0F220039D5EE /* PlayerBasicInfoCell.h */,
 				71B1F2CE199B0F220039D5EE /* PlayerBasicInfoCell.m */,
 				71B1F2D3199B3B270039D5EE /* PlayerListInfoCell.h */,
@@ -1436,6 +1441,7 @@
 				71CB8C5818E03B040073E913 /* AppContext.m in Sources */,
 				71898EBD19A1B4BE005778D2 /* TeamDetailViewController+SegmentControl.m in Sources */,
 				7194EB6519ADC1A500D25C10 /* HPGrowingTextView.m in Sources */,
+				713EDFD619D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.m in Sources */,
 				715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */,
 				7194EB3F19AC338F00D25C10 /* Reply.m in Sources */,
 				719213411988F70C00EF7947 /* CostCellForGameInfo.m in Sources */,

@@ -72,7 +72,7 @@
 #define TEXT_SELECT_AGAIN @"重新选择"
 #define TEXT_CANNOT_RATE_PLAYER @"加为好友再给他评分吧"
 #define TEXT_OK_OH @"好的"
-
+#define TEXT_ADD_SOMEBODY_AS_FRIEND @"添加%@为好友?"
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"

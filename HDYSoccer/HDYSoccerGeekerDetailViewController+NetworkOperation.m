@@ -10,6 +10,7 @@
 #import "HDYSoccerAPIClient+HTTP.h"
 #import "Geeker.h"
 #import "GeekerAbility.h"
+#import "HDYSoccerGeekerDetailViewController+TopButtons.h"
 
 @implementation HDYSoccerGeekerDetailViewController (NetworkOperation)
 
@@ -26,6 +27,12 @@
                                      [weakSelf configAbilityArrayWithPlayerInfo:weakSelf.playerInfo];
                                      [weakSelf configAbilityScoreAnimationArray];
                                      [weakSelf.playerInfoTable reloadData];
+                                     
+#warning delete if (1)
+                                     if (1) {
+//                                     if (!weakSelf.playerInfo.isFriend) {
+                                       [weakSelf configTopAddButton];
+                                     }
                                      
                                      [weakSelf.playerInfoTable setHidden:NO];
                                    } failed:^(HDYSoccerAPIError *error) {
