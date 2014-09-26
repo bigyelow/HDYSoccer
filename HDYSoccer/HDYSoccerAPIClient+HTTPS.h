@@ -50,7 +50,12 @@
 #pragma mark - geeker
 - (void)getMyFriendsSucceeded:(SucceededGettingArrayBlock)succeeded
                        failed:(FailedBlock)failed;
-
+- (void)addFriend:(NSString *)playerID
+        succeeded:(SucceededGettingDictionaryBlock)succeeded
+           failed:(FailedBlock)failed;
+- (void)deleteFriend:(NSString *)playerID
+           succeeded:(SucceededGettingDictionaryBlock)succeeded
+              failed:(FailedBlock)failed;
 #pragma mark - team
 - (void)getMyTeamsSucceeded:(SucceededGettingArrayBlock)succeeded
                      failed:(FailedBlock)failed;

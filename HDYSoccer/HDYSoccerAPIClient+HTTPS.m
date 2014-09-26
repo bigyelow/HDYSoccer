@@ -207,6 +207,46 @@
                      }];
 }
 
+- (void)addFriend:(NSString *)playerID
+        succeeded:(SucceededGettingDictionaryBlock)succeeded
+           failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSString *path = [self pathWithSubpath:[NSString stringWithFormat:@"geeker/add_friend/%@", playerID]];
+  [self.operationManager POST:path
+                   parameters:nil
+                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        NSDictionary *resultDic = (NSDictionary *)responseObject;
+                        succeeded(resultDic);
+                      }
+                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                        failed(hdyApiError);
+                      }];
+
+}
+
+- (void)deleteFriend:(NSString *)playerID
+           succeeded:(SucceededGettingDictionaryBlock)succeeded
+              failed:(FailedBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSParameterAssert(failed != NULL);
+  
+  NSString *path = [self pathWithSubpath:[NSString stringWithFormat:@"geeker/delete_friend/%@", playerID]];
+  [self.operationManager DELETE:path
+                     parameters:nil
+                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                          NSDictionary *resultDic = (NSDictionary *)responseObject;
+                          succeeded(resultDic);
+                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                          HDYSoccerAPIError *hdyApiError = [HDYSoccerAPIError convertNSError:error];
+                          failed(hdyApiError);
+                        }];
+}
+
 #pragma mark - team
 - (void)getMyTeamsSucceeded:(SucceededGettingArrayBlock)succeeded
                      failed:(FailedBlock)failed
