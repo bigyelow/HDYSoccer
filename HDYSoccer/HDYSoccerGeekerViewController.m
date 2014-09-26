@@ -119,6 +119,7 @@
     SimpleGeekerInfo *geekerInfo = self.geekersArray[indexPath.row];
     HDYSoccerGeekerDetailViewController *geekerDetailVC = [[HDYSoccerGeekerDetailViewController alloc] initWithPlayerID:geekerInfo.geekerID
                                                                                                              playerName:geekerInfo.name];
+    [geekerDetailVC setEditPlayerDelegate:self];
     
     [self.navigationController pushViewController:geekerDetailVC animated:YES];
   }
@@ -131,7 +132,7 @@
   
 }
 
-#pragma mark Gesture recognizer
+#pragma mark - Gesture recognizer
 
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)sender
 {
@@ -142,4 +143,12 @@
   // Present the view controller
   [self.frostedViewController panGestureRecognized:sender];
 }
+
+#pragma mark - edit player delegate
+- (void)deleteFriendSucceeded
+{
+  [UIConfiguration showTipMessageToView:self.geekerTable];
+  [self loadMyFriends];
+}
+
 @end

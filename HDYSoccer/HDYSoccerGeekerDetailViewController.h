@@ -7,7 +7,15 @@
 //
 
 #import "HDYSoccerBaseTableViewController.h"
+
 @class Geeker;
+
+@protocol HDYSoccerGeekerEditDelegate <NSObject>
+
+- (void)deleteFriendSucceeded;
+
+@end
+
 @interface HDYSoccerGeekerDetailViewController : HDYSoccerBaseTableViewController
 
 @property (nonatomic, strong) NSString *playerName;
@@ -29,6 +37,8 @@
 // rate view
 @property (nonatomic, strong) UIView *rateBackgroundView;
 @property (nonatomic, strong) UIView *rateFrontView;
+
+@property (nonatomic, strong) id<HDYSoccerGeekerEditDelegate> editPlayerDelegate;
 
 - (id)initWithPlayerID:(NSString *)playerID
             playerName:(NSString *)playerName;

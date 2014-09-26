@@ -78,6 +78,11 @@
                                                                [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                                                
                                                                [weakSelf.navigationController popViewControllerAnimated:YES];
+                                                               
+                                                               if (weakSelf.editPlayerDelegate &&
+                                                                   [weakSelf.editPlayerDelegate respondsToSelector:@selector(deleteFriendSucceeded)]) {
+                                                                 [weakSelf.editPlayerDelegate deleteFriendSucceeded];
+                                                               }
                                                              } failed:^(HDYSoccerAPIError *error) {
                                                                [UIConfiguration hideTipMessageOnView:weakSelf.view];
                                                                

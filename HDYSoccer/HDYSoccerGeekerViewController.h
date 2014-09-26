@@ -7,8 +7,9 @@
 //
 
 #import "HDYSoccerBaseTableViewController.h"
+#import "HDYSoccerGeekerDetailViewController.h"
 
-@interface HDYSoccerGeekerViewController : HDYSoccerBaseTableViewController
+@interface HDYSoccerGeekerViewController : HDYSoccerBaseTableViewController <HDYSoccerGeekerEditDelegate>
 
 @property (nonatomic, strong) UISegmentedControl *segControl;
 
