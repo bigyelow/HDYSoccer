@@ -26,6 +26,8 @@
                                      [weakSelf configAbilityArrayWithPlayerInfo:weakSelf.playerInfo];
                                      [weakSelf configAbilityScoreAnimationArray];
                                      [weakSelf.playerInfoTable reloadData];
+                                     
+                                     [weakSelf.playerInfoTable setHidden:NO];
                                    } failed:^(HDYSoccerAPIError *error) {
                                      [UIConfiguration hideTipMessageOnView:weakSelf.view];
 

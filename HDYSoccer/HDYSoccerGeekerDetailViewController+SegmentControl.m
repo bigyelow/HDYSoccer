@@ -27,6 +27,7 @@
   // player info table
   self.playerInfoTable = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStylePlain];
   [self customTableView:self.playerInfoTable];
+  [self.playerInfoTable setHidden:YES];
   
   [self.view addSubview:self.playerInfoTable];
   
