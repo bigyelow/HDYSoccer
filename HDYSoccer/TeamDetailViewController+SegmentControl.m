@@ -56,6 +56,7 @@
   
   [self.segControl setSelectedSegmentIndex:0];
   [self.segControl sendActionsForControlEvents:UIControlEventValueChanged];
+  [self.teamInfoTable setHidden:YES];
 }
 
 - (void)customTableView:(UITableView *)tableView

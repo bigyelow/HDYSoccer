@@ -23,6 +23,8 @@
                                   weakSelf.teamInfo = [Team objectWithDictionary:dictionary];
                                   [weakSelf configParamsWithTeamdInfo:weakSelf.teamInfo];
                                   [weakSelf.teamInfoTable reloadData];
+                                  
+                                  [weakSelf.teamInfoTable setHidden:NO];
                                 } failed:^(HDYSoccerAPIError *error) {
                                   [UIConfiguration hideTipMessageOnView:self.view];
 
