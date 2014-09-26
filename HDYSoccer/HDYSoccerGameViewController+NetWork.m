@@ -137,7 +137,7 @@
                         NSMutableArray *gameList = [weakSelf getGameListIndex:segIndex];
                         NSInteger count = [gameList count];
                         NSMutableArray *indexPaths = [NSMutableArray array];
-                        for (int i = count; i < count + [listArray count]; i++) {
+                        for (NSInteger i = count; i < count + [listArray count]; i++) {
                           [indexPaths addObject:[NSIndexPath indexPathForItem:i inSection:0]];
                         }
                         

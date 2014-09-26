@@ -59,7 +59,7 @@
     // SCORE
     CGFloat scoreX = self.frame.size.width - SCORE_RIGHT_MARGIN;
     UICountingLabel *scoreLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(scoreX, 0, 0, 0)];
-    scoreLabel.format = @"%d";
+    scoreLabel.format = @"%zd";
     [scoreLabel setTextAlignment:NSTextAlignmentRight];
     
     self.scoreLabel = scoreLabel;
@@ -112,7 +112,7 @@
     
     // SCORE LABEL
     [self.scoreLabel setTextColor:[self colorForScore:abilityScore]];
-    [self.scoreLabel setText:[NSString stringWithFormat:@"%d", abilityScore]];
+    [self.scoreLabel setText:[NSString stringWithFormat:@"%zd", abilityScore]];
   }
 }
 

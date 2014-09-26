@@ -145,7 +145,7 @@
   }
   
   // rank
-  [self configLabel:self.rankLabel text:[NSString stringWithFormat:@"%d", scoreInfo.thisRank] sizeToFit:NO];
+  [self configLabel:self.rankLabel text:[NSString stringWithFormat:@"%zd", scoreInfo.thisRank] sizeToFit:NO];
 
   // name
   [self configLabel:self.nameLabel text:scoreInfo.name sizeToFit:YES];
@@ -198,7 +198,7 @@
       UILabel *label = self.tagsArray[i];
       NSMutableString *text = [NSMutableString stringWithString:tag.tagName];
       if (tag.up != 0) {
-        [text appendString:[NSString stringWithFormat:@"%d", tag.up]];
+        [text appendString:[NSString stringWithFormat:@"%zd", tag.up]];
       }
       [label configWithText:text
                   textColor:[UIColor whiteColor]

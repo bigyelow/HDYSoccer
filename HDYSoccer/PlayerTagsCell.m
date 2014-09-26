@@ -47,7 +47,7 @@
     
     // TAGS
     for (GeekerTag *tag in tags) {
-      NSString *tagStr = [NSString stringWithFormat:@"%@ %d", tag.tagName, tag.up];
+      NSString *tagStr = [NSString stringWithFormat:@"%@ %zd", tag.tagName, tag.up];
       UILabel *tagLabel = [UIConfiguration labelWithText:tagStr
                                                textColor:[UIColor whiteColor]
                                                     font:[UIFont fontWithName:GLOBAL_FONT_NAME size:TAG_FONT_SIZE]
@@ -79,7 +79,7 @@
   NSMutableArray *array = [NSMutableArray array];
   
   for (GeekerTag *tag in tags) {
-    NSString *tagStr = [NSString stringWithFormat:@"%@ %d", tag.tagName, tag.up];
+    NSString *tagStr = [NSString stringWithFormat:@"%@ %zd", tag.tagName, tag.up];
     UILabel *tagLabel = [UIConfiguration labelWithText:tagStr
                                              textColor:[UIColor whiteColor]
                                                   font:[UIFont fontWithName:GLOBAL_FONT_NAME size:TAG_FONT_SIZE]

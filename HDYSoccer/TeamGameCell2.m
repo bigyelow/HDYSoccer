@@ -181,13 +181,13 @@
   
   NSMutableString *formatRecord = [NSMutableString string];
   if (winCount) {
-    [formatRecord appendString:[NSString stringWithFormat:@"%d%@", winCount, TEXT_WIN]];
+    [formatRecord appendString:[NSString stringWithFormat:@"%zd%@", winCount, TEXT_WIN]];
   }
   if (drawCount) {
-    [formatRecord appendString:[NSString stringWithFormat:@"%d%@", drawCount, TEXT_DRAW]];
+    [formatRecord appendString:[NSString stringWithFormat:@"%zd%@", drawCount, TEXT_DRAW]];
   }
   if (loseCount) {
-    [formatRecord appendString:[NSString stringWithFormat:@"%d%@", loseCount, TEXT_LOSE]];
+    [formatRecord appendString:[NSString stringWithFormat:@"%zd%@", loseCount, TEXT_LOSE]];
   }
   
   return [formatRecord copy];

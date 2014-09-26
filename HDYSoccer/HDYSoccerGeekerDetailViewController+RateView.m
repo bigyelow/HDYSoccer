@@ -172,7 +172,7 @@ NSIndexPath *_indexPath;
                    textColor:[self colorForScore:score]
                         font:[UIFont systemFontOfSize:15] 
                numberOfLines:1];
-  [scoreLabel setText:[NSString stringWithFormat:@"%d", score]];
+  [scoreLabel setText:[NSString stringWithFormat:@"%zd", score]];
   
   CGFloat scoreX = self.rateFrontView.bounds.size.width - SCORE_RIGHT_MARGIN - scoreLabel.bounds.size.width;
   [UIConfiguration setView:scoreLabel origin:CGPointMake(scoreX, titleY)];
@@ -286,7 +286,7 @@ NSIndexPath *_indexPath;
   CGFloat width = (CGFloat)value / 100 * _scoreBarWidth;
   [UIConfiguration setView:_scoreBar width:width];
   
-  [_scoreLabel setText:[NSString stringWithFormat:@"%d", value]];
+  [_scoreLabel setText:[NSString stringWithFormat:@"%zd", value]];
   [_scoreLabel setTextColor:[self colorForScore:value]];
 }
 

@@ -118,7 +118,7 @@
   CGFloat rightMost = CGRectGetMaxX(self.nameLabel.frame);
   
   // member count
-  [self.memberCountLabel configWithText:[NSString stringWithFormat:@"%d%@", info.memberCount, TEXT_MAN]
+  [self.memberCountLabel configWithText:[NSString stringWithFormat:@"%zd%@", info.memberCount, TEXT_MAN]
                               textColor:[UIColor grayColor]
                                    font:[UIFont fontWithName:GLOBAL_FONT_NAME size:13]
                           numberOfLines:1];
@@ -182,13 +182,13 @@
   
   NSMutableString *formatRecord = [NSMutableString string];
   if (winCount) {
-    [formatRecord appendString:[NSString stringWithFormat:@"%d%@", winCount, TEXT_WIN]];
+    [formatRecord appendString:[NSString stringWithFormat:@"%zd%@", winCount, TEXT_WIN]];
   }
   if (drawCount) {
-    [formatRecord appendString:[NSString stringWithFormat:@"%d%@", drawCount, TEXT_DRAW]];
+    [formatRecord appendString:[NSString stringWithFormat:@"%zd%@", drawCount, TEXT_DRAW]];
   }
   if (loseCount) {
-    [formatRecord appendString:[NSString stringWithFormat:@"%d%@", loseCount, TEXT_LOSE]];
+    [formatRecord appendString:[NSString stringWithFormat:@"%zd%@", loseCount, TEXT_LOSE]];
   }
   
   return [formatRecord copy];

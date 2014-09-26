@@ -59,7 +59,7 @@
     // SCORE
     CGFloat scoreX = self.frame.size.width - SCORE_RIGHT_MARGIN;
     UICountingLabel *scoreLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(scoreX, 0, 0, 0)];
-    scoreLabel.format = @"%d";
+    scoreLabel.format = @"%zd";
     [scoreLabel setTextAlignment:NSTextAlignmentRight];
     [scoreLabel configWithText:@"100"
                      textColor:[UIConfiguration colorForHex:SCORE_BAR_BACKGOURND_COLOR]

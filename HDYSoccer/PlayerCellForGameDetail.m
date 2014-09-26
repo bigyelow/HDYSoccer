@@ -182,7 +182,7 @@
       UILabel *label = self.tagLabelsArray[i];
       NSMutableString *text = [NSMutableString stringWithString:tag.tagName];
       if (tag.up != 0) {
-        [text appendString:[NSString stringWithFormat:@"%d", tag.up]];
+        [text appendString:[NSString stringWithFormat:@"%zd", tag.up]];
       }
       [label configWithText:text
                   textColor:[UIColor whiteColor]

@@ -18,7 +18,7 @@
 #define TITLE_FORMAT_STR @"给%@打标签"
 
 // score
-#define SCORE_TITLE_FORMAT_STR @"本场得分:%d分"
+#define SCORE_TITLE_FORMAT_STR @"本场得分:%zd分"
 #define SCORE_TITLE_TOP_MARGIN 17.0F
 #define SCORE_TITLE_LEFT_MARGIN 70.0F
 

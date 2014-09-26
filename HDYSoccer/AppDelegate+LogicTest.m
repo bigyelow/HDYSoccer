@@ -84,11 +84,11 @@
                     succeeded:^(NSDictionary *dictionary) {
                       if ([type isEqualToString:@"personal"]) {
                         PersonalGameList *list = [PersonalGameList objectWithDictionary:dictionary];
-                        NSLog(@"%d", [list.gameList count]);
+                        NSLog(@"%zd", [list.gameList count]);
                       }
                       else if ([type isEqualToString:@"team"]) {
                         TeamGameList *list = [TeamGameList objectWithDictionary:dictionary];
-                        NSLog(@"%d", [list.gameList count]);
+                        NSLog(@"%zd", [list.gameList count]);
                       }
                     } failed:^(HDYSoccerAPIError *error) {
 
