@@ -1,3 +1,4 @@
+
 source 'http://code.dapps.douban.com/CocoaPodsSpecs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
@@ -20,3 +21,4 @@ pod 'APNumberPad',                                '~> 1.0'
 pod 'PSAlertView',                                '~> 2.0.2'
 pod 'UICountingLabel',                            '~> 1.1.0'
 pod 'PureLayout',                                 '~> 2.0.1'
+pod 'ADTransitionController',                     '~> 1.1.1'

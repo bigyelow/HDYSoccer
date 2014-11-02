@@ -1,4 +1,5 @@
 PODS:
+  - ADTransitionController (1.1.1)
   - AFNetworking (2.2.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
@@ -74,6 +75,7 @@ PODS:
   - UICountingLabel (1.1.0)
 
 DEPENDENCIES:
+  - ADTransitionController (~> 1.1.1)
   - AFNetworking (~> 2.2.3)
   - AMWaveTransition (~> 0.3)
   - APNumberPad (~> 1.0)
@@ -93,6 +95,7 @@ DEPENDENCIES:
   - UICountingLabel (~> 1.1.0)
 
 SPEC CHECKSUMS:
+  ADTransitionController: 1ea1af7e5932064c0594b48fbd5fdba2ab2df742
   AFNetworking: 47947303319594706f48a55185ea95a95159ab94
   AMWaveTransition: 270b861311986502563b41edb9923b22a73d8e13
   APNumberPad: 944238a3b5013d84df84d25d19b3e024e797daab
