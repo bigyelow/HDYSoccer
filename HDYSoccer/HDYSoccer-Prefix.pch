@@ -17,7 +17,7 @@
   // Self Defined Files
   #import "ProjectCandy.h"
   #import "AppContext.h"
-  #import "UIView+AutoLayout.h"
+  #import "ALView+PureLayout.h"
   #import "TextMacro.h"
   #import "UIConfiguration.h"
   #import "UIConfiguration+Color.h"

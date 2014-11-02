@@ -1,9 +1,11 @@
+source 'http://code.dapps.douban.com/CocoaPodsSpecs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
 platform :ios, '7.0'
 
 pod 'REFrostedViewController',                    '~> 2.4.5'
 pod 'CHTCollectionViewWaterfallLayout',           '~> 0.6'
 pod 'AFNetworking',                               '~> 2.2.3'
-pod 'UIView+AutoLayout',                          '~> 1.3.0'
 pod 'JSONModel',                                  '~> 0.13.0'
 pod 'AMWaveTransition',                           '~> 0.3'
 pod 'MRProgress',                                 '~> 0.4.3'
@@ -17,3 +19,4 @@ pod 'FXBlurView',                                 '~> 1.6.1'
 pod 'APNumberPad',                                '~> 1.0'
 pod 'PSAlertView',                                '~> 2.0.2'
 pod 'UICountingLabel',                            '~> 1.1.0'
+pod 'PureLayout',                                 '~> 2.0.1'
