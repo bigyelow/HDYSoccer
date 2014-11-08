@@ -8,6 +8,7 @@
 
 #import "HDYSoccerGeekerDetailViewController+TopButtons.h"
 #import "PSPDFAlertView.h"
+#import "ProfileEditViewController.h"
 
 #import "HDYSoccerAPIClient+HTTPS.h"
 
@@ -64,7 +65,8 @@
   // is self
   BOOL isSelf = [Tools isSelfUser:self.playerID];
   if (isSelf) {
-#warning config self edit operation
+    ProfileEditViewController *editController = [[ProfileEditViewController alloc] initWithSoccer:self.playerInfo];
+    [self.navigationController pushViewController:editController animated:YES];
   }
 #warning config delete friend event (need push notification)
   else {  // is friend
