@@ -58,4 +58,7 @@ typedef void (^performBlock)();
 #pragma mark - operations
 
 + (BOOL)isSelfUser:(NSString *)userID;
+
+#pragma mark - positions
++ (NSArray *)positionsArray;
 @end

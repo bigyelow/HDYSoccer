@@ -157,4 +157,9 @@ NSString* const kDefaultDateFormat = @"yyyy-MM-dd";
   return [[AppContext appContext].auth.userID isEqualToString:userID];
 }
 
+#pragma mark - positions
++ (NSArray *)positionsArray
+{
+  return @[@"门将", @"右后卫", @"左后卫", @"中后卫", @"左前卫", @"右前卫", @"后腰", @"前腰", @"前锋", @"中锋"];
+}
 @end
