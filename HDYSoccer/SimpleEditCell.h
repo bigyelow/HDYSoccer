@@ -11,6 +11,9 @@
 @interface SimpleEditCell : UITableViewCell
 
 - (void)setTitle:(NSString *)title;
+- (void)setText:(NSString *)text;
+- (void)setKeyboardType:(UIKeyboardType)keyboardType;
 - (void)setInputView:(UIView *)view;
+- (void)setInputAccessoryView:(UIView *)view;
 - (BOOL)resignFirstResponder;
 @end

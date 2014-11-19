@@ -11,7 +11,7 @@
 
 @class Geeker;
 
-@interface ProfileEditViewController : HDYSoccerBaseTableViewController
+@interface ProfileEditViewController : HDYSoccerBaseTableViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 - (id)initWithSoccer:(Geeker *)soccer;
 @end

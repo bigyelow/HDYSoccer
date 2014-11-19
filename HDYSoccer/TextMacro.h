@@ -81,6 +81,7 @@
 #define TEXT_NAME @"姓名"
 #define TEXT_POSITION @"位置"
 #define TEXT_BIRTHDAY @"出生日期"
+#define TEXT_NOT_SELECTED @"未选择"
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"

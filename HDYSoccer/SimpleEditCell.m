@@ -72,6 +72,21 @@
   [_textField setInputView:view];
 }
 
+- (void)setInputAccessoryView:(UIView *)view
+{
+  [_textField setInputAccessoryView:view];
+}
+
+- (void)setText:(NSString *)text
+{
+  [_textField setText:text];
+}
+
+- (void)setKeyboardType:(UIKeyboardType)keyboardType
+{
+  [_textField setKeyboardType:keyboardType];
+}
+
 - (BOOL)resignFirstResponder
 {
   if ([_textField isFirstResponder]) {
