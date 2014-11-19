@@ -78,6 +78,9 @@
 #define TEXT_ADD_FRIEND_REQUESTED @"请求已发出，等待对方同意"
 #define TEXT_EDIT @"编辑"
 #define TEXT_UPLOAD_AVATAR @"上传头像"
+#define TEXT_NAME @"姓名"
+#define TEXT_POSITION @"位置"
+#define TEXT_BIRTHDAY @"出生日期"
 
 #define TEXT_COMPREHENSIVE_ABILITY @"综合能力"
 #define TEXT_SKILL_ABILITY @"技术"
