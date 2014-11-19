@@ -123,4 +123,14 @@ typedef NS_ENUM(NSUInteger, ScrollDirection) {
 + (UIImage *)imageForColorHex:(NSString *)colorHex;
 + (UIImage *)imageForColor:(UIColor *)color;
 + (UIImage *)resizeImage:(UIImage *)srcImage width:(NSUInteger)width height:(NSUInteger)height;
+
+#pragma mark - seperator
++ (UIView *)seperatorWithContentWidth:(CGFloat)contentWidth
+                            leftInset:(CGFloat)leftInset
+                           rightInset:(CGFloat)rightInset
+                          colorHexStr:(NSString *)colorHexStr
+                               height:(CGFloat)height;
+
++ (UIView *)seperatorWithLeftInset:(CGFloat)leftInset
+                        rightInset:(CGFloat)rightInset;
 @end

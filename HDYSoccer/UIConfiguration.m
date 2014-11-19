@@ -252,5 +252,30 @@
 	return dstImage;
 };
 
+#pragma mark - seperator
++ (UIView *)seperatorWithContentWidth:(CGFloat)contentWidth
+                            leftInset:(CGFloat)leftInset
+                           rightInset:(CGFloat)rightInset
+                          colorHexStr:(NSString *)colorHexStr
+                               height:(CGFloat)height
+
+{
+  CGFloat width = contentWidth - leftInset - rightInset;
+  UIView *view = [[UIView alloc] initWithFrame:CGRectMake(leftInset, 0, width, 1)];
+  [view setBackgroundColor:[UIConfiguration colorForHex:colorHexStr]];
+  
+  return view;
+}
+
++ (UIView *)seperatorWithLeftInset:(CGFloat)leftInset
+                        rightInset:(CGFloat)rightInset
+{
+  return [[self class] seperatorWithContentWidth:WINDOW_FRAME.size.width
+                                       leftInset:leftInset
+                                      rightInset:rightInset
+                                     colorHexStr:GLOBAL_SEPERATOR_COLOR
+                                          height:1];
+}
+
 
 @end
