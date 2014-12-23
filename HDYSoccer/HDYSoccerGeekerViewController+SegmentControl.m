@@ -56,7 +56,8 @@
   [self.view addSubview:self.teamTable];
 
   // segment view
-  NSArray *segments = @[SEGMENT_ITEM_FRIENDS, SEGMENT_ITEM_TEAM];
+//  NSArray *segments = @[SEGMENT_ITEM_FRIENDS, SEGMENT_ITEM_TEAM];
+  NSArray *segments = @[SEGMENT_ITEM_FRIENDS];
   CGRect segmentRect = CGRectMake(0, TOP_BAR_HEIGHT, CGRectGetWidth(self.view.frame), SEGMENT_VIEW_HEIGHT);
   SegmentView *segmentView = [[SegmentView alloc] initWithFrame:segmentRect segments:segments];
   

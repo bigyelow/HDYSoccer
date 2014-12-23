@@ -106,17 +106,19 @@
   UIButton *personalButton = [self getCreateButtonWithFrame:personalRect title:CREATE_PERSONAL_GAME];
   [personalButton addTarget:self action:@selector(createPersonalGamePressed) forControlEvents:UIControlEventTouchUpInside];
   
+  [UIConfiguration moveSubviewXToSuperviewCenter:frontView subview:personalButton];
+  
   self.personalGameButton = personalButton;
   [frontView addSubview:personalButton];
   
   // team game button
-  CGFloat teamX = CGRectGetMaxX(personalButton.frame) + CREATE_BUTTON_INTERAL_MARGIN;
-  CGRect teamRect = CGRectMake(teamX, buttonY, buttonWidth, buttonHeight);
-  UIButton *teamButton = [self getCreateButtonWithFrame:teamRect title:CREATE_TEAM_GAME];
-  [teamButton addTarget:self action:@selector(createTeamGamePressed) forControlEvents:UIControlEventTouchUpInside];
-  
-  self.teamGameButton = teamButton;
-  [frontView addSubview:teamButton];
+//  CGFloat teamX = CGRectGetMaxX(personalButton.frame) + CREATE_BUTTON_INTERAL_MARGIN;
+//  CGRect teamRect = CGRectMake(teamX, buttonY, buttonWidth, buttonHeight);
+//  UIButton *teamButton = [self getCreateButtonWithFrame:teamRect title:CREATE_TEAM_GAME];
+//  [teamButton addTarget:self action:@selector(createTeamGamePressed) forControlEvents:UIControlEventTouchUpInside];
+//  
+//  self.teamGameButton = teamButton;
+//  [frontView addSubview:teamButton];
   
   // shadow
   [frontView.layer setShadowColor:[UIColor blackColor].CGColor];

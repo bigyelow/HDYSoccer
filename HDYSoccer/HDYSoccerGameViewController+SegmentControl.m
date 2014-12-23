@@ -21,7 +21,7 @@
   // segment view
   NSArray *segments = [[NSArray alloc] initWithObjects:
                        SEGMENT_TITLE_PERSONAL,
-                       SEGMENT_TITLE_TEAM,
+//                       SEGMENT_TITLE_TEAM,
                        nil];
   SegmentView *segmentView = [[SegmentView alloc] initWithFrame:
                               CGRectMake(0, 0, CGRectGetWidth(self.view.frame), SEGMENT_VIEW_HEIGHT)
