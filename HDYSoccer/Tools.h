@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kNotificationLogout;
+
 #define NO_VALUE_FOR_FLOAT -1
 
 #define LOCAL_TAGS @[@"高质量长传",@"高质量短传",@"优质盘带",@"意识NB",@"基本功",@"抢断",@"解围",@"扑救",@"头球",@"速度",@"力量",@"体力",@"侵略性"]

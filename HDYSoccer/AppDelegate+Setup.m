@@ -66,22 +66,22 @@
 
 - (void)frostedViewController:(REFrostedViewController *)frostedViewController willShowMenuViewController:(UIViewController *)menuViewController
 {
-  NSLog(@"willShowMenuViewController");
+//  NSLog(@"willShowMenuViewController");
 }
 
 - (void)frostedViewController:(REFrostedViewController *)frostedViewController didShowMenuViewController:(UIViewController *)menuViewController
 {
-  NSLog(@"didShowMenuViewController");
+//  NSLog(@"didShowMenuViewController");
 }
 
 - (void)frostedViewController:(REFrostedViewController *)frostedViewController willHideMenuViewController:(UIViewController *)menuViewController
 {
-  NSLog(@"willHideMenuViewController");
+//  NSLog(@"willHideMenuViewController");
 }
 
 - (void)frostedViewController:(REFrostedViewController *)frostedViewController didHideMenuViewController:(UIViewController *)menuViewController
 {
-  NSLog(@"didHideMenuViewController");
+//  NSLog(@"didHideMenuViewController");
 }
 
 @end

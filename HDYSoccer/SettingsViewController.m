@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "REFrostedViewController.h"
 
+#import "AppDelegate.h"
 #import "PSPDFAlertView.h"
 
 @interface SettingsViewController ()
@@ -26,18 +27,27 @@
   
   [self setTitle:@"设置"];
   [self configTopMenuButton];
-  [self _soc_configCells];
   
   [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(_soc_panGestureRecognized:)]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [self _soc_configCells];
 }
 
 #pragma mark - configuration
 
 - (void)_soc_configCells
 {
-  if (!_tableViewCells) {
-    _tableViewCells = @[@[[self _soc_LogoutCell]]];
+  if ([AppContext appContext].isLogin) {
+    if (!_tableViewCells) {
+      _tableViewCells = @[@[[self _soc_LogoutCell]]];
+    }
+  }
+  else {
+    _tableViewCells = nil;
   }
 }
 
@@ -81,6 +91,9 @@
     PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:nil message:@"确定要退出登录？"];
     [alertView addButtonWithTitle:@"确定" block:^(NSInteger buttonIndex) {
       [[AppContext appContext] clearInfo];
+      self.frostedViewController.contentViewController = APP_DELEGATE.gameNav;
+      
+      [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLogout object:nil];
     }];
     [alertView setCancelButtonWithTitle:@"取消" block:nil];
     [alertView setCancelButtonIndex:0];

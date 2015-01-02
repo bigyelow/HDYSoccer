@@ -9,6 +9,11 @@
 #import "Tools.h"
 #import "GPUImage.h"
 
+#pragma mark - consts
+#pragma mark - notifications
+
+NSString  * const kNotificationLogout = @"kNotificationLogout";
+
 @implementation Tools
 
 #pragma mark - string

@@ -32,6 +32,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configTableHeaderView) name:kNotificationLogout object:nil];
 
   [self configTableView];
   [self configTableHeaderView];
