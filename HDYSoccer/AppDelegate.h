@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) HDYSoccerNavigationController *geekerNav;
 @property (nonatomic, strong) HDYSoccerNavigationController *gameNav;
+@property (nonatomic, strong) HDYSoccerNavigationController *settingsNav;
 
 #pragma mark - location
 @property (nonatomic, assign)BOOL hasFindPlace;

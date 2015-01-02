@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20C018F7FDA74C08A47B80E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 574BB2BEFD4E48918A979B74 /* libPods.a */; };
 		710B0E5A199B507200845986 /* PlayerTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 710B0E59199B507200845986 /* PlayerTagsCell.m */; };
+		711D06E91A56464600B21CB1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711D06E81A56464600B21CB1 /* SettingsViewController.m */; };
 		712D16EE194ECB9600396B1F /* ChoosePlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16ED194ECB9600396B1F /* ChoosePlayerCell.m */; };
 		712D16F1194EEEF900396B1F /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16F0194EEEF900396B1F /* ContactCell.m */; };
 		712D16F4194EEFE000396B1F /* CostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16F3194EEFE000396B1F /* CostCell.m */; };
@@ -202,6 +203,8 @@
 		574BB2BEFD4E48918A979B74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		710B0E58199B507200845986 /* PlayerTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTagsCell.h; sourceTree = "<group>"; };
 		710B0E59199B507200845986 /* PlayerTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTagsCell.m; sourceTree = "<group>"; };
+		711D06E71A56464600B21CB1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		711D06E81A56464600B21CB1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		712D16EC194ECB9600396B1F /* ChoosePlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePlayerCell.h; sourceTree = "<group>"; };
 		712D16ED194ECB9600396B1F /* ChoosePlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePlayerCell.m; sourceTree = "<group>"; };
 		712D16EF194EEEF900396B1F /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
@@ -552,6 +555,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		711D06E61A5645BA00B21CB1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				711D06E71A56464600B21CB1 /* SettingsViewController.h */,
+				711D06E81A56464600B21CB1 /* SettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		7141A19119405DFE00B34295 /* UserManagement */ = {
 			isa = PBXGroup;
 			children = (
@@ -1090,6 +1102,7 @@
 				715AD72218E662960068E6E1 /* GameList */,
 				7197DF741944132600B29EC5 /* AGame */,
 				7194EB3519AC2F5F00D25C10 /* Comment */,
+				711D06E61A5645BA00B21CB1 /* Settings */,
 				71CB8C5D18E1310E0073E913 /* Player&TeamList */,
 				715AD73818E679CE0068E6E1 /* PlayerDetail */,
 				71898EB719A1ACFF005778D2 /* TeamDetail */,
@@ -1513,6 +1526,7 @@
 				7197DF771944138200B29EC5 /* CreateGameViewController.m in Sources */,
 				7166EEA91990945D00E1F300 /* GameDetailViewController+RatePlayerPopover.m in Sources */,
 				7194332B191A180F009BA1D6 /* AppDelegate+Configuration.m in Sources */,
+				711D06E91A56464600B21CB1 /* SettingsViewController.m in Sources */,
 				7194EB6619ADC1A500D25C10 /* HPTextViewInternal.m in Sources */,
 				71CB8C4318E028F80073E913 /* HDYSoccerTabBarController+UIConfiguration.m in Sources */,
 				717A5BAC198B3B6E006E8446 /* JoinGameCell.m in Sources */,

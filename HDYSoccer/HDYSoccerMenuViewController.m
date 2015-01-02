@@ -98,7 +98,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-  return 2;
+  return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,7 +111,7 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
   }
   
-  NSArray *titles = @[CELL_TITLE_PLAY, CELL_TITLE_MINE, CELL_TITLE_STADUM, CELL_TITLE_TACTICAL_BOARD];
+  NSArray *titles = @[CELL_TITLE_PLAY, CELL_TITLE_MINE, CELL_TITLE_SETTING, CELL_TITLE_STADUM, CELL_TITLE_TACTICAL_BOARD];
   UILabel *label = [UIConfiguration labelWithText:titles[indexPath.row]
                                         textColor:[UIColor blackColor]
                                              font:[UIFont systemFontOfSize:17]
@@ -132,17 +132,22 @@
       switch (indexPath.row) {
         case 0: {
           self.frostedViewController.contentViewController = APP_DELEGATE.gameNav;
-        }
           break;
+        }
           
-        case 1:{
+        case 1: {
           if (![AppContext appContext].isLogin) {
             [AppDelegate showLoginWithDelegate:self];
             return;
           }
           self.frostedViewController.contentViewController = APP_DELEGATE.geekerNav;
-        }
           break;
+        }
+          
+        case 2: {
+          self.frostedViewController.contentViewController = APP_DELEGATE.settingsNav;
+          break;
+        }
           
         default:
           break;

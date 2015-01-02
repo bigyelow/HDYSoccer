@@ -14,6 +14,7 @@
 // cell title
 #define CELL_TITLE_MINE @"我的"
 #define CELL_TITLE_PLAY @"约球"
+#define CELL_TITLE_SETTING @"设置"
 #define CELL_TITLE_STADUM @"球场"
 #define CELL_TITLE_TACTICAL_BOARD @"战术板"
 

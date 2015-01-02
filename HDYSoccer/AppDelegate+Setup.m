@@ -10,6 +10,7 @@
 #import "HDYSoccerGeekerViewController.h"
 #import "HDYSoccerMenuViewController.h"
 #import "HDYSoccerGameViewController.h"
+#import "SettingsViewController.h"
 
 @implementation AppDelegate (Setup)
 
@@ -39,6 +40,10 @@
   // Game ViewController
   HDYSoccerGameViewController *gameVC = [[HDYSoccerGameViewController alloc] init];
   self.gameNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:gameVC];
+  
+  // Settings
+  SettingsViewController *settingsVC = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+  self.settingsNav = [[HDYSoccerNavigationController alloc] initWithRootViewController:settingsVC];
   
   // Create frosted view controller
   HDYSoccerMenuViewController *menuController = [[HDYSoccerMenuViewController alloc] initWithStyle:UITableViewStylePlain];
