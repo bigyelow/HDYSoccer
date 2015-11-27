@@ -66,8 +66,9 @@
     CGFloat avatarWidth = backgroundView.frame.size.height - 2 * AVATAR_TOP_MARGIN;
     UIImageView *avatar = [[UIImageView alloc]
                            initWithFrame:CGRectMake(AVATAR_LEFT_MARGIN, AVATAR_TOP_MARGIN, avatarWidth, avatarWidth)];
-    [avatar.layer setCornerRadius:5];
+    [avatar.layer setCornerRadius:avatarWidth / 2];
     [avatar setClipsToBounds:YES];
+    avatar.contentMode = UIViewContentModeScaleAspectFill;
     
     self.avatar = avatar;
     [backgroundView addSubview:avatar];
