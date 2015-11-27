@@ -7,6 +7,7 @@
 //
 
 #import "HDYSoccerBaseTableViewController.h"
+#import "GeekerChatsViewController.h"
 
 @class Geeker;
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface HDYSoccerGeekerDetailViewController : HDYSoccerBaseTableViewController
+@interface HDYSoccerGeekerDetailViewController : HDYSoccerBaseTableViewController <ModalViewControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) NSString *playerName;
 @property (nonatomic, strong) NSString *playerID;

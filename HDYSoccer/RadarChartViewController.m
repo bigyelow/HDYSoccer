@@ -27,8 +27,14 @@
     [super viewDidLoad];
     
     self.title = @"能力";
-    
-    self.options = @[
+
+  UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:@"取消"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(didClickCloseButton)];
+  self.navigationItem.leftBarButtonItem = closeItem;
+
+  self.options = @[
                      @{@"key": @"toggleValues", @"label": @"Toggle Values"},
                      @{@"key": @"toggleHighlight", @"label": @"Toggle Highlight"},
                      @{@"key": @"toggleXLabels", @"label": @"Toggle X-Values"},
@@ -73,6 +79,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)didClickCloseButton
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)setData
