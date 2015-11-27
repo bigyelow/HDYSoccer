@@ -86,10 +86,15 @@
   }
   [self.positionLabel setText:positionStr];
   [self.positionLabel sizeToFit];
-  
-  [UIConfiguration moveSubviewXToSuperviewCenter:self subview:self.positionLabel];
-  [UIConfiguration setView:self.positionLabel height:POSITION_HEIGHT];
-  
+
+  [self setNeedsLayout];
+}
+
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+
+  self.avatar.center = CGPointMake(self.contentView.bounds.size.width / 2, self.avatar.center.y);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

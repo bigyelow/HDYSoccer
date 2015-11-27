@@ -27,9 +27,9 @@
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
 
     // TOP SEPERATOR
-    CGFloat seperatorWidth = self.frame.size.width - 2 * SEPERATOR_LEFT_MARGIN;
-    UIView *topSeper = [[UIView alloc] initWithFrame:CGRectMake(SEPERATOR_LEFT_MARGIN, 0, seperatorWidth, SEPERATOR_HEIGHT)];
+    UIView *topSeper = [[UIView alloc] init];
     [topSeper setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_SEPERATOR_COLOR]];
+    self.topSeper = topSeper;
     
     [self addSubview:topSeper];
     
@@ -52,8 +52,7 @@
     [self addSubview:infoLabel];
     
     // BOTTOM SEPERATOR
-    CGFloat seperatorY = self.frame.size.height - SEPERATOR_HEIGHT;
-    UIView *bottomSeper = [[UIView alloc] initWithFrame:CGRectMake(SEPERATOR_LEFT_MARGIN, seperatorY, seperatorWidth, SEPERATOR_HEIGHT)];
+    UIView *bottomSeper = [[UIView alloc] init];
     [bottomSeper setBackgroundColor:[UIConfiguration colorForHex:GLOBAL_SEPERATOR_COLOR]];
     [bottomSeper setHidden:YES];
     
@@ -83,10 +82,21 @@
   // INFO
   [self.infoLabel setText:info];
   [self.infoLabel sizeToFit];
-  
+}
+
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+
   CGFloat infoX = self.frame.size.width - TITLE_LABEL_LEFTMARGIN - self.infoLabel.frame.size.width;
   [UIConfiguration setView:self.infoLabel x:infoX];
   [UIConfiguration moveSubviewYToSuperviewCenter:self subview:self.infoLabel];
+
+  CGFloat seperatorWidth = self.frame.size.width - 2 * SEPERATOR_LEFT_MARGIN;
+  self.topSeper.frame = CGRectMake(SEPERATOR_LEFT_MARGIN, 0, seperatorWidth, SEPERATOR_HEIGHT);
+
+  CGFloat seperatorY = self.frame.size.height - SEPERATOR_HEIGHT;
+  self.bottomSeper.frame = CGRectMake(SEPERATOR_LEFT_MARGIN, seperatorY, seperatorWidth, SEPERATOR_HEIGHT);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

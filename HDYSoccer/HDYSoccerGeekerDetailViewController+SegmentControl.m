@@ -57,9 +57,9 @@
   [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
   // background view
-  UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-  [imageView setImage:[UIImage imageNamed:GEEKER_LIST_BACKGROUND_IMAGE]];
-  [tableView setBackgroundView:imageView];
+//  UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+//  [imageView setImage:[UIImage imageNamed:GEEKER_LIST_BACKGROUND_IMAGE]];
+//  [tableView setBackgroundView:imageView];
 }
 
 - (void)segmentChanged:(UISegmentedControl *)paramSender

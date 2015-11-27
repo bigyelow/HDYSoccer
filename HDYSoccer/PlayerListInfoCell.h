@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *infoLabel;
 @property (nonatomic, strong) UIView *bottomSeper;
+@property (nonatomic, strong) UIView *topSeper;
 
 - (void)configCellWithTitle:(NSString *)title
                        info:(NSString *)info
