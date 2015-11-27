@@ -21,12 +21,13 @@
 {
   [super viewDidLoad];
 
-  self.title = @"个人数据";
+  self.title = @"最近6个月的综合分数";
 
   _tableView = [[UITableView alloc] init];
   _tableView.delegate = self;
   _tableView.dataSource = self;
   [_tableView registerClass:[GeekerChatsCell class] forCellReuseIdentifier:NSStringFromClass([GeekerChatsCell class])];
+  _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   [self.view addSubview:_tableView];
 }
 
@@ -39,18 +40,18 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-  switch (section) {
-    case 0:
-      return @"最近6个月的综合分数";
-      break;
-
-    default:
-      break;
-  }
-  return nil;
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//  switch (section) {
+//    case 0:
+//      return @"最近6个月的综合分数";
+//      break;
+//
+//    default:
+//      break;
+//  }
+//  return nil;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

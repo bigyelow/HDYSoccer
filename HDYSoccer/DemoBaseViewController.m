@@ -51,7 +51,7 @@
         ];
     
     parties = @[
-        @"Party A", @"Party B", @"Party C", @"Party D", @"Party E", @"Party F",
+        @"进攻", @"技术", @"体能", @"防守", @"力量", @"速度",
         @"Party G", @"Party H", @"Party I", @"Party J", @"Party K", @"Party L",
         @"Party M", @"Party N", @"Party O", @"Party P", @"Party Q", @"Party R",
         @"Party S", @"Party T", @"Party U", @"Party V", @"Party W", @"Party X",

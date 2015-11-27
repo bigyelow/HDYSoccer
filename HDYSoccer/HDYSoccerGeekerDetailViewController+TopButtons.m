@@ -10,6 +10,7 @@
 #import "GeekerChatsViewController.h"
 #import "PSPDFAlertView.h"
 #import "ProfileEditViewController.h"
+#import "RadarChartViewController.h"
 
 #import "HDYSoccerAPIClient+HTTPS.h"
 
@@ -55,15 +56,27 @@
 - (void)configTopEditButton
 {
   UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"数据" // TEXT_EDIT
-                                                           style:UIBarButtonItemStyleDone
+                                                           style:UIBarButtonItemStylePlain
                                                           target:self
                                                           action:@selector(showChats)]; // @selector(edit)];
-  [self.navigationItem setRightBarButtonItem:item];
+
+  UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"能力"
+                                                            style:UIBarButtonItemStylePlain
+                                                           target:self
+                                                           action:@selector(showAbility)];
+
+  [self.navigationItem setRightBarButtonItems:@[item, item2]];
 }
 
 - (void)showChats
 {
   GeekerChatsViewController *controller = [[GeekerChatsViewController alloc] init];
+  [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)showAbility
+{
+  RadarChartViewController *controller = [[RadarChartViewController alloc] init];
   [self.navigationController pushViewController:controller animated:YES];
 }
 

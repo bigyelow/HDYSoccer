@@ -26,7 +26,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Radar Bar Chart";
+    self.title = @"能力";
     
     self.options = @[
                      @{@"key": @"toggleValues", @"label": @"Toggle Values"},
@@ -65,6 +65,8 @@
     l.yEntrySpace = 5.0;
     
     [self setData];
+
+  self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,8 +77,8 @@
 
 - (void)setData
 {
-    double mult = 150.f;
-    int count = 9;
+    double mult = 50;
+    int count = 5;
     
     NSMutableArray *yVals1 = [[NSMutableArray alloc] init];
     NSMutableArray *yVals2 = [[NSMutableArray alloc] init];
