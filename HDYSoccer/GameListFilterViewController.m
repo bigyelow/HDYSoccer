@@ -15,24 +15,25 @@
 
 @end
 
-#define FILTER_VIEW_TITLE @"选择时间和场地"
-#define FILTER_BACKGROUND_IMAGE @"background_field1.jpg"
-
 @implementation GameListFilterViewController
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
 
-  [self setTitle:FILTER_VIEW_TITLE];
+  [self setTitle:@"选择时间和场地"];
   [self configTopItems];
   
   [self.tableView setScrollEnabled:NO];
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  [self.tableView registerClass:[GameListFilterFieldTableViewCell class]
+         forCellReuseIdentifier:NSStringFromClass([GameListFilterFieldTableViewCell class])];
+  [self.tableView registerClass:[GameListFilterTableViewCell class]
+         forCellReuseIdentifier:NSStringFromClass([GameListFilterTableViewCell class])];
   
   // background
   UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-  [imageView setImage:[UIImage imageNamed:FILTER_BACKGROUND_IMAGE]];
+  [imageView setImage:[UIImage imageNamed:@"background_field1.jpg"]];
   [self.tableView setBackgroundView:imageView];
 }
 
@@ -84,31 +85,20 @@
 
 #pragma mark - tableview delegate and datasource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-  return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 1;
+  return 2;
 }
 
-#define SELECT_FIELD_TITLE @"选择场地"
-#define SELECT_TIME_FORMAT_TITLE @"踢球时间：%@"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  switch (indexPath.section) {
+  switch (indexPath.row) {
     case 0: {
-      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
-      GameListFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-      if (cell == nil) {
-        cell = [[GameListFilterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-      }
-      
+      GameListFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([GameListFilterTableViewCell class]) forIndexPath:indexPath];
+
       if (self.filterDate) {
         NSString *time = [Tools dateOnlyToStr:self.filterDate preferUTC:NO];
-        NSString *cellText = [NSString stringWithFormat:SELECT_TIME_FORMAT_TITLE, time];
+        NSString *cellText = [NSString stringWithFormat:@"踢球时间：%@", time];
         [cell.timeLabel setText:cellText];
         [cell.timeLabel setNumberOfLines:1];
         [cell.timeLabel sizeToFit];
@@ -118,12 +108,11 @@
     }
       
     case 1: {
-      NSString *cellID = GAME_LIST_FILTER_CELL_ID;
-      GameListFilterFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-      if (cell == nil) {
-        cell = [[GameListFilterFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-      }
+      GameListFilterFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([GameListFilterFieldTableViewCell class]) forIndexPath:indexPath];
 
+      if (self.filterField) {
+        [cell configCellWithField:self.filterField];
+      }
       return cell;
     }
       
@@ -137,7 +126,7 @@
 {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   
-  switch (indexPath.section) {
+  switch (indexPath.row) {
     case 0:
       // select date
       [self openDateSelectionController];
@@ -154,9 +143,6 @@
 
 #pragma mark - RMDAteSelectionViewController operations and delegate
 
-#define MINUTE_INTERVAL 10.0f
-#define SELECT_TIME_TITLE @"选择时间"
-
 - (void)openDateSelectionController
 {
   [RMDateSelectionViewController setLocalizedTitleForCancelButton:TEXT_CANCEL];
@@ -164,11 +150,11 @@
   
   RMDateSelectionViewController *dateSelectionVC = [RMDateSelectionViewController dateSelectionController];
   dateSelectionVC.delegate = self;
-  [dateSelectionVC.titleLabel setText:SELECT_TIME_TITLE];
+  [dateSelectionVC.titleLabel setText:@"选择时间"];
   
   [dateSelectionVC setHideNowButton:YES];
   dateSelectionVC.datePicker.datePickerMode = UIDatePickerModeDate;
-  dateSelectionVC.datePicker.minuteInterval = MINUTE_INTERVAL;
+  dateSelectionVC.datePicker.minuteInterval = 10.0;
   dateSelectionVC.datePicker.date = [NSDate date];
   
   [dateSelectionVC show];
