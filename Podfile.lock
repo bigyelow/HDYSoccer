@@ -102,7 +102,7 @@ PODS:
   - PSTCollectionView (1.2.3)
   - PureLayout (2.0.1)
   - REFrostedViewController (2.4.5)
-  - RMDateSelectionViewController (1.2.1)
+  - RMDateSelectionViewController (1.4.3)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
@@ -125,7 +125,7 @@ DEPENDENCIES:
   - PSAlertView (~> 2.0.2)
   - PureLayout (~> 2.0.1)
   - REFrostedViewController (~> 2.4.5)
-  - RMDateSelectionViewController (~> 1.2.1)
+  - RMDateSelectionViewController (~> 1.4.3)
   - SDWebImage (~> 3.7.1)
   - SVPullToRefresh (~> 0.4.1)
   - UICountingLabel (~> 1.1.0)
@@ -148,7 +148,7 @@ SPEC CHECKSUMS:
   PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
   PureLayout: d4f5310f7937eb8f36023dc0bb3ba9ca78f7b092
   REFrostedViewController: c7613f3fb109797e980522f6b0e9f7f82edcdaf4
-  RMDateSelectionViewController: f6e0a93286ee07db149087041c3cca92e5ddf5e3
+  RMDateSelectionViewController: 5c0e7a210077fe1b23aaf2b2b305aac3356396f0
   SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   UICountingLabel: b384581309e232bbc5437d86d99a3a4a7136f7ec
