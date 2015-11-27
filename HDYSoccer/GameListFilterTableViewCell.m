@@ -14,6 +14,12 @@ CGFloat kClockWidth = 13.0f;
 CGFloat kClockHeight = 13.0f;
 CGFloat kTimeLeftMargin = 10.0f;
 
+@interface GameListFilterTableViewCell ()
+
+@property (nonatomic, strong) UIView *seperator;
+
+@end
+
 @implementation GameListFilterTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -46,10 +52,20 @@ CGFloat kTimeLeftMargin = 10.0f;
     CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
     UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
     [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+    self.seperator = seperator;
     
     [self addSubview:seperator];
   }
   return self;
+}
+
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+
+  CGRect frame = self.seperator.frame;
+  frame.size.width = self.bounds.size.width;
+  self.seperator.frame = frame;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

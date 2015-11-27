@@ -69,7 +69,14 @@
   return self;
 }
 
-// update subviews here
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+
+  CGRect frame = self.seperator.frame;
+  frame.size.width = self.bounds.size.width;
+  self.seperator.frame = frame;
+}
 
 #define REMARK_FONT_SIZE 14.0F
 

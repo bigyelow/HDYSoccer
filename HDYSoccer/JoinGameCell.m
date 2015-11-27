@@ -13,6 +13,12 @@
 #define STAT_LABEL_BOTTOM_MARING 5.0F
 #define MIDDLE_SEPERATOR_HEIGHT 2
 
+@interface JoinGameCell ()
+
+@property (nonatomic, strong) UIButton *joinButton;
+
+@end
+
 @implementation JoinGameCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style
@@ -44,6 +50,7 @@
     [UIConfiguration setView:joinButton height:joinButton.frame.size.height + 10];
     [UIConfiguration setView:joinButton y:JOIN_BUTTON_TOP_MARGIN];
     [UIConfiguration moveSubviewXToSuperviewCenter:self subview:joinButton];
+    self.joinButton = joinButton;
     [self addSubview:joinButton];
     
     // statistics
@@ -55,6 +62,7 @@
       CGFloat statY = self.frame.size.height - STAT_LABEL_BOTTOM_MARING - statLabel.frame.size.height;
       [UIConfiguration setView:statLabel y:statY];
       [UIConfiguration moveSubviewXToSuperviewCenter:self subview:statLabel];
+      statLabel.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, statLabel.center.y);
       
       [self addSubview:statLabel];
     }
@@ -74,6 +82,12 @@
 //    [self addSubview:seperator];
   }
   return self;
+}
+
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+  self.joinButton.center = CGPointMake(self.bounds.size.width / 2, self.joinButton.center.y);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

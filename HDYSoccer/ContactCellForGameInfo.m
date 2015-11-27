@@ -18,6 +18,12 @@
 // title
 #define TITLE_LEFT_MARGIN 11.0f
 
+@interface ContactCellForGameInfo ()
+
+@property (nonatomic, strong) UIView *seperator;
+
+@end
+
 @implementation ContactCellForGameInfo
 
 - (id)initWithStyle:(UITableViewCellStyle)style
@@ -54,6 +60,7 @@
     CGFloat seperatorY = self.frame.size.height - GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT;
     UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, seperatorY, self.frame.size.width, GAME_LIST_FILTER_CELL_SEPERATOR_HEIGHT)];
     [seperator setBackgroundColor:[UIConfiguration colorForHex:GAME_LIST_FILTER_CELL_SEPERATOR_COLOR]];
+    self.seperator = seperator;
     
     [self addSubview:seperator];
   }
@@ -64,6 +71,15 @@
 {
   [self.titleLabel setText:title];
   [self.titleLabel sizeToFit];
+}
+
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+
+  CGRect frame = self.seperator.frame;
+  frame.size.width = self.bounds.size.width;
+  self.seperator.frame = frame;
 }
 
 - (void)awakeFromNib

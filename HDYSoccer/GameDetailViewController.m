@@ -512,6 +512,7 @@
               [label setTextColor:[UIColor whiteColor]];
               [label sizeToFit];
               [UIConfiguration moveSubviewToSuperviewCenter:cell subview:label];
+              label.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, label.center.y);
               self.playersTitleLabel = label;
 
               [cell addSubview:label];
