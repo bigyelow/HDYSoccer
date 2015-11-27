@@ -16,7 +16,7 @@
 #define HEADER_IDENTIFIER @"GameListHeader"
 #define FOOTER_IDENTIFIER @"GameListFooter"
 
-#define GAME_TITLE @"约球"
+#define GAME_TITLE @"InstaPlay"
 
 // layout
 #define FOOTER_HEIGHT 0.0f
