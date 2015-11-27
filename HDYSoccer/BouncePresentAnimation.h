@@ -10,4 +10,6 @@
 
 @interface BouncePresentAnimation : NSObject <UIViewControllerAnimatedTransitioning>
 
+@property (nonatomic, assign) BOOL dismissal;
+
 @end

@@ -340,6 +340,13 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
+  self.presentAnimation.dismissal = NO;
+  return self.presentAnimation;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+  self.presentAnimation.dismissal = YES;
   return self.presentAnimation;
 }
 
