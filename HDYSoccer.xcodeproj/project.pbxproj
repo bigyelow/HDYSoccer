@@ -18,6 +18,11 @@
 		712D16F7194F00B200396B1F /* CreateGameDetailViewController+TopButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16F6194F00B200396B1F /* CreateGameDetailViewController+TopButtons.m */; };
 		71331222196284A400044E65 /* HDYSoccerGeekerViewController+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 71331221196284A400044E65 /* HDYSoccerGeekerViewController+Network.m */; };
 		7135C9331A1702E100ABEEA6 /* SimpleEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7135C9321A1702E100ABEEA6 /* SimpleEditCell.m */; };
+		713D24801C0847F200A6ED69 /* DemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713D247F1C0847F200A6ED69 /* DemoBaseViewController.m */; };
+		713D24851C08480D00A6ED69 /* HDYSoccerTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713D24841C08480D00A6ED69 /* HDYSoccerTestViewController.swift */; };
+		713D24891C08485300A6ED69 /* RadarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713D24871C08485300A6ED69 /* RadarChartViewController.m */; };
+		713D248A1C08485300A6ED69 /* RadarChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 713D24881C08485300A6ED69 /* RadarChartViewController.xib */; };
+		713D248C1C08489900A6ED69 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713D248B1C08489900A6ED69 /* BalloonMarker.swift */; };
 		713EDFD619D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 713EDFD519D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.m */; };
 		7141A17B1940090B00B34295 /* HDYSoccerAPIClient+HTTPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141A17A1940090B00B34295 /* HDYSoccerAPIClient+HTTPS.m */; };
 		7141A19019403F9000B34295 /* AppDelegate+LogicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7141A18F19403F9000B34295 /* AppDelegate+LogicTest.m */; };
@@ -270,6 +275,14 @@
 		71331221196284A400044E65 /* HDYSoccerGeekerViewController+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGeekerViewController+Network.m"; sourceTree = "<group>"; };
 		7135C9311A1702E100ABEEA6 /* SimpleEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleEditCell.h; sourceTree = "<group>"; };
 		7135C9321A1702E100ABEEA6 /* SimpleEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleEditCell.m; sourceTree = "<group>"; };
+		713D247E1C0847F200A6ED69 /* DemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoBaseViewController.h; sourceTree = "<group>"; };
+		713D247F1C0847F200A6ED69 /* DemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoBaseViewController.m; sourceTree = "<group>"; };
+		713D24831C08480C00A6ED69 /* HDYSoccer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HDYSoccer-Bridging-Header.h"; sourceTree = "<group>"; };
+		713D24841C08480D00A6ED69 /* HDYSoccerTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HDYSoccerTestViewController.swift; sourceTree = "<group>"; };
+		713D24861C08485300A6ED69 /* RadarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarChartViewController.h; sourceTree = "<group>"; };
+		713D24871C08485300A6ED69 /* RadarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarChartViewController.m; sourceTree = "<group>"; };
+		713D24881C08485300A6ED69 /* RadarChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarChartViewController.xib; sourceTree = "<group>"; };
+		713D248B1C08489900A6ED69 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		713EDFD419D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerGeekerDetailViewController+TopButtons.h"; sourceTree = "<group>"; };
 		713EDFD519D5100A00B3A2F5 /* HDYSoccerGeekerDetailViewController+TopButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HDYSoccerGeekerDetailViewController+TopButtons.m"; sourceTree = "<group>"; };
 		7141A1791940090B00B34295 /* HDYSoccerAPIClient+HTTPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HDYSoccerAPIClient+HTTPS.h"; sourceTree = "<group>"; };
@@ -729,6 +742,14 @@
 				9854A4121C08379F007F5B3F /* GeekerChatsViewController.m */,
 				9854A4141C08388F007F5B3F /* GeekerChatsCell.h */,
 				9854A4151C08388F007F5B3F /* GeekerChatsCell.m */,
+				713D247E1C0847F200A6ED69 /* DemoBaseViewController.h */,
+				713D247F1C0847F200A6ED69 /* DemoBaseViewController.m */,
+				713D24861C08485300A6ED69 /* RadarChartViewController.h */,
+				713D24871C08485300A6ED69 /* RadarChartViewController.m */,
+				713D24881C08485300A6ED69 /* RadarChartViewController.xib */,
+				713D248B1C08489900A6ED69 /* BalloonMarker.swift */,
+				713D24841C08480D00A6ED69 /* HDYSoccerTestViewController.swift */,
+				713D24831C08480C00A6ED69 /* HDYSoccer-Bridging-Header.h */,
 			);
 			name = PlayerDetail;
 			sourceTree = "<group>";
@@ -1537,6 +1558,7 @@
 				71F8C00419865DAF0096465E /* money-75.png in Resources */,
 				71F8BFFA1986549E0096465E /* group-75.png in Resources */,
 				71F8BFE6198626050096465E /* background_backhame.jpg in Resources */,
+				713D248A1C08485300A6ED69 /* RadarChartViewController.xib in Resources */,
 				7187BE6A197A699000748563 /* plus-50.png in Resources */,
 				7194EB5319AD7A6B00D25C10 /* speech_bubble-50.png in Resources */,
 				7187BE45197A230000748563 /* clock-75.png in Resources */,
@@ -1649,6 +1671,7 @@
 				715AD73B18E679F60068E6E1 /* HDYSoccerGeekerDetailViewController.m in Sources */,
 				7194EB3F19AC338F00D25C10 /* Reply.m in Sources */,
 				719213411988F70C00EF7947 /* CostCellForGameInfo.m in Sources */,
+				713D248C1C08489900A6ED69 /* BalloonMarker.swift in Sources */,
 				7194EB6D19B0335B00D25C10 /* ChooseTableViewController.m in Sources */,
 				719432F61917931F009BA1D6 /* HDYSoccerAPIClient+HTTP.m in Sources */,
 				712D16F1194EEEF900396B1F /* ContactCell.m in Sources */,
@@ -1704,9 +1727,11 @@
 				718A49C1194FF0A3001DF516 /* ChooseTeamCell.m in Sources */,
 				719433201919EBFB009BA1D6 /* AppContextParams.m in Sources */,
 				712D16F4194EEFE000396B1F /* CostCell.m in Sources */,
+				713D24801C0847F200A6ED69 /* DemoBaseViewController.m in Sources */,
 				9854A40F1C083739007F5B3F /* UUColor.m in Sources */,
 				71B1F2D5199B3B270039D5EE /* PlayerListInfoCell.m in Sources */,
 				71E7AE75197E3C1B00427C31 /* HDYSoccerGameViewController.m in Sources */,
+				713D24891C08485300A6ED69 /* RadarChartViewController.m in Sources */,
 				9854A40D1C083739007F5B3F /* UUChart.m in Sources */,
 				7194EB2619AB399600D25C10 /* CommentBar.m in Sources */,
 				719213471988FEDC00EF7947 /* RemarkCellForGameInfo.m in Sources */,
@@ -1741,6 +1766,7 @@
 				719D523D19167758006304D3 /* ParticipantsScore.m in Sources */,
 				71B216111995D7B900212DF4 /* GeekerTableCell.m in Sources */,
 				71898EDA19A207D3005778D2 /* TeamMemberHeaderView.m in Sources */,
+				713D24851C08480D00A6ED69 /* HDYSoccerTestViewController.swift in Sources */,
 				710B0E5A199B507200845986 /* PlayerTagsCell.m in Sources */,
 				71943324191A12E6009BA1D6 /* Authorization.m in Sources */,
 				71CCC3D418E283CF00D6F974 /* HDYSoccerMenuViewController.m in Sources */,
@@ -1876,6 +1902,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HDYSoccer/HDYSoccer-Prefix.pch";
@@ -1884,6 +1911,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bigyelow.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HDYSoccer/HDYSoccer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1894,6 +1923,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HDYSoccer/HDYSoccer-Prefix.pch";
@@ -1902,6 +1932,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bigyelow.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HDYSoccer/HDYSoccer-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
