@@ -12,9 +12,7 @@ CGFloat kClockLeftMargin = 10.0f;
 CGFloat kClockTopMargin = 15.0f;
 CGFloat kClockWidth = 13.0f;
 CGFloat kClockHeight = 13.0f;
-
-CGFloat kTextLeftMargin = 10.0f;
-NSString *kTimeTitle = @"选择时间";
+CGFloat kTimeLeftMargin = 10.0f;
 
 @implementation GameListFilterTableViewCell
 
@@ -35,8 +33,8 @@ NSString *kTimeTitle = @"选择时间";
     [self addSubview:clockView];
     
     // time
-    UILabel *timeLabel = [UIConfiguration labelWithText:kTimeTitle textColor:[UIColor whiteColor] font:nil];
-    CGFloat timeX = CGRectGetMaxX(clockView.frame) + kTextLeftMargin;
+    UILabel *timeLabel = [UIConfiguration labelWithText:@"选择时间" textColor:[UIColor whiteColor] font:nil];
+    CGFloat timeX = CGRectGetMaxX(clockView.frame) + kTimeLeftMargin;
     
     [UIConfiguration setView:timeLabel origin:CGPointMake(timeX, 0)];
     [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:timeLabel];

@@ -13,8 +13,8 @@ CGFloat kFieldLeftMargin = 8.0f;
 CGFloat kFieldTopMargin = 13.0f;
 CGFloat kFieldWidth = 16.0f;
 CGFloat kFieldHeight = 16.0f;
+CGFloat kTextLeftMargin = 10.0;
 
-#define TEXT_LEFT_MARGIN 10.0F
 NSString *kfieldTitle = @"选择场地";
 
 @implementation GameListFilterFieldTableViewCell
@@ -38,7 +38,7 @@ NSString *kfieldTitle = @"选择场地";
     
     // field
     UILabel *fieldLabel = [UIConfiguration labelWithText:kfieldTitle textColor:[UIColor whiteColor] font:nil];
-    CGFloat fieldX = CGRectGetMaxX(fieldView.frame) + TEXT_LEFT_MARGIN;
+    CGFloat fieldX = CGRectGetMaxX(fieldView.frame) + kTextLeftMargin;
     
     [UIConfiguration setView:fieldLabel origin:CGPointMake(fieldX, 0)];
     [UIConfiguration moveSubviewYToSuperviewCenter:self.contentView subview:fieldLabel];
