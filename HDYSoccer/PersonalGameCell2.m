@@ -49,7 +49,7 @@
 
 // TIME
 #define TIME_RIGHT_MARGIN 10
-#define TIME_WIDTH 100
+#define TIME_WIDTH 105
 
 @implementation PersonalGameCell2
 
