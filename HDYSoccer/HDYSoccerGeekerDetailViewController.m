@@ -17,9 +17,13 @@
 #import "PlayerAbilityCell.h"
 #import "PlayerAbilityHeaderView.h"
 #import "HDYSoccerGeekerDetailViewController+RateView.h"
+#import "BouncePresentAnimation.h"
 
 @interface HDYSoccerGeekerDetailViewController ()
+
 @property (nonatomic, strong) NSArray *sampleDatas;
+@property (nonatomic, strong) BouncePresentAnimation *presentAnimation;
+
 @end
 
 @implementation HDYSoccerGeekerDetailViewController
@@ -29,8 +33,9 @@
 {
   self = [super initWithStyle:UITableViewStyleGrouped];
   if (self) {
-    self.playerID = @"1000";
-    self.playerName = playerName;
+    _playerID = @"1000";
+    _playerName = playerName;
+    _presentAnimation = [BouncePresentAnimation new];
   }
   return self;
 }
@@ -322,6 +327,20 @@
   if (![Tools isSelfUser:@"1001"]) {
     [self showRateViewWithAbilityName:key score:value.integerValue indexPath:indexPath];
   }
-  
 }
+
+#pragma mark - ModalViewControllerDelegate
+
+- (void)modelViewControllerDismiss:(GeekerChatsViewController *)controller
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+  return self.presentAnimation;
+}
+
 @end

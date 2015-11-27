@@ -202,6 +202,7 @@
 		9854A4101C083739007F5B3F /* UULineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A40A1C083739007F5B3F /* UULineChart.m */; };
 		9854A4131C08379F007F5B3F /* GeekerChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4121C08379F007F5B3F /* GeekerChatsViewController.m */; };
 		9854A4161C08388F007F5B3F /* GeekerChatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4151C08388F007F5B3F /* GeekerChatsCell.m */; };
+		9854A41A1C084CD9007F5B3F /* BouncePresentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4191C084CD9007F5B3F /* BouncePresentAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -609,6 +610,8 @@
 		9854A4121C08379F007F5B3F /* GeekerChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeekerChatsViewController.m; sourceTree = "<group>"; };
 		9854A4141C08388F007F5B3F /* GeekerChatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeekerChatsCell.h; sourceTree = "<group>"; };
 		9854A4151C08388F007F5B3F /* GeekerChatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeekerChatsCell.m; sourceTree = "<group>"; };
+		9854A4181C084CD9007F5B3F /* BouncePresentAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BouncePresentAnimation.h; sourceTree = "<group>"; };
+		9854A4191C084CD9007F5B3F /* BouncePresentAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BouncePresentAnimation.m; sourceTree = "<group>"; };
 		B1615B7439BC26FD2CE1FEEA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -750,6 +753,8 @@
 				713D248B1C08489900A6ED69 /* BalloonMarker.swift */,
 				713D24841C08480D00A6ED69 /* HDYSoccerTestViewController.swift */,
 				713D24831C08480C00A6ED69 /* HDYSoccer-Bridging-Header.h */,
+				9854A4181C084CD9007F5B3F /* BouncePresentAnimation.h */,
+				9854A4191C084CD9007F5B3F /* BouncePresentAnimation.m */,
 			);
 			name = PlayerDetail;
 			sourceTree = "<group>";
@@ -1737,6 +1742,7 @@
 				719213471988FEDC00EF7947 /* RemarkCellForGameInfo.m in Sources */,
 				71A55F83199DBFFF005DBC83 /* QualityAbility.m in Sources */,
 				717A5BB2198B4E6A006E8446 /* RatePlayerHeaderView.m in Sources */,
+				9854A41A1C084CD9007F5B3F /* BouncePresentAnimation.m in Sources */,
 				71C27503191B8D81003D33DE /* HDYSoccerBaseViewParams.m in Sources */,
 				719D523A19167701006304D3 /* GeekerAbility.m in Sources */,
 				71898EBA19A1B428005778D2 /* TeamDetailViewController.m in Sources */,

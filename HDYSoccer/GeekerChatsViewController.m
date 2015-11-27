@@ -22,6 +22,11 @@
   [super viewDidLoad];
 
   self.title = @"最近6个月的综合分数";
+  UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:@"完成"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(didClickCloseButton)];
+  self.navigationItem.leftBarButtonItem = closeItem;
 
   _tableView = [[UITableView alloc] init];
   _tableView.delegate = self;
@@ -36,6 +41,13 @@
   [super viewDidLayoutSubviews];
 
   _tableView.frame = self.view.bounds;
+}
+
+- (void)didClickCloseButton
+{
+  if ([self.delegate respondsToSelector:@selector(modelViewControllerDismiss:)]) {
+    [self.delegate modelViewControllerDismiss:self];
+  }
 }
 
 #pragma mark - UITableViewDataSource

@@ -71,7 +71,8 @@
 - (void)showChats
 {
   GeekerChatsViewController *controller = [[GeekerChatsViewController alloc] init];
-  [self.navigationController pushViewController:controller animated:YES];
+  controller.delegate = self;
+  [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)showAbility
