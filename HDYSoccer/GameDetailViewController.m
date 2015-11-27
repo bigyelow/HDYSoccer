@@ -36,6 +36,8 @@
 
 @interface GameDetailViewController ()
 
+@property (nonatomic, strong) UILabel *playersTitleLabel;
+
 @end
 
 @implementation GameDetailViewController
@@ -502,15 +504,18 @@
               [tempStr appendString:@","];
               [tempStr appendString:[NSString stringWithFormat:TEXT_AVERAGE_SCORE, self.personalGame.averageScore]];
             }
-            
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-            [label setText:tempStr];
-            [label setFont:[UIFont fontWithName:GLOBAL_FONT_NAME size:14]];
-            [label setTextColor:[UIColor whiteColor]];
-            [label sizeToFit];
-            [UIConfiguration moveSubviewToSuperviewCenter:cell subview:label];
-            
-            [cell addSubview:label];
+
+            if (self.playersTitleLabel == nil) {
+              UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+              [label setText:tempStr];
+              [label setFont:[UIFont fontWithName:GLOBAL_FONT_NAME size:14]];
+              [label setTextColor:[UIColor whiteColor]];
+              [label sizeToFit];
+              [UIConfiguration moveSubviewToSuperviewCenter:cell subview:label];
+              self.playersTitleLabel = label;
+
+              [cell addSubview:label];
+            }
             return cell;
           }
             
