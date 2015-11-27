@@ -21,6 +21,8 @@
 {
   [super viewDidLoad];
 
+  self.title = @"个人数据";
+
   _tableView = [[UITableView alloc] init];
   _tableView.delegate = self;
   _tableView.dataSource = self;
@@ -36,6 +38,19 @@
 }
 
 #pragma mark - UITableViewDataSource
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+  switch (section) {
+    case 0:
+      return @"最近6个月的综合分数";
+      break;
+
+    default:
+      break;
+  }
+  return nil;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

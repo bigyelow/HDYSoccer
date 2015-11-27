@@ -36,7 +36,7 @@
 {
   NSMutableArray *xTitles = [NSMutableArray array];
   for (int i=0; i<num; i++) {
-    NSString * str = [NSString stringWithFormat:@"R-%d",i];
+    NSString * str = [NSString stringWithFormat:@"M-%d",i + 1];
     [xTitles addObject:str];
   }
   return xTitles;
@@ -46,14 +46,14 @@
 //横坐标标题数组
 - (NSArray *)UUChart_xLableArray:(UUChart *)chart
 {
-  return [self getXTitles:7];
+  return [self getXTitles:6];
 }
 
 //数值多重数组
 - (NSArray *)UUChart_yValueArray:(UUChart *)chart
 {
-  NSArray *ary1 = @[@"22",@"54",@"15",@"30",@"42",@"77",@"43"];
-  NSArray *ary2 = @[@"76",@"34",@"54",@"23",@"16",@"32",@"17"];
+  NSArray *ary1 = @[@"65",@"67",@"45",@"50",@"58",@"65",@"60"];
+  NSArray *ary2 = @[@"85",@"65",@"60",@"55",@"40",@"80",@"88"];
   return @[ary1, ary2];
 }
 
