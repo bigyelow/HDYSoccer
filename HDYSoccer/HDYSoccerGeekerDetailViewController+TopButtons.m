@@ -7,6 +7,7 @@
 //
 
 #import "HDYSoccerGeekerDetailViewController+TopButtons.h"
+#import "GeekerChatsViewController.h"
 #import "PSPDFAlertView.h"
 #import "ProfileEditViewController.h"
 
@@ -53,11 +54,17 @@
 
 - (void)configTopEditButton
 {
-  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:TEXT_EDIT
+  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"数据" // TEXT_EDIT
                                                            style:UIBarButtonItemStyleDone
                                                           target:self
-                                                          action:@selector(edit)];
+                                                          action:@selector(showChats)]; // @selector(edit)];
   [self.navigationItem setRightBarButtonItem:item];
+}
+
+- (void)showChats
+{
+  GeekerChatsViewController *controller = [[GeekerChatsViewController alloc] init];
+  [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)edit
