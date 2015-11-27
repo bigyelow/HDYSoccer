@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		20C018F7FDA74C08A47B80E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 574BB2BEFD4E48918A979B74 /* libPods.a */; };
-		7100174C1C083A5800CB08E5 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710017471C083A4500CB08E5 /* Charts.framework */; };
-		7100174D1C083A5800CB08E5 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 710017471C083A4500CB08E5 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		710B0E5A199B507200845986 /* PlayerTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 710B0E59199B507200845986 /* PlayerTagsCell.m */; };
 		711D06E91A56464600B21CB1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711D06E81A56464600B21CB1 /* SettingsViewController.m */; };
 		712D16EE194ECB9600396B1F /* ChoosePlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16ED194ECB9600396B1F /* ChoosePlayerCell.m */; };
@@ -203,43 +201,45 @@
 		9854A4131C08379F007F5B3F /* GeekerChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4121C08379F007F5B3F /* GeekerChatsViewController.m */; };
 		9854A4161C08388F007F5B3F /* GeekerChatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4151C08388F007F5B3F /* GeekerChatsCell.m */; };
 		9854A41A1C084CD9007F5B3F /* BouncePresentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4191C084CD9007F5B3F /* BouncePresentAnimation.m */; };
+		9854A42C1C085079007F5B3F /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9854A4231C085041007F5B3F /* Charts.framework */; };
+		9854A42D1C085079007F5B3F /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9854A4231C085041007F5B3F /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		710017461C083A4500CB08E5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
-			remoteInfo = "Charts-iOS";
-		};
-		710017481C083A4500CB08E5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
-			remoteInfo = "Charts-TV";
-		};
-		7100174A1C083A4500CB08E5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
-			remoteInfo = ChartsTests;
-		};
-		7100174E1C083A5800CB08E5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
-			remoteInfo = "Charts-iOS";
-		};
 		71CB8C1C18E019060073E913 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 71CB8BF418E019060073E913 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 71CB8BFB18E019060073E913;
 			remoteInfo = HDYSoccer;
+		};
+		9854A4221C085041007F5B3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		9854A4241C085041007F5B3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		9854A4261C085041007F5B3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		9854A42E1C085079007F5B3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -250,7 +250,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7100174D1C083A5800CB08E5 /* Charts.framework in Embed Frameworks */,
+				9854A42D1C085079007F5B3F /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +259,7 @@
 
 /* Begin PBXFileReference section */
 		574BB2BEFD4E48918A979B74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		710017401C083A4500CB08E5 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../Github/ios-charts/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		710017401C083A4500CB08E5 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../ios-charts/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		710B0E58199B507200845986 /* PlayerTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTagsCell.h; sourceTree = "<group>"; };
 		710B0E59199B507200845986 /* PlayerTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTagsCell.m; sourceTree = "<group>"; };
 		711D06E71A56464600B21CB1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -622,7 +622,7 @@
 			files = (
 				71CB8C0218E019060073E913 /* CoreGraphics.framework in Frameworks */,
 				71CB8C0418E019060073E913 /* UIKit.framework in Frameworks */,
-				7100174C1C083A5800CB08E5 /* Charts.framework in Frameworks */,
+				9854A42C1C085079007F5B3F /* Charts.framework in Frameworks */,
 				71CB8C0018E019060073E913 /* Foundation.framework in Frameworks */,
 				20C018F7FDA74C08A47B80E8 /* libPods.a in Frameworks */,
 			);
@@ -641,16 +641,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		710017411C083A4500CB08E5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				710017471C083A4500CB08E5 /* Charts.framework */,
-				710017491C083A4500CB08E5 /* Charts.framework */,
-				7100174B1C083A4500CB08E5 /* ChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		711D06E61A5645BA00B21CB1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1420,6 +1410,16 @@
 			path = UUChart;
 			sourceTree = "<group>";
 		};
+		9854A41D1C085041007F5B3F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9854A4231C085041007F5B3F /* Charts.framework */,
+				9854A4251C085041007F5B3F /* Charts.framework */,
+				9854A4271C085041007F5B3F /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1438,7 +1438,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				7100174F1C083A5800CB08E5 /* PBXTargetDependency */,
+				9854A42F1C085079007F5B3F /* PBXTargetDependency */,
 			);
 			name = HDYSoccer;
 			productName = HDYSoccer;
@@ -1493,7 +1493,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 710017411C083A4500CB08E5 /* Products */;
+					ProductGroup = 9854A41D1C085041007F5B3F /* Products */;
 					ProjectRef = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
 				},
 			);
@@ -1506,25 +1506,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		710017471C083A4500CB08E5 /* Charts.framework */ = {
+		9854A4231C085041007F5B3F /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 710017461C083A4500CB08E5 /* PBXContainerItemProxy */;
+			remoteRef = 9854A4221C085041007F5B3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		710017491C083A4500CB08E5 /* Charts.framework */ = {
+		9854A4251C085041007F5B3F /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 710017481C083A4500CB08E5 /* PBXContainerItemProxy */;
+			remoteRef = 9854A4241C085041007F5B3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		7100174B1C083A4500CB08E5 /* ChartsTests.xctest */ = {
+		9854A4271C085041007F5B3F /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = 7100174A1C083A4500CB08E5 /* PBXContainerItemProxy */;
+			remoteRef = 9854A4261C085041007F5B3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1799,15 +1799,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7100174F1C083A5800CB08E5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Charts-iOS";
-			targetProxy = 7100174E1C083A5800CB08E5 /* PBXContainerItemProxy */;
-		};
 		71CB8C1D18E019060073E913 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 71CB8BFB18E019060073E913 /* HDYSoccer */;
 			targetProxy = 71CB8C1C18E019060073E913 /* PBXContainerItemProxy */;
+		};
+		9854A42F1C085079007F5B3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 9854A42E1C085079007F5B3F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

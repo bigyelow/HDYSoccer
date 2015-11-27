@@ -10,12 +10,12 @@
 
 @implementation BouncePresentAnimation
 
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
 {
-  return 0.8;
+  return 0.8f;
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
 {
   // 1. Get controllers from transition context
   UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];

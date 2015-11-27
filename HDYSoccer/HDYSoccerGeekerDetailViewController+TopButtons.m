@@ -72,13 +72,17 @@
 {
   GeekerChatsViewController *controller = [[GeekerChatsViewController alloc] init];
   controller.delegate = self;
-  [self presentViewController:controller animated:YES completion:nil];
+  controller.transitioningDelegate = self;
+  UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+  [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)showAbility
 {
   RadarChartViewController *controller = [[RadarChartViewController alloc] init];
-  [self.navigationController pushViewController:controller animated:YES];
+  controller.transitioningDelegate = self;
+  UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+  [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)edit

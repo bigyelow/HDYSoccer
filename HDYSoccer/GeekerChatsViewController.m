@@ -22,7 +22,7 @@
   [super viewDidLoad];
 
   self.title = @"最近6个月的综合分数";
-  UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:@"完成"
+  UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:@"取消"
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(didClickCloseButton)];
