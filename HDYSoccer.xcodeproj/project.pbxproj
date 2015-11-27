@@ -189,6 +189,14 @@
 		71F8C00219865B7B0096465E /* phone2-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8C00119865B7B0096465E /* phone2-75.png */; };
 		71F8C00419865DAF0096465E /* money-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8C00319865DAF0096465E /* money-75.png */; };
 		71F8C006198663940096465E /* info-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 71F8C005198663940096465E /* info-75.png */; };
+		9854A40B1C083739007F5B3F /* UUBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4001C083739007F5B3F /* UUBar.m */; };
+		9854A40C1C083739007F5B3F /* UUBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4021C083739007F5B3F /* UUBarChart.m */; };
+		9854A40D1C083739007F5B3F /* UUChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4041C083739007F5B3F /* UUChart.m */; };
+		9854A40E1C083739007F5B3F /* UUChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4061C083739007F5B3F /* UUChartLabel.m */; };
+		9854A40F1C083739007F5B3F /* UUColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4081C083739007F5B3F /* UUColor.m */; };
+		9854A4101C083739007F5B3F /* UULineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A40A1C083739007F5B3F /* UULineChart.m */; };
+		9854A4131C08379F007F5B3F /* GeekerChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4121C08379F007F5B3F /* GeekerChatsViewController.m */; };
+		9854A4161C08388F007F5B3F /* GeekerChatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9854A4151C08388F007F5B3F /* GeekerChatsCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -572,6 +580,22 @@
 		71F8C00319865DAF0096465E /* money-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-75.png"; sourceTree = "<group>"; };
 		71F8C005198663940096465E /* info-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-75.png"; sourceTree = "<group>"; };
 		729049AEB751FAA2E5A817E7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9854A3FF1C083739007F5B3F /* UUBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBar.h; sourceTree = "<group>"; };
+		9854A4001C083739007F5B3F /* UUBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUBar.m; sourceTree = "<group>"; };
+		9854A4011C083739007F5B3F /* UUBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBarChart.h; sourceTree = "<group>"; };
+		9854A4021C083739007F5B3F /* UUBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUBarChart.m; sourceTree = "<group>"; };
+		9854A4031C083739007F5B3F /* UUChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChart.h; sourceTree = "<group>"; };
+		9854A4041C083739007F5B3F /* UUChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChart.m; sourceTree = "<group>"; };
+		9854A4051C083739007F5B3F /* UUChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChartLabel.h; sourceTree = "<group>"; };
+		9854A4061C083739007F5B3F /* UUChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChartLabel.m; sourceTree = "<group>"; };
+		9854A4071C083739007F5B3F /* UUColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUColor.h; sourceTree = "<group>"; };
+		9854A4081C083739007F5B3F /* UUColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUColor.m; sourceTree = "<group>"; };
+		9854A4091C083739007F5B3F /* UULineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UULineChart.h; sourceTree = "<group>"; };
+		9854A40A1C083739007F5B3F /* UULineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UULineChart.m; sourceTree = "<group>"; };
+		9854A4111C08379F007F5B3F /* GeekerChatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeekerChatsViewController.h; sourceTree = "<group>"; };
+		9854A4121C08379F007F5B3F /* GeekerChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeekerChatsViewController.m; sourceTree = "<group>"; };
+		9854A4141C08388F007F5B3F /* GeekerChatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeekerChatsCell.h; sourceTree = "<group>"; };
+		9854A4151C08388F007F5B3F /* GeekerChatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeekerChatsCell.m; sourceTree = "<group>"; };
 		B1615B7439BC26FD2CE1FEEA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -701,6 +725,10 @@
 				71A55F6C199C7124005DBC83 /* PlayerAbilityCell.m */,
 				71898EB419A1A16B005778D2 /* PlayerAbilityHeaderView.h */,
 				71898EB519A1A16B005778D2 /* PlayerAbilityHeaderView.m */,
+				9854A4111C08379F007F5B3F /* GeekerChatsViewController.h */,
+				9854A4121C08379F007F5B3F /* GeekerChatsViewController.m */,
+				9854A4141C08388F007F5B3F /* GeekerChatsCell.h */,
+				9854A4151C08388F007F5B3F /* GeekerChatsCell.m */,
 			);
 			name = PlayerDetail;
 			sourceTree = "<group>";
@@ -1098,6 +1126,7 @@
 			isa = PBXGroup;
 			children = (
 				71CB8C4B18E0334F0073E913 /* Source */,
+				9854A3FD1C083723007F5B3F /* Library */,
 				71CB8C0618E019060073E913 /* Supporting Files */,
 				71DD43D618E29F19008094E0 /* Resource */,
 			);
@@ -1336,6 +1365,33 @@
 				729049AEB751FAA2E5A817E7 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9854A3FD1C083723007F5B3F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				9854A3FE1C083739007F5B3F /* UUChart */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		9854A3FE1C083739007F5B3F /* UUChart */ = {
+			isa = PBXGroup;
+			children = (
+				9854A3FF1C083739007F5B3F /* UUBar.h */,
+				9854A4001C083739007F5B3F /* UUBar.m */,
+				9854A4011C083739007F5B3F /* UUBarChart.h */,
+				9854A4021C083739007F5B3F /* UUBarChart.m */,
+				9854A4031C083739007F5B3F /* UUChart.h */,
+				9854A4041C083739007F5B3F /* UUChart.m */,
+				9854A4051C083739007F5B3F /* UUChartLabel.h */,
+				9854A4061C083739007F5B3F /* UUChartLabel.m */,
+				9854A4071C083739007F5B3F /* UUColor.h */,
+				9854A4081C083739007F5B3F /* UUColor.m */,
+				9854A4091C083739007F5B3F /* UULineChart.h */,
+				9854A40A1C083739007F5B3F /* UULineChart.m */,
+			);
+			path = UUChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1585,6 +1641,7 @@
 				7194EB7519B051FF00D25C10 /* ChooseTableViewController+Network.m in Sources */,
 				7141A17B1940090B00B34295 /* HDYSoccerAPIClient+HTTPS.m in Sources */,
 				71898EDD19A20A36005778D2 /* TeamScoreFooterView.m in Sources */,
+				9854A4161C08388F007F5B3F /* GeekerChatsCell.m in Sources */,
 				71CB8C5818E03B040073E913 /* AppContext.m in Sources */,
 				71898EBD19A1B4BE005778D2 /* TeamDetailViewController+SegmentControl.m in Sources */,
 				7194EB6519ADC1A500D25C10 /* HPGrowingTextView.m in Sources */,
@@ -1604,6 +1661,7 @@
 				7194EB3C19AC322800D25C10 /* Comment.m in Sources */,
 				7197DF60194197BD00B29EC5 /* BaseObject.m in Sources */,
 				7135C9331A1702E100ABEEA6 /* SimpleEditCell.m in Sources */,
+				9854A40C1C083739007F5B3F /* UUBarChart.m in Sources */,
 				71898EC819A1E3B6005778D2 /* TeamBasicInfoCell.m in Sources */,
 				71A55F80199DBFC0005DBC83 /* SkillAbility.m in Sources */,
 				71CB8C5018E036290073E913 /* HDYSoccerBaseTableViewController.m in Sources */,
@@ -1621,6 +1679,7 @@
 				719432F0191785BD009BA1D6 /* HDYSoccerAPIClient.m in Sources */,
 				7187BE52197A2B2E00748563 /* GameListFilterFieldTableViewCell.m in Sources */,
 				7197DF771944138200B29EC5 /* CreateGameViewController.m in Sources */,
+				9854A40B1C083739007F5B3F /* UUBar.m in Sources */,
 				7166EEA91990945D00E1F300 /* GameDetailViewController+RatePlayerPopover.m in Sources */,
 				7194332B191A180F009BA1D6 /* AppDelegate+Configuration.m in Sources */,
 				711D06E91A56464600B21CB1 /* SettingsViewController.m in Sources */,
@@ -1634,6 +1693,7 @@
 				71B1F2D2199B144B0039D5EE /* HDYSoccerGeekerDetailViewController+NetworkOperation.m in Sources */,
 				71DDF6F7199324780068E8FD /* TeamInfoCell.m in Sources */,
 				712D16EE194ECB9600396B1F /* ChoosePlayerCell.m in Sources */,
+				9854A40E1C083739007F5B3F /* UUChartLabel.m in Sources */,
 				7194EB1E19AAECD300D25C10 /* AdminiTableHeader.m in Sources */,
 				71568A0C18E3E76900518C7D /* HDYSoccerGeekerViewController.m in Sources */,
 				71943328191A1365009BA1D6 /* Location.m in Sources */,
@@ -1644,8 +1704,10 @@
 				718A49C1194FF0A3001DF516 /* ChooseTeamCell.m in Sources */,
 				719433201919EBFB009BA1D6 /* AppContextParams.m in Sources */,
 				712D16F4194EEFE000396B1F /* CostCell.m in Sources */,
+				9854A40F1C083739007F5B3F /* UUColor.m in Sources */,
 				71B1F2D5199B3B270039D5EE /* PlayerListInfoCell.m in Sources */,
 				71E7AE75197E3C1B00427C31 /* HDYSoccerGameViewController.m in Sources */,
+				9854A40D1C083739007F5B3F /* UUChart.m in Sources */,
 				7194EB2619AB399600D25C10 /* CommentBar.m in Sources */,
 				719213471988FEDC00EF7947 /* RemarkCellForGameInfo.m in Sources */,
 				71A55F83199DBFFF005DBC83 /* QualityAbility.m in Sources */,
@@ -1686,6 +1748,8 @@
 				71A769EF195AB1D700E6D004 /* GameDetailViewController.m in Sources */,
 				71931E51195C0A2500E87624 /* GameDetailViewController+Network.m in Sources */,
 				7194EB5D19AD87CB00D25C10 /* CommentField.m in Sources */,
+				9854A4131C08379F007F5B3F /* GeekerChatsViewController.m in Sources */,
+				9854A4101C083739007F5B3F /* UULineChart.m in Sources */,
 				7197DF7A1944177E00B29EC5 /* CreateGameDetailViewController.m in Sources */,
 				71CB8C3918E01D570073E913 /* HDYSoccerTabBarController.m in Sources */,
 				719D5243191678A0006304D3 /* TeamScoreTable.m in Sources */,
