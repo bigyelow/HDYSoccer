@@ -35,7 +35,7 @@
 #define FRIENDS_TOP_MARGIN 7
 #define FRIENDS_LEFT_MARGIN 7
 #define FRIENDS_INTERAL_MARING 7
-#define FRIEND_IMAGE_HEIGHT 24
+#define FRIEND_IMAGE_HEIGHT 30
 
 #define FRIEND_NAME_TOP_MARGIN 5
 #define FRIEND_NAME_HEIGHT 15
@@ -138,6 +138,9 @@
       UIImageView *avatar = [[UIImageView alloc] initWithFrame:CGRectMake(0, avatarY, FRIEND_IMAGE_HEIGHT, FRIEND_IMAGE_HEIGHT)];
       [avatar sd_setImageWithURL:[NSURL URLWithString:avatarURL]];
       [UIConfiguration moveSubviewXToSuperviewCenter:backView subview:avatar];
+      avatar.contentMode = UIViewContentModeScaleAspectFill;
+      avatar.clipsToBounds = YES;
+      avatar.layer.cornerRadius = FRIEND_IMAGE_HEIGHT / 2;
       
       [backView addSubview:avatar];
       

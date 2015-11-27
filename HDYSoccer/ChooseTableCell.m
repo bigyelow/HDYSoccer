@@ -28,6 +28,9 @@
     // IMAGE
     CGFloat imageWidth = CHOOSE_TABLE_CELL_HEIGHT - 2 * IMAGE_TOP_MARGIN;
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(IMAGE_LEFT_MARGIN, IMAGE_TOP_MARGIN, imageWidth, imageWidth)];
+    imageView.clipsToBounds = YES;
+    imageView.layer.cornerRadius = imageWidth / 2;
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
     
     self.avatarView = imageView;
     [self addSubview:imageView];
