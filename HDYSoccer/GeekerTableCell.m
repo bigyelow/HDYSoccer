@@ -57,7 +57,7 @@
     
     // BACKGROUND
     CGFloat backgroundHeight = self.frame.size.height - BACKGROUND_BOTTOM_MARGIN;
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, backgroundHeight)];
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, backgroundHeight)];
     [backgroundView setBackgroundColor:[UIColor whiteColor]];
     
     [self addSubview:backgroundView];
