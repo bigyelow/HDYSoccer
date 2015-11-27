@@ -74,9 +74,10 @@
     CGFloat avatarX = rankWidth + RATE_PLAYER_CELL_AVATAR_LEFT_MARGIN;
     UIImageView *avatarView = [[UIImageView alloc]
                                initWithFrame:CGRectMake(avatarX, RATE_PLAYER_CELL_AVATAR_TOP_MARGIN, avatarHeight, avatarHeight)];
-    avatarView.layer.cornerRadius = 3.0f;
+    avatarView.layer.cornerRadius = avatarHeight / 2;
     avatarView.layer.borderColor = [UIColor whiteColor].CGColor;
     avatarView.layer.borderWidth = 1.0f;
+    avatarView.contentMode = UIViewContentModeScaleAspectFill;
     avatarView.clipsToBounds = YES;
     
     self.avatarView = avatarView;
@@ -130,6 +131,16 @@
     [self addSubview:rateLabel];
   }
   return self;
+}
+
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+
+  CGFloat rateX = self.frame.size.width - [RatePlayerHeaderView rateWidth] + RATE_LEFT_MARGIN;
+  CGRect frame = self.rateLabel.frame;
+  frame.origin.x = rateX;
+  self.rateLabel.frame = frame;
 }
 
 #define HIGH_SCORE_COLOR @"#ff5500"

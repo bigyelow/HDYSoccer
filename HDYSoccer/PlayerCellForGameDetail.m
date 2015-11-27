@@ -58,8 +58,9 @@
     // avatar
     CGFloat avatarHeight = self.frame.size.height - 2 * AVATAR_TOP_MARGIN;
     UIImageView *avatarView = [[UIImageView alloc] initWithFrame:CGRectMake(AVATAR_LEFT_MARGIN, AVATAR_TOP_MARGIN, avatarHeight, avatarHeight)];
-    avatarView.layer.cornerRadius = 5;
+    avatarView.layer.cornerRadius = avatarHeight / 2;
     avatarView.clipsToBounds = YES;
+    avatarView.contentMode = UIViewContentModeScaleAspectFill;
     
     self.avatarView = avatarView;
     [self addSubview:avatarView];
