@@ -67,15 +67,18 @@
     // AVATAR
     CGFloat avatarX = AVATAR_LEFT_MARGIN;
     CGFloat avatarWidht = CONTENT_HEIGHT - 2 * AVATAR_TOP_MARGIN;
-    UIImageView *avatar = [[UIImageView alloc] initWithFrame:CGRectMake(avatarX, AVATAR_TOP_MARGIN, avatarWidht, avatarWidht)];
-    [avatar.layer setCornerRadius:5];
-    [avatar setClipsToBounds:YES];
-    
-    self.avatar = avatar;
-    [self addSubview:avatar];
+    _avatar = [[UIImageView alloc] initWithFrame:CGRectMake(avatarX, AVATAR_TOP_MARGIN, avatarWidht, avatarWidht)];
+
+    _avatar.contentMode = UIViewContentModeScaleAspectFill;
+    _avatar.clipsToBounds = YES;
+    _avatar.layer.cornerRadius = avatarWidht / 2.0;
+    _avatar.layer.borderWidth = 1.0 / [UIScreen mainScreen].scale;
+    _avatar.layer.borderColor = [[UIColor colorWithWhite:0 alpha:0.1] CGColor];
+
+    [self addSubview:_avatar];
     
     // FIELD
-    CGFloat fieldX = CGRectGetMaxX(avatar.frame) + FIELD_LEFT_MARGIN;
+    CGFloat fieldX = CGRectGetMaxX(_avatar.frame) + FIELD_LEFT_MARGIN;
     CGFloat fieldY = CONTENT_HEIGHT / 2 - FIELD_BOTTOM_MARGIN - FIELD_HEIGHT;
     CGFloat fieldWidth = frame.size.width - fieldX - FIELD_RIGHT_MARGIN;
     CGRect fieldRect = CGRectMake(fieldX, fieldY, fieldWidth, FIELD_HEIGHT);
@@ -88,7 +91,7 @@
     [self addSubview:fieldLabel];
 
     // SCORE
-    CGFloat scoreX = CGRectGetMaxX(avatar.frame) + SCORE_LEFT_MARGIN;
+    CGFloat scoreX = CGRectGetMaxX(_avatar.frame) + SCORE_LEFT_MARGIN;
     CGFloat scoreY = CONTENT_HEIGHT / 2 + SCORE_TOP_MARGIN;
     UILabel *scoreLabel = [UIConfiguration labelWithFrame:CGRectMake(scoreX, scoreY, SCORE_WIDTH, SCORE_HEIGHT)
                                                 textColor:[UIColor grayColor]
