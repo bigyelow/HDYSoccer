@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20C018F7FDA74C08A47B80E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 574BB2BEFD4E48918A979B74 /* libPods.a */; };
+		7100174C1C083A5800CB08E5 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710017471C083A4500CB08E5 /* Charts.framework */; };
+		7100174D1C083A5800CB08E5 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 710017471C083A4500CB08E5 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		710B0E5A199B507200845986 /* PlayerTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 710B0E59199B507200845986 /* PlayerTagsCell.m */; };
 		711D06E91A56464600B21CB1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711D06E81A56464600B21CB1 /* SettingsViewController.m */; };
 		712D16EE194ECB9600396B1F /* ChoosePlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D16ED194ECB9600396B1F /* ChoosePlayerCell.m */; };
@@ -190,6 +192,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		710017461C083A4500CB08E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		710017481C083A4500CB08E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		7100174A1C083A4500CB08E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		7100174E1C083A5800CB08E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 		71CB8C1C18E019060073E913 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 71CB8BF418E019060073E913 /* Project object */;
@@ -199,8 +229,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		710017501C083A5800CB08E5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7100174D1C083A5800CB08E5 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		574BB2BEFD4E48918A979B74 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		710017401C083A4500CB08E5 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../Github/ios-charts/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		710B0E58199B507200845986 /* PlayerTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTagsCell.h; sourceTree = "<group>"; };
 		710B0E59199B507200845986 /* PlayerTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTagsCell.m; sourceTree = "<group>"; };
 		711D06E71A56464600B21CB1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -537,6 +582,7 @@
 			files = (
 				71CB8C0218E019060073E913 /* CoreGraphics.framework in Frameworks */,
 				71CB8C0418E019060073E913 /* UIKit.framework in Frameworks */,
+				7100174C1C083A5800CB08E5 /* Charts.framework in Frameworks */,
 				71CB8C0018E019060073E913 /* Foundation.framework in Frameworks */,
 				20C018F7FDA74C08A47B80E8 /* libPods.a in Frameworks */,
 			);
@@ -555,6 +601,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		710017411C083A4500CB08E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				710017471C083A4500CB08E5 /* Charts.framework */,
+				710017491C083A4500CB08E5 /* Charts.framework */,
+				7100174B1C083A4500CB08E5 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		711D06E61A5645BA00B21CB1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1008,6 +1064,7 @@
 		71CB8BF318E019060073E913 = {
 			isa = PBXGroup;
 			children = (
+				710017401C083A4500CB08E5 /* Charts.xcodeproj */,
 				71CB8C0518E019060073E913 /* HDYSoccer */,
 				71CB8C1E18E019060073E913 /* HDYSoccerTests */,
 				71CB8BFE18E019060073E913 /* Frameworks */,
@@ -1294,10 +1351,12 @@
 				71CB8BFA18E019060073E913 /* Resources */,
 				89E6A37A7F764B7BAED8EB30 /* Copy Pods Resources */,
 				49D6875ADC4BFAAE26862DA6 /* Embed Pods Frameworks */,
+				710017501C083A5800CB08E5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7100174F1C083A5800CB08E5 /* PBXTargetDependency */,
 			);
 			name = HDYSoccer;
 			productName = HDYSoccer;
@@ -1350,6 +1409,12 @@
 			mainGroup = 71CB8BF318E019060073E913;
 			productRefGroup = 71CB8BFD18E019060073E913 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 710017411C083A4500CB08E5 /* Products */;
+					ProjectRef = 710017401C083A4500CB08E5 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				71CB8BFB18E019060073E913 /* HDYSoccer */,
@@ -1357,6 +1422,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		710017471C083A4500CB08E5 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 710017461C083A4500CB08E5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		710017491C083A4500CB08E5 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 710017481C083A4500CB08E5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7100174B1C083A4500CB08E5 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 7100174A1C083A4500CB08E5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		71CB8BFA18E019060073E913 /* Resources */ = {
@@ -1614,6 +1703,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7100174F1C083A5800CB08E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 7100174E1C083A5800CB08E5 /* PBXContainerItemProxy */;
+		};
 		71CB8C1D18E019060073E913 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 71CB8BFB18E019060073E913 /* HDYSoccer */;
@@ -1674,7 +1768,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1706,7 +1800,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1718,10 +1812,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HDYSoccer/HDYSoccer-Prefix.pch";
 				INFOPLIST_FILE = "HDYSoccer/HDYSoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bigyelow.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1734,10 +1830,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HDYSoccer/HDYSoccer-Prefix.pch";
 				INFOPLIST_FILE = "HDYSoccer/HDYSoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bigyelow.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
