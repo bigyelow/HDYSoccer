@@ -24,8 +24,7 @@
   
   if (self.presenting) {
     fromViewController.view.userInteractionEnabled = NO;
-    
-    [transitionContext.containerView addSubview:fromViewController.view];
+
     [transitionContext.containerView addSubview:toViewController.view];
     
     CGRect startFrame = endFrame;
@@ -42,10 +41,7 @@
   }
   else {
     toViewController.view.userInteractionEnabled = YES;
-    
-    [transitionContext.containerView addSubview:toViewController.view];
-    [transitionContext.containerView addSubview:fromViewController.view];
-    
+
     endFrame.origin.x += (WINDOW_FRAME.size.width - CPTRANSITION_ENDFRAME_X);
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
