@@ -131,26 +131,26 @@ DEPENDENCIES:
   - UICountingLabel (~> 1.1.0)
 
 SPEC CHECKSUMS:
-  ADTransitionController: 1ea1af7e5932064c0594b48fbd5fdba2ab2df742
-  AFNetworking: 47947303319594706f48a55185ea95a95159ab94
-  AMWaveTransition: 270b861311986502563b41edb9923b22a73d8e13
-  APNumberPad: 944238a3b5013d84df84d25d19b3e024e797daab
-  CHTCollectionViewWaterfallLayout: 849ae31d979db744b5170e48bcf3e7e726f5d682
-  DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
-  FXBlurView: 1d01b96076d65027314d1be024c7506c292392aa
-  GPUImage: 5114a47f5fc33eb312f3731550a3cea379416d04
-  JSONModel: 62ea96b49ea18a8b91ef89c249dba291d8601d82
-  libextobjc: d6146fce3ebea986b7f75fcb4c967639200b88b0
-  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
-  MRProgress: e588fb8d0fba293715eaf0e485dd8402f4ce1de6
-  MWPhotoBrowser: be05b3b7521e961382a4ba5579685bf5a00b93d8
-  PSAlertView: d63447bd08316d39f8b9f341e902d44b2ef2d73b
-  PSTCollectionView: d9f466e4554cc83260ca9bde7beb27f308e8fd76
-  PureLayout: 12eca5b6dc94f1a03fdf255d640604584ff1b55b
-  REFrostedViewController: 93c85bf09c95c8166fc5314aa6811fb33611afb7
-  RMDateSelectionViewController: f633c22b50c35ab1e7dc3178e790842569fbf92a
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
-  UICountingLabel: c1fc281e45d2be32e268608c7e6e693d1dfe8e36
+  ADTransitionController: 72299d31488bcbe59fb87c483a89a637ebc819f8
+  AFNetworking: fd6df10652c90fe082b188b5af0660f123423f80
+  AMWaveTransition: dd37a086d8f131dfdc4a4cd572d5aea2a448d1e3
+  APNumberPad: 705e9e1a38df66e71b12d6628a6229a9a2ddb5c5
+  CHTCollectionViewWaterfallLayout: fc56e3e489c81aedd2dd5d2dbc782e9abe864e26
+  DACircularProgress: 0f92b77239d5f3c612fc66185e2998391ac8e054
+  FXBlurView: 5121730176fd52bcf7bffd0bd8c1485e8aabc3cb
+  GPUImage: 77ed3c73c7cca4bfb4870b7a89e2bef73ad48882
+  JSONModel: 5a431961fd11a46840b17cc2bf5ba0b31d210fb3
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  MBProgressHUD: 8688c331cb64702283be37ab8d7d329cdd25f251
+  MRProgress: c82426f06ff685f8b684e604b7ac395bbc9fc06e
+  MWPhotoBrowser: 2531e682860d62b8a7ba8659de02eb9040e431e5
+  PSAlertView: c1996b4ceeb30c3614a31792acec6d294537083f
+  PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
+  PureLayout: d4f5310f7937eb8f36023dc0bb3ba9ca78f7b092
+  REFrostedViewController: c7613f3fb109797e980522f6b0e9f7f82edcdaf4
+  RMDateSelectionViewController: f6e0a93286ee07db149087041c3cca92e5ddf5e3
+  SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+  UICountingLabel: b384581309e232bbc5437d86d99a3a4a7136f7ec
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.39.0

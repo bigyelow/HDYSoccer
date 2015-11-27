@@ -355,8 +355,8 @@
 		7194EB4419AC43A800D25C10 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		7194EB4619AC440300D25C10 /* ReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyCell.h; sourceTree = "<group>"; };
 		7194EB4719AC440300D25C10 /* ReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyCell.m; sourceTree = "<group>"; };
-		7194EB4919AC847B00D25C10 /* UITextView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Helper.h"; sourceTree = SOURCE_ROOT; };
-		7194EB4A19AC847B00D25C10 /* UITextView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Helper.m"; sourceTree = SOURCE_ROOT; };
+		7194EB4919AC847B00D25C10 /* UITextView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+Helper.h"; path = "HDYSoccer/UITextView+Helper.h"; sourceTree = SOURCE_ROOT; };
+		7194EB4A19AC847B00D25C10 /* UITextView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextView+Helper.m"; path = "HDYSoccer/UITextView+Helper.m"; sourceTree = SOURCE_ROOT; };
 		7194EB4C19AC976300D25C10 /* user_male-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male-50.png"; sourceTree = "<group>"; };
 		7194EB4E19AC98AA00D25C10 /* user_male-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male-25.png"; sourceTree = "<group>"; };
 		7194EB5219AD7A6B00D25C10 /* speech_bubble-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speech_bubble-50.png"; sourceTree = "<group>"; };
@@ -1301,6 +1301,7 @@
 				71CB8BF918E019060073E913 /* Frameworks */,
 				71CB8BFA18E019060073E913 /* Resources */,
 				89E6A37A7F764B7BAED8EB30 /* Copy Pods Resources */,
+				49D6875ADC4BFAAE26862DA6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1431,6 +1432,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		49D6875ADC4BFAAE26862DA6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		89E6A37A7F764B7BAED8EB30 /* Copy Pods Resources */ = {
