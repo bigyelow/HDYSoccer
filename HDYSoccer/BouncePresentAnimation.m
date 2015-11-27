@@ -15,33 +15,51 @@
   return 0.8f;
 }
 
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-  // 1. Get controllers from transition context
+  // Get the respective view controllers
+  UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
   UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
-  // 2. Set init frame for toVC
-  CGRect screenBounds = [[UIScreen mainScreen] bounds];
-  CGRect finalFrame = [transitionContext finalFrameForViewController:toVC];
-  toVC.view.frame = CGRectOffset(finalFrame, 0, screenBounds.size.height);
-
-  // 3. Add toVC's view to containerView
+  // Get the views
   UIView *containerView = [transitionContext containerView];
-  [containerView addSubview:toVC.view];
+  UIView *fromView = fromVC.view;
+  UIView *toView = toVC.view;
 
-  // 4. Do animate now
-  NSTimeInterval duration = [self transitionDuration:transitionContext];
-  [UIView animateWithDuration:duration
-                        delay:0.0
-       usingSpringWithDamping:0.6
-        initialSpringVelocity:0.0
-                      options:UIViewAnimationOptionCurveLinear
-                   animations:^{
-                     toVC.view.frame = finalFrame;
-                   } completion:^(BOOL finished) {
-                     // 5. Tell context that we completed.
-                     [transitionContext completeTransition:YES];
-                   }];
+  // Add the toView to the container
+  [containerView addSubview:toView];
+
+  // Set the frames
+  CGRect initialFrame = [transitionContext initialFrameForViewController:fromVC];
+  fromView.frame = initialFrame;
+  toView.frame = initialFrame;
+
+  // Start building the transform - 3D so need perspective
+  CATransform3D transform = CATransform3DIdentity;
+  transform.m34 = -1/CGRectGetHeight(initialFrame);
+  containerView.layer.sublayerTransform = transform;
+
+  CGFloat direction = self.dismissal ? -1.0 : 1.0;
+
+  toView.layer.transform = CATransform3DMakeRotation(-direction * M_PI_2, 0, 1, 0);
+  [UIView animateKeyframesWithDuration:[self transitionDuration:transitionContext]
+                                 delay:0.0
+                               options:0
+                            animations:^{
+                              // First half is rotating in
+                              [UIView addKeyframeWithRelativeStartTime:0.0
+                                                      relativeDuration:0.5
+                                                            animations:^{
+                                                              fromView.layer.transform = CATransform3DMakeRotation(direction * M_PI_2, 0, 1, 0);
+                                                            }];
+                              [UIView addKeyframeWithRelativeStartTime:0.5
+                                                      relativeDuration:0.5
+                                                            animations:^{
+                                                              toView.layer.transform = CATransform3DMakeRotation(0, 0, 1, 0);
+                                                            }];
+                            } completion:^(BOOL finished) {
+                              [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                            }];
 }
 
 @end
